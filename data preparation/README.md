@@ -1,3 +1,5 @@
+Statistics about the data (if deduplicated before/after)
+
 
 | before deduplication          | geowac0      | geowac1      | geowac2      | geowac3     | geowac4     | geowac5     | geowac6      | geowac7      | geowac8     | Total         |
 | ----------------------------- | ------------ | ------------ | ------------ | ----------- | ----------- | ----------- | ------------ | ------------ | ----------- | ------------- |
