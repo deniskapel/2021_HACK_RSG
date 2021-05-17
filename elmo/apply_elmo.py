@@ -1,8 +1,12 @@
 import sys
+import random as python_random
+import numpy as np
 from collections import Counter
-from utils import RSG_MorphAnalyzer, build_model
+from utils import RSG_MorphAnalyzer, keras_model, infer_embeddings
 from simple_elmo import ElmoModel
 import tensorflow as tf
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.utils import to_categorical
 from dataset_utils.features import build_features
 
 
@@ -17,38 +21,57 @@ def main(args):
 
     morph = RSG_MorphAnalyzer()
 
+    # load data
     train, _ = build_features('%strain.jsonl' % (PATH_TO_DATASET))
     val, _ = build_features('%sval.jsonl' % (PATH_TO_DATASET))
     test, ids = build_features('%stest.jsonl' % (PATH_TO_DATASET))
 
+    # preprocess data
     X_train = morph.lemmatize_sentences(train[0])
     y_train = train[1]
+    classes = sorted(list(set(y_train)))
+    num_classes = len(classes)
+    y_train = [classes.index(i) for i in y_train]
+    y_train = to_categorical(y_train, num_classes)
     X_valid = morph.lemmatize_sentences(val[0])
     y_valid = val[1]
-
-    N_LABELS = len(set(y_train))
+    y_valid = [classes.index(i) for i in y_valid]
+    y_valid = to_categorical(y_valid, num_classes)
 
     # get embeddings
     elmo = ElmoModel()
-    elmo.load(PATH_TO_ELMO)
-    X_train_embeddings = elmo.get_elmo_vectors(X_train[0:10])
-    dims = X_train_embeddings.shape
-    MAX_LEN = dims[1]
-    VOCAB_SIZE = dims[2]
-    X_valid_embeddings = elmo.get_elmo_vectors(X_valid[0:10])
+    elmo.load(PATH_TO_ELMO, max_batch_size=64)
+    X_train_embeddings = infer_embeddings(X_train[0:10], elmo)
+    X_val_embeddings = infer_embeddings(X_valid[0:10], elmo)
 
-    # model
-    model = build_model(MAX_LEN, VOCAB_SIZE, N_LABELS, PATH_TO_ELMO)
-    print(model.summary())
+    print(X_train_embeddings[0:1].shape)
+    # initialize a keras model that takes elmo embeddings as its input
+    model = keras_model(input_shape=elmo.vector_size,
+                        hidden_size=128, num_classes=num_classes)
 
-    model.fit(X_train_embeddings, y_train,
-              validation_data=[X_valid_embeddings, y_valid],
-              batch_size=20000,
-              epochs=10)
+    earlystopping = EarlyStopping(
+        monitor="val_accuracy", min_delta=0.0001, patience=2, verbose=1, mode="max"
+    )
 
-    # preds = model_predict(X_valid).reshape(-1)
-    # print(preds)
+    # Train the compiled model on the training data
+    model.fit(
+        X_train_embeddings[0:10],
+        y_train[0:10],
+        epochs=5,
+        validation_data=(X_val_embeddings[0:10], y_valid[0:10]),
+        batch_size=32,
+        callbacks=[earlystopping],
+    )
+
+    preds = model.predict(X_val_embeddings[10:20])
+
+    print(preds)
 
 
 if __name__ == '__main__':
+    # For reproducibility:
+    np.random.seed(42)
+    python_random.seed(42)
+    tf.random.set_seed(42)
+
     main(sys.argv[1:])

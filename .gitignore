@@ -4,6 +4,7 @@
 /rubert_tuning/jiant-russian-v2/combined/
 /rubert_tuning/jiant-russian-v2/model_dir/
 /rubert_tuning/jiant-russian-v2/model/
-/elmo/__pycache__
-/elmo/models
+__pycache__
+*.py[cod]
+elmo/models
 elmo/combined

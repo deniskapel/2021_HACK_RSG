@@ -1,4 +1,5 @@
-import pandas as pd
+import time
+import numpy as np
 from string import punctuation
 from pymorphy2 import MorphAnalyzer
 from razdel import tokenize as razdel_tokenize
@@ -7,37 +8,34 @@ from tensorflow.keras import backend as K
 from simple_elmo import ElmoModel
 
 
-def build_model(MAX_LEN: int,
-                VOCAB_SIZE: int,
-                n_labels: int,
-                path_to_elmo: str):
+def keras_model(input_shape=512, hidden_size=128, num_classes=2):
     """
         create a model to solve RSG tasks.
         params:
-            embeddings:     embeddings
+            input_shape:     embeddings
                             received from simple_elmo model.get_elmo_vectors()
             MAX_LEN:    max sentence lenght in tokens
             n_label:    number of possible labels
             path_to_elmo: a path to a ready elmo model
     """
-    if n_labels == 2:
+    if num_classes == 2:
         f_activation: str = 'sigmoid'
         loss: str = 'binary_crossentropy'
     else:
         f_activation: str = 'softmax'
         loss: str = 'categorical_crossentropy'
 
-    # layers - does not work
-    embeddings = tf.keras.layers.Embedding(
-        input_dim=VOCAB_SIZE, output_dim=64, input_length=MAX_LEN)
-    lstm = tf.keras.layers.LSTM(128, return_sequences=False)(embeddings)
-    dense = tf.keras.layers.Dense(64, activation='relu')(lstm)
-    outputs = tf.keras.layers.Dense(n_labels, activation=f_activation)(dense)
+    # layers
+    embeddings = tf.keras.layers.Input(shape=(input_shape,))
+    dense = tf.keras.layers.Dense(hidden_size, activation="relu")(embeddings)
+    output = tf.keras.layers.Dense(num_classes, activation=f_activation)(dense)
 
-    # model
-    model = tf.keras.Model(inputs=embeddings, outputs=outputs)
+    # the model
+    model = tf.keras.Model(inputs=[embeddings], outputs=[output])
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
+
+    print(model.summary())
 
     return model
 
@@ -119,3 +117,42 @@ def f1(y_true, y_pred):
     precision = precision(y_true, y_pred)
     recall = recall(y_true, y_pred)
     return 2*((precision*recall)/(precision+recall+K.epsilon()))
+
+
+def infer_embeddings(texts, elmo, layers="average"):
+    """ 
+        uses simple elmo and a ready embedding
+        to infer embeddings from a given set of sentences
+        params:
+            texts: list of list of tokens (lemmas)
+            elmo: ElmoModel
+            layers: average (default) 
+                        - return the average of all ELMo layers for each word;
+                    top: return only the top (last) layer for each word;
+                    all: return all ELMo layers for each word 
+                        - (an additional dimension appears in the produced tensor,
+                        with the shape equal to the number of layers in the model,
+                        3 as a rule)
+        output: tensor
+    """
+
+    start = time.time()
+    elmo_vectors = elmo.get_elmo_vectors(texts, layers=layers)
+
+    nr_words = len([item for sublist in texts for item in sublist])
+
+    feature_matrix = np.zeros((nr_words, elmo.vector_size))
+    row_nr = 0
+    for vect, sent in zip(elmo_vectors, texts):
+        cropped_matrix = vect[: len(sent), :]
+        for row in cropped_matrix:
+            feature_matrix[row_nr] = row
+            row_nr += 1
+
+    end = time.time()
+    processing_time = int(end - start)
+
+    print(
+        f"ELMo embeddings for your input are ready in {processing_time} seconds")
+
+    return feature_matrix
