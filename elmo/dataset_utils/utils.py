@@ -48,16 +48,16 @@ class RSG_MorphAnalyzer():
 
     def lemmatize_sentences(self, sentences):
         """
-            receives a list of tokens by sentence
+            receives a list of sentences
             returns list of lemmas by sentence
         """
         res = []
         for sentence in sentences:
-            res.append(self.lemmantize(sentence))
+            res.append(self.lemmatize(sentence))
 
-        return(res)
+        return res
 
-    def lemmantize(self, txt) -> list:
+    def lemmatize(self, txt) -> list:
         """
             returns only lemmas
         """
@@ -74,7 +74,7 @@ class RSG_MorphAnalyzer():
                 res.append(r)
                 self.cashe[w] = r
 
-        return(res)
+        return res
 
     def tokenize(self, txt) -> list:
         """
@@ -119,7 +119,7 @@ def f1(y_true, y_pred):
     return 2*((precision*recall)/(precision+recall+K.epsilon()))
 
 
-def infer_embeddings(texts, elmo, layers="average"):
+def infer_embeddings(texts, elmo, warmup=True, layers="average"):
     """ 
         uses simple elmo and a ready embedding
         to infer embeddings from a given set of sentences
@@ -135,9 +135,8 @@ def infer_embeddings(texts, elmo, layers="average"):
                         3 as a rule)
         output: tensor
     """
-
     start = time.time()
-    elmo_vectors = elmo.get_elmo_vectors(texts, layers=layers)
+    elmo_vectors = elmo.get_elmo_vectors(texts, warmup=warmup, layers=layers)
 
     nr_words = len([item for sublist in texts for item in sublist])
 

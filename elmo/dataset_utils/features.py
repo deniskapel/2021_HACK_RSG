@@ -1,10 +1,11 @@
 """
-based on 
+based on
     https://github.com/RussianNLP/RussianSuperGLUE/blob/master/tfidf_baseline
 """
 import codecs
 import json
 import sys
+# from muserc import *
 
 
 def build_features(path):
@@ -17,8 +18,8 @@ def build_features(path):
     elif 'PARus' in path:
         res = list(map(build_feature_PARus, lines))
     elif 'MuSeRC' in path:
-        sys.stderr.write('dataset is not ready yet\n')
-        sys.exit(1)
+        tmp = (build_feature_MuSeRC(line) for line in lines)
+        res = [entry for gen in tmp for entry in gen]
     elif 'RUSSE' in path:
         res = list(map(build_feature_RUSSE, lines))
     elif 'TERRa' in path:
@@ -110,4 +111,30 @@ def build_feature_RuCoS(row):
 
 
 def build_feature_MuSeRC(row):
-    pass
+    text = row["passage"]["text"]
+
+    res = []
+    res_ids = {"idx": row["idx"], "passage": {"questions": []}}
+
+    for line in row["passage"]["questions"]:
+        res_line = {"idx": line["idx"], "answers": []}
+        line_answers = []
+        line_labels = []
+        for answ in line["answers"]:
+            line_labels.append(answ.get("label", 0))
+            answ = f"{line['question']} {answ['text']}"
+            line_answers.append(answ)
+
+        for qa, l in zip(line_answers, line_labels):
+            yield f"{text} {qa}", l
+
+
+def build_feature_MuSeRC(row):
+    text = row["passage"]["text"]
+
+    for line in row["passage"]["questions"]:
+        for answ in line["answers"]:
+            label = answ.get("label", 0)
+            answ = f"{text} {line['question']} {answ['text']}"
+
+            yield answ, label
