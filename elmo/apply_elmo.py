@@ -2,7 +2,7 @@ import sys
 import random as python_random
 import numpy as np
 from collections import Counter
-from dataset_utils.utils import RSG_MorphAnalyzer, keras_model, infer_embeddings
+from dataset_utils.utils import RSG_MorphAnalyzer, keras_model
 from simple_elmo import ElmoModel
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping
@@ -24,7 +24,7 @@ def main(args):
     # load data
     train, _ = build_features('%strain.jsonl' % (PATH_TO_DATASET))
     val, _ = build_features('%sval.jsonl' % (PATH_TO_DATASET))
-    test, ids = build_features('%stest.jsonl' % (PATH_TO_DATASET))
+    # test, ids = build_features('%stest.jsonl' % (PATH_TO_DATASET))
 
     # preprocess data
     X_train = morph.lemmatize_sentences(train[0])
@@ -41,11 +41,11 @@ def main(args):
     # get embeddings
     elmo = ElmoModel()
     elmo.load(PATH_TO_ELMO, max_batch_size=64)
-    X_train_embeddings = infer_embeddings(X_train[0:10], elmo)
-    X_val_embeddings = infer_embeddings(X_valid[0:10], elmo)
+    X_train_embeddings = elmo.get_elmo_vector_average(X_train[0:10])
+    X_val_embeddings = elmo.get_elmo_vector_average(X_valid[0:10])
 
     # initialize a keras model that takes elmo embeddings as its input
-    model = keras_model(input_shape=elmo.vector_size,
+    model = keras_model(input_shape=1024,
                         hidden_size=128, num_classes=num_classes)
 
     earlystopping = EarlyStopping(

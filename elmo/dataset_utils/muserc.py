@@ -1,5 +1,4 @@
 import functools
-from dataset_utils.utils import infer_embeddings
 import numpy as np
 import codecs
 import json
@@ -115,21 +114,12 @@ def get_row_pred_MuSeRC(row, elmo_model, keras_model, morph_model, lemmas=True):
             batch.append(answ)
 
         # extract for one questions and all answers to it
-        embeddings = infer_embeddings([batch[0]], elmo_model, warmup=True)
-        print(elmo_model.vector_size)
-        print(type(embeddings))
-        print(embeddings.shape)
+        embeddings = elmo_model.get_elmo_vector_average(batch)
         preds = keras_model.predict(embeddings)
-        print(preds)
-        print(len(preds))
-        print(preds.shape)
-        break
         # map predictions to the binary {0, 1} range and
         preds = np.around(preds)
-        print(preds)
         # extract the most suitable one
         preds = [int(np.argmax(pred)) for pred in preds]
-        print(preds)
         res.append(preds)
         labels.append(line_labels)
 
@@ -150,7 +140,7 @@ def get_MuSeRC_predictions(path, elmo_model, keras_model, morph_model, lemmas=Fa
     labels = []
     res = []
 
-    for row in lines[0:1]:
+    for row in lines[0:3]:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
             row, elmo_model, keras_model, morph_model, lemmas=True)
         preds.extend(pred)

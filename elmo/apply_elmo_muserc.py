@@ -2,7 +2,7 @@ import sys
 import random as python_random
 import numpy as np
 from collections import Counter
-from dataset_utils.utils import RSG_MorphAnalyzer, keras_model, infer_embeddings
+from dataset_utils.utils import RSG_MorphAnalyzer, keras_model
 from simple_elmo import ElmoModel
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping
@@ -34,21 +34,19 @@ def main(args):
     num_classes = len(classes)
     y_train = [classes.index(i) for i in y_train]
     y_train = to_categorical(y_train, num_classes)
-    # X_valid = morph.lemmatize_sentences(val[0])
-    # y_valid = val[1]
-    # y_valid = [classes.index(i) for i in y_valid]
-    # y_valid = to_categorical(y_valid, num_classes)
+    X_valid = morph.lemmatize_sentences(val[0])
+    y_valid = val[1]
+    y_valid = [classes.index(i) for i in y_valid]
+    y_valid = to_categorical(y_valid, num_classes)
 
     # get embeddings
     elmo = ElmoModel()
     elmo.load(PATH_TO_ELMO, max_batch_size=64)
-    X_train_embeddings = infer_embeddings(X_train[0:10], elmo)
-
-    print(X_train_embeddings.shape)
-    # # X_val_embeddings = infer_embeddings(X_valid[0:10], elmo)
+    X_train_embeddings = elmo.get_elmo_vector_average(X_train[0:10])
+    X_val_embeddings = elmo.get_elmo_vector_average(X_valid[0:10])
 
     # initialize a keras model that takes elmo embeddings as its input
-    model = keras_model(input_shape=elmo.vector_size,
+    model = keras_model(input_shape=1024,
                         hidden_size=128, num_classes=num_classes)
 
     earlystopping = EarlyStopping(
@@ -60,7 +58,7 @@ def main(args):
         X_train_embeddings,
         y_train[0:10],
         epochs=5,
-        # validation_data=(X_val_embeddings[0:10], y_valid[0:10]),
+        validation_data=(X_val_embeddings, y_valid[0:10]),
         batch_size=32,
         callbacks=[earlystopping],
     )
