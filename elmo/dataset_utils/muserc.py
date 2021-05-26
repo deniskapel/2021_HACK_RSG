@@ -114,7 +114,7 @@ def get_row_pred_MuSeRC(row, elmo_model, keras_model, morph_model, lemmas=True):
             batch.append(answ)
 
         # extract for one questions and all answers to it
-        embeddings = elmo_model.get_elmo_vector_average(batch)
+        embeddings = elmo_model.get_elmo_vectors(batch)
         preds = keras_model.predict(embeddings)
         # map predictions to the binary {0, 1} range and
         preds = np.around(preds)

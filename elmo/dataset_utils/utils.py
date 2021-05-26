@@ -8,7 +8,7 @@ from tensorflow.keras import backend as K
 from simple_elmo import ElmoModel
 
 
-def keras_model(input_shape=512, hidden_size=128, num_classes=2):
+def keras_model(n_features=512, hidden_size=128, num_classes=2):
     """
         create a model to solve RSG tasks.
         params:
@@ -25,14 +25,15 @@ def keras_model(input_shape=512, hidden_size=128, num_classes=2):
         f_activation: str = 'softmax'
         loss: str = 'categorical_crossentropy'
 
+    model = tf.keras.Sequential()
     # layers
-    embeddings = tf.keras.layers.Input(shape=(input_shape,))
-    # lstm = tf.keras.layers.LSTM(128, return_sequences=False)(embeddings)
-    dense = tf.keras.layers.Dense(hidden_size, activation="relu")(embeddings)
-    output = tf.keras.layers.Dense(num_classes, activation=f_activation)(dense)
+    model.add(tf.keras.layers.LSTM(hidden_size,
+                                   input_shape=(None, n_features),
+                                   return_sequences=True))
+    model.add(tf.keras.layers.GlobalMaxPool1D())
+    # model.add(tf.keras.layers.Dense(hidden_size, activation="relu"))
+    model.add(tf.keras.layers.Dense(num_classes, activation=f_activation))
 
-    # the model
-    model = tf.keras.Model(inputs=[embeddings], outputs=[output])
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
 
@@ -47,14 +48,17 @@ class RSG_MorphAnalyzer():
         self.morpho = MorphAnalyzer()
         self.cashe = {}
 
-    def lemmatize_sentences(self, sentences):
+    def normalize_sentences(self, sentences, lemmas=True):
         """
             receives a list of sentences
             returns list of lemmas by sentence
         """
         res = []
         for sentence in sentences:
-            res.append(self.lemmatize(sentence))
+            if lemmas:
+                res.append(self.lemmatize(sentence))
+            else:
+                res.append(self.tokenize(sentence))
 
         return res
 
