@@ -5,7 +5,6 @@ based on
 import codecs
 import json
 import sys
-# from muserc import *
 
 
 def build_features(path):
@@ -29,8 +28,8 @@ def build_features(path):
     elif 'RCB' in path:
         res = list(map(build_feature_RCB, lines))
     elif 'RuCoS' in path:
-        sys.stderr.write('dataset is not ready yet\n')
-        sys.exit(1)
+        tmp = (build_feature_RuCoS(line) for line in lines[0:1])
+        res = [entry for gen in tmp for entry in gen]
     elif 'DaNetQA' in path:
         res = list(map(build_feature_DaNetQA, lines))
     else:
@@ -107,26 +106,19 @@ def build_feature_RCB(row):
 
 
 def build_feature_RuCoS(row):
-    pass
+    text = row["passage"]["text"].replace("\n@highlight\n", " ")
 
+    # extract entities from text as strings
+    words = [
+        row["passage"]["text"][x["start"]: x["end"]]
+        for x in row["passage"]["entities"]]
 
-def build_feature_MuSeRC(row):
-    text = row["passage"]["text"]
-
-    res = []
-    res_ids = {"idx": row["idx"], "passage": {"questions": []}}
-
-    for line in row["passage"]["questions"]:
-        res_line = {"idx": line["idx"], "answers": []}
-        line_answers = []
-        line_labels = []
-        for answ in line["answers"]:
-            line_labels.append(answ.get("label", 0))
-            answ = f"{line['question']} {answ['text']}"
-            line_answers.append(answ)
-
-        for qa, l in zip(line_answers, line_labels):
-            yield f"{text} {qa}", l
+    for line in row["qas"]:
+        correct = [answer['text'] for answer in line['answers']]
+        for word in words:
+            label = word in correct
+            output = text + line["query"].replace("@placeholder", word)
+            yield output, label
 
 
 def build_feature_MuSeRC(row):

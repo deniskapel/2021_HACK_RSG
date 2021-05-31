@@ -1,3 +1,4 @@
+import json
 import time
 import numpy as np
 from string import punctuation
@@ -8,15 +9,15 @@ from tensorflow.keras import backend as K
 from simple_elmo import ElmoModel
 
 
-def keras_model(n_features=512, hidden_size=128, num_classes=2):
+def keras_model(n_features=1024, MAXLEN=100, hidden_size=128, num_classes=2):
     """
         create a model to solve RSG tasks.
         params:
-            input_shape:     embeddings
+            n_features:     length of a single word embedding
                             received from simple_elmo model.get_elmo_vectors()
-            MAX_LEN:    max sentence lenght in tokens
+            MAX_LEN:    max sentence length in tokens, receieved from embeddings.shape[1]
+            hidden_size: int
             n_label:    number of possible labels
-            path_to_elmo: a path to a ready elmo model
     """
     if num_classes == 2:
         f_activation: str = 'sigmoid'
@@ -25,14 +26,17 @@ def keras_model(n_features=512, hidden_size=128, num_classes=2):
         f_activation: str = 'softmax'
         loss: str = 'categorical_crossentropy'
 
-    model = tf.keras.Sequential()
-    # layers
-    model.add(tf.keras.layers.LSTM(hidden_size,
-                                   input_shape=(None, n_features),
-                                   return_sequences=True))
-    model.add(tf.keras.layers.GlobalMaxPool1D())
-    # model.add(tf.keras.layers.Dense(hidden_size, activation="relu"))
-    model.add(tf.keras.layers.Dense(num_classes, activation=f_activation))
+    embeddings = tf.keras.layers.Input(shape=(MAXLEN, n_features))
+
+    lstm = tf.keras.layers.Bidirectional(
+        tf.keras.layers.LSTM(hidden_size, return_sequences=True, recurrent_dropout=0.1))(embeddings)
+
+    pooling = tf.keras.layers.GlobalMaxPool1D()(lstm)
+    dense = tf.keras.layers.Dense(hidden_size, activation='relu')(pooling)
+    outputs = tf.keras.layers.Dense(
+        num_classes, activation=f_activation)(dense)
+
+    model = tf.keras.Model(inputs=embeddings, outputs=outputs)
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
@@ -48,14 +52,14 @@ class RSG_MorphAnalyzer():
         self.morpho = MorphAnalyzer()
         self.cashe = {}
 
-    def normalize_sentences(self, sentences, lemmas=True):
+    def normalize_sentences(self, sentences, use_lemmas=True):
         """
             receives a list of sentences
             returns list of lemmas by sentence
         """
         res = []
         for sentence in sentences:
-            if lemmas:
+            if use_lemmas:
                 res.append(self.lemmatize(sentence))
             else:
                 res.append(self.tokenize(sentence))
@@ -95,3 +99,11 @@ class RSG_MorphAnalyzer():
             tokens.append(token)
 
         return(tokens)
+
+
+def save_output(data, path):
+    """ a function to properly save the output before its submission """
+    with open(path, mode="w") as file:
+        for line in sorted(data, key=lambda x: int(x.get("idx"))):
+            line["idx"] = int(line["idx"])
+            file.write(f"{json.dumps(line, ensure_ascii=False)}\n")

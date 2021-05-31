@@ -2,6 +2,7 @@ import functools
 import numpy as np
 import codecs
 import json
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 class MuSeRCMetrics:
@@ -92,11 +93,21 @@ def MuSeRC_metrics(pred, labels):
     return em0, f1a
 
 
-def get_row_pred_MuSeRC(row, elmo_model, keras_model, morph_model, lemmas=True):
+Measures = MuSeRCMetrics
+
+
+def get_row_pred_MuSeRC(row: dict, maxlen: int,
+                        elmo_model, keras_model, morph_model,
+                        use_lemmas=True):
+    """
+        returns properly shaped predictions and true lables per row.
+        The third output is a dict to upload predictions to the leaderboard.
+
+        if use_lemmas=True, apply lemmatisation, otherwise tokenisation only
+    """
     text = row["passage"]["text"]
     res = []
     labels = []
-    classes = [0, 1]
     res_ids = {"idx": row["idx"], "passage": {"questions": []}}
     for line in row["passage"]["questions"]:
         res_line = {"idx": line["idx"], "answers": []}
@@ -107,19 +118,17 @@ def get_row_pred_MuSeRC(row, elmo_model, keras_model, morph_model, lemmas=True):
             line_labels.append(answ.get("label", 0))
             # transform a line to preprocess extract embeddings
             answ = f"{text} {line['question']} {answ['text']}"
-            if lemmas:
-                answ = morph_model.lemmatize(answ)
-            else:
-                answ = morph_model.tokenize(answ)
             batch.append(answ)
 
+        batch = morph_model.normalize_sentences(batch, use_lemmas)
         # extract for one questions and all answers to it
         embeddings = elmo_model.get_elmo_vectors(batch)
+        # shape val based on train dimensions
+        embeddings = pad_sequences(embeddings, maxlen=maxlen)
         preds = keras_model.predict(embeddings)
         # map predictions to the binary {0, 1} range and
-        preds = np.around(preds)
-        # extract the most suitable one
-        preds = [int(np.argmax(pred)) for pred in preds]
+        # extract the id of the largest one
+        preds = [int(np.argmax(pred)) for pred in np.around(preds)]
         res.append(preds)
         labels.append(line_labels)
 
@@ -130,7 +139,9 @@ def get_row_pred_MuSeRC(row, elmo_model, keras_model, morph_model, lemmas=True):
     return res, labels, res_ids
 
 
-def get_MuSeRC_predictions(path, elmo_model, keras_model, morph_model, lemmas=False):
+def get_MuSeRC_predictions(path, max_len: int,
+                           elmo_model, keras_model,
+                           morph_model, use_lemmas=True):
     """ a function to get predictions in a MuSeRC order """
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")
@@ -140,9 +151,9 @@ def get_MuSeRC_predictions(path, elmo_model, keras_model, morph_model, lemmas=Fa
     labels = []
     res = []
 
-    for row in lines[0:3]:
+    for row in lines:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
-            row, elmo_model, keras_model, morph_model, lemmas=True)
+            row, max_len, elmo_model, keras_model, morph_model, use_lemmas)
         preds.extend(pred)
         labels.extend(lbls)
         res.append(res_ids)
