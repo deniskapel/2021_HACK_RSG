@@ -2,7 +2,7 @@ data:
 	wget https://russiansuperglue.com/tasks/download
 	unzip download
 	rm download
-	rm __MACOSX
+	rm -r __MACOSX
 
 models:
 	# non-lemmatized

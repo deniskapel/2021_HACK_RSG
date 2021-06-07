@@ -1,47 +1,48 @@
 import json
-import time
-import numpy as np
-from string import punctuation
 from pymorphy2 import MorphAnalyzer
 from razdel import tokenize as razdel_tokenize
 import tensorflow as tf
 from tensorflow.keras import backend as K
-from simple_elmo import ElmoModel
+from tensorflow.keras.layers import (
+    Input,
+    Bidirectional,
+    GlobalMaxPool1D,
+    Dense,
+    LSTM)
 
 
-def keras_model(n_features=1024, MAXLEN=100, hidden_size=128, num_classes=2):
+def keras_model(n_features=1024, MAXLEN=100, hidden_size=16,
+                num_classes=2, pooling=False, activation='softmax'):
     """
         create a model to solve RSG tasks.
         params:
             n_features:     length of a single word embedding
                             received from simple_elmo model.get_elmo_vectors()
-            MAX_LEN:    max sentence length in tokens, receieved from embeddings.shape[1]
-            hidden_size: int
-            n_label:    number of possible labels
+            MAX_LEN:        max sentence length in tokens, receieved from embeddings.shape[1]
+            hidden_size:    int
+            n_classes:      number of possible labels
+            pooling:        bool, apply pooling or not
     """
     if num_classes == 2:
-        f_activation: str = 'sigmoid'
         loss: str = 'binary_crossentropy'
     else:
-        f_activation: str = 'softmax'
         loss: str = 'categorical_crossentropy'
 
-    embeddings = tf.keras.layers.Input(shape=(MAXLEN, n_features))
+    embeddings = Input(shape=(MAXLEN, n_features), name="Elmo_embeddings")
 
-    lstm = tf.keras.layers.Bidirectional(
-        tf.keras.layers.LSTM(hidden_size, return_sequences=True, recurrent_dropout=0.1))(embeddings)
+    lstm = Bidirectional(
+        LSTM(hidden_size, return_sequences=pooling),
+        name='Bidirectional_LSTM')(embeddings)
 
-    pooling = tf.keras.layers.GlobalMaxPool1D()(lstm)
-    dense = tf.keras.layers.Dense(hidden_size, activation='relu')(pooling)
-    outputs = tf.keras.layers.Dense(
-        num_classes, activation=f_activation)(dense)
+    if pooling:
+        lstm = GlobalMaxPool1D(name="Pooling1D")(lstm)
+
+    outputs = Dense(num_classes, activation=activation, name="Output")(lstm)
 
     model = tf.keras.Model(inputs=embeddings, outputs=outputs)
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
-
-    print(model.summary())
 
     return model
 
@@ -52,7 +53,7 @@ class RSG_MorphAnalyzer():
         self.morpho = MorphAnalyzer()
         self.cashe = {}
 
-    def normalize_sentences(self, sentences, use_lemmas=True):
+    def normalize_sentences(self, sentences: list, use_lemmas: bool = True) -> list:
         """
             receives a list of sentences
             returns list of lemmas by sentence
@@ -66,9 +67,9 @@ class RSG_MorphAnalyzer():
 
         return res
 
-    def lemmatize(self, txt) -> list:
+    def lemmatize(self, txt: str) -> list:
         """
-            returns only lemmas
+            str -> tokens -> lemmas
         """
 
         words = self.tokenize(txt)
@@ -85,15 +86,14 @@ class RSG_MorphAnalyzer():
 
         return res
 
-    def tokenize(self, txt) -> list:
+    def tokenize(self, txt: str) -> list:
         """
-            tokenizes and removes punctuation from a string
+            tokenizes a string uzing razdel
         """
-        punkt = punctuation + '«»—…–“”'
         tokens = []
 
         for word in list(razdel_tokenize(txt)):
-            token = word.text.strip(punkt).lower()  # remove punctuation
+            token = word.text.lower()  # remove punctuation
             if token == "":  # skip empty elements if any
                 continue
             tokens.append(token)

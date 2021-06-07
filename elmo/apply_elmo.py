@@ -1,50 +1,73 @@
+import argparse
+import logging
+import time
 import sys
 import random as python_random
 import numpy as np
-from collections import Counter
 from simple_elmo import ElmoModel
 import tensorflow as tf
-from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.metrics import classification_report
+from sklearn.metrics import matthews_corrcoef
 from dataset_utils.utils import RSG_MorphAnalyzer, keras_model, save_output
-from dataset_utils.muserc import get_MuSeRC_predictions, MuSeRC_metrics
 from dataset_utils.features import build_features
 
 
-def main(args):
-    if len(args) != 3:
+def main(path_to_task: str, path_to_elmo: str,
+         use_lemmas: bool, elmo_layers: str,
+         pooling: bool, activation: str,
+         epochs: int, hidden_size: int, batch_size: int):
+
+    TASK_NAME = path_to_task[9:-1]
+
+    if TASK_NAME in ['MuSeRC', "RuCoS"]:
         sys.stderr.write(
-            'Usage: test_elmo.py <path_to_dataset_folder> <path_to_elmo_model> <use lemmas or tokens>\n')
+            'Use elmo_to_rucos_and_muserc.py for this task\n')
         sys.exit(1)
 
-    PATH_TO_DATASET = args[0]
-    PATH_TO_ELMO = args[1]
-    OUTPUT_DIR = 'submissions/'
-    # get a dataset name
-    PATH_TO_OUTPUT = '%s%s.jsonl' % (OUTPUT_DIR, PATH_TO_DATASET[9:-1])
-
-    if args[2] not in ['lemmas', 'tokens']:
-        sys.stderr.write(
-            'Last arguments has to be either lemmas or tokens, please specify.\n')
-        sys.exit(1)
-    elif args[2] == 'lemmas':
-        USE_LEMMAS = True
-    else:
-        USE_LEMMAS = False
+    PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
     morph = RSG_MorphAnalyzer()
 
     # load data
-    train, _ = build_features('%strain.jsonl' % (PATH_TO_DATASET))
-
-    val, _ = build_features('%sval.jsonl' % (PATH_TO_DATASET))
-    if PATH_TO_DATASET[9:-1] not in ['MuSeRC', "RuCoS"]:
-        test, ids = build_features('%stest.jsonl' % (PATH_TO_DATASET))
+    if TASK_NAME == 'LiDiRus':
+        train, _ = build_features('combined/TERRa/train.jsonl')
+        val, _ = build_features('combined/TERRa/val.jsonl')
+        test, ids = build_features('%sLiDiRus.jsonl' % (path_to_task))
+    else:
+        train, _ = build_features('%strain.jsonl' % (path_to_task))
+        val, _ = build_features('%sval.jsonl' % (path_to_task))
+        test, ids = build_features('%stest.jsonl' % (path_to_task))
 
     # preprocess data
-    X_train = morph.normalize_sentences(train[0], use_lemmas=USE_LEMMAS)
-    X_valid = morph.normalize_sentences(val[0], use_lemmas=USE_LEMMAS)
+    X_train = list(zip(*train[0]))
+    X_valid = list(zip(*val[0]))
+    X_train = [morph.normalize_sentences(
+        part, use_lemmas=use_lemmas) for part in X_train]
+    X_valid = [morph.normalize_sentences(
+        part, use_lemmas=use_lemmas) for part in X_valid]
+
+    # extract embeddings
+    logger.info(f"=======================")
+    logger.info(f"loading Elmo model")
+    elmo = ElmoModel()
+    elmo.load(path_to_elmo, max_batch_size=batch_size)
+    X_train_embeddings = [elmo.get_elmo_vectors(
+        part, layers=elmo_layers) for part in X_train]
+    max_lengths = [part.shape[1] for part in X_train_embeddings]
+    X_train_embeddings = np.hstack(tuple(X_train_embeddings))
+
+    X_val_embeddings = [elmo.get_elmo_vectors(
+        part, layers=elmo_layers) for part in X_valid]
+    X_val_embeddings = [pad_sequences(d, maxlen=l)
+                        for d, l in zip(X_val_embeddings, max_lengths)]
+    X_val_embeddings = np.hstack(tuple(X_val_embeddings))
+
+    del X_train, X_valid
+
+    # reshape labels
     classes = sorted(list(set(train[1])))
     y_train = [classes.index(i) for i in train[1]]
     num_classes = len(classes)
@@ -52,77 +75,144 @@ def main(args):
     y_valid = [classes.index(i) for i in val[1]]
     y_valid = to_categorical(y_valid, num_classes)
 
-    # get embeddings
-    elmo = ElmoModel()
-    elmo.load(PATH_TO_ELMO, max_batch_size=64)
-    X_train_embeddings = elmo.get_elmo_vectors(X_train[0:10])
     _, MAXLEN, n_features = X_train_embeddings.shape
-    X_val_embeddings = elmo.get_elmo_vectors(X_valid[0:10])
-    # shape val based on train dimensions
-    X_val_embeddings = tf.keras.preprocessing.sequence.pad_sequences(
-        X_val_embeddings, maxlen=MAXLEN)
+    logger.info(f"=======================")
+    logger.info(f'Tensor_shape {X_train_embeddings.shape}')
+    logger.info(f"=======================")
 
     # initialize a keras model that takes elmo embeddings as its input
     model = keras_model(n_features=n_features,
                         MAXLEN=MAXLEN,
-                        hidden_size=128,
-                        num_classes=num_classes)
+                        hidden_size=hidden_size,
+                        num_classes=num_classes,
+                        pooling=pooling,
+                        activation=activation)
 
-    earlystopping = EarlyStopping(
-        monitor="val_accuracy", min_delta=0.0001, patience=2, verbose=1, mode="max"
-    )
+    model.summary(print_fn=logger.info)
 
-    # Train the compiled model on the training data
+    logger.info(f"Start training")
+    logger.info("====================")
     model.fit(
         X_train_embeddings,
-        y_train[0:10],
-        epochs=5,
-        validation_data=(X_val_embeddings, y_valid[0:10]),
-        batch_size=64,
-        callbacks=[earlystopping])
+        y_train,
+        epochs=epochs,
+        validation_data=(X_val_embeddings, y_valid),
+        batch_size=batch_size)
 
-    if 'MuSeRC' in PATH_TO_DATASET:
-        preds, labels, _ = get_MuSeRC_predictions(
-            '%sval.jsonl' % (PATH_TO_DATASET), MAXLEN,
-            elmo, model,  # elmo, keras
-            morph, use_lemmas=USE_LEMMAS  # pymoprhy2
-        )
-        # check on validation
-        em, f1a = MuSeRC_metrics(preds, labels)
-        print("Evaluation of val: em is %s, f1a is %s" % (em, f1a))
+    del X_train_embeddings, train
 
-        _, _, res = get_MuSeRC_predictions(
-            '%stest.jsonl' % (PATH_TO_DATASET), MAXLEN,
-            elmo, model,  # elmo, keras
-            morph, use_lemmas=USE_LEMMAS  # pymoprhy2
-        )
-        save_output(res, PATH_TO_OUTPUT)
+    logger.info("====================")
+    logger.info("Start predicting.")
+    preds = model.predict(X_val_embeddings)
+    preds = [classes[int(np.argmax(pred))] for pred in preds]
+    # Log score on validation
+    if TASK_NAME == 'LiDiRus':
+        logger.info(f"MC score is {matthews_corrcoef(val[1], preds)}")
     else:
-        preds = model.predict(X_val_embeddings)
-        # map predictions to the binary {0, 1} range:
-        # Convert predictions from integers back to text labels:
-        preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
-        # Check on validation
-        print(classification_report(val[1][0:10], preds))
+        logger.info(classification_report(val[1], preds))
 
-        # Preprocess test sets
-        X_test = morph.normalize_sentences(test[0], use_lemmas=USE_LEMMAS)
-        X_test_embeddings = elmo.get_elmo_vectors(X_test[0:10])
-        # shape val based on train dimensions
-        X_test_embeddings = tf.keras.preprocessing.sequence.pad_sequences(
-            X_test_embeddings, maxlen=MAXLEN)
+    del X_val_embeddings, val
 
-        preds = model.predict(X_test_embeddings)
-        preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
-        preds = [
-            {"idx": i, "label": str(label).lower()} for i, label in zip(ids, preds)]
-        save_output(preds, PATH_TO_OUTPUT)
+    # Preprocess the test split
+    X_test = list(zip(*test[0]))
+    X_test = [morph.normalize_sentences(
+        part, use_lemmas=use_lemmas) for part in X_test]
+    X_test_embeddings = [elmo.get_elmo_vectors(
+        part, layers=elmo_layers) for part in X_test]
+    X_test_embeddings = [pad_sequences(d, maxlen=l)
+                         for d, l in zip(X_test_embeddings, max_lengths)]
+    X_test_embeddings = np.hstack(tuple(X_test_embeddings))
+
+    preds = model.predict(X_test_embeddings)
+    preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
+    preds = [
+        {"idx": i, "label": str(label).lower()} for i, label in zip(ids, preds)]
+
+    logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
+    save_output(preds, PATH_TO_OUTPUT)
+    logger.info("====================")
+    logger.info("Finished successfully.")
 
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    arg = parser.add_argument
+    arg("--task", "-t", help="Path to a RSG dataset", required=True)
+    arg("--elmo", "-e", help="Path to a forlder with ELMo model", required=True)
+    arg("--lemmas", help="Lemmatize?", default=False, action='store_true')
+    arg(
+        "--elmo_layers",
+        help="What ELMo layers to use?",
+        default="average",
+        choices=["average", "all", "top"],
+    )
+    arg(
+        "--pooling",
+        help="Add a pooling layer on the full sequence or return the last output only",
+        default=False,
+        action='store_true'
+    )
+    arg(
+        "--activation",
+        "-a",
+        help="softmax or sigmoid for a final activation function?",
+        default="softmax",
+        choices=["softmax", "sigmoid"],
+    )
+    arg(
+        "--num_epochs",
+        "-n",
+        help="number of epochs to train a keras model",
+        type=int,
+        default=15,
+    )
+    arg(
+        "--hidden_size",
+        help="size of hidden layers",
+        type=int,
+        default=16,
+    )
+    arg(
+        "--batch_size",
+        help="batch size for elmo and keras",
+        type=int,
+        default=32,
+    )
+
+    args = parser.parse_args()
+    PATH_TO_DATASET = args.task
+    USE_LEMMAS = args.lemmas
+    PATH_TO_ELMO = args.elmo
+    ELMO_LAYERS = args.elmo_layers
+    POOLING = args.pooling
+    ACTIVATION = args.activation
+    EPOCHS = args.num_epochs
+    HIDDEN_SIZE = args.hidden_size
+    BATCH_SIZE = args.batch_size
+
+    log_format = f"%(asctime)s : %(levelname)s : %(message)s"
+    start_time = time.strftime('%d%m%Y_%H%M%S', time.localtime())
+    logging.basicConfig(format=log_format,
+                        filename="logs/%s_%s.log" % (
+                            PATH_TO_DATASET[9:-1], start_time),
+                        filemode="w", level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
     tf.random.set_seed(42)
 
-    main(sys.argv[1:])
+    logger.info(f"Following parameters were used")
+    logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")
+    logger.info(f"Lemmas: {USE_LEMMAS}, ELMO_LAYERS: {ELMO_LAYERS}")
+    logger.info(f"Pooling: {POOLING}, Activation function: {ACTIVATION}")
+    logger.info(
+        f"Hidden_size: {HIDDEN_SIZE}, Batch_size: {BATCH_SIZE}, Epochs: {EPOCHS}")
+    logger.info(f"=======================")
+
+    main(PATH_TO_DATASET, PATH_TO_ELMO,
+         USE_LEMMAS, ELMO_LAYERS,
+         POOLING, ACTIVATION,
+         EPOCHS, HIDDEN_SIZE, BATCH_SIZE)

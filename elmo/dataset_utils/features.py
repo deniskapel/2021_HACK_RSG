@@ -17,8 +17,7 @@ def build_features(path):
     elif 'PARus' in path:
         res = list(map(build_feature_PARus, lines))
     elif 'MuSeRC' in path:
-        tmp = (build_feature_MuSeRC(line) for line in lines)
-        res = [entry for gen in tmp for entry in gen]
+        res = list(map(build_feature_MuSeRC, lines))
     elif 'RUSSE' in path:
         res = list(map(build_feature_RUSSE, lines))
     elif 'TERRa' in path:
@@ -28,8 +27,7 @@ def build_features(path):
     elif 'RCB' in path:
         res = list(map(build_feature_RCB, lines))
     elif 'RuCoS' in path:
-        tmp = (build_feature_RuCoS(line) for line in lines[0:1])
-        res = [entry for gen in tmp for entry in gen]
+        res = list(map(build_feature_RuCoS, lines))
     elif 'DaNetQA' in path:
         res = list(map(build_feature_DaNetQA, lines))
     else:
@@ -45,20 +43,19 @@ def build_features(path):
 def build_feature_LiDiRus(row):
     if row.get("sentence1") is None:
         premise = str(row["premise"]).strip()
-        hypothesis = row["hypothesis"]
+        hypothesis = str(row["hypothesis"]).strip()
     else:
         premise = str(row["sentence1"]).strip()
-        hypothesis = row["sentence2"]
+        hypothesis = str(row["sentence2"]).strip()
     label = row.get("label")
-    res = f"{premise} {hypothesis}"
-    return res, label
+    return (premise, hypothesis), label
 
 
 def build_feature_DaNetQA(row):
-    res = str(row["question"]).strip()
-    res = str(row["passage"]).strip()
+    question = str(row["question"]).strip()
+    passage = str(row["passage"]).strip()
     label = row.get("label")
-    return res, label
+    return (question, passage), label
 
 
 def build_feature_RWSD(row):
@@ -66,8 +63,7 @@ def build_feature_RWSD(row):
     span1 = row["target"]["span1_text"]
     span2 = row["target"]["span2_text"]
     label = row.get("label")
-    res = f"{premise} {span1} {span2}"
-    return res, label
+    return (premise, span1, span2), label
 
 
 def build_feature_PARus(row):
@@ -75,9 +71,9 @@ def build_feature_PARus(row):
     choice1 = row["choice1"]
     choice2 = row["choice2"]
     label = row.get("label")
-    question = "Что было ПРИЧИНОЙ этого?" if row["question"] == "cause" else "Что случилось в РЕЗУЛЬТАТЕ?"
-    res = f"{premise} {question} {choice1} {choice2}"
-    return res, label
+    # if-else is taken from the tfidf baseline code.
+    question = "Что было причиной этого?" if row["question"] == "cause" else "Что произошло в результате?"
+    return (premise, question, choice1, choice2), label
 
 
 def build_feature_RUSSE(row):
@@ -85,48 +81,48 @@ def build_feature_RUSSE(row):
     sentence2 = row["sentence2"].strip()
     word = row["word"].strip()
     label = row.get("label")
-    res = f"{sentence1} {sentence2} {word}"
-    return res, label
+    return (sentence1, sentence2, word), label
 
 
 def build_feature_TERRa(row):
     premise = str(row["premise"]).strip()
     hypothesis = row["hypothesis"]
     label = row.get("label")
-    res = f"{premise} {hypothesis}"
-    return res, label
+    return (premise, hypothesis), label
 
 
 def build_feature_RCB(row):
     premise = str(row["premise"]).strip()
     hypothesis = row["hypothesis"]
     label = row.get("label")
-    res = f"{premise} {hypothesis}"
-    return res, label
+    return (premise, hypothesis), label
 
 
 def build_feature_RuCoS(row):
-    text = row["passage"]["text"].replace("\n@highlight\n", " ")
+    # TODO: Does not work for now
+    psg = row["passage"]["text"].replace("\n@highlight\n", " ")
 
     # extract entities from text as strings
-    words = [
-        row["passage"]["text"][x["start"]: x["end"]]
-        for x in row["passage"]["entities"]]
+    ent_idxs = row["passage"]["entities"]
+    ents = [row["passage"]["text"][idx["start"]: idx["end"] + 1]
+            for idx in ent_idxs]
 
-    for line in row["qas"]:
-        correct = [answer['text'] for answer in line['answers']]
-        for word in words:
-            label = word in correct
-            output = text + line["query"].replace("@placeholder", word)
-            yield output, label
+    qas = row["qas"]
+    queries = []
+    labels = []
+    return labels
 
 
 def build_feature_MuSeRC(row):
+    # TODO: Does not work for now
     text = row["passage"]["text"]
-
+    qa = {}
+    labels = []
     for line in row["passage"]["questions"]:
-        for answ in line["answers"]:
-            label = answ.get("label", 0)
-            answ = f"{text} {line['question']} {answ['text']}"
+        qa[line['question']] = []
 
-            yield answ, label
+        for answ in line["answers"]:
+            labels.append(answ.get("label", 0))
+            qa[line['question']].append(answ['text'])
+
+    return (text, qa), labels
