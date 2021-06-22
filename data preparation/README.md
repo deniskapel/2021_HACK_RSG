@@ -1,4 +1,15 @@
-## Statistics about the data (if deduplicated before/after)
+# Statistics about the data (if deduplicated before/after)
+
+## Total
+
+| all corpora                   | Total          |
+| ----------------------------- | -------------- |
+| sentences                     |  257,867,691   |
+| words                         |  4,913,947,465 |
+| without punctuation           |  3,933,205,995 |
+| without stops                 |  3,973,739,122 |
+| without stops and punctuation |  2,992,997,652 |
+
 
 ### Geowac
 
@@ -30,10 +41,11 @@ Total number of inner duplicated senteces in wikipedia ---  8,695,217 senteces
 
 
 ### RNC
-|                               | before deduplication | after deduplication (inner) | duplicates rnc (inner) | after deduplication (wiki) | duplicates rnc (wiki) |
-| ----------------------------- | -------------------- | --------------------------- | ---------------------- | -------------------------- | --------------------- |
-| sentences                     |  18,028,159          |  18,028,159                 |  36,056,318            |  72,112,636                |  126,197,113          |
-| words                         |  318,351,107         |  318,351,107                |                        |  636,702,214               |                       |
-| without punctuation           |  251,508,988         |  251,508,988                |                        |  503,017,976               |                       |
-| without stops                 |  231,872,956         |  231,872,956                |                        |  463,745,912               |                       |
-| without stops and punctuation |  165,030,837         |  165,030,837                |                        |  330,061,674               |                       |
+| RNC\_NEW                      | Total       |
+| ----------------------------- | ----------- |
+| sentences                     | 19,368,981  |
+| words                         | 319,568,877 |
+| without punctuation           | 251,332,211 |
+| without stops                 | 233,128,782 |
+| without stops and punctuation | 164,892,116 |
+
