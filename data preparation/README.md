@@ -4,11 +4,11 @@
 
 | all corpora                   | Total          |
 | ----------------------------- | -------------- |
-| sentences                     |  257,867,691   |
-| words                         |  4,913,947,465 |
-| without punctuation           |  3,933,205,995 |
-| without stops                 |  3,973,739,122 |
-| without stops and punctuation |  2,992,997,652 |
+| sentences                     |   197 527 566  |
+| words                         |  3 721 001 056 |
+| without punctuation           |  3 019 602 890 |
+| without stops                 |  2 934 726 288 |
+| without stops and punctuation |  2 233 328 122r |
 
 
 ### Geowac
