@@ -13,13 +13,13 @@
 
 ### Geowac
 
-|                               | before deduplication | after deduplication | Diff, % |
-| ----------------------------- | -------------------- | ------------------- | ------- |
-| sentences                     | 221,118,399          | 137,119,510         | 5.81    |
-| words                         | 3,920,837,678        | 2,530,197,604       | 1.22    |
-| without punctuation           | 3,272,934,051        | 2,112,278,130       | 1.13    |
-| without stops                 | 3,035,021,605        | 1,953,454,263       | 1.28    |
-| without stops and punctuation | 2,387,117,978        | 1,535,534,789       | 1.16    |
+|                               | before deduplication | after deduplication    | Diff, % |
+| ----------------------------- | -------------------- | ---------------------- | ------- |
+| sentences                     | 145,583,788          |  137,092,543           | 5.83    |
+| words                         | 2,561,538,882        | 2,533,118,809          | 1.11    |
+| without punctuation           | 2,136,370,079        | 2,112,264,138          | 1.13    |
+| without stops                 | 1,978,730,441        | 1,955,961,488          | 1.15    |
+| without stops and punctuation | 1,553,561,638        | 1,535,106,817          | 1.19    |
 
 | Sentence diff<br> | wiki duplicates<br> | rnc duplicates<br> |
 | ----------------- | ------------------- | ------------------ |
@@ -31,13 +31,13 @@ The table above illustrates the difference in sentences in geowac before and aft
 ### Russian wikipeia
 |                               | before deduplication | after deduplication |
 | ----------------------------- | -------------------- | ------------------- |
-| sentences                     | 47,464,885           |  101,379,200        |
-| words                         | 967,946,677          |  2,064,180,984      |
-| without punctuation           | 735,695,111          |  1,569,595,654      |
-| without stops                 | 838,274,197          |  1,787,156,077      |
-| without stops and punctuation | 606,022,631          |  1,292,570,747      |
+| sentences                     | 47,464,885           |  41,066,042         |
+| words                         | 967,946,677          |  868,313,370        |
+| without punctuation           | 735,695,111          |  656,006,541        |
+| without stops                 | 838,274,197          |  745,636,018        |
+| without stops and punctuation | 606,022,631          |  533,329,189        |
 
-Total number of inner duplicated senteces in wikipedia ---  8,695,217 senteces
+Total number of inner duplicated senteces in wikipedia ---  6,398,843.
 
 
 ### RNC
