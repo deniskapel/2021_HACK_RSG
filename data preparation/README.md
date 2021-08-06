@@ -37,7 +37,7 @@ The table above illustrates the difference in sentences in geowac before and aft
 | without stops                 | 838,274,197          |  745,636,018        |
 | without stops and punctuation | 606,022,631          |  533,329,189        |
 
-Total number of inner duplicated senteces in wikipedia ---  6,398,843.
+Total number of inner duplicated senteces in wikipedia -- 6,398,843.
 
 
 ### RNC
