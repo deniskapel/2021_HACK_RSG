@@ -1,8 +1,11 @@
 data:
+	mkdir data
+	mkdir logs
 	wget https://russiansuperglue.com/tasks/download
 	unzip download
 	rm download
 	rm -r __MACOSX
+	mv -v combined data
 
 models:
 	# non-lemmatized
