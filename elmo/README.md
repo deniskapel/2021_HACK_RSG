@@ -6,36 +6,36 @@ Scores on [validate](https://docs.google.com/spreadsheets/d/1BBArqZo6pk1lnP2-KlM
 1. To start, download data.
 
 ```bash
-    make data
+   make data
 ```
 
 The output is folder with all RSG datasets.
 
-1.1. (Optional). The [NLPL vector repository](http://vectors.nlpl.eu/repository/) containts several ready ELMo embeddings.
+
+2. The [NLPL vector repository](http://vectors.nlpl.eu/repository/) containts several ready ELMo embeddings that were used for testing. Additionally, it will download a UD model that is used for preprocessing down the pipeline,
 
 ```bash
    make models
 ```
 
-This command will download two models: `Russian Wikipedia dump of December 2018 + Russian National Corpus` (non-lemmatized) and `Taiga corpus` (lemmatized). They will be stored in the ./models folder and named 195.zip and 199.zip respectively. To use either of these models with simple **Simple_elmo**, add the path to it via PATH_TO_ELMO.
+`Simple_elmo` - the library that is used to apply ELMo to text files. Its documentation is available [here](https://github.com/ltgoslo/simple_elmo).
+
+
+3. Before vectorizing, it is necessary to preprocess the text fields in each sample. Otherwise, text fields will be split on spaces only in the following way: `["This", "is", "it."]`. To preprocess, run
 
 ```python
-   from simple_elmo import ElmoModel
-   model = ElmoModel()
-   model.load(PATH_TO_ELMO)
+   python3 preprocessing.py
 ```
 
-2. To generate submission for a dataset, use e.g.
+Preprocessing is either tokenization (default) or lemmatisation (add `--lemmas` to the command above). The result is saved into `/data` with all text fields ready to be split using spaces only, but properly. Preprocessing takes time.
+
+4. To generate submission for a dataset, use e.g.
 
 ```bash
    python3 apply_elmo.py -t combined/TERRa/ -e models/taiga/
 ```
 
 Additional arguments:
-
-> --lemmas
-
-if added, lemmatization will be applied. By default, basic tokenisation. Puntcuation is kept as an individual token. 
          
 > --pooling
 
