@@ -7,16 +7,21 @@ import random as python_random
 
 import numpy as np
 from simple_elmo import ElmoModel
-import tensorflow as tf
-from tensorflow.keras.utils import to_categorical
+# import tensorflow as tf
+# from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
-from sklearn.metrics import classification_report
-from sklearn.metrics import matthews_corrcoef
+# from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
+# from sklearn.metrics import classification_report
+# from sklearn.metrics import matthews_corrcoef
 
 from dataset_utils.utils import save_output
-from dataset_utils.keras_utils import keras_model
+# from dataset_utils.keras_utils import keras_model
 from dataset_utils.features import build_features
+from dataset_utils.muserc import (
+    tokenize_muserc,
+    get_muserc_shape,
+    reshape_muserc,
+    align_passage_question_answer)
 
 
 def main(
@@ -27,30 +32,33 @@ def main(
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
 
-    if TASK_NAME in ['MuSeRC', "RuCoS"]:
+    if TASK_NAME not in ['MuSeRC', "RuCoS"]:
         sys.stderr.write(
-            'Use apply_elmo_to_mc.py for this task\n')
+            'Use apply_elmo.py for this task\n')
         sys.exit(1)
 
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
-    """ DATA """
-    if TASK_NAME == 'LiDiRus':
-        train, _ = build_features('%sTERRa/train.jsonl' % (INPUT_FOLDER))
-        val, _ = build_features('%sTERRa/val.jsonl' % (INPUT_FOLDER))
-        test, ids = build_features('%sLiDiRus.jsonl' % (path_to_task))
-    else:
-        train, _ = build_features('%strain.jsonl' % (path_to_task))
-        val, _ = build_features('%sval.jsonl' % (path_to_task))
-        test, ids = build_features('%stest.jsonl' % (path_to_task))
+    train, _ = build_features('%strain.jsonl' % (path_to_task))
+    val, _ = build_features('%sval.jsonl' % (path_to_task))
+    test, ids = build_features('%stest.jsonl' % (path_to_task))
 
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0][0:2]))
-    X_valid = list(zip(*val[0][0:2]))
+    X_train = list(zip(*train[0][0:15]))
+    X_valid = list(zip(*val[0][0:3]))
+
+    # print(X_train[0], '\n')
+    # print(X_train[1], '\n')
 
     # tokenize each sample in a set
-    X_train = [[sample.split() for sample in part] for part in X_train]
-    X_valid = [[sample.split() for sample in part] for part in X_valid]
+    X_train = tokenize_muserc(X_train)
+    X_train_original_shape = get_muserc_shape(X_train[2])
+    X_train = reshape_muserc(X_train)
+    X_valid = tokenize_muserc(X_valid)
+    X_valid_original_shape = get_muserc_shape(X_valid[2])
+    X_valid = reshape_muserc(X_valid)
+
+    # reshape dataset to reuse functions
 
     """ EMBEDDINGS """
     logger.info(f"=======================")
@@ -65,24 +73,39 @@ def main(
     # get max_length for each sample part, 
     # e.g. 7 for premise and 5 for hypothesis 
     max_lengths = [part.shape[1] for part in X_train_embeddings]
+
+    X_train_embeddings = align_passage_question_answer(
+        X_train_embeddings,
+        X_train_original_shape)
     
-    X_train_embeddings = np.hstack(tuple(X_train_embeddings))
 
     # create validate embeddings
     X_val_embeddings = [elmo.get_elmo_vectors(
-        part, layers=elmo_layers,) for part in X_valid]
+        part, layers=elmo_layers) for part in X_valid]
 
     # Dtype for padding, otherwise rounded to int32
     DTYPE = X_train_embeddings.dtype
     # add padding before each sentence using train maxlength
-    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
+    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE)
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
-    X_val_embeddings = np.hstack(tuple(X_val_embeddings))
+
+    X_val_embeddings = align_passage_question_answer(
+        X_val_embeddings,
+        X_valid_original_shape)
+
+    print(max_lengths)
+    print(X_train_embeddings.shape)
+    print(X_val_embeddings.shape)
+
+    sys.exit(1)
 
     del X_train, X_valid
 
     # reshape labels
+    if isinstance(train[1][0], list):
+        # explode muserc and rucos subsets
+        train[1] = [sample for subset in train[1] for sample in subset]
     classes = sorted(list(set(train[1])))
     y_train = [classes.index(i) for i in train[1]]
     num_classes = len(classes)
@@ -137,10 +160,11 @@ def main(
 
     # Preprocess the test split
     X_test = list(zip(*test[0]))
-    X_test = [[sample.split() for sample in part] for part in X_test]
+    X_test = [morph.normalize_sentences(
+        part, use_lemmas=use_lemmas) for part in X_test]
     X_test_embeddings = [elmo.get_elmo_vectors(
         part, layers=elmo_layers) for part in X_test]
-    X_test_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
+    X_test_embeddings = [pad_sequences(d, maxlen=l)
                          for d, l in zip(X_test_embeddings, max_lengths)]
     X_test_embeddings = np.hstack(tuple(X_test_embeddings))
 

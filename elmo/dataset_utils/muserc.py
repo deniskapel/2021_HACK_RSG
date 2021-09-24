@@ -2,6 +2,8 @@ import functools
 import numpy as np
 import codecs
 import json
+from itertools import chain
+
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
@@ -159,3 +161,84 @@ def get_MuSeRC_predictions(path, max_len: int,
         res.append(res_ids)
 
     return preds, labels, res
+
+
+
+def tokenize_muserc(dataset: list) -> list:
+    """
+        shapes multiple choice datasets to avoid 
+        extracting embeddings from same elements several times
+    """
+    passages = [sample.split() for sample in dataset[0]]
+    questions = [[q.split() for q in qa.keys()] for qa in dataset[1]]
+    answers = [
+        [[ans.split() for ans in a] for a in qa.values()] for qa in dataset[1]]
+            
+    return passages, questions, answers
+
+
+def get_muserc_shape(answers: list) -> list:
+    """
+        extract shapes of the muserc dataset
+
+        [p1: [q1: [a1,a2,a3], q2: [a1,a2,a3,a4]],
+        p2: [q1: [a1,a2]]] -> [[3, 4], [2]]
+
+    """
+    # extract number of answers per each question of a questions passage
+    return [[len(answer) for answer in a] for a in answers]
+
+
+def reshape_muserc(dataset: tuple) -> list:
+    """
+        reshape complex muserc structure to the structure
+        used for other datasets, i.e. list of 2D lists
+    """
+
+    passages = dataset[0]
+    answers = list(chain(*dataset[1])) # flatten 2D list
+    questions = list(chain(*[qa for p in dataset[2] for qa in p]))
+    
+    return [passages, answers, questions]
+
+
+def align_passage_question_answer(
+    dataset: list,
+    original_shape: list
+    ) -> np.ndarray:
+    """
+        To avoid extracting embeddings multiple times,
+        passages, questions and answers were processed separately.
+
+        this function reshapes a dataset into the following form:
+        (
+            [p1,p2,p3], [[q1,q2], [q1, q2]],
+            [[[a1,a2], [a1]], [[a1,a2], [a1,a2,a3]]]]
+        )  ->     
+        [[p1, q1, a1], [p1, q1, a2], [p1, q2, a1], [p2, q1, a1],
+        [p2, q1, a2], [p2, q2, a1], [p2, q2, a2], [p2, q2, a3]]
+    """
+    data = []
+    answer_id = 0
+    for i, questions in enumerate(original_shape):
+        passage = dataset[0][i] # i is a passage_id
+        for j, num_answers in enumerate(questions):
+            question = dataset[1][j] # j is a question_id in a qa set
+            # shift idx
+            last_answer_id = answer_id + num_answers
+            # extract necessary answers
+            answers = dataset[2][answer_id:last_answer_id]
+            
+            for answer in answers:
+                # merge passage question and anwer
+                data.append(
+                    # add a complete sample to the dataset
+                    np.vstack(
+                        (passage, question, answer))
+                        )
+
+            # reassign starting position
+            answer_id = last_answer_id
+
+    # transform a list of numpy arrays to a 3D array
+    return np.array(data)

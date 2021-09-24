@@ -72,7 +72,7 @@ def build_feature_PARus(row):
     choice2 = row["choice2"]
     label = row.get("label")
     # if-else is taken from the tfidf baseline code.
-    question = "Что было причиной этого?" if row["question"] == "cause" else "Что произошло в результате?"
+    question = "Что было причиной этого ?" if row["question"] == "cause" else "Что произошло в результате ?"
     return (premise, question, choice1, choice2), label
 
 
@@ -118,6 +118,7 @@ def build_feature_MuSeRC(row):
     text = row["passage"]["text"]
     qa = {}
     labels = []
+    
     for line in row["passage"]["questions"]:
         qa[line['question']] = []
 
