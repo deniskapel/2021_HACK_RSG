@@ -2,25 +2,30 @@ import argparse
 import logging
 import time
 import sys
+import re
 import random as python_random
+
 import numpy as np
 from simple_elmo import ElmoModel
-import tensorflow as tf
-from tensorflow.keras.utils import to_categorical
+# import tensorflow as tf
+# from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
-from sklearn.metrics import classification_report
-from sklearn.metrics import matthews_corrcoef
-from dataset_utils.utils import RSG_MorphAnalyzer, keras_model, save_output
+# from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
+# from sklearn.metrics import classification_report
+# from sklearn.metrics import matthews_corrcoef
+
+# from dataset_utils.utils import save_output
+# from dataset_utils.keras_utils import keras_model
 from dataset_utils.features import build_features
 
 
-def main(path_to_task: str, path_to_elmo: str,
-         use_lemmas: bool, elmo_layers: str,
-         pooling: bool, activation: str,
-         epochs: int, hidden_size: int, batch_size: int):
+def main(
+    path_to_task: str, task_name_first_char: int, path_to_elmo: str,
+    elmo_layers: str, pooling: bool, activation: str, epochs: int, 
+    hidden_size: int, batch_size: int):
 
-    TASK_NAME = path_to_task[9:-1]
+    TASK_NAME = path_to_task[task_name_first_char:-1]
+    INPUT_FOLDER = path_to_task[:task_name_first_char]
 
     if TASK_NAME in ['MuSeRC', "RuCoS"]:
         sys.stderr.write(
@@ -29,40 +34,50 @@ def main(path_to_task: str, path_to_elmo: str,
 
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
-    morph = RSG_MorphAnalyzer()
-
-    # load data
+    """ DATA """
     if TASK_NAME == 'LiDiRus':
-        train, _ = build_features('combined/TERRa/train.jsonl')
-        val, _ = build_features('combined/TERRa/val.jsonl')
+        train, _ = build_features('%sTERRa/train.jsonl' % (INPUT_FOLDER))
+        val, _ = build_features('%sTERRa/val.jsonl' % (INPUT_FOLDER))
         test, ids = build_features('%sLiDiRus.jsonl' % (path_to_task))
     else:
         train, _ = build_features('%strain.jsonl' % (path_to_task))
         val, _ = build_features('%sval.jsonl' % (path_to_task))
         test, ids = build_features('%stest.jsonl' % (path_to_task))
 
-    # preprocess data
+    # extract samples from sample+label bundles
     X_train = list(zip(*train[0]))
     X_valid = list(zip(*val[0]))
-    X_train = [morph.normalize_sentences(
-        part, use_lemmas=use_lemmas) for part in X_train]
-    X_valid = [morph.normalize_sentences(
-        part, use_lemmas=use_lemmas) for part in X_valid]
 
-    # extract embeddings
+    # tokenize each sample in a set
+    X_train = [[sample.split() for sample in part] for part in X_train]
+    X_valid = [[sample.split() for sample in part] for part in X_valid]
+
+    """ EMBEDDINGS """
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
     elmo = ElmoModel()
     elmo.load(path_to_elmo, max_batch_size=batch_size)
+
+    # create train embeddings    
     X_train_embeddings = [elmo.get_elmo_vectors(
         part, layers=elmo_layers) for part in X_train]
+
+    # get max_length for each sample part, 
+    # e.g. 7 for premise and 5 for hypothesis 
     max_lengths = [part.shape[1] for part in X_train_embeddings]
+    
     X_train_embeddings = np.hstack(tuple(X_train_embeddings))
 
+    # create validate embeddings
     X_val_embeddings = [elmo.get_elmo_vectors(
         part, layers=elmo_layers) for part in X_valid]
-    X_val_embeddings = [pad_sequences(d, maxlen=l)
+
+    # Dtype for padding, otherwise rounded to int32
+    DTYPE = X_train_embeddings.dtype
+    # add padding before each sentence using train maxlength
+    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE)
                         for d, l in zip(X_val_embeddings, max_lengths)]
+
     X_val_embeddings = np.hstack(tuple(X_val_embeddings))
 
     del X_train, X_valid
@@ -80,6 +95,8 @@ def main(path_to_task: str, path_to_elmo: str,
     logger.info(f'Tensor_shape {X_train_embeddings.shape}')
     logger.info(f"=======================")
 
+
+    """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
     model = keras_model(n_features=n_features,
                         MAXLEN=MAXLEN,
@@ -101,6 +118,8 @@ def main(path_to_task: str, path_to_elmo: str,
 
     del X_train_embeddings, train
 
+
+    """ PREDICTING """
     logger.info("====================")
     logger.info("Start predicting.")
     preds = model.predict(X_val_embeddings)
@@ -112,6 +131,9 @@ def main(path_to_task: str, path_to_elmo: str,
         logger.info(classification_report(val[1], preds))
 
     del X_val_embeddings, val
+
+
+    """ APPLY TO TEST """
 
     # Preprocess the test split
     X_test = list(zip(*test[0]))
@@ -140,7 +162,6 @@ if __name__ == '__main__':
     arg = parser.add_argument
     arg("--task", "-t", help="Path to a RSG dataset", required=True)
     arg("--elmo", "-e", help="Path to a forlder with ELMo model", required=True)
-    arg("--lemmas", help="Lemmatize?", default=False, action='store_true')
     arg(
         "--elmo_layers",
         help="What ELMo layers to use?",
@@ -182,7 +203,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     PATH_TO_DATASET = args.task
-    USE_LEMMAS = args.lemmas
     PATH_TO_ELMO = args.elmo
     ELMO_LAYERS = args.elmo_layers
     POOLING = args.pooling
@@ -191,28 +211,31 @@ if __name__ == '__main__':
     HIDDEN_SIZE = args.hidden_size
     BATCH_SIZE = args.batch_size
 
+    TASK_NAME_FIRST_CHAR = re.search('[A-Z]+.*', PATH_TO_DATASET).span()[0]
+
     log_format = f"%(asctime)s : %(levelname)s : %(message)s"
     start_time = time.strftime('%d%m%Y_%H%M%S', time.localtime())
     logging.basicConfig(format=log_format,
                         filename="logs/%s_%s.log" % (
-                            PATH_TO_DATASET[9:-1], start_time),
+                            PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], start_time),
                         filemode="w", level=logging.INFO)
     logger = logging.getLogger(__name__)
 
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
-    tf.random.set_seed(42)
+    # tf.random.set_seed(42)
 
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")
-    logger.info(f"Lemmas: {USE_LEMMAS}, ELMO_LAYERS: {ELMO_LAYERS}")
+    logger.info(f"ELMO_LAYERS: {ELMO_LAYERS}")
     logger.info(f"Pooling: {POOLING}, Activation function: {ACTIVATION}")
     logger.info(
         f"Hidden_size: {HIDDEN_SIZE}, Batch_size: {BATCH_SIZE}, Epochs: {EPOCHS}")
     logger.info(f"=======================")
 
-    main(PATH_TO_DATASET, PATH_TO_ELMO,
-         USE_LEMMAS, ELMO_LAYERS,
-         POOLING, ACTIVATION,
-         EPOCHS, HIDDEN_SIZE, BATCH_SIZE)
+    main(
+        PATH_TO_DATASET, TASK_NAME_FIRST_CHAR,
+        PATH_TO_ELMO, ELMO_LAYERS,
+        POOLING, ACTIVATION, EPOCHS, 
+        HIDDEN_SIZE, BATCH_SIZE)
