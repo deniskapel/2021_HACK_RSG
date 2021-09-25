@@ -1,3 +1,6 @@
+import re
+from pathlib import Path
+
 import tensorflow as tf
 from tensorflow.keras import backend as K
 from tensorflow.keras.layers import (
@@ -7,6 +10,8 @@ from tensorflow.keras.layers import (
     Dense,
     LSTM)
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+
+from dataset_utils.global_vars import TIMESTAMP
 
 
 def keras_model(n_features=1024, MAXLEN=100, hidden_size=16,
@@ -52,10 +57,13 @@ early_stopping = EarlyStopping(
 )
 
 
-def wrap_checkpoint(task_name: str):
+def wrap_checkpoint(model_name: str):
+    path = f'checkpoints/{model_name}'
+    Path(path).mkdir() 
+
+
     return ModelCheckpoint(
-        f"MC score is {matthews_corrcoef(val[1], preds)}"
-        filepath = f"checkpoints/{task_name}.weights",
+        filepath = path + '/checkpoint',
         monitor='val_accuracy', verbose=1,
         save_weights_only=True,
         save_best_only=True,

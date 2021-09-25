@@ -7,4 +7,7 @@
 __pycache__
 *.py[cod]
 elmo/models
-elmo/combined
+elmo/data
+elmo/checkpoints
+elmo/logs
+elmo/submissions
