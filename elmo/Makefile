@@ -2,6 +2,7 @@ data:
 	mkdir data
 	mkdir logs
 	mkdir submissions
+	mkdir checkpoints
 	wget https://russiansuperglue.com/tasks/download
 	unzip download
 	rm download

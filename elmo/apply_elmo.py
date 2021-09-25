@@ -14,9 +14,12 @@ from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn.metrics import classification_report
 from sklearn.metrics import matthews_corrcoef
 
-from dataset_utils.utils import save_output
-from dataset_utils.keras_utils import keras_model
 from dataset_utils.features import build_features
+from dataset_utils.utils import save_output
+from dataset_utils.keras_utils import (
+    keras_model,
+    early_stopping,
+    wrap_checkpoint)
 
 
 def main(
@@ -74,7 +77,8 @@ def main(
 
     # Dtype for padding, otherwise rounded to int32
     DTYPE = X_train_embeddings.dtype
-    # add padding before each sentence using train maxlength
+    # add padding after each sentence using train maxlength
+    # 'post' because simple elmo uses post-padding
     X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
@@ -114,7 +118,13 @@ def main(
         y_train,
         epochs=epochs,
         validation_data=(X_val_embeddings, y_valid),
-        batch_size=batch_size)
+        batch_size=batch_size,
+        callbacks=[
+            wrap_checkpoint(
+                f"TASK_NAME_{batch_size}_{epochs}_{activation}_{hidden_size}_{pooling}"
+                ),
+            early_stopping
+            ])
 
     del X_train_embeddings, train
 

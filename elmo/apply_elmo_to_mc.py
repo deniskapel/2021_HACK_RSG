@@ -14,9 +14,14 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # from sklearn.metrics import classification_report
 # from sklearn.metrics import matthews_corrcoef
 
-from dataset_utils.utils import save_output
-# from dataset_utils.keras_utils import keras_model
 from dataset_utils.features import build_features
+from dataset_utils.utils import save_output
+from dataset_utils.features import build_features
+from dataset_utils.utils import save_output
+from dataset_utils.keras_utils import (
+    keras_model,
+    early_stopping,
+    wrap_checkpoint)
 from dataset_utils.muserc import (
     tokenize_muserc,
     get_muserc_shape,
@@ -137,7 +142,14 @@ def main(
         y_train,
         epochs=epochs,
         validation_data=(X_val_embeddings, y_valid),
-        batch_size=batch_size)
+        batch_size=batch_size,
+        callbacks=[
+            wrap_checkpoint(
+                f"TASK_NAME_{batch_size}_{epochs}_{activation}_{hidden_size}_{pooling}"
+                ),
+            early_stopping
+            ])
+
 
     del X_train_embeddings, train
 

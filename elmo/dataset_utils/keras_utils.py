@@ -6,6 +6,7 @@ from tensorflow.keras.layers import (
     GlobalMaxPool1D,
     Dense,
     LSTM)
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 
 def keras_model(n_features=1024, MAXLEN=100, hidden_size=16,
@@ -42,3 +43,21 @@ def keras_model(n_features=1024, MAXLEN=100, hidden_size=16,
     model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
 
     return model
+
+
+# CALLBACKS
+early_stopping = EarlyStopping(
+    monitor='val_accuracy', min_delta=0.001,
+    patience=3, verbose=1, mode='max'
+)
+
+
+def wrap_checkpoint(task_name: str):
+    return ModelCheckpoint(
+        f"MC score is {matthews_corrcoef(val[1], preds)}"
+        filepath = f"checkpoints/{task_name}.weights",
+        monitor='val_accuracy', verbose=1,
+        save_weights_only=True,
+        save_best_only=True,
+        mode='max', save_freq='epoch'
+    )
