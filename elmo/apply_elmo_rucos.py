@@ -82,7 +82,7 @@ def main(
     # add padding before each sentence using train maxlength
     [print(part.shape) for part in X_val_embeddings]
 
-    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE)
+    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
     [print(part.shape) for part in X_val_embeddings]

@@ -84,7 +84,7 @@ def main(
     X_val_embeddings = [elmo.get_elmo_vectors(part) for part in X_valid]
 
     # add padding before each sentence using train maxlength
-    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE)
+    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
 
