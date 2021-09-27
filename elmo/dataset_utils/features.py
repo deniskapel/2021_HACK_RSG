@@ -5,6 +5,7 @@ based on
 import codecs
 import json
 import sys
+import re
 
 
 def build_features(path):
@@ -27,7 +28,18 @@ def build_features(path):
     elif 'RCB' in path:
         res = list(map(build_feature_RCB, lines))
     elif 'RuCoS' in path:
-        res = list(map(build_feature_RuCoS, lines))
+        # get location of the raw file
+        filename = path[re.search('(train)|(val).jsonl', path).span()[0]:]
+        path_to_raw_file = f'data/combined/RuCoS/{filename}'
+        with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
+            """
+                Entities are encoded with indices. 
+                After preprocessing, indices shift.
+                To extract entities, original files are needed.
+            """
+            raw_lines = reader.read().split("\n")
+            raw_lines = list(map(json.loads, filter(None, raw_lines)))
+        res = list(map(build_feature_RuCoS, lines, raw_lines))
     elif 'DaNetQA' in path:
         res = list(map(build_feature_DaNetQA, lines))
     else:
@@ -98,19 +110,31 @@ def build_feature_RCB(row):
     return (premise, hypothesis), label
 
 
-def build_feature_RuCoS(row):
-    # TODO: Does not work for now
-    psg = row["passage"]["text"].replace("\n@highlight\n", " ")
-
-    # extract entities from text as strings
-    ent_idxs = row["passage"]["entities"]
-    ents = [row["passage"]["text"][idx["start"]: idx["end"] + 1]
-            for idx in ent_idxs]
-
-    qas = row["qas"]
-    queries = []
+def build_feature_RuCoS(row, raw_row):
+    """
+        Raw files to extract entities properly as
+        preprocessing shifts indices
+    """
+    # check dataset_utils/rucos.py file for RuCoS function
+    text = row["passage"]["text"].replace("@highlight", " ")
     labels = []
-    return labels
+    queries = []
+
+    for entry in row["passage"]["entities"]:
+        # create list of labels for all entries
+        
+        # extract entities from a text as strings
+        entity = raw_row["passage"]["text"][entry["start"]: entry["end"]]
+        
+        entry['text'] = entity
+        label = 1 if entry in row['qas'][0]['answers'] else 0
+        labels.append(label)
+
+        queries.append(
+            row["qas"][0]['query'].replace("@placeholder", entity)
+            )
+
+    return (text, queries), labels
 
 
 def build_feature_MuSeRC(row):

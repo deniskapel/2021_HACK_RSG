@@ -223,7 +223,8 @@ def align_passage_question_answer(
         To avoid extracting embeddings multiple times,
         passages, questions and answers were processed separately.
 
-        this function reshapes a dataset into the following form:
+        this function reshapes embeddings like this 
+        based on their original shape:
         (
             [p1,p2,p3], [[q1,q2], [q1, q2]],
             [[[a1,a2], [a1]], [[a1,a2], [a1,a2,a3]]]]

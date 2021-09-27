@@ -6,27 +6,23 @@ import random as python_random
 
 import numpy as np
 from simple_elmo import ElmoModel
-import tensorflow as tf
-from tensorflow.keras.utils import to_categorical
+# import tensorflow as tf
+# from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from sklearn.metrics import classification_report
+# from sklearn.metrics import classification_report
 
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output
-from dataset_utils.features import build_features
-from dataset_utils.utils import save_output
-from dataset_utils.keras_utils import (
-    keras_model,
-    early_stopping,
-    wrap_checkpoint)
-from dataset_utils.muserc import (
-    tokenize_muserc,
-    get_muserc_shape,
-    reshape_muserc,
-    align_passage_question_answer,
-    get_MuSeRC_predictions,
-    MuSeRC_metrics)
+# from dataset_utils.keras_utils import (
+#     keras_model,
+#     early_stopping,
+#     wrap_checkpoint)
 from dataset_utils.global_vars import TIMESTAMP
+from dataset_utils.rucos import (
+    tokenize_rucos,
+    reshape_rucos,
+    get_rucos_shape,
+    align_passage_queries)
 
 
 
@@ -38,9 +34,9 @@ def main(
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
 
-    if TASK_NAME != 'MuSeRC':
+    if TASK_NAME != 'RuCoS':
         sys.stderr.write(
-            'Use apply_elmo.py or apply_elmo_rucos for this task\n')
+            'Check README to see which file to run for this task\n')
         sys.exit(1)
 
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
@@ -49,18 +45,16 @@ def main(
     val, _ = build_features('%sval.jsonl' % (path_to_task))
 
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0]))
-    X_valid = list(zip(*val[0]))
+    X_train = list(zip(*train[0][0:2]))
+    X_valid = list(zip(*val[0][0:2]))
 
     # tokenize each sample in a set
-    X_train = tokenize_muserc(X_train)
-    X_train_original_shape = get_muserc_shape(X_train[2])
-    X_train = reshape_muserc(X_train)
-    X_valid = tokenize_muserc(X_valid)
-    X_valid_original_shape = get_muserc_shape(X_valid[2])
-    X_valid = reshape_muserc(X_valid)
-
-    # reshape dataset to reuse functions
+    X_train = tokenize_rucos(X_train)
+    X_train_original_shape = get_rucos_shape(X_train[1])
+    X_train = reshape_rucos(X_train)
+    X_valid = tokenize_rucos(X_valid)
+    X_valid_original_shape = get_rucos_shape(X_valid[1])
+    X_valid = reshape_rucos(X_valid)
 
     """ EMBEDDINGS """
     logger.info(f"=======================")
@@ -70,29 +64,35 @@ def main(
 
     # create train embeddings    
     X_train_embeddings = [elmo.get_elmo_vectors(part) for part in X_train]
+    max_lengths = [part.shape[1] for part in X_train_embeddings]
 
     # get max_length for each sample part, 
     # e.g. 7 for premise and 5 for hypothesis 
     max_lengths = [part.shape[1] for part in X_train_embeddings]
+
+    # reshape the dataset for traing
+    X_train_embeddings = align_passage_queries(
+        X_train_embeddings, X_train_original_shape)
+
     # Dtype for padding, otherwise rounded to int32
-
-    X_train_embeddings = align_passage_question_answer(
-        X_train_embeddings,
-        X_train_original_shape)
-
     DTYPE = X_train_embeddings.dtype
 
     # create validate embeddings
     X_val_embeddings = [elmo.get_elmo_vectors(part) for part in X_valid]
-
     # add padding before each sentence using train maxlength
+    [print(part.shape) for part in X_val_embeddings]
+
     X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE)
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
+    [print(part.shape) for part in X_val_embeddings]
 
-    X_val_embeddings = align_passage_question_answer(
+    X_val_embeddings = align_passage_queries(
         X_val_embeddings,
         X_valid_original_shape)
+
+    print(X_val_embeddings.shape)
+    sys.exit(1)
 
     del X_train, X_valid
 
@@ -218,7 +218,7 @@ if __name__ == '__main__':
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
-    tf.random.set_seed(42)
+    # tf.random.set_seed(42)
 
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")

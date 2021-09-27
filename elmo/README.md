@@ -32,18 +32,16 @@ Preprocessing is either tokenization (default) or lemmatisation (add `--lemmas` 
 4. To generate submission for a dataset, use e.g.
 
 ```bash
-   python3 apply_elmo.py -t combined/TERRa/ -e models/taiga/
+   python3 apply_elmo.py -t data/tokenized/TERRa/ -e models/taiga/
 ```
+
+For MuSeRC and RuCoS tasks, use `apply_elmo_muserc.py` and `apply_elmo_rucos.py` respectively.
 
 Additional arguments:
          
 > --pooling
 
 if added, pooling will be added after LSTM and before logreg. By default, only the last layer is used for logreg.
-
-> --elmo_layers average
-
-Choose between average, all or top. See Simple Elmo [documentation](https://github.com/ltgoslo/simple_elmo).
     
 > --activation sigmoid
 
@@ -61,6 +59,5 @@ Default is 16. Keras hidden_size.
 
 Default is 32. Elmo and Keras batch_size.
 
-For now, only **LiDiRus, TERRa, RCB, and RUSSE** are fully ready, DaNetQA and RUSSE require more resources to compute and RWSD needs some revision.
+## RESULTS
 
-3. Logs are stored in the [here](/logs). Each run will generate a TASKNAME_TIME.log file
