@@ -55,7 +55,7 @@ Default is 15. Keras epochs
 
 Default is 16. Keras hidden_size.
 
-> --args.batch_size 32
+> --batch_size 32
 
 Default is 32. Elmo and Keras batch_size.
 
