@@ -16,6 +16,7 @@ from sklearn.metrics import matthews_corrcoef
 
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output
+from dataset_utils.global_vars import TIMESTAMP
 from dataset_utils.keras_utils import (
     keras_model,
     early_stopping,
@@ -23,9 +24,9 @@ from dataset_utils.keras_utils import (
 
 
 def main(
-    path_to_task: str, task_name_first_char: int, path_to_elmo: str,
-    elmo_layers: str, pooling: bool, activation: str, epochs: int, 
-    hidden_size: int, batch_size: int):
+    path_to_task: str, task_name_first_char: int, 
+    path_to_elmo: str, pooling: bool, activation: str,
+    epochs: int, hidden_size: int, batch_size: int):
 
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
@@ -48,8 +49,8 @@ def main(
         test, ids = build_features('%stest.jsonl' % (path_to_task))
 
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0][0:2]))
-    X_valid = list(zip(*val[0][0:2]))
+    X_train = list(zip(*train[0]))
+    X_valid = list(zip(*val[0]))
 
     # tokenize each sample in a set
     X_train = [[sample.split() for sample in part] for part in X_train]
@@ -62,8 +63,7 @@ def main(
     elmo.load(path_to_elmo, max_batch_size=batch_size)
 
     # create train embeddings    
-    X_train_embeddings = [elmo.get_elmo_vectors(
-        part, layers=elmo_layers) for part in X_train]
+    X_train_embeddings = [elmo.get_elmo_vectors(part) for part in X_train]
 
     # get max_length for each sample part, 
     # e.g. 7 for premise and 5 for hypothesis 
@@ -72,8 +72,7 @@ def main(
     X_train_embeddings = np.hstack(tuple(X_train_embeddings))
 
     # create validate embeddings
-    X_val_embeddings = [elmo.get_elmo_vectors(
-        part, layers=elmo_layers,) for part in X_valid]
+    X_val_embeddings = [elmo.get_elmo_vectors(part) for part in X_valid]
 
     # Dtype for padding, otherwise rounded to int32
     DTYPE = X_train_embeddings.dtype
@@ -119,12 +118,7 @@ def main(
         epochs=epochs,
         validation_data=(X_val_embeddings, y_valid),
         batch_size=batch_size,
-        callbacks=[
-            wrap_checkpoint(
-                f"TASK_NAME_{batch_size}_{epochs}_{activation}_{hidden_size}_{pooling}"
-                ),
-            early_stopping
-            ])
+        callbacks=[wrap_checkpoint(f'{TASK_NAME}_{TIMESTAMP}'), early_stopping])
 
     del X_train_embeddings, train
 
@@ -148,8 +142,7 @@ def main(
     # Preprocess the test split
     X_test = list(zip(*test[0]))
     X_test = [[sample.split() for sample in part] for part in X_test]
-    X_test_embeddings = [elmo.get_elmo_vectors(
-        part, layers=elmo_layers) for part in X_test]
+    X_test_embeddings = [elmo.get_elmo_vectors(part) for part in X_test]
     X_test_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
                          for d, l in zip(X_test_embeddings, max_lengths)]
     X_test_embeddings = np.hstack(tuple(X_test_embeddings))
@@ -157,7 +150,8 @@ def main(
     preds = model.predict(X_test_embeddings)
     preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
     preds = [
-        {"idx": i, "label": str(label).lower()} for i, label in zip(ids, preds)]
+        {"idx": i, "label": str(label).lower()} for i, label in zip(ids, preds)
+        ]
 
     logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
     save_output(preds, PATH_TO_OUTPUT)
@@ -171,12 +165,6 @@ if __name__ == '__main__':
     arg = parser.add_argument
     arg("--task", "-t", help="Path to a RSG dataset", required=True)
     arg("--elmo", "-e", help="Path to a forlder with ELMo model", required=True)
-    arg(
-        "--elmo_layers",
-        help="What ELMo layers to use?",
-        default="average",
-        choices=["average", "all", "top"],
-    )
     arg(
         "--pooling",
         help="Add a pooling layer on the full sequence or return the last output only",
@@ -213,7 +201,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     PATH_TO_DATASET = args.task
     PATH_TO_ELMO = args.elmo
-    ELMO_LAYERS = args.elmo_layers
     POOLING = args.pooling
     ACTIVATION = args.activation
     EPOCHS = args.num_epochs
@@ -233,11 +220,10 @@ if __name__ == '__main__':
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
-    # tf.random.set_seed(42)
+    tf.random.set_seed(42)
 
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")
-    logger.info(f"ELMO_LAYERS: {ELMO_LAYERS}")
     logger.info(f"Pooling: {POOLING}, Activation function: {ACTIVATION}")
     logger.info(
         f"Hidden_size: {HIDDEN_SIZE}, Batch_size: {BATCH_SIZE}, Epochs: {EPOCHS}")
@@ -245,6 +231,5 @@ if __name__ == '__main__':
 
     main(
         PATH_TO_DATASET, TASK_NAME_FIRST_CHAR,
-        PATH_TO_ELMO, ELMO_LAYERS,
-        POOLING, ACTIVATION, EPOCHS, 
-        HIDDEN_SIZE, BATCH_SIZE)
+        PATH_TO_ELMO, POOLING, ACTIVATION,
+        EPOCHS, HIDDEN_SIZE, BATCH_SIZE)
