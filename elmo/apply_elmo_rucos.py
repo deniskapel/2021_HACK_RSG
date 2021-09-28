@@ -6,24 +6,25 @@ import random as python_random
 
 import numpy as np
 from simple_elmo import ElmoModel
-# import tensorflow as tf
-# from tensorflow.keras.utils import to_categorical
+import tensorflow as tf
+from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-# from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report
 
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output
-# from dataset_utils.keras_utils import (
-#     keras_model,
-#     early_stopping,
-#     wrap_checkpoint)
+from dataset_utils.keras_utils import (
+    keras_model,
+    early_stopping,
+    wrap_checkpoint)
 from dataset_utils.global_vars import TIMESTAMP
 from dataset_utils.rucos import (
     tokenize_rucos,
     reshape_rucos,
     get_rucos_shape,
-    align_passage_queries)
-
+    align_passage_queries,
+    evaluate,
+    get_RuCoS_predictions)
 
 
 def main(
@@ -45,8 +46,8 @@ def main(
     val, _ = build_features('%sval.jsonl' % (path_to_task))
 
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0][0:2]))
-    X_valid = list(zip(*val[0][0:2]))
+    X_train = list(zip(*train[0]))
+    X_valid = list(zip(*val[0]))
 
     # tokenize each sample in a set
     X_train = tokenize_rucos(X_train)
@@ -80,19 +81,13 @@ def main(
     # create validate embeddings
     X_val_embeddings = [elmo.get_elmo_vectors(part) for part in X_valid]
     # add padding before each sentence using train maxlength
-    [print(part.shape) for part in X_val_embeddings]
 
     X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
                         for d, l in zip(X_val_embeddings, max_lengths)]
 
-    [print(part.shape) for part in X_val_embeddings]
-
     X_val_embeddings = align_passage_queries(
         X_val_embeddings,
         X_valid_original_shape)
-
-    print(X_val_embeddings.shape)
-    sys.exit(1)
 
     del X_train, X_valid
 
@@ -140,14 +135,14 @@ def main(
 
     """ Get validation score """
     # Prediction is done for each passage_questions_answers set separately
-    preds, y_true, _ = get_MuSeRC_predictions(
+    dataset, preds = get_RuCoS_predictions(
         '%sval.jsonl' % (path_to_task),
         elmo, model, 
         max_lengths, DTYPE)
-    logger.info(f" em0, F1a scores on validation are {MuSeRC_metrics(preds, y_true)}")
+    logger.info(f" EM, F1a scores on validation are {evaluate(dataset, preds)}")
 
     """ APPLY TO A TEST SET """
-    _, _, test_preds = get_MuSeRC_predictions(
+    _, test_preds = get_RuCoS_predictions(
         '%stest.jsonl' % (path_to_task),
         elmo, model, 
         max_lengths, DTYPE)
@@ -218,7 +213,7 @@ if __name__ == '__main__':
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
-    # tf.random.set_seed(42)
+    tf.random.set_seed(42)
 
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")

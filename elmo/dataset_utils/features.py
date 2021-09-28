@@ -138,7 +138,6 @@ def build_feature_RuCoS(row, raw_row):
 
 
 def build_feature_MuSeRC(row):
-    # TODO: Does not work for now
     text = row["passage"]["text"]
     qa = {}
     labels = []

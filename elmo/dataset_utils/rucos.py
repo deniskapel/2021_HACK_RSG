@@ -7,6 +7,7 @@ from itertools import chain
 
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from sklearn.utils.extmath import softmax as sk_softmax
 
 
 def normalize_answer(s):
@@ -49,7 +50,7 @@ def metric_max_over_ground_truths(metric_fn, prediction, ground_truths):
     return max(scores_for_ground_truths)
 
 
-def evaluate(dataset, predictions):
+def evaluate(dataset: list, predictions):
     f1 = exact_match = total = 0
     correct_ids = []
     for prediction, passage in zip(predictions, dataset):
@@ -70,57 +71,82 @@ def evaluate(dataset, predictions):
     return exact_match, f1
 
 
-def eval_RuCoS(train_path, val_path, test_path, vect):
-    test_score, test_pred = eval_part(test_path, vect)
-    return None, {
-        "train": eval_part(train_path, vect)[0],
-        "val": eval_part(val_path, vect)[0],
-        "test": test_score,
-        "test_pred": test_pred
-    }
-
-
-def eval_part(
+def get_RuCoS_predictions(
     path: str, elmo_model, keras_model,
     max_lengths: list, dtype: str):
     """ a function to get predictions in a RuCoS order """
+    filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
+    path_to_raw_file = f'data/combined/RuCoS/{filename}'
+    with jsonlines.open(path_to_raw_file) as reader:
+        """
+            Entities are encoded with indices. 
+            After preprocessing, indices shift.
+            To extract entities, original files are needed.
+        """
+        raw_lines = list(reader)
     
     with jsonlines.open(path) as reader:
         lines = list(reader)
     
     preds = []
     
-    for row in lines:
-        pred = get_row_pred(row, elmo_model, keras_model, max_lengths, dtype)
+    for row, raw_row in zip(lines, raw_lines):
+        pred = get_row_pred(
+            row, raw_row,
+            elmo_model, keras_model,
+            max_lengths, dtype)
         preds.append({
             "idx": row["idx"],
             "label": pred
         })
-    return lines, preds, preds
+    return lines, preds
 
 
 def get_row_pred(
-    path: str, elmo_model, keras_model,
+    row:dict, raw_row:dict, 
+    elmo_model, keras_model,
     max_lengths: list, dtype: str):
 
-    text = [row["passage"]["text"].replace("\n@highlight\n", " ").split()]
+    text = [row["passage"]["text"].replace("@highlight", " ").split()]
     text = elmo_model.get_elmo_vectors(text)
     text = pad_sequences(
         text, maxlen=max_lengths[0],
         dtype=dtype, padding='post')
 
-    # res = []
-    # words = [
-    #     row["passage"]["text"][x["start"]: x["end"]]
-    #     for x in row["passage"]["entities"]]
-    # for line in row["qas"]:
-    #     line_candidates = []
-    #     for word in words:
-    #         line_candidates.append(line["query"].replace("@placeholder", word))
-    #     cos = cosine_similarity(text, vect.transform(line_candidates))
-    #     pred = np.array(words)[cos.argsort()[0][-1]]
-    #     res.append(pred)
-    # return " ".join(res)
+    res = []
+    words = [
+        raw_row["passage"]["text"][x["start"]: x["end"]]
+        for x in raw_row["passage"]["entities"]]
+
+    for line in row["qas"]:
+        queries = []
+        for word in words:
+            queries.append(
+                line["query"].replace("@placeholder", word).split()
+                )
+        
+        queries = elmo_model.get_elmo_vectors(queries)
+        queries = pad_sequences(
+            queries, maxlen=max_lengths[1],
+            dtype=dtype, padding='post')
+
+        sample = []        
+        
+        for i in range(queries.shape[0]):
+            sample.append(
+                np.hstack(
+                    (text, np.array([queries[i]]))
+            ))
+        logits = keras_model.predict(np.vstack(sample))
+        # BERT solution applies softmax to logits first
+        logits = sk_softmax(logits)
+        # get the id of a word with a highest probability of being correct
+        pred_idx = logits[:, 1].argsort()[-1]
+        # transform an id to an actual prediction        
+        pred = np.array(words)[pred_idx]
+        res.append(pred)
+
+    return " ".join(res)
 
 def tokenize_rucos(dataset: list) -> list:
     passages = [sample.split() for sample in dataset[0]]
@@ -135,7 +161,7 @@ def reshape_rucos(dataset: tuple) -> list:
     """
 
     passages = dataset[0]
-    queries = list(chain(*dataset[1])) # flatten 2D list
+    queries = list(chain(*dataset[1]))
     
     return [passages, queries]
 
