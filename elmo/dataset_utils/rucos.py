@@ -1,13 +1,13 @@
-import jsonlines
 from collections import Counter
 import string
 import re
 import sys
 from itertools import chain
+import codecs
+import json
 
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from sklearn.utils.extmath import softmax as sk_softmax
 
 
 def normalize_answer(s):
@@ -77,16 +77,19 @@ def get_RuCoS_predictions(
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
     path_to_raw_file = f'data/combined/RuCoS/{filename}'
-    with jsonlines.open(path_to_raw_file) as reader:
+    
+    with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
         """
             Entities are encoded with indices. 
             After preprocessing, indices shift.
             To extract entities, original files are needed.
         """
-        raw_lines = list(reader)
-    
-    with jsonlines.open(path) as reader:
-        lines = list(reader)
+        raw_lines = reader.read().split("\n")
+        raw_lines = list(map(json.loads, filter(None, raw_lines)))
+
+    with codecs.open(path, encoding='utf-8-sig') as reader:
+        lines = reader.read().split("\n")
+        lines = list(map(json.loads, filter(None, lines)))
     
     preds = []
     
@@ -137,11 +140,8 @@ def get_row_pred(
                 np.hstack(
                     (text, np.array([queries[i]]))
             ))
-        logits = keras_model.predict(np.vstack(sample))
-        # BERT solution applies softmax to logits first
-        logits = sk_softmax(logits)
-        # get the id of a word with a highest probability of being correct
-        pred_idx = logits[:, 1].argsort()[-1]
+        preds = keras_model.predict(np.vstack(sample))
+        pred_idx = preds[:, 1].argsort()[-1]
         # transform an id to an actual prediction        
         pred = np.array(words)[pred_idx]
         res.append(pred)
