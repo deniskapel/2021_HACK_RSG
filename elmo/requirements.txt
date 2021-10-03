@@ -1,0 +1,67 @@
+absl-py @ file:///tmp/build/80754af9/absl-py_1623867049735/work
+aiohttp @ file:///tmp/build/80754af9/aiohttp_1632748060317/work
+astor==0.8.1
+astunparse==1.6.3
+async-timeout==3.0.1
+attrs @ file:///tmp/build/80754af9/attrs_1620827162558/work
+blinker==1.4
+brotlipy==0.7.0
+cachetools @ file:///tmp/build/80754af9/cachetools_1619597386817/work
+certifi==2021.5.30
+cffi @ file:///tmp/build/80754af9/cffi_1625814693874/work
+chardet @ file:///tmp/build/80754af9/chardet_1607706739153/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click @ file:///tmp/build/80754af9/click_1621604852318/work
+coverage @ file:///tmp/build/80754af9/coverage_1614614208500/work
+cryptography @ file:///tmp/build/80754af9/cryptography_1616769282133/work
+Cython @ file:///tmp/build/80754af9/cython_1626256602391/work
+dataclasses @ file:///tmp/build/80754af9/dataclasses_1614363715916/work
+gast==0.3.3
+google-auth @ file:///tmp/build/80754af9/google-auth_1626320605116/work
+google-auth-oauthlib @ file:///tmp/build/80754af9/google-auth-oauthlib_1617120569401/work
+google-pasta @ file:///Users/ktietz/demo/mc3/conda-bld/google-pasta_1630577991354/work
+grpcio @ file:///tmp/build/80754af9/grpcio_1614884176509/work
+h5py @ file:///tmp/build/80754af9/h5py_1593454121459/work
+idna @ file:///tmp/build/80754af9/idna_1622654382723/work
+idna-ssl @ file:///tmp/build/80754af9/idna_ssl_1611752490495/work
+importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1631916693255/work
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1612898609989/work
+Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
+Markdown @ file:///tmp/build/80754af9/markdown_1614363833670/work
+mkl-fft==1.3.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+multidict @ file:///tmp/build/80754af9/multidict_1607367768400/work
+numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1603487797006/work
+oauthlib @ file:///tmp/build/80754af9/oauthlib_1623060228408/work
+opt-einsum @ file:///tmp/build/80754af9/opt_einsum_1621500238896/work
+pandas==1.1.5
+protobuf==3.17.2
+pyasn1 @ file:///Users/ktietz/demo/mc3/conda-bld/pyasn1_1629708007385/work
+pyasn1-modules==0.2.8
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+PyJWT @ file:///tmp/build/80754af9/pyjwt_1619651623957/work
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305763431/work
+python-dateutil==2.8.2
+pytz==2021.3
+requests @ file:///tmp/build/80754af9/requests_1629994808627/work
+requests-oauthlib==1.3.0
+rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
+scikit-learn @ file:///home/conda/feedstock_root/build_artifacts/scikit-learn_1625562496693/work
+scipy @ file:///tmp/build/80754af9/scipy_1597686625380/work
+simple-elmo==0.8.0
+six @ file:///tmp/build/80754af9/six_1623709665295/work
+smart-open==5.2.1
+tensorboard @ file:///home/builder/ktietz/aggregate/tensorflow_recipes/ci_te/tensorboard_1614593728657/work/tmp_pip_dir
+tensorboard-plugin-wit==1.6.0
+tensorflow==2.2.0
+tensorflow-estimator @ file:///home/builder/adipietro/tf/tensorflow-estimator_1630508970172/work/tensorflow_estimator-2.6.0-py2.py3-none-any.whl
+termcolor==1.1.0
+threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1633102299089/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
+urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
+Werkzeug @ file:///tmp/build/80754af9/werkzeug_1631818832573/work
+wrapt==1.12.1
+yarl @ file:///tmp/build/80754af9/yarl_1606939915466/work
+zipp @ file:///tmp/build/80754af9/zipp_1625570634446/work
