@@ -5,9 +5,7 @@ import re
 import random as python_random
 
 import numpy as np
-import tensorflow as tf
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.random import set_seed
 from sklearn.metrics import classification_report
 
 from dataset_utils.features import build_features
@@ -83,7 +81,7 @@ def main(
     
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
-    model = keras_model(n_features=training_generator.elmo_model.vector_size,
+    model = keras_model(n_features=elmo_model.vector_size,
                         MAXLEN=sum(max_lengths),
                         hidden_size=hidden_size,
                         num_classes=num_classes,
@@ -131,7 +129,7 @@ if __name__ == '__main__':
         "--task", "-t", 
         help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/", 
         required=True)
-    arg("--elmo", "-e", help="Path to a forlder with ELMo model", required=True)
+    arg("--elmo", "-e", help="Path to a folder with ELMo model", required=True)
     arg(
         "--pooling",
         help="Add a pooling layer on the full sequence or return the last output only",
@@ -192,7 +190,7 @@ if __name__ == '__main__':
     # For reproducibility:
     np.random.seed(42)
     python_random.seed(42)
-    tf.random.set_seed(42)
+    set_seed(42)
 
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")

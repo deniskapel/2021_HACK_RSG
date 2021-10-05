@@ -1,13 +1,14 @@
 from collections import Counter
 import string
 import re
-import sys
-from itertools import chain
 import codecs
 import json
 
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+from dataset_utils.global_vars import DTYPE, PAD_PARAMS
+from dataset_utils.elmo_utils import extract_embeddings
 
 
 def normalize_answer(s):
@@ -72,8 +73,7 @@ def evaluate(dataset: list, predictions):
 
 
 def get_RuCoS_predictions(
-    path: str, elmo_model, keras_model,
-    max_lengths: list, dtype: str):
+    path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
     path_to_raw_file = f'data/combined/RuCoS/{filename}'
@@ -95,9 +95,7 @@ def get_RuCoS_predictions(
     
     for row, raw_row in zip(lines, raw_lines):
         pred = get_row_pred(
-            row, raw_row,
-            elmo_model, keras_model,
-            max_lengths, dtype)
+            row, raw_row, elmo_model, elmo_graph, keras_model, max_lengths)
         preds.append({
             "idx": row["idx"],
             "label": pred
@@ -107,14 +105,12 @@ def get_RuCoS_predictions(
 
 def get_row_pred(
     row:dict, raw_row:dict, 
-    elmo_model, keras_model,
-    max_lengths: list, dtype: str):
+    elmo_model, elmo_graph, 
+    keras_model, max_lengths: list):
 
     text = [row["passage"]["text"].replace("@highlight", " ").split()]
-    text = elmo_model.get_elmo_vectors(text)
-    text = pad_sequences(
-        text, maxlen=max_lengths[0],
-        dtype=dtype, padding='post')
+    text = extract_embeddings(elmo_model, elmo_graph, text)
+    text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
 
     res = []
     words = [
@@ -124,23 +120,18 @@ def get_row_pred(
     for line in row["qas"]:
         queries = []
         for word in words:
-            queries.append(
-                line["query"].replace("@placeholder", word).split()
-                )
+            queries.append(line["query"].replace("@placeholder", word).split())
         
-        queries = elmo_model.get_elmo_vectors(queries)
-        queries = pad_sequences(
-            queries, maxlen=max_lengths[1],
-            dtype=dtype, padding='post')
+        queries = extract_embeddings(elmo_model, elmo_graph, queries)
+        queries = pad_sequences(queries, maxlen=max_lengths[1], **PAD_PARAMS)
 
         sample = []        
         
         for i in range(queries.shape[0]):
-            sample.append(
-                np.hstack(
-                    (text, np.array([queries[i]]))
-            ))
+            sample.append(np.hstack((text, np.array([queries[i]]))))
+        
         preds = keras_model.predict(np.vstack(sample))
+        # choose a prediction with a largest prob of being true
         pred_idx = preds[:, 1].argsort()[-1]
         # transform an id to an actual prediction        
         pred = np.array(words)[pred_idx]
@@ -148,64 +139,28 @@ def get_row_pred(
 
     return " ".join(res)
 
+
 def tokenize_rucos(dataset: list) -> list:
     passages = [sample.split() for sample in dataset[0]]
     queries = [[q.split() for q in qs] for qs in dataset[1]]
             
     return passages, queries
 
-def reshape_rucos(dataset: tuple) -> list:
-    """
-        reshape complex rucos structure to the structure
-        used for other datasets, i.e. list of 2D lists
-    """
 
-    passages = dataset[0]
-    queries = list(chain(*dataset[1]))
-    
-    return [passages, queries]
+def align_passage_queries(data: tuple) -> list:
+    """ 
+        reshapes features for training creating copies
+        of text part
 
-def get_rucos_shape(queries: list) -> list:
+        ([p1,p2],[[q1,q2],[q3,q4]]) ->
+        [[p1, p1, p2, p2], [q1, q2, q3, q4]]
     """
-        extract number of queries per passage of the rucos dataset
+    output = [[], []]
 
-        [p1: [q1,q2,q3], p2: [q1,q2,q3,q4],
-        p3: [q1, q2]] -> [3,4,2]
-    """
-    return [len(qs) for qs in queries]
-
-
-def align_passage_queries(
-    dataset: list,
-    original_shape: list
-    ) -> np.ndarray:
-    """
-        To avoid extracting embeddings multiple times,
-        passages and queries were processed separately.
-
-        this function reshapes embeddings like this 
-        based on their original shape:
-        (
-            [p1,p2,p3..pn], [q1,q2, q3, q4..qn]
-        )  ->     
-        [[p1, q1], [p1, q2], [p1, q3], [p2, q4],
-        [p2, q5], [p3, q6], [pn, q(n-1)], [pn, qn]]
-    """
-    data = []
-    query_id = 0
-    for i, num_queries in enumerate(original_shape):
-        passage = dataset[0][i] # i is a passage_id
-        last_query_id = query_id + num_queries
-        queries = dataset[1][query_id:last_query_id]
-        
+    for passage, queries in zip(data[0], data[1]):
         for query in queries:
-            # merge passage question and anwer
-            data.append(
-                # add a complete sample to the dataset
-                np.vstack((passage, query)))
-
-            # reassign starting position
-        query_id = last_query_id
-
-    # transform a list of numpy arrays to a 3D array
-    return np.array(data)
+            # aling passage and query
+            output[0].append(passage)
+            output[1].append(query)
+            
+    return output

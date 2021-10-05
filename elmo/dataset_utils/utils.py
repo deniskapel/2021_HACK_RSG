@@ -9,7 +9,7 @@ import numpy as np
 from simple_elmo import ElmoModel
 
 
-from dataset_utils.global_vars import DTYPE
+from dataset_utils.global_vars import DTYPE, PAD_PARAMS
 from dataset_utils.elmo_utils import extract_embeddings
 
 
@@ -90,8 +90,6 @@ class DataGenerator(Sequence):
             # extract embeddings
             e = extract_embeddings(self.elmo_model, self.elmo_graph, d)
             # pad embeddings based on a max_lengths in a train set
-            embeddings.append(
-                pad_sequences(e, maxlen=l, dtype=DTYPE, padding='post')
-                )
+            embeddings.append(pad_sequences(e, maxlen=l, **PAD_PARAMS))
         # merge sample parts into a complete samples and return them
         return np.hstack(embeddings)

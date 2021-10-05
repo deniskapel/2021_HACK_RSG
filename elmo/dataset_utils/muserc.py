@@ -1,8 +1,6 @@
 import functools
 import codecs
 import json
-from itertools import chain
-import time
 
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -186,8 +184,7 @@ def tokenize_muserc(dataset: list) -> list:
     return passages, questions, answers
 
 
-def align_passage_question_answer(
-    data: list) -> list:
+def align_passage_question_answer(data: list) -> list:
     """
         reshapes features for training:
         (

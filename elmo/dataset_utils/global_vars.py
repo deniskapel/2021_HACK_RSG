@@ -15,3 +15,5 @@ TEXT_FIELDS = {
     'RWSD': ['text'],
     'TERRa': ['premise', 'hypothesis']
 }
+
+PAD_PARAMS = {'dtype': DTYPE, 'padding': 'post'}
