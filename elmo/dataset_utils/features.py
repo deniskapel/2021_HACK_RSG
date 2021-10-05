@@ -7,7 +7,6 @@ import json
 import sys
 import re
 
-
 def build_features(path):
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")

@@ -7,6 +7,8 @@ import time
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+from dataset_utils.global_vars import DTYPE
+
 
 class MuSeRCMetrics:
 
@@ -101,18 +103,19 @@ Measures = MuSeRCMetrics
 
 def get_row_pred_MuSeRC(
     row: dict, 
-    elmo_model, keras_model, 
-    max_lengths: list, dtype: str):
+    elmo_model, graph, keras_model, 
+    max_lengths: list):
     """
         returns properly shaped predictions and true lables per row.
         The third output is a dict to upload predictions to the leaderboard.
     """
     # put text entries into a list to extract embeddings properly
     text = [row["passage"]["text"].split()]
-    text = elmo_model.get_elmo_vectors(text)
+    with graph.as_default():
+        text = elmo_model.get_elmo_vectors(text)
     text = pad_sequences(
         text, maxlen=max_lengths[0],
-        dtype=dtype, padding='post')
+        dtype=DTYPE, padding='post')
 
     res = []
     labels = []
@@ -123,19 +126,21 @@ def get_row_pred_MuSeRC(
         line_labels = []
         
         question = [line["question"].split()]
-        question = elmo_model.get_elmo_vectors(question)
+        with graph.as_default():
+            question = elmo_model.get_elmo_vectors(question)    
         question = pad_sequences(
             text, maxlen=max_lengths[1],
-            dtype=dtype, padding='post')
+            dtype=DTYPE, padding='post')
         
         for answ in line["answers"]:
             line_labels.append(answ.get("label", 0))
 
             answ = [answ['text'].split()]
-            answ = elmo_model.get_elmo_vectors(answ)
+            with graph.as_default():
+                answ = elmo_model.get_elmo_vectors(answ)
             answ = pad_sequences(
                 text, maxlen=max_lengths[2],
-                dtype=dtype, padding='post')
+                dtype=DTYPE, padding='post')
             
             sample = np.hstack((text, question, answ))
             line_answers.append(sample)
@@ -153,9 +158,7 @@ def get_row_pred_MuSeRC(
 
 
 def get_MuSeRC_predictions(
-    path: str,
-    elmo_model, keras_model,
-    max_lengths: list, dtype: str):
+    path: str, elmo_model, graph, keras_model, max_lengths: list):
     """ a function to get predictions in a MuSeRC order """
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")
@@ -167,8 +170,7 @@ def get_MuSeRC_predictions(
 
     for row in lines[0:3]:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
-            row, elmo_model, keras_model,
-            max_lengths, dtype)
+            row, elmo_model, graph, keras_model, max_lengths)
         preds.extend(pred)
         labels.extend(lbls)
         res.append(res_ids)
@@ -190,41 +192,10 @@ def tokenize_muserc(dataset: list) -> list:
     return passages, questions, answers
 
 
-def get_muserc_shape(answers: list) -> list:
-    """
-        extract shapes of the muserc dataset
-
-        [p1: [q1: [a1,a2,a3], q2: [a1,a2,a3,a4]],
-        p2: [q1: [a1,a2]]] -> [[3, 4], [2]]
-
-    """
-    # extract number of answers per each question of a questions passage
-    return [[len(answer) for answer in a] for a in answers]
-
-
-def reshape_muserc(dataset: tuple) -> list:
-    """
-        reshape complex muserc structure to the structure
-        used for other datasets, i.e. list of 2D lists
-    """
-
-    passages = dataset[0]
-    answers = list(chain(*dataset[1])) # flatten 2D list
-    questions = list(chain(*[qa for p in dataset[2] for qa in p]))
-    
-    return [passages, answers, questions]
-
-
 def align_passage_question_answer(
-    dataset: list,
-    original_shape: list
-    ) -> np.ndarray:
+    data: list) -> list:
     """
-        To avoid extracting embeddings multiple times,
-        passages, questions and answers were processed separately.
-
-        this function reshapes embeddings like this 
-        based on their original shape:
+        reshapes features for training:
         (
             [p1,p2,p3], [[q1,q2], [q1, q2]],
             [[[a1,a2], [a1]], [[a1,a2], [a1,a2,a3]]]]
@@ -232,27 +203,16 @@ def align_passage_question_answer(
         [[p1, q1, a1], [p1, q1, a2], [p1, q2, a1], [p2, q1, a1],
         [p2, q1, a2], [p2, q2, a1], [p2, q2, a2], [p2, q2, a3]]
     """
-    data = []
-    answer_id = 0
-    for i, questions in enumerate(original_shape):
-        passage = dataset[0][i] # i is a passage_id
-        for j, num_answers in enumerate(questions):
-            question = dataset[1][j] # j is a question_id in a qa set
-            # shift idx
-            last_answer_id = answer_id + num_answers
-            # extract necessary answers
-            answers = dataset[2][answer_id:last_answer_id]
-            
-            for answer in answers:
-                # merge passage question and anwer
-                data.append(
-                    # add a complete sample to the dataset
-                    np.vstack(
-                        (passage, question, answer))
-                        )
+    output = [[],[],[]]
 
-            # reassign starting position
-            answer_id = last_answer_id
+    # align passage with all its questions and answers
+    for passage, questions, answers_p in zip(data[0], data[1], data[2]):
+        # align question with all its answers
+        for question, answers_q in zip(questions, answers_p):
+            for answer in answers_q:
+                output[0].append(passage)
+                output[1].append(question)
+                output[2].append(answer)
 
     # transform a list of numpy arrays to a 3D array
-    return np.array(data)
+    return output

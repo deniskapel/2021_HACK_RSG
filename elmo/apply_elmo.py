@@ -15,7 +15,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import matthews_corrcoef
 
 from dataset_utils.features import build_features
-from dataset_utils.utils import save_output
+from dataset_utils.utils import save_output, DataGenerator
 from dataset_utils.global_vars import TIMESTAMP
 from dataset_utils.keras_utils import (
     keras_model,
@@ -24,18 +24,12 @@ from dataset_utils.keras_utils import (
 
 
 def main(
-    path_to_task: str, task_name_first_char: int, 
-    path_to_elmo: str, pooling: bool, activation: str,
+    path_to_task: str, task_name_first_char: int, path_to_elmo: str, 
+    pooling: bool, shuffle: bool, activation: str,
     epochs: int, hidden_size: int, batch_size: int):
 
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
-
-    if TASK_NAME in ['MuSeRC', "RuCoS"]:
-        sys.stderr.write(
-            'Check README to see which file to run for this task\n')
-        sys.exit(1)
-
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
     """ DATA """
@@ -55,54 +49,31 @@ def main(
     # tokenize each sample in a set
     X_train = [[sample.split() for sample in part] for part in X_train]
     X_valid = [[sample.split() for sample in part] for part in X_valid]
-
-    """ EMBEDDINGS """
-    logger.info(f"=======================")
-    logger.info(f"loading Elmo model")
-    elmo = ElmoModel()
-    elmo.load(path_to_elmo, max_batch_size=batch_size)
-
-    # create train embeddings    
-    X_train_embeddings = [elmo.get_elmo_vectors(part) for part in X_train]
-
     # get max_length for each sample part, 
     # e.g. 7 for premise and 5 for hypothesis 
-    max_lengths = [part.shape[1] for part in X_train_embeddings]
-    
-    X_train_embeddings = np.hstack(tuple(X_train_embeddings))
-
-    # create validate embeddings
-    X_val_embeddings = [elmo.get_elmo_vectors(part) for part in X_valid]
-
-    # Dtype for padding, otherwise rounded to int32
-    DTYPE = X_train_embeddings.dtype
-    # add padding after each sentence using train maxlength
-    # 'post' because simple elmo uses post-padding
-    X_val_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
-                        for d, l in zip(X_val_embeddings, max_lengths)]
-
-    X_val_embeddings = np.hstack(tuple(X_val_embeddings))
-
-    del X_train, X_valid
-
+    max_lengths = [np.max([len(sample) for sample in part]) for part in X_train]
     # reshape labels
     classes = sorted(list(set(train[1])))
     y_train = [classes.index(i) for i in train[1]]
     num_classes = len(classes)
-    y_train = to_categorical(y_train, num_classes)
     y_valid = [classes.index(i) for i in val[1]]
-    y_valid = to_categorical(y_valid, num_classes)
 
-    _, MAXLEN, n_features = X_train_embeddings.shape
-    logger.info(f"=======================")
-    logger.info(f'Tensor_shape {X_train_embeddings.shape}')
-    logger.info(f"=======================")
+    # parameters for a DataGenerator instance 
+    params = {
+        'max_lengths': max_lengths,
+        'batch_size': batch_size,
+        'n_classes': num_classes,
+        'path_to_elmo': path_to_elmo}
 
-
+    training_generator = DataGenerator(
+        X_train, y_train, shuffle=shuffle, **params)
+    validation_generator = DataGenerator(
+        X_valid, y_valid, shuffle=False, **params)
+    
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
-    model = keras_model(n_features=n_features,
-                        MAXLEN=MAXLEN,
+    model = keras_model(n_features=training_generator.elmo_model.vector_size,
+                        MAXLEN=sum(max_lengths),
                         hidden_size=hidden_size,
                         num_classes=num_classes,
                         pooling=pooling,
@@ -112,47 +83,41 @@ def main(
 
     logger.info(f"Start training")
     logger.info("====================")
-    model.fit(
-        X_train_embeddings,
-        y_train,
-        epochs=epochs,
-        validation_data=(X_val_embeddings, y_valid),
-        batch_size=batch_size,
-        callbacks=[wrap_checkpoint(f'{TASK_NAME}_{TIMESTAMP}'), early_stopping])
 
-    del X_train_embeddings, train
+    model.fit(
+        x = training_generator,
+        epochs=epochs,
+        validation_data=validation_generator,
+        callbacks=[
+            wrap_checkpoint(f'{TASK_NAME}_{TIMESTAMP}'),
+            early_stopping])
 
 
     """ PREDICTING """
     logger.info("====================")
     logger.info("Start predicting.")
-    preds = model.predict(X_val_embeddings)
+
+    # get score on a validation dataset
+    preds = model.predict(validation_generator)
     preds = [classes[int(np.argmax(pred))] for pred in preds]
-    # Log score on validation
     if TASK_NAME == 'LiDiRus':
         logger.info(f"MC score is {matthews_corrcoef(val[1], preds)}")
     else:
         logger.info(classification_report(val[1], preds))
 
-    del X_val_embeddings, val
-
-
     """ APPLY TO A TEST SET """
-
     # Preprocess the test split
-    X_test = list(zip(*test[0]))
+    X_test = list(zip(*test[0][0:16]))
     X_test = [[sample.split() for sample in part] for part in X_test]
-    X_test_embeddings = [elmo.get_elmo_vectors(part) for part in X_test]
-    X_test_embeddings = [pad_sequences(d, maxlen=l, dtype=DTYPE, padding='post')
-                         for d, l in zip(X_test_embeddings, max_lengths)]
-    X_test_embeddings = np.hstack(tuple(X_test_embeddings))
-
-    preds = model.predict(X_test_embeddings)
+    test_generator = DataGenerator(
+        X_valid, y_valid, shuffle=False, **params)
+    # generate predictiions    
+    preds = model.predict(test_generator)
     preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
     preds = [
-        {"idx": i, "label": str(label).lower()} for i, label in zip(ids, preds)
+        {"idx": i, "label": str(l).lower()} for i, l in zip(ids, preds)
         ]
-
+    # save in the RSG format
     logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
     save_output(preds, PATH_TO_OUTPUT)
     logger.info("====================")
@@ -163,11 +128,20 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
-    arg("--task", "-t", help="Path to a RSG dataset", required=True)
+    arg(
+        "--task", "-t", 
+        help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/", 
+        required=True)
     arg("--elmo", "-e", help="Path to a forlder with ELMo model", required=True)
     arg(
         "--pooling",
         help="Add a pooling layer on the full sequence or return the last output only",
+        default=False,
+        action='store_true'
+    )
+    arg(
+        "--shuffle",
+        help="Add shuffle on each epoch end?",
         default=False,
         action='store_true'
     )
@@ -202,18 +176,17 @@ if __name__ == '__main__':
     PATH_TO_DATASET = args.task
     PATH_TO_ELMO = args.elmo
     POOLING = args.pooling
+    SHUFFLE = args.shuffle
     ACTIVATION = args.activation
     EPOCHS = args.num_epochs
     HIDDEN_SIZE = args.hidden_size
     BATCH_SIZE = args.batch_size
-
     TASK_NAME_FIRST_CHAR = re.search('[A-Z]+.*', PATH_TO_DATASET).span()[0]
 
     log_format = f"%(asctime)s : %(levelname)s : %(message)s"
-    start_time = time.strftime('%d%m%Y_%H%M%S', time.localtime())
     logging.basicConfig(format=log_format,
                         filename="logs/%s_%s.log" % (
-                            PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], start_time),
+                            PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], TIMESTAMP),
                         filemode="w", level=logging.INFO)
     logger = logging.getLogger(__name__)
 
@@ -225,11 +198,12 @@ if __name__ == '__main__':
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")
     logger.info(f"Pooling: {POOLING}, Activation function: {ACTIVATION}")
+    logger.info(f"Shuffle on each epoch end: {SHUFFLE}")
     logger.info(
         f"Hidden_size: {HIDDEN_SIZE}, Batch_size: {BATCH_SIZE}, Epochs: {EPOCHS}")
     logger.info(f"=======================")
 
     main(
         PATH_TO_DATASET, TASK_NAME_FIRST_CHAR,
-        PATH_TO_ELMO, POOLING, ACTIVATION,
+        PATH_TO_ELMO, POOLING, SHUFFLE, ACTIVATION,
         EPOCHS, HIDDEN_SIZE, BATCH_SIZE)
