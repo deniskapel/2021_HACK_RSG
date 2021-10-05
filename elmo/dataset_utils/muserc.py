@@ -8,6 +8,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from dataset_utils.global_vars import DTYPE
+from dataset_utils.elmo_utils import extract_embeddings
 
 
 class MuSeRCMetrics:
@@ -102,20 +103,16 @@ Measures = MuSeRCMetrics
 
 
 def get_row_pred_MuSeRC(
-    row: dict, 
-    elmo_model, graph, keras_model, 
-    max_lengths: list):
+    row: dict, elmo_model, elmo_graph, keras_model, max_lengths: list):
     """
         returns properly shaped predictions and true lables per row.
         The third output is a dict to upload predictions to the leaderboard.
     """
     # put text entries into a list to extract embeddings properly
     text = [row["passage"]["text"].split()]
-    with graph.as_default():
-        text = elmo_model.get_elmo_vectors(text)
+    text = extract_embeddings(elmo_model, elmo_graph, text)
     text = pad_sequences(
-        text, maxlen=max_lengths[0],
-        dtype=DTYPE, padding='post')
+        text, maxlen=max_lengths[0], dtype=DTYPE, padding='post')
 
     res = []
     labels = []
@@ -126,26 +123,23 @@ def get_row_pred_MuSeRC(
         line_labels = []
         
         question = [line["question"].split()]
-        with graph.as_default():
-            question = elmo_model.get_elmo_vectors(question)    
+        question = extract_embeddings(elmo_model, elmo_graph, question)
         question = pad_sequences(
-            text, maxlen=max_lengths[1],
-            dtype=DTYPE, padding='post')
+            question, maxlen=max_lengths[1], dtype=DTYPE, padding='post')
         
         for answ in line["answers"]:
             line_labels.append(answ.get("label", 0))
 
             answ = [answ['text'].split()]
-            with graph.as_default():
-                answ = elmo_model.get_elmo_vectors(answ)
+            answ = extract_embeddings(elmo_model, elmo_graph, answ)
             answ = pad_sequences(
-                text, maxlen=max_lengths[2],
-                dtype=DTYPE, padding='post')
+                answ, maxlen=max_lengths[2], dtype=DTYPE, padding='post')
             
             sample = np.hstack((text, question, answ))
             line_answers.append(sample)
 
-            
+        # some rows may include > 32 samples, 
+        # so model.predict(x) and not model(x) is used
         preds = keras_model.predict(np.vstack(line_answers))
         preds = [int(np.argmax(pred)) for pred in preds]
         res.append(preds)
@@ -158,7 +152,7 @@ def get_row_pred_MuSeRC(
 
 
 def get_MuSeRC_predictions(
-    path: str, elmo_model, graph, keras_model, max_lengths: list):
+    path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
     """ a function to get predictions in a MuSeRC order """
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")
@@ -168,9 +162,9 @@ def get_MuSeRC_predictions(
     labels = []
     res = []
 
-    for row in lines[0:3]:
+    for row in lines:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
-            row, elmo_model, graph, keras_model, max_lengths)
+            row, elmo_model, elmo_graph, keras_model, max_lengths)
         preds.extend(pred)
         labels.extend(lbls)
         res.append(res_ids)

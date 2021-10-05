@@ -5,7 +5,6 @@ import re
 import random as python_random
 
 import numpy as np
-from simple_elmo import ElmoModel
 import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -13,6 +12,7 @@ from sklearn.metrics import classification_report
 
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output, DataGenerator
+from dataset_utils.elmo_utils import load_elmo
 from dataset_utils.keras_utils import (
     keras_model,
     early_stopping,
@@ -41,29 +41,31 @@ def main(
 
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
+    logger.info(f"=======================")
+    logger.info(f"loading Elmo model")
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, batch_size)
+
     train, _ = build_features('%strain.jsonl' % (path_to_task))
     val, _ = build_features('%sval.jsonl' % (path_to_task))
-
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0][0:1]))
-    X_valid = list(zip(*val[0][0:1]))
-
+    X_train = list(zip(*train[0]))
+    X_valid = list(zip(*val[0]))
     # tokenize each sample in a set
     X_train = tokenize_muserc(X_train)
     X_train = align_passage_question_answer(X_train)
-    # get max_length for each sample part, 
-    # e.g. 37 for passages and 15 for questions and 3 for answers 
     X_valid = tokenize_muserc(X_valid)
     X_valid = align_passage_question_answer(X_valid)
 
+    # get max_length for each sample part, 
+    # e.g. 37 for passages and 15 for questions and 3 for answers 
     max_lengths = [np.max([len(sample) for sample in part]) for part in X_train]
 
-    # reshape labels
-    y_train = [sample for subset in train[1][0:1] for sample in subset]
+    # get labels
+    y_train = [sample for subset in train[1] for sample in subset]
     classes = sorted(list(set(y_train)))
     y_train = [classes.index(i) for i in y_train]
     num_classes = len(classes)
-    y_valid = [sample for subset in val[1][0:1] for sample in subset]
+    y_valid = [sample for subset in val[1] for sample in subset]
     y_valid = [classes.index(i) for i in y_valid]
 
     # parameters for a DataGenerator instance 
@@ -71,12 +73,13 @@ def main(
         'max_lengths': max_lengths,
         'batch_size': batch_size,
         'n_classes': num_classes,
-        'path_to_elmo': path_to_elmo}
+        'elmo_model': elmo_model,
+        "elmo_graph": elmo_graph}
 
     training_generator = DataGenerator(
-        X_train[0:8], y_train[0:8], shuffle=shuffle, **params)
+        X_train, y_train, shuffle=shuffle, **params)
     validation_generator = DataGenerator(
-        X_valid[0:8], y_valid[0:8], shuffle=False, **params)
+        X_valid, y_valid, shuffle=False, **params)
     
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
@@ -106,15 +109,13 @@ def main(
     # Prediction is done for each passage_questions_answers set separately
     preds, y_true, _ = get_MuSeRC_predictions(
         '%sval.jsonl' % (path_to_task),
-        training_generator.elmo_model, training_generator.elmo_graph, model, 
-        max_lengths)
+        elmo_model, elmo_graph, model, max_lengths)
     logger.info(f" em0, F1a scores on validation are {MuSeRC_metrics(preds, y_true)}")
 
     """ APPLY TO A TEST SET """
     _, _, test_preds = get_MuSeRC_predictions(
         '%stest.jsonl' % (path_to_task),
-        training_generator.elmo_model, training_generator.elmo_graph, model, 
-        max_lengths)
+        elmo_model, elmo_graph, model, max_lengths)
 
     logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
     save_output(test_preds, PATH_TO_OUTPUT)
@@ -161,7 +162,7 @@ if __name__ == '__main__':
         "--hidden_size",
         help="size of hidden layers",
         type=int,
-        default=16,
+        default=128,
     )
     arg(
         "--batch_size",

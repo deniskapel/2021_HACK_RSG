@@ -10,6 +10,7 @@ from simple_elmo import ElmoModel
 
 
 from dataset_utils.global_vars import DTYPE
+from dataset_utils.elmo_utils import extract_embeddings
 
 
 def save_output(data, path):
@@ -19,18 +20,6 @@ def save_output(data, path):
             line["idx"] = int(line["idx"])
             file.write(f"{json.dumps(line, ensure_ascii=False)}\n")
 
-TEXT_FIELDS = {
-    "DaNetQA": ["question", 'passage'],
-    'LiDiRus': ['sentence1', 'sentence2'],
-    "MuSeRC": [], # hard coded due to a complex structure
-    "PARus": ['premise', 'choice1', 'choice2'],
-    'RCB': ['premise', 'hypothesis'],
-    "RuCoS": [], # hard coded due to a complex structure
-    'RUSSE': ['sentence1', 'sentence2'],
-    'RWSD': ['text'],
-    'TERRa': ['premise', 'hypothesis']
-}
-
 class DataGenerator(Sequence):
     """
         Generates data for TF Keras to work with huge datasets
@@ -38,13 +27,14 @@ class DataGenerator(Sequence):
         https://stanford.edu/~shervine/blog/keras-how-to-generate-data-on-the-fly
     """
     def __init__(
-        self, samples: list, labels: list, path_to_elmo,
+        self, samples: list, labels: list, elmo_model, elmo_graph,
         max_lengths: list, batch_size=32, n_classes=2, shuffle=True):
         self.max_lengths = max_lengths # maximum lengths for each part of the sample
         self.batch_size = batch_size
         self.x = samples # [list_of_samples_of_part_1..list_of_samples_of_part_n]
         self.y = labels
-        self.elmo_model, self.elmo_graph = self.__load_elmo(path_to_elmo)
+        self.elmo_model = elmo_model
+        self.elmo_graph = elmo_graph
         self.n_classes = n_classes
         self.shuffle = shuffle
         self.on_epoch_end()
@@ -82,13 +72,12 @@ class DataGenerator(Sequence):
 
     def __data_generation(self, batch_x: list, batch_y: list):
         """
-            Generates data containing batch_size samples
-            X : (
-                n_samples, max_sample_length, elmo_vector_size, n_channels
-                )
+            Generates data for training, validation and prediction.
+
+            X: (n_samples, sum(self.max_lengths), self.elmo_model.vector_size)
+            y: one-hot encoded labels
         """ 
-        with self.elmo_graph.as_default():
-            X = self.__get_embeddings(batch_x)
+        X = self.__get_embeddings(batch_x)
         y = to_categorical(batch_y, self.n_classes)
         
         return X, y
@@ -99,19 +88,10 @@ class DataGenerator(Sequence):
         embeddings = []
         for d, l in zip(batch_x, self.max_lengths):
             # extract embeddings
-            e = self.elmo_model.get_elmo_vectors(d)
+            e = extract_embeddings(self.elmo_model, self.elmo_graph, d)
             # pad embeddings based on a max_lengths in a train set
             embeddings.append(
                 pad_sequences(e, maxlen=l, dtype=DTYPE, padding='post')
                 )
         # merge sample parts into a complete samples and return them
         return np.hstack(embeddings)
-
-    def __load_elmo(self, path: str):
-        """ loads elmo model to handle multiple sessions"""
-        graph = tf.Graph()
-        
-        with graph.as_default() as elmo_graph:
-            elmo_model = ElmoModel()
-            elmo_model.load(path, self.batch_size)
-        return elmo_model, elmo_graph

@@ -6,7 +6,6 @@ import re
 import random as python_random
 
 import numpy as np
-from simple_elmo import ElmoModel
 import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -17,6 +16,7 @@ from sklearn.metrics import matthews_corrcoef
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output, DataGenerator
 from dataset_utils.global_vars import TIMESTAMP
+from dataset_utils.elmo_utils import load_elmo
 from dataset_utils.keras_utils import (
     keras_model,
     early_stopping,
@@ -33,7 +33,11 @@ def main(
     PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
 
     """ DATA """
-    if TASK_NAME == 'LiDiRus':
+    if TASK_NAME in ['MuSeRC', 'RuCoS']:
+        sys.stderr.write(
+            'Check README to see how to make submissions for these tasks\n')
+        sys.exit(1)
+    elif TASK_NAME == 'LiDiRus':
         train, _ = build_features('%sTERRa/train.jsonl' % (INPUT_FOLDER))
         val, _ = build_features('%sTERRa/val.jsonl' % (INPUT_FOLDER))
         test, ids = build_features('%sLiDiRus.jsonl' % (path_to_task))
@@ -41,6 +45,10 @@ def main(
         train, _ = build_features('%strain.jsonl' % (path_to_task))
         val, _ = build_features('%sval.jsonl' % (path_to_task))
         test, ids = build_features('%stest.jsonl' % (path_to_task))
+
+    logger.info(f"=======================")
+    logger.info(f"loading Elmo model")
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, batch_size)
 
     # extract samples from sample+label bundles
     X_train = list(zip(*train[0]))
@@ -63,7 +71,8 @@ def main(
         'max_lengths': max_lengths,
         'batch_size': batch_size,
         'n_classes': num_classes,
-        'path_to_elmo': path_to_elmo}
+        'elmo_model': elmo_model,
+        "elmo_graph": elmo_graph}
 
     training_generator = DataGenerator(
         X_train, y_train, shuffle=shuffle, **params)
@@ -107,11 +116,12 @@ def main(
 
     """ APPLY TO A TEST SET """
     # Preprocess the test split
-    X_test = list(zip(*test[0][0:16]))
+    X_test = list(zip(*test[0]))
     X_test = [[sample.split() for sample in part] for part in X_test]
     test_generator = DataGenerator(
-        X_valid, y_valid, shuffle=False, **params)
-    # generate predictiions    
+        # test generator does not need labels, so
+        X_test, y_valid, shuffle=False, **params)
+    # generate predictiions
     preds = model.predict(test_generator)
     preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
     preds = [

@@ -1,5 +1,6 @@
 from ufal.udpipe import Model, Pipeline
-from dataset_utils.utils import save_output, TEXT_FIELDS
+from dataset_utils.utils import save_output
+from dataset_utils.global_vars import TEXT_FIELDS
 from tqdm import tqdm
 import os
 import sys
