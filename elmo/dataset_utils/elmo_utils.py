@@ -26,6 +26,7 @@ def extract_embeddings(elmo_model, elmo_graph, data: list):
         embeddings shaped (n_samples, max_length, elmo_model.vector_size)
     """
     with elmo_graph.as_default():
-        X = elmo_model.get_elmo_vectors(data)
+        # embeddings will be extracted by batches
+        X = elmo_model.get_elmo_vectors(data, warmup=False)
 
     return X
