@@ -53,7 +53,7 @@ Default is 15. Keras epochs
 
 > --hidden_size 16
 
-Default is 16. Keras hidden_size.
+Default is 128. Keras hidden_size.
 
 > --batch_size 32
 
