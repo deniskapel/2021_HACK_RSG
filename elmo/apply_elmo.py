@@ -114,9 +114,11 @@ def main(
     # Preprocess the test split
     X_test = list(zip(*test[0]))
     X_test = [[sample.split() for sample in part] for part in X_test]
+    # test[1] stores None values, replace with default value 
+    y_test = [classes.index(0) for i in test[1]]
     test_generator = DataGenerator(
         # test generator does not need labels, so
-        X_test, y_valid, shuffle=False, **params)
+        X_test, y_test, shuffle=False, **params)
     # generate predictiions
     preds = model.predict(test_generator)
     preds = [classes[int(np.argmax(pred))] for pred in np.around(preds)]
