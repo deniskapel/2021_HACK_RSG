@@ -1,4 +1,5 @@
 import json
+import math
 
 import tensorflow as tf
 from tensorflow.keras.utils import Sequence
@@ -58,7 +59,8 @@ class DataGenerator(Sequence):
             so that the model sees the training samples at most once per epoch.
         """
         # features consist of several parts so calc size using labels
-        return int(np.floor(len(self.y) / self.batch_size))
+        return math.ceil(len(self.y) / self.batch_size)
+
 
     def __getitem__(self, idx):
         """Generate one batch of data"""
