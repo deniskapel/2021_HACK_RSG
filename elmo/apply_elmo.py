@@ -117,7 +117,6 @@ def main(
     # test[1] stores None values, replace with default value 
     y_test = [classes.index(0) for i in test[1]]
     test_generator = DataGenerator(
-        # test generator does not need labels, so
         X_test, y_test, shuffle=False, **params)
     # generate predictiions
     preds = model.predict(test_generator)
