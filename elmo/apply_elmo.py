@@ -115,7 +115,7 @@ def main(
     X_test = list(zip(*test[0]))
     X_test = [[sample.split() for sample in part] for part in X_test]
     # test[1] stores None values, replace with default value 
-    y_test = [classes.index(0) for i in test[1]]
+    y_test = [0 for i in test[1]]
     test_generator = DataGenerator(
         X_test, y_test, shuffle=False, **params)
     # generate predictiions
