@@ -88,11 +88,15 @@ class DataGenerator(Sequence):
 
     def __get_embeddings(self, batch_x: list) -> np.ndarray:
         """ extract embeddings for each part and stack them int"""
+        # last batch can be smaller than global batch_size
+        # get current batch size using one of the sample parts
+        current_bs = len(batch_x[0])
         embeddings = np.zeros(
-            (self.batch_size, self.dim2, self.elmo_model.vector_size),
+            (current_bs, self.dim2, self.elmo_model.vector_size),
             dtype=DTYPE)
         # lower boundary for indexing the output array
         lower_id = 0
+
         for d, l in zip(batch_x, self.max_lengths):
             # extract embeddings
             e = extract_embeddings(self.elmo_model, self.elmo_graph, d)
