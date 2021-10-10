@@ -117,6 +117,13 @@ def get_row_pred(
         raw_row["passage"]["text"][x["start"]: x["end"]]
         for x in raw_row["passage"]["entities"]]
 
+    # create dummy array to store embeddings
+    embeddings = np.zeros(
+        (len(words), sum(max_lengths), elmo_model.vector_size), dtype=DTYPE)
+
+    # store text in every sample
+    embeddings[:, 0:max_lengths[0], :] = text
+
     for line in row["qas"]:
         queries = []
         for word in words:
@@ -125,12 +132,10 @@ def get_row_pred(
         queries = extract_embeddings(elmo_model, elmo_graph, queries)
         queries = pad_sequences(queries, maxlen=max_lengths[1], **PAD_PARAMS)
 
-        sample = []        
-        
-        for i in range(queries.shape[0]):
-            sample.append(np.hstack((text, np.array([queries[i]]))))
-        
-        preds = keras_model.predict(np.vstack(sample))
+        # store queries right after texts, ~ hstack
+        embeddings[:, max_lengths[0]:, :] = queries
+
+        preds = keras_model.predict(embeddings)
         # choose a prediction with a largest prob of being true
         pred_idx = preds[:, 1].argsort()[-1]
         # transform an id to an actual prediction        

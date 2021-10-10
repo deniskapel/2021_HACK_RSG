@@ -39,6 +39,7 @@ class DataGenerator(Sequence):
         self.n_classes = n_classes
         self.shuffle = shuffle
         self.on_epoch_end()
+        self.dim2 = sum(max_lengths)
 
     def on_epoch_end(self):
         """
@@ -87,11 +88,21 @@ class DataGenerator(Sequence):
 
     def __get_embeddings(self, batch_x: list) -> np.ndarray:
         """ extract embeddings for each part and stack them int"""
-        embeddings = []
+        embeddings = np.zeros(
+            (self.batch_size, self.dim2, self.elmo_model.vector_size),
+            dtype=DTYPE)
+        # lower boundary for indexing the output array
+        lower_id = 0
         for d, l in zip(batch_x, self.max_lengths):
             # extract embeddings
             e = extract_embeddings(self.elmo_model, self.elmo_graph, d)
             # pad embeddings based on a max_lengths in a train set
-            embeddings.append(pad_sequences(e, maxlen=l, **PAD_PARAMS))
+            e = pad_sequences(e, maxlen=l, **PAD_PARAMS)
+            # get the upper boundary for slicing 
+            upper_id = lower_id+l
+            # store in the output array
+            embeddings[:, lower_id:upper_id, :] = e
+            # reassign lower boundary
+            lower_id = upper_id
         # merge sample parts into a complete samples and return them
-        return np.hstack(embeddings)
+        return embeddings

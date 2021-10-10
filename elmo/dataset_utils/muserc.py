@@ -5,7 +5,7 @@ import json
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-from dataset_utils.global_vars import DTYPE
+from dataset_utils.global_vars import DTYPE, PAD_PARAMS
 from dataset_utils.elmo_utils import extract_embeddings
 
 
@@ -106,39 +106,50 @@ def get_row_pred_MuSeRC(
         returns properly shaped predictions and true lables per row.
         The third output is a dict to upload predictions to the leaderboard.
     """
+    dim2 = sum(max_lengths)
     # put text entries into a list to extract embeddings properly
     text = [row["passage"]["text"].split()]
     text = extract_embeddings(elmo_model, elmo_graph, text)
-    text = pad_sequences(
-        text, maxlen=max_lengths[0], dtype=DTYPE, padding='post')
+    text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
 
     res = []
     labels = []
     res_ids = {"idx": row["idx"], "passage": {"questions": []}}
+
     for line in row["passage"]["questions"]:
+        # store all the answers per question
         res_line = {"idx": line["idx"], "answers": []}
         line_answers = []
         line_labels = []
-        
+
         question = [line["question"].split()]
         question = extract_embeddings(elmo_model, elmo_graph, question)
-        question = pad_sequences(
-            question, maxlen=max_lengths[1], dtype=DTYPE, padding='post')
+        question = pad_sequences(question, maxlen=max_lengths[1], **PAD_PARAMS)
         
         for answ in line["answers"]:
+            line_answers.append(answ['text'].split())
             line_labels.append(answ.get("label", 0))
 
-            answ = [answ['text'].split()]
-            answ = extract_embeddings(elmo_model, elmo_graph, answ)
-            answ = pad_sequences(
-                answ, maxlen=max_lengths[2], dtype=DTYPE, padding='post')
-            
-            sample = np.hstack((text, question, answ))
-            line_answers.append(sample)
+        # extract embeddings from all the answers
+        line_answers = extract_embeddings(
+            elmo_model, elmo_graph, line_answers)
+        line_answers = pad_sequences(
+            line_answers, maxlen=max_lengths[2], **PAD_PARAMS)
 
+        # create dummy array to store embeddings
+        emb = np.zeros(
+            (line_answers.shape[0], dim2, elmo_model.vector_size),
+            dtype=DTYPE)
+
+        # store a text in every sample
+        emb[:, :max_lengths[0], :] = text
+        # store a question in every sample
+        emb[:, max_lengths[0]:max_lengths[0]+max_lengths[1], :] = question
+        # store all the answers right after the text and question
+        emb[:, max_lengths[0]+max_lengths[1]:, :] = line_answers
         # some rows may include > 32 samples, 
         # so model.predict(x) and not model(x) is used
-        preds = keras_model.predict(np.vstack(line_answers))
+        preds = keras_model.predict(emb)
         preds = [int(np.argmax(pred)) for pred in preds]
         res.append(preds)
         labels.append(line_labels)
