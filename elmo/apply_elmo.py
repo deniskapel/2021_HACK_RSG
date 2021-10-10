@@ -74,7 +74,10 @@ def main(
         X_train, y_train, shuffle=shuffle, **params)
     validation_generator = DataGenerator(
         X_valid, y_valid, shuffle=False, **params)
-    
+
+    # Warm up elmo as it works better when first applied to dummy data  
+    training_generator[0]
+
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
     model = keras_model(n_features=elmo_model.vector_size,
