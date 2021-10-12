@@ -8,14 +8,16 @@ from tensorflow.keras.layers import (
     Bidirectional,
     GlobalMaxPool1D,
     Dense,
-    LSTM)
+    LSTM,
+    Lambda,
+    Concatenate)
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 from dataset_utils.global_vars import TIMESTAMP
 
 
-def keras_model(n_features=1024, MAXLEN=100, hidden_size=16,
-                num_classes=2, pooling=False, activation='softmax'):
+def keras_model(n_features=1024, MAXLEN=100, hidden_size=256,
+            num_classes=2, pooling=False, activation='softmax'):
     """
         create a model to solve RSG tasks.
         params:
@@ -69,3 +71,43 @@ def wrap_checkpoint(model_name: str):
         save_best_only=True,
         mode='max', save_freq='epoch'
     )
+
+
+def keras_model_test(n_features=1024, max_lengths:list=[50,30], hidden_size=256,
+                num_classes=2, pooling=False, activation='softmax'):
+    """ test splitting input into several parts """
+    if num_classes == 2:
+        loss: str = 'binary_crossentropy'
+    else:
+        loss: str = 'categorical_crossentropy'
+
+    MAXLEN = sum(max_lengths)
+
+    embeddings = Input(shape=(MAXLEN, n_features), name="Elmo_embeddings")
+
+    inner_idx = 0
+    all_parts = []
+    
+    for i in range(len(max_lengths)):
+        outer_idx = inner_idx+max_lengths[i]
+        part = Lambda(lambda x: x[:,inner_idx:outer_idx,:])(embeddings)
+        inner_idx = outer_idx
+
+        test_lstm = Bidirectional(
+            LSTM(hidden_size, return_sequences=pooling))(part)
+
+        if pooling:
+            test_lstm = GlobalMaxPool1D()(test_lstm)
+
+        all_parts.append(test_lstm)
+
+    all_parts = tf.concat(all_parts, axis=1)
+
+    outputs = Dense(num_classes, activation=activation, name="Output")(all_parts)
+
+    model = tf.keras.Model(inputs=embeddings, outputs=outputs)
+
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+    model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
+
+    return model
