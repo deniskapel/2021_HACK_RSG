@@ -100,6 +100,8 @@ def main(
             wrap_checkpoint(f'{TASK_NAME}_{TIMESTAMP}'),
             early_stopping])
 
+    # The model weights (that are considered the best) are loaded into the model.
+    model.load_weights(f'checkpoints/{TASK_NAME}_{TIMESTAMP}/checkpoint')
 
     """ PREDICTING """
     logger.info("====================")
@@ -173,13 +175,13 @@ if __name__ == '__main__':
         "--hidden_size",
         help="size of hidden layers",
         type=int,
-        default=128,
+        default=256,
     )
     arg(
         "--batch_size",
         help="batch size for elmo and keras",
         type=int,
-        default=32,
+        default=64,
     )
 
     args = parser.parse_args()

@@ -147,6 +147,7 @@ def get_row_pred_MuSeRC(
         emb[:, max_lengths[0]:max_lengths[0]+max_lengths[1], :] = question
         # store all the answers right after the text and question
         emb[:, max_lengths[0]+max_lengths[1]:, :] = line_answers
+
         # some rows may include > 32 samples, 
         # so model.predict(x) and not model(x) is used
         preds = keras_model.predict(emb)
