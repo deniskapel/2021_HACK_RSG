@@ -3,11 +3,8 @@ import logging
 import sys
 import re
 import random as python_random
-
 import numpy as np
 from tensorflow.random import set_seed
-from sklearn.metrics import classification_report
-
 from dataset_utils.features import build_features
 from dataset_utils.utils import save_output, DataGenerator
 from dataset_utils.elmo_utils import load_elmo
@@ -20,47 +17,52 @@ from dataset_utils.rucos import (
     tokenize_rucos,
     align_passage_queries,
     evaluate,
-    get_RuCoS_predictions)
+    get_rucos_predictions)
 
 
 def main(
-    path_to_task: str, task_name_first_char: int, path_to_elmo: str, 
-    pooling: bool, shuffle: bool, activation: str,
-    epochs: int, hidden_size: int, batch_size: int):
+        path_to_task: str, task_name_first_char: int, path_to_elmo: str,
+        pooling: bool, shuffle: bool, activation: str,
+        epochs: int, hidden_size: int, batch_size: int):
+    task_name = path_to_task[task_name_first_char:-1]
 
-    TASK_NAME = path_to_task[task_name_first_char:-1]
-    INPUT_FOLDER = path_to_task[:task_name_first_char]
+    # Why do we need this variable at all?
+    input_folder = path_to_task[:task_name_first_char]
 
-    if TASK_NAME != 'RuCoS':
+    if task_name != 'RuCoS':
         sys.stderr.write(
             'Check README to see which file to run for this task\n')
         sys.exit(1)
 
-    PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
+    path_to_output = 'submissions/%s.jsonl' % task_name
+
+    # tf.debugging.set_log_device_placement(True)
 
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, batch_size)
 
-    train, _ = build_features('%strain.jsonl' % (path_to_task))
-    val, _ = build_features('%sval.jsonl' % (path_to_task))
+    # if method == "simple", the model will be loaded in the regular way
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
+    elmo_layers = "top"
+
+    train, _ = build_features('%strain.jsonl' % path_to_task)
+    val, _ = build_features('%sval.jsonl' % path_to_task)
 
     # extract samples from sample+label bundles
-    X_train = list(zip(*train[0]))
-    X_valid = list(zip(*val[0]))
+    x_train = list(zip(*train[0]))
+    x_valid = list(zip(*val[0]))
 
-
+    maxlen = 200
 
     # tokenize each sample in a set
-    X_train = tokenize_rucos(X_train)
-    X_train = align_passage_queries(X_train)
-    X_valid = tokenize_rucos(X_valid)
-    X_valid = align_passage_queries(X_valid)
+    x_train = tokenize_rucos(x_train, cut=maxlen)
+    x_train = align_passage_queries(x_train)
+    x_valid = tokenize_rucos(x_valid, cut=maxlen)
+    x_valid = align_passage_queries(x_valid)
 
-
-    # get max_length for each sample part, 
-    # e.g. 135 for passages and 32 for queries 
-    max_lengths = [np.max([len(sample) for sample in part]) for part in X_train]
+    # get max_length for each sample part,
+    # e.g. 135 for passages and 32 for queries
+    max_lengths = [np.max([len(sample) for sample in part]) for part in x_train]
 
     # reshape labels
     y_train = [sample for subset in train[1] for sample in subset]
@@ -70,8 +72,7 @@ def main(
     y_valid = [sample for subset in val[1] for sample in subset]
     y_valid = [classes.index(i) for i in y_valid]
 
-
-    # parameters for a DataGenerator instance 
+    # parameters for a DataGenerator instance
     params = {
         'max_lengths': max_lengths,
         'batch_size': batch_size,
@@ -80,12 +81,12 @@ def main(
         "elmo_graph": elmo_graph}
 
     training_generator = DataGenerator(
-        X_train, y_train, shuffle=shuffle, **params)
+        x_train, y_train, shuffle=shuffle, layers=elmo_layers, **params)
     validation_generator = DataGenerator(
-        X_valid, y_valid, shuffle=False, **params)
+        x_valid, y_valid, shuffle=False, layers=elmo_layers, **params)
 
-    # Warm up elmo as it works better when first applied to dummy data  
-    training_generator[0]
+    # Warm up elmo as it works better when first applied to dummy data
+    _ = training_generator[0]
 
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
@@ -104,42 +105,43 @@ def main(
         training_generator,
         epochs=epochs,
         validation_data=validation_generator,
+        verbose="auto",
         batch_size=batch_size,
         callbacks=[
-            wrap_checkpoint(f'{TASK_NAME}_{TIMESTAMP}'),
+            wrap_checkpoint(f'{task_name}_{TIMESTAMP}'),
             early_stopping])
 
+    exit()
     # The model weights (that are considered the best) are loaded into the model.
-    model.load_weights(f'checkpoints/{TASK_NAME}_{TIMESTAMP}/checkpoint')
+    model.load_weights(f'checkpoints/{task_name}_{TIMESTAMP}/checkpoint')
 
     """ PREDICTING """
     logger.info("====================")
     logger.info("Start predicting.")
     """ Get validation score """
     # Prediction is done for each passage_query set separately
-    dataset, preds = get_RuCoS_predictions(
-        '%sval.jsonl' % (path_to_task),
+    dataset, preds = get_rucos_predictions(
+        '%sval.jsonl' % path_to_task,
         elmo_model, elmo_graph, model, max_lengths)
     logger.info(f" EM, F1a scores on validation are {evaluate(dataset, preds)}")
 
     """ APPLY TO A TEST SET """
-    _, test_preds = get_RuCoS_predictions(
-        '%stest.jsonl' % (path_to_task),
+    _, test_preds = get_rucos_predictions(
+        '%stest.jsonl' % path_to_task,
         elmo_model, elmo_graph, model, max_lengths)
 
-    logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
-    save_output(test_preds, PATH_TO_OUTPUT)
+    logger.info(f"Saving predictions to {path_to_output}")
+    save_output(test_preds, path_to_output)
     logger.info("====================")
     logger.info("Finished successfully.")
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg(
-        "--task", "-t", 
-        help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/", 
+        "--task", "-t",
+        help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/",
         required=True)
     arg("--elmo", "-e", help="Path to a folder with ELMo model", required=True)
     arg(
@@ -193,10 +195,11 @@ if __name__ == '__main__':
     TASK_NAME_FIRST_CHAR = re.search('[A-Z]+.*', PATH_TO_DATASET).span()[0]
 
     log_format = f"%(asctime)s : %(levelname)s : %(message)s"
-    logging.basicConfig(format=log_format,
-                        filename="logs/%s_%s.log" % (
-                            PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], TIMESTAMP),
-                        filemode="w", level=logging.INFO)
+    # logging.basicConfig(format=log_format,
+    #                     filename="logs/%s_%s.log" % (
+    #                         PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], TIMESTAMP),
+    #                     filemode="w", level=logging.INFO)
+    logging.basicConfig(format=log_format, level=logging.INFO)
     logger = logging.getLogger(__name__)
 
     # For reproducibility:

@@ -3,7 +3,6 @@ import string
 import re
 import codecs
 import json
-
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
@@ -13,6 +12,7 @@ from dataset_utils.elmo_utils import extract_embeddings
 
 def normalize_answer(s):
     """Lower text and remove punctuation, articles and extra whitespace."""
+
     def white_space_fix(text):
         return ' '.join(text.split())
 
@@ -60,7 +60,8 @@ def evaluate(dataset: list, predictions):
             total += 1
             ground_truths = list(map(lambda x: x['text'], qa.get("answers", "")))
 
-            _exact_match = metric_max_over_ground_truths(exact_match_score, prediction, ground_truths)
+            _exact_match = metric_max_over_ground_truths(exact_match_score, prediction,
+                                                         ground_truths)
             if int(_exact_match) == 1:
                 correct_ids.append(qa['idx'])
             exact_match += _exact_match
@@ -72,12 +73,12 @@ def evaluate(dataset: list, predictions):
     return exact_match, f1
 
 
-def get_RuCoS_predictions(
-    path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
+def get_rucos_predictions(
+        path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
     path_to_raw_file = f'data/combined/RuCoS/{filename}'
-    
+
     with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
         """
             Entities are encoded with indices. 
@@ -90,9 +91,9 @@ def get_RuCoS_predictions(
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")
         lines = list(map(json.loads, filter(None, lines)))
-    
+
     preds = []
-    
+
     for row, raw_row in zip(lines, raw_lines):
         pred = get_row_pred(
             row, raw_row, elmo_model, elmo_graph, keras_model, max_lengths)
@@ -104,10 +105,9 @@ def get_RuCoS_predictions(
 
 
 def get_row_pred(
-    row:dict, raw_row:dict, 
-    elmo_model, elmo_graph, 
-    keras_model, max_lengths: list):
-
+        row: dict, raw_row: dict,
+        elmo_model, elmo_graph,
+        keras_model, max_lengths: list):
     text = [row["passage"]["text"].replace("@highlight", " ").split()]
     text = extract_embeddings(elmo_model, elmo_graph, text)
     text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
@@ -128,7 +128,7 @@ def get_row_pred(
         queries = []
         for word in words:
             queries.append(line["query"].replace("@placeholder", word).split())
-        
+
         queries = extract_embeddings(elmo_model, elmo_graph, queries)
         queries = pad_sequences(queries, maxlen=max_lengths[1], **PAD_PARAMS)
 
@@ -145,10 +145,10 @@ def get_row_pred(
     return " ".join(res)
 
 
-def tokenize_rucos(dataset: list) -> list:
-    passages = [sample.split() for sample in dataset[0]]
+def tokenize_rucos(dataset: list, cut=None) -> list:
+    passages = [sample.split()[:cut] for sample in dataset[0]]
     queries = [[q.split() for q in qs] for qs in dataset[1]]
-            
+
     return passages, queries
 
 
@@ -167,5 +167,5 @@ def align_passage_queries(data: tuple) -> list:
             # aling passage and query
             output[0].append(passage)
             output[1].append(query)
-            
+
     return output
