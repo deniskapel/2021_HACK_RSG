@@ -7,7 +7,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from dataset_utils.global_vars import DTYPE, PAD_PARAMS
-from dataset_utils.elmo_utils import extract_embeddings
+# from dataset_utils.elmo_utils import extract_embeddings
 
 
 def normalize_answer(s):
