@@ -44,7 +44,9 @@ def main(
 
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, batch_size)
+    # if method == "simple", the model will be loaded in the regular way
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
+    elmo_layers = "top"
 
     # extract samples from sample+label bundles
     X_train = list(zip(*train[0]))
@@ -62,13 +64,14 @@ def main(
     num_classes = len(classes)
     y_valid = [classes.index(i) for i in val[1]]
 
-    # parameters for a DataGenerator instance 
+    # parameters for a DataGenerator instance
     params = {
         'max_lengths': max_lengths,
         'batch_size': batch_size,
         'n_classes': num_classes,
         'elmo_model': elmo_model,
-        "elmo_graph": elmo_graph}
+        "elmo_graph": elmo_graph,
+        "layers": elmo_layers}
 
     training_generator = DataGenerator(
         X_train, y_train, shuffle=shuffle, **params)
@@ -76,7 +79,7 @@ def main(
         X_valid, y_valid, shuffle=False, **params)
 
     # Warm up elmo as it works better when first applied to dummy data  
-    training_generator[0]
+    _ = training_generator[0]
 
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
