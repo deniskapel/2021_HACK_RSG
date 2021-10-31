@@ -6,7 +6,6 @@ import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from dataset_utils.global_vars import DTYPE, PAD_PARAMS
-from dataset_utils.elmo_utils import extract_embeddings
 
 
 class MuSeRCMetrics:
@@ -101,7 +100,8 @@ Measures = MuSeRCMetrics
 
 
 def get_row_pred_MuSeRC(
-    row: dict, elmo_model, elmo_graph, keras_model, max_lengths: list):
+    row: dict, elmo_model, elmo_layers, elmo_session,
+    keras_model, max_lengths: list):
     """
         returns properly shaped predictions and true lables per row.
         The third output is a dict to upload predictions to the leaderboard.
@@ -109,7 +109,8 @@ def get_row_pred_MuSeRC(
     dim2 = sum(max_lengths)
     # put text entries into a list to extract embeddings properly
     text = [row["passage"]["text"].split()]
-    text = extract_embeddings(elmo_model, elmo_graph, text)
+    text = elmo_model.get_elmo_vectors(
+        text, warmup=False, layers=elmo_layers, session=elmo_session)
     text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
 
     res = []
@@ -123,7 +124,8 @@ def get_row_pred_MuSeRC(
         line_labels = []
 
         question = [line["question"].split()]
-        question = extract_embeddings(elmo_model, elmo_graph, question)
+        question = elmo_model.get_elmo_vectors(
+            question, warmup=False, layers=elmo_layers, session=elmo_session)
         question = pad_sequences(question, maxlen=max_lengths[1], **PAD_PARAMS)
         
         for answ in line["answers"]:
@@ -131,8 +133,9 @@ def get_row_pred_MuSeRC(
             line_labels.append(answ.get("label", 0))
 
         # extract embeddings from all the answers
-        line_answers = extract_embeddings(
-            elmo_model, elmo_graph, line_answers)
+        line_answers = elmo_model.get_elmo_vectors(
+            line_answers, warmup=False, 
+            layers=elmo_layers, session=elmo_session)
         line_answers = pad_sequences(
             line_answers, maxlen=max_lengths[2], **PAD_PARAMS)
 
@@ -162,7 +165,8 @@ def get_row_pred_MuSeRC(
 
 
 def get_MuSeRC_predictions(
-    path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
+    path: str, elmo_model, elmo_layers, 
+    elmo_session, keras_model, max_lengths: list):
     """ a function to get predictions in a MuSeRC order """
     with codecs.open(path, encoding='utf-8-sig') as reader:
         lines = reader.read().split("\n")
@@ -174,7 +178,8 @@ def get_MuSeRC_predictions(
 
     for row in lines:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
-            row, elmo_model, elmo_graph, keras_model, max_lengths)
+            row, elmo_model, elmo_layers, elmo_session, 
+            keras_model, max_lengths)
         preds.extend(pred)
         labels.extend(lbls)
         res.append(res_ids)

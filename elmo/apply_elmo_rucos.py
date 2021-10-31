@@ -40,7 +40,6 @@ def main(
 
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
-
     # if method == "simple", the model will be loaded in the regular way
     elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
     elmo_layers = "top"
@@ -197,10 +196,10 @@ if __name__ == '__main__':
     TASK_NAME_FIRST_CHAR = re.search('[A-Z]+.*', PATH_TO_DATASET).span()[0]
 
     log_format = f"%(asctime)s : %(levelname)s : %(message)s"
-    # logging.basicConfig(format=log_format,
-    #                     filename="logs/%s_%s.log" % (
-    #                         PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], TIMESTAMP),
-    #                     filemode="w", level=logging.INFO)
+    logging.basicConfig(format=log_format,
+                        filename="logs/%s_%s.log" % (
+                            PATH_TO_DATASET[TASK_NAME_FIRST_CHAR:-1], TIMESTAMP),
+                        filemode="w", level=logging.INFO)
     logging.basicConfig(format=log_format, level=logging.INFO)
     logger = logging.getLogger(__name__)
 

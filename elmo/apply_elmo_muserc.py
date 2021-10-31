@@ -41,7 +41,9 @@ def main(
 
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, batch_size)
+    # if method == "simple", the model will be loaded in the regular way
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
+    elmo_layers = "top"
 
     train, _ = build_features('%strain.jsonl' % (path_to_task))
     val, _ = build_features('%sval.jsonl' % (path_to_task))
@@ -66,13 +68,14 @@ def main(
     y_valid = [sample for subset in val[1] for sample in subset]
     y_valid = [classes.index(i) for i in y_valid]
 
-    # parameters for a DataGenerator instance 
+    # parameters for a DataGenerator instance
     params = {
         'max_lengths': max_lengths,
         'batch_size': batch_size,
         'n_classes': num_classes,
         'elmo_model': elmo_model,
-        "elmo_graph": elmo_graph}
+        "elmo_graph": elmo_graph,
+        "layers": elmo_layers}
 
     training_generator = DataGenerator(
         X_train, y_train, shuffle=shuffle, **params)
@@ -80,7 +83,7 @@ def main(
         X_valid, y_valid, shuffle=False, **params)
     
     # Warm up elmo as it works better when first applied to dummy data  
-    training_generator[0]
+    _ = training_generator[0]
 
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
@@ -113,15 +116,19 @@ def main(
 
     """ Get validation score """
     # Prediction is done for each passage_questions_answers set separately
+    infer_params = {
+        'elmo_model': elmo_model, 'elmo_layers': elmo_layers,
+        'elmo_session': training_generator.tf_session,  
+        'keras_model': model, 'max_lengths': max_lengths}
+    
     preds, y_true, _ = get_MuSeRC_predictions(
-        '%sval.jsonl' % (path_to_task),
-        elmo_model, elmo_graph, model, max_lengths)
+        '%sval.jsonl' % (path_to_task), **infer_params)
+
     logger.info(f" em0, F1a scores on validation are {MuSeRC_metrics(preds, y_true)}")
 
     """ APPLY TO A TEST SET """
     _, _, test_preds = get_MuSeRC_predictions(
-        '%stest.jsonl' % (path_to_task),
-        elmo_model, elmo_graph, model, max_lengths)
+        '%stest.jsonl' % (path_to_task), **infer_params)
 
     logger.info(f"Saving predictions to {PATH_TO_OUTPUT}")
     save_output(test_preds, PATH_TO_OUTPUT)
