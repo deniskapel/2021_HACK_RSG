@@ -7,7 +7,6 @@ import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from dataset_utils.global_vars import DTYPE, PAD_PARAMS
-# from dataset_utils.elmo_utils import extract_embeddings
 
 
 def normalize_answer(s):
@@ -74,7 +73,8 @@ def evaluate(dataset: list, predictions):
 
 
 def get_rucos_predictions(
-        path: str, elmo_model, elmo_graph, keras_model, max_lengths: list):
+        path: str, elmo_model, elmo_layers, elmo_session,
+        keras_model, max_lengths: list):
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
     path_to_raw_file = f'data/combined/RuCoS/{filename}'
@@ -96,7 +96,8 @@ def get_rucos_predictions(
 
     for row, raw_row in zip(lines, raw_lines):
         pred = get_row_pred(
-            row, raw_row, elmo_model, elmo_graph, keras_model, max_lengths)
+            row, raw_row, elmo_model, elmo_layers, 
+            elmo_session, keras_model, max_lengths)
         preds.append({
             "idx": row["idx"],
             "label": pred
@@ -106,12 +107,12 @@ def get_rucos_predictions(
 
 def get_row_pred(
         row: dict, raw_row: dict,
-        elmo_model, elmo_graph,
+        elmo_model, elmo_layers, elmo_session,
         keras_model, max_lengths: list):
     text = [row["passage"]["text"].replace("@highlight", " ").split()]
-    text = extract_embeddings(elmo_model, elmo_graph, text)
+    text = elmo_model.get_elmo_vectors(
+        text, warmup=False, layers=elmo_layers, session=elmo_session)
     text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
-
     res = []
     words = [
         raw_row["passage"]["text"][x["start"]: x["end"]]
@@ -129,7 +130,8 @@ def get_row_pred(
         for word in words:
             queries.append(line["query"].replace("@placeholder", word).split())
 
-        queries = extract_embeddings(elmo_model, elmo_graph, queries)
+        queries = elmo_model.get_elmo_vectors(
+            queries, warmup=False, layers=elmo_layers, session=elmo_session)
         queries = pad_sequences(queries, maxlen=max_lengths[1], **PAD_PARAMS)
 
         # store queries right after texts, ~ hstack
@@ -154,11 +156,11 @@ def tokenize_rucos(dataset: list, cut=None) -> list:
 
 def align_passage_queries(data: tuple) -> list:
     """ 
-        reshapes features for training creating copies
-        of text part
+    reshapes features for training creating copies
+    of text part
 
-        ([p1,p2],[[q1,q2],[q3,q4]]) ->
-        [[p1, p1, p2, p2], [q1, q2, q3, q4]]
+    ([p1,p2],[[q1,q2],[q3,q4]]) ->
+    [[p1, p1, p2, p2], [q1, q2, q3, q4]]
     """
     output = [[], []]
 

@@ -52,12 +52,10 @@ def main(
     x_train = list(zip(*train[0]))
     x_valid = list(zip(*val[0]))
 
-    maxlen = 200
-
     # tokenize each sample in a set
-    x_train = tokenize_rucos(x_train, cut=maxlen)
+    x_train = tokenize_rucos(x_train)
     x_train = align_passage_queries(x_train)
-    x_valid = tokenize_rucos(x_valid, cut=maxlen)
+    x_valid = tokenize_rucos(x_valid)
     x_valid = align_passage_queries(x_valid)
 
     # get max_length for each sample part,
@@ -78,12 +76,13 @@ def main(
         'batch_size': batch_size,
         'n_classes': num_classes,
         'elmo_model': elmo_model,
-        "elmo_graph": elmo_graph}
+        "elmo_graph": elmo_graph,
+        "layers": elmo_layers}
 
     training_generator = DataGenerator(
-        x_train, y_train, shuffle=shuffle, layers=elmo_layers, **params)
+        x_train, y_train, shuffle=shuffle, **params)
     validation_generator = DataGenerator(
-        x_valid, y_valid, shuffle=False, layers=elmo_layers, **params)
+        x_valid, y_valid, shuffle=False, **params)
 
     # Warm up elmo as it works better when first applied to dummy data
     _ = training_generator[0]
@@ -111,7 +110,6 @@ def main(
             wrap_checkpoint(f'{task_name}_{TIMESTAMP}'),
             early_stopping])
 
-    exit()
     # The model weights (that are considered the best) are loaded into the model.
     model.load_weights(f'checkpoints/{task_name}_{TIMESTAMP}/checkpoint')
 
@@ -119,16 +117,20 @@ def main(
     logger.info("====================")
     logger.info("Start predicting.")
     """ Get validation score """
+
     # Prediction is done for each passage_query set separately
+    infer_params = {
+        'elmo_model': elmo_model, 'elmo_layers': elmo_layers,
+        'elmo_session': training_generator.tf_session,  
+        'keras_model': model, 'max_lengths': max_lengths}
+
     dataset, preds = get_rucos_predictions(
-        '%sval.jsonl' % path_to_task,
-        elmo_model, elmo_graph, model, max_lengths)
+        '%sval.jsonl' % path_to_task, **infer_params)
     logger.info(f" EM, F1a scores on validation are {evaluate(dataset, preds)}")
 
     """ APPLY TO A TEST SET """
     _, test_preds = get_rucos_predictions(
-        '%stest.jsonl' % path_to_task,
-        elmo_model, elmo_graph, model, max_lengths)
+        '%stest.jsonl' % path_to_task, **infer_params)
 
     logger.info(f"Saving predictions to {path_to_output}")
     save_output(test_preds, path_to_output)
