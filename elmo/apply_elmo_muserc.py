@@ -88,7 +88,7 @@ def main(
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
     model = keras_model(n_features=elmo_model.vector_size,
-                        MAXLEN=sum(max_lengths),
+                        size_splits=max_lengths,
                         hidden_size=hidden_size,
                         num_classes=num_classes,
                         pooling=pooling,
