@@ -60,12 +60,12 @@ def main(
     # e.g. 37 for passages and 15 for questions and 3 for answers 
     max_lengths = [np.max([len(sample) for sample in part]) for part in X_train]
 
-    # get labels
-    y_train = [sample for subset in train[1] for sample in subset]
+    # get labels, p=passage, q=question, a=answer
+    y_train = [a for p in train[1] for q in p for a in q]
     classes = sorted(list(set(y_train)))
     y_train = [classes.index(i) for i in y_train]
     num_classes = len(classes)
-    y_valid = [sample for subset in val[1] for sample in subset]
+    y_valid = [a for p in val[1] for q in p for a in q]
     y_valid = [classes.index(i) for i in y_valid]
 
     # parameters for a DataGenerator instance

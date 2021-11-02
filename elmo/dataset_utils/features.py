@@ -138,14 +138,19 @@ def build_feature_RuCoS(row, raw_row):
 
 def build_feature_MuSeRC(row):
     text = row["passage"]["text"]
-    qa = {}
     labels = []
+    questions = []
+    answers = []
     
     for line in row["passage"]["questions"]:
-        qa[line['question']] = []
-
+        questions.append(line['question'])
+        line_answers = []
+        line_labels = []
         for answ in line["answers"]:
-            labels.append(answ.get("label", 0))
-            qa[line['question']].append(answ['text'])
+            line_labels.append(answ.get("label", 0))
+            line_answers.append(answ['text'])
 
-    return (text, qa), labels
+        answers.append(line_answers)
+        labels.append(line_labels)
+
+    return (text, questions, answers), labels

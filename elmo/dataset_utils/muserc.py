@@ -190,29 +190,35 @@ def get_MuSeRC_predictions(
 
 def tokenize_muserc(dataset: list) -> list:
     """
-        shapes multiple choice datasets to avoid 
-        extracting embeddings from same elements several times
+        tokenizes each part of the dataset
+        dataset[0] - 1D list of passages
+        dataset[1] - 2D list of questions
+        dataset[2] - 3D list of answers 
     """
     passages = [sample.split() for sample in dataset[0]]
-    questions = [[q.split() for q in qa.keys()] for qa in dataset[1]]
+    questions = [[q.split() for q in qs] for qs in dataset[1]]
     answers = [
-        [[ans.split() for ans in a] for a in qa.values()] for qa in dataset[1]]
-            
+        [[a.split() for a in anss] for anss in answs] for answs in dataset[2]]
+
     return passages, questions, answers
 
 
 def align_passage_question_answer(data: list) -> list:
     """
         reshapes features for training:
-        (
-            [p1,p2,p3], [[q1,q2], [q1, q2]],
-            [[[a1,a2], [a1]], [[a1,a2], [a1,a2,a3]]]]
-        )  ->     
-        [[p1, q1, a1], [p1, q1, a2], [p1, q2, a1], [p2, q1, a1],
-        [p2, q1, a2], [p2, q2, a1], [p2, q2, a2], [p2, q2, a3]]
+        [p1,p2], [[p1_q1, p1_q2], [p2_q1]], 
+        [[[p1_q1_a1, p1_q1_a2], [p1_q2_a1, p1_q2_a2]], [[p2_q1_a1, p2_q1_a2]]]
+
+        -> 
+        [p1,p1,p1,p1,p2,p2], [p1_q1, p1_q1, p1_q2, p1_q2, p2_q1, p2_q1],
+        [p1_q1_a1, p1_q1_a2, p1_q2_a1, p1_q2_a2, p2_q1_a1, p2_q1_a2]
+
+        passages and questions are multiplied by the number of answers
+        This ensure triplets (passage, question, answer)
     """
     output = [[],[],[]]
-
+    var1 = 0
+    var2 = 0
     # align passage with all its questions and answers
     for passage, questions, answers_p in zip(data[0], data[1], data[2]):
         # align question with all its answers
@@ -222,5 +228,4 @@ def align_passage_question_answer(data: list) -> list:
                 output[1].append(question)
                 output[2].append(answer)
 
-    # transform a list of numpy arrays to a 3D array
     return output
