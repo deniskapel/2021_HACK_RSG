@@ -34,7 +34,7 @@ def main(
             'Check README to see which file to run for this task\n')
         sys.exit(1)
 
-    path_to_output = 'submissions/%s.jsonl' % task_name
+    path_to_output = f'submissions/{TASK_NAME}_{TIMESTAMP}.jsonl'
 
     # tf.debugging.set_log_device_placement(True)
 
