@@ -37,7 +37,7 @@ def main(
             'Use apply_elmo.py or apply_elmo_rucos for this task\n')
         sys.exit(1)
 
-    PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
+    PATH_TO_OUTPUT = f'submissions/{TASK_NAME}_{TIMESTAMP}.jsonl'
 
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
