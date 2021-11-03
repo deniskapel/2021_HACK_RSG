@@ -26,7 +26,7 @@ def main(
 
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
-    PATH_TO_OUTPUT = 'submissions/%s.jsonl' % (TASK_NAME)
+    PATH_TO_OUTPUT = f'submissions/{TASK_NAME}_{TIMESTAMP}.jsonl'
 
     """ DATA """
     if TASK_NAME in ['MuSeRC', 'RuCoS']:
