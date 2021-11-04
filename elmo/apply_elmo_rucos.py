@@ -26,15 +26,12 @@ def main(
         epochs: int, hidden_size: int, batch_size: int):
     task_name = path_to_task[task_name_first_char:-1]
 
-    # Why do we need this variable at all?
-    input_folder = path_to_task[:task_name_first_char]
-
     if task_name != 'RuCoS':
         sys.stderr.write(
             'Check README to see which file to run for this task\n')
         sys.exit(1)
 
-    path_to_output = f'submissions/{TASK_NAME}_{TIMESTAMP}.jsonl'
+    path_to_output = f'submissions/{task_name}_{TIMESTAMP}.jsonl'
 
     # tf.debugging.set_log_device_placement(True)
 
