@@ -41,7 +41,7 @@ def main(
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
     # if method == "simple", the model will be loaded in the regular way
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 64, method="graph")
     elmo_layers = "top"
 
     train, _ = build_features('%strain.jsonl' % path_to_task)
@@ -103,7 +103,7 @@ def main(
         training_generator,
         epochs=epochs,
         validation_data=validation_generator,
-        verbose="auto",
+        verbose=1,
         batch_size=batch_size,
         callbacks=[
             wrap_checkpoint(f'{task_name}_{TIMESTAMP}'),
@@ -120,7 +120,7 @@ def main(
     # Prediction is done for each passage_query set separately
     infer_params = {
         'elmo_model': elmo_model, 'elmo_layers': elmo_layers,
-        'elmo_session': training_generator.tf_session,  
+        'elmo_session': training_generator.tf_session,
         'keras_model': model, 'max_lengths': max_lengths}
 
     dataset, preds = get_rucos_predictions(

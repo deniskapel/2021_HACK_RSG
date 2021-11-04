@@ -108,7 +108,7 @@ class DataGenerator(Sequence):
         # lower boundary for indexing the output array
         lower_id = 0
         start = time.time()
-        self.logger.info(f"OK, generating embeddings for {np.shape(embeddings)}...")
+        self.logger.debug(f"OK, generating embeddings for {np.shape(embeddings)}...")
 
         for d, l in zip(batch_x, self.max_lengths):
             e = self.elmo_model.get_elmo_vectors(d, warmup=False, layers=self.layers,
@@ -123,7 +123,7 @@ class DataGenerator(Sequence):
             lower_id = upper_id
         end = time.time()
         processing_time = int(end - start)
-        self.logger.info(f"It took {processing_time} seconds")
+        self.logger.debug(f"It took {processing_time} seconds")
 
         # merge sample parts into a complete samples and return them
         return embeddings
