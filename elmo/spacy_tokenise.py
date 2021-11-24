@@ -5,10 +5,15 @@ import codecs
 import json
 
 from tqdm import tqdm
+from spacy.lang.ru import Russian
+from spacy.lang.en import English
 
 from dataset_utils.utils import save_output
 from dataset_utils.global_vars import TEXT_FIELDS, TOKENIZERS
 
+TOKENIZERS = {
+    'Russian': Russian().tokenizer,
+    'English': English().tokenizer}
 
 def main(input_dir: str, language: str):
     tasks = [task for task in os.listdir(input_dir) if task in TEXT_FIELDS]
