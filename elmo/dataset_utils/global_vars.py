@@ -1,5 +1,8 @@
 import time
 
+from spacy.lang.ru import Russian
+from spacy.lang.en import English
+
 TIMESTAMP = time.strftime('%d%m%Y_%H%M%S', time.localtime())
 
 DTYPE = 'float64'
@@ -16,4 +19,6 @@ TEXT_FIELDS = {
     'TERRa': ['premise', 'hypothesis']
 }
 
-PAD_PARAMS = {'dtype': DTYPE, 'padding': 'post'}
+TOKENIZERS = {
+    'Russian': Russian().tokenizer,
+    'English': English().tokenizer}
