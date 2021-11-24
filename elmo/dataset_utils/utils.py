@@ -4,12 +4,11 @@ import logging
 import tensorflow as tf
 from tensorflow.keras.utils import Sequence
 from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 import time
 import numpy as np
 import simple_elmo
-from dataset_utils.global_vars import DTYPE, PAD_PARAMS
 
+from dataset_utils.elmo_utils import reshape4Dto3D
 
 def save_output(data, path):
     """ a function to properly save the output before its submission """
@@ -27,7 +26,7 @@ class DataGenerator(Sequence):
     """
 
     def __init__(
-            self, samples: list, labels: list, elmo_model, elmo_graph,
+            self, samples: list, labels: list, elmo_model, elmo_graph, n_features,
             max_lengths: list, batch_size=32, n_classes=2, shuffle=True, layers="top"):
         self.max_lengths = max_lengths  # maximum lengths for each part of the sample
         self.batch_size = batch_size
@@ -36,6 +35,7 @@ class DataGenerator(Sequence):
         self.indexes = np.arange(len(self.y))
         self.elmo_model = elmo_model
         self.elmo_graph = elmo_graph
+        self.n_features = n_features
         self.n_classes = n_classes
         self.shuffle = shuffle
         self.on_epoch_end()
@@ -102,25 +102,34 @@ class DataGenerator(Sequence):
         # last batch can be smaller than global batch_size
         # get current batch size using one of the sample parts
         current_bs = len(batch_x[0])
-        embeddings = np.zeros(
-            (current_bs, self.dim2, self.elmo_model.vector_size),
-            dtype=DTYPE)
-        # lower boundary for indexing the output array
-        lower_id = 0
+        # number of features depends on the number of layers returned by elmo
+        embeddings = np.zeros((current_bs, self.dim2, self.n_features))
+
         start = time.time()
         self.logger.debug(f"OK, generating embeddings for {np.shape(embeddings)}...")
 
+        # set a lower boundary for indexing the output array
+        lower_id = 0
         for d, l in zip(batch_x, self.max_lengths):
-            e = self.elmo_model.get_elmo_vectors(d, warmup=False, layers=self.layers,
+            e = self.elmo_model.get_elmo_vectors(d, warmup=False,
+                                                 layers=self.layers,
                                                  session=self.tf_session)
-            # pad embeddings based on a max_lengths in a train set
-            e = pad_sequences(e, maxlen=l, **PAD_PARAMS)
-            # get the upper boundary for slicing
-            upper_id = lower_id + l
-            # store in the output array
+
+            if self.layers == 'all':
+                e =  reshape4Dto3D(e)
+
+            # truncate dim2 if it is larger than l
+            e = e[:,:l,:]
+
+            # get the upper boundary for numpy indexing
+            # it avoids stacking and padding but truncates whenever necessary
+            upper_id = lower_id + e.shape[1]
+
+            # store part embeddings into the output matrix
             embeddings[:, lower_id:upper_id, :] = e
-            # reassign lower boundary
-            lower_id = upper_id
+            # reset a lower boundary
+            lower_id = lower_id + l
+
         end = time.time()
         processing_time = int(end - start)
         self.logger.debug(f"It took {processing_time} seconds")

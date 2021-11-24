@@ -3,9 +3,9 @@ import codecs
 import json
 
 import numpy as np
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-from dataset_utils.global_vars import DTYPE, PAD_PARAMS
+from dataset_utils.global_vars import DTYPE
+from dataset_utils.elmo_utils import reshape4Dto3D
 
 
 class MuSeRCMetrics:
@@ -100,7 +100,7 @@ Measures = MuSeRCMetrics
 
 
 def get_row_pred_MuSeRC(
-    row: dict, elmo_model, elmo_layers, elmo_session,
+    row: dict, elmo_model, elmo_layers, n_features, elmo_session,
     keras_model, max_lengths: list):
     """
         returns properly shaped predictions and true lables per row.
@@ -111,7 +111,12 @@ def get_row_pred_MuSeRC(
     text = [row["passage"]["text"].split()]
     text = elmo_model.get_elmo_vectors(
         text, warmup=False, layers=elmo_layers, session=elmo_session)
-    text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
+
+    if elmo_layers == 'all':
+        text = reshape4Dto3D(text)
+
+    # truncate if sequence len is longer than maxlen
+    text = text[:,:max_lengths[0],:]
 
     res = []
     labels = []
@@ -126,32 +131,38 @@ def get_row_pred_MuSeRC(
         question = [line["question"].split()]
         question = elmo_model.get_elmo_vectors(
             question, warmup=False, layers=elmo_layers, session=elmo_session)
-        question = pad_sequences(question, maxlen=max_lengths[1], **PAD_PARAMS)
-        
+
         for answ in line["answers"]:
             line_answers.append(answ['text'].split())
             line_labels.append(answ.get("label", 0))
 
         # extract embeddings from all the answers
         line_answers = elmo_model.get_elmo_vectors(
-            line_answers, warmup=False, 
+            line_answers, warmup=False,
             layers=elmo_layers, session=elmo_session)
-        line_answers = pad_sequences(
-            line_answers, maxlen=max_lengths[2], **PAD_PARAMS)
 
         # create dummy array to store embeddings
         emb = np.zeros(
-            (line_answers.shape[0], dim2, elmo_model.vector_size),
+            (line_answers.shape[0], dim2, n_features),
             dtype=DTYPE)
 
-        # store a text in every sample
-        emb[:, :max_lengths[0], :] = text
-        # store a question in every sample
-        emb[:, max_lengths[0]:max_lengths[0]+max_lengths[1], :] = question
-        # store all the answers right after the text and question
-        emb[:, max_lengths[0]+max_lengths[1]:, :] = line_answers
+        if elmo_layers == 'all':
+            question =  reshape4Dto3D(question)
+            line_answers =  reshape4Dto3D(line_answers)
 
-        # some rows may include > 32 samples, 
+        # truncate if sequence len is longer than maxlen
+        question = question[:,:max_lengths[1],:]
+        line_answers = line_answers[:,:max_lengths[2],:]
+
+        # store a text in every sample
+        emb[:, :text.shape[1], :] = text
+        # store a question in every sample after a text
+        emb[:, max_lengths[0]:max_lengths[0] + question.shape[1], :] = question
+        # store all the answers right after the text and question
+        starting_idx = max_lengths[0]+max_lengths[1]
+        emb[:,starting_idx:starting_idx + line_answers.shape[1],:] = line_answers
+
+        # some rows may include > 32 samples,
         # so model.predict(x) and not model(x) is used
         preds = keras_model.predict(emb)
         preds = [int(np.argmax(pred)) for pred in preds]
@@ -165,7 +176,7 @@ def get_row_pred_MuSeRC(
 
 
 def get_MuSeRC_predictions(
-    path: str, elmo_model, elmo_layers, 
+    path: str, elmo_model, elmo_layers, n_features,
     elmo_session, keras_model, max_lengths: list):
     """ a function to get predictions in a MuSeRC order """
     with codecs.open(path, encoding='utf-8-sig') as reader:
@@ -178,7 +189,7 @@ def get_MuSeRC_predictions(
 
     for row in lines:
         pred, lbls, res_ids = get_row_pred_MuSeRC(
-            row, elmo_model, elmo_layers, elmo_session, 
+            row, elmo_model, elmo_layers, n_features, elmo_session,
             keras_model, max_lengths)
         preds.extend(pred)
         labels.extend(lbls)
@@ -193,7 +204,7 @@ def tokenize_muserc(dataset: list) -> list:
         tokenizes each part of the dataset
         dataset[0] - 1D list of passages
         dataset[1] - 2D list of questions
-        dataset[2] - 3D list of answers 
+        dataset[2] - 3D list of answers
     """
     passages = [sample.split() for sample in dataset[0]]
     questions = [[q.split() for q in qs] for qs in dataset[1]]
@@ -206,10 +217,10 @@ def tokenize_muserc(dataset: list) -> list:
 def align_passage_question_answer(data: list) -> list:
     """
         reshapes features for training:
-        [p1,p2], [[p1_q1, p1_q2], [p2_q1]], 
+        [p1,p2], [[p1_q1, p1_q2], [p2_q1]],
         [[[p1_q1_a1, p1_q1_a2], [p1_q2_a1, p1_q2_a2]], [[p2_q1_a1, p2_q1_a2]]]
 
-        -> 
+        ->
         [p1,p1,p1,p1,p2,p2], [p1_q1, p1_q1, p1_q2, p1_q2, p2_q1, p2_q1],
         [p1_q1_a1, p1_q1_a2, p1_q2_a1, p1_q2_a2, p2_q1_a1, p2_q1_a2]
 

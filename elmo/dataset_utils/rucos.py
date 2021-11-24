@@ -3,10 +3,11 @@ import string
 import re
 import codecs
 import json
-import numpy as np
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-from dataset_utils.global_vars import DTYPE, PAD_PARAMS
+import numpy as np
+
+from dataset_utils.global_vars import DTYPE
+from dataset_utils.elmo_utils import reshape4Dto3D
 
 
 def normalize_answer(s):
@@ -73,15 +74,15 @@ def evaluate(dataset: list, predictions):
 
 
 def get_rucos_predictions(
-        path: str, elmo_model, elmo_layers, elmo_session,
-        keras_model, max_lengths: list):
+        path: str, elmo_model, elmo_layers, n_features,
+        elmo_session, keras_model, max_lengths: list):
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
     path_to_raw_file = f'data/combined/RuCoS/{filename}'
 
     with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
         """
-            Entities are encoded with indices. 
+            Entities are encoded with indices.
             After preprocessing, indices shift.
             To extract entities, original files are needed.
         """
@@ -96,8 +97,9 @@ def get_rucos_predictions(
 
     for row, raw_row in zip(lines, raw_lines):
         pred = get_row_pred(
-            row, raw_row, elmo_model, elmo_layers, 
-            elmo_session, keras_model, max_lengths)
+            row, raw_row, elmo_model, elmo_layers,
+            n_features, elmo_session, keras_model,
+            max_lengths)
         preds.append({
             "idx": row["idx"],
             "label": pred
@@ -107,23 +109,30 @@ def get_rucos_predictions(
 
 def get_row_pred(
         row: dict, raw_row: dict,
-        elmo_model, elmo_layers, elmo_session,
-        keras_model, max_lengths: list):
+        elmo_model, elmo_layers, n_features,
+        elmo_session, keras_model, max_lengths: list):
     text = [row["passage"]["text"].replace("@highlight", " ").split()]
     text = elmo_model.get_elmo_vectors(
         text, warmup=False, layers=elmo_layers, session=elmo_session)
-    text = pad_sequences(text, maxlen=max_lengths[0], **PAD_PARAMS)
-    res = []
+
+    if elmo_layers == 'all':
+        text = reshape4Dto3D(text)
+
+    # truncate if sequence len is longer than maxlen
+    text = text[:,:max_lengths[0],:]
+
     words = [
         raw_row["passage"]["text"][x["start"]: x["end"]]
         for x in raw_row["passage"]["entities"]]
 
     # create dummy array to store embeddings
-    embeddings = np.zeros(
-        (len(words), sum(max_lengths), elmo_model.vector_size), dtype=DTYPE)
+    emb = np.zeros(
+        (len(words), sum(max_lengths), n_features), dtype=DTYPE)
 
     # store text in every sample
-    embeddings[:, 0:max_lengths[0], :] = text
+    emb[:, :text.shape[1], :] = text
+
+    res = []
 
     for line in row["qas"]:
         queries = []
@@ -132,15 +141,19 @@ def get_row_pred(
 
         queries = elmo_model.get_elmo_vectors(
             queries, warmup=False, layers=elmo_layers, session=elmo_session)
-        queries = pad_sequences(queries, maxlen=max_lengths[1], **PAD_PARAMS)
 
+        if elmo_layers == 'all':
+            queries = reshape4Dto3D(queries)
+
+        # truncate if sequence len is longer than maxlen
+        queries = queries[:,:max_lengths[1],:]
         # store queries right after texts, ~ hstack
-        embeddings[:, max_lengths[0]:, :] = queries
+        emb[:, max_lengths[0]:max_lengths[0]+queries.shape[1], :] = queries
 
-        preds = keras_model.predict(embeddings)
+        preds = keras_model.predict(emb)
         # choose a prediction with a largest prob of being true
         pred_idx = preds[:, 1].argsort()[-1]
-        # transform an id to an actual prediction        
+        # transform an id to an actual prediction
         pred = np.array(words)[pred_idx]
         res.append(pred)
 
@@ -155,7 +168,7 @@ def tokenize_rucos(dataset: list, cut=None) -> list:
 
 
 def align_passage_queries(data: tuple) -> list:
-    """ 
+    """
     reshapes features for training creating copies
     of text part
 

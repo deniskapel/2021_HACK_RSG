@@ -25,8 +25,8 @@ from dataset_utils.global_vars import TIMESTAMP
 
 
 def main(
-    path_to_task: str, task_name_first_char: int, path_to_elmo: str, 
-    pooling: bool, shuffle: bool, activation: str,
+    path_to_task: str, task_name_first_char: int, path_to_elmo: str,
+    elmo_layers: str, pooling: bool, shuffle: bool, activation: str,
     epochs: int, hidden_size: int, batch_size: int):
 
     TASK_NAME = path_to_task[task_name_first_char:-1]
@@ -42,8 +42,11 @@ def main(
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
     # if method == "simple", the model will be loaded in the regular way
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, 32, method="graph")
-    elmo_layers = "top"
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 64, method="graph")
+
+    n_features = elmo_model.vector_size
+    if elmo_layers == 'all':
+        n_features *= elmo_model.n_layers
 
     train, _ = build_features('%strain.jsonl' % (path_to_task))
     val, _ = build_features('%sval.jsonl' % (path_to_task))
@@ -56,8 +59,8 @@ def main(
     X_valid = tokenize_muserc(X_valid)
     X_valid = align_passage_question_answer(X_valid)
 
-    # get max_length for each sample part, 
-    # e.g. 37 for passages and 15 for questions and 3 for answers 
+    # get max_length for each sample part,
+    # e.g. 37 for passages and 15 for questions and 3 for answers
     max_lengths = [np.max([len(sample) for sample in part]) for part in X_train]
 
     # get labels, p=passage, q=question, a=answer
@@ -75,19 +78,20 @@ def main(
         'n_classes': num_classes,
         'elmo_model': elmo_model,
         "elmo_graph": elmo_graph,
-        "layers": elmo_layers}
+        "layers": elmo_layers,
+        'n_features': n_features}
 
     training_generator = DataGenerator(
         X_train, y_train, shuffle=shuffle, **params)
     validation_generator = DataGenerator(
         X_valid, y_valid, shuffle=False, **params)
-    
-    # Warm up elmo as it works better when first applied to dummy data  
+
+    # Warm up elmo as it works better when first applied to dummy data
     _ = training_generator[0]
 
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
-    model = keras_model(n_features=elmo_model.vector_size,
+    model = keras_model(n_features=n_features,
                         size_splits=max_lengths,
                         hidden_size=hidden_size,
                         num_classes=num_classes,
@@ -118,14 +122,13 @@ def main(
     # Prediction is done for each passage_questions_answers set separately
     infer_params = {
         'elmo_model': elmo_model, 'elmo_layers': elmo_layers,
-        'elmo_session': training_generator.tf_session,  
+        "n_features": n_features, 'elmo_session': training_generator.tf_session,
         'keras_model': model, 'max_lengths': max_lengths}
-    
+
     preds, y_true, _ = get_MuSeRC_predictions(
         '%sval.jsonl' % (path_to_task), **infer_params)
 
     logger.info(f" em0, F1a scores on validation are {MuSeRC_metrics(preds, y_true)}")
-
     """ APPLY TO A TEST SET """
     _, _, test_preds = get_MuSeRC_predictions(
         '%stest.jsonl' % (path_to_task), **infer_params)
@@ -141,8 +144,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg(
-        "--task", "-t", 
-        help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/", 
+        "--task", "-t",
+        help="Path to a RSG dataset folder, e.g. data/tokenised/TERRa/",
         required=True)
     arg("--elmo", "-e", help="Path to a folder with ELMo model", required=True)
     arg(
@@ -183,6 +186,13 @@ if __name__ == '__main__':
         type=int,
         default=64,
     )
+    arg(
+        "--elmo_layers",
+        "-l",
+        help="What ELMo layers to use?",
+        default="average",
+        choices=["average", "all", "top"],
+    )
 
     args = parser.parse_args()
     PATH_TO_DATASET = args.task
@@ -193,6 +203,7 @@ if __name__ == '__main__':
     EPOCHS = args.num_epochs
     HIDDEN_SIZE = args.hidden_size
     BATCH_SIZE = args.batch_size
+    LAYERS = args.elmo_layers
     TASK_NAME_FIRST_CHAR = re.search('[A-Z]+.*', PATH_TO_DATASET).span()[0]
 
     log_format = f"%(asctime)s : %(levelname)s : %(message)s"
@@ -210,12 +221,12 @@ if __name__ == '__main__':
     logger.info(f"Following parameters were used")
     logger.info(f"Task: {PATH_TO_DATASET}, elmo_model: {PATH_TO_ELMO}")
     logger.info(f"Pooling: {POOLING}, Activation function: {ACTIVATION}")
-    logger.info(f"Shuffle on each epoch end: {SHUFFLE}")
+    logger.info(f"Elmo layers: {LAYERS}, Shuffle on each epoch end: {SHUFFLE}")
     logger.info(
         f"Hidden_size: {HIDDEN_SIZE}, Batch_size: {BATCH_SIZE}, Epochs: {EPOCHS}")
     logger.info(f"=======================")
 
     main(
         PATH_TO_DATASET, TASK_NAME_FIRST_CHAR,
-        PATH_TO_ELMO, POOLING, SHUFFLE, ACTIVATION,
+        PATH_TO_ELMO, LAYERS, POOLING, SHUFFLE, ACTIVATION,
         EPOCHS, HIDDEN_SIZE, BATCH_SIZE)
