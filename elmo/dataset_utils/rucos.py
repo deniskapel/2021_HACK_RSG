@@ -75,10 +75,15 @@ def evaluate(dataset: list, predictions):
 
 def get_rucos_predictions(
         path: str, elmo_model, elmo_layers, n_features,
-        elmo_session, keras_model, max_lengths: list):
+        elmo_session, keras_model, max_lengths: list, offset=0):
     """ a function to get predictions in a RuCoS order """
     filename = path[re.search('(val)|(test).jsonl', path).span()[0]:]
-    path_to_raw_file = f'data/combined/RuCoS/{filename}'
+
+    if 'RuCoS' in path:
+        path_to_raw_file = f'data/combined/RuCoS/{filename}'
+    else:
+        path_to_raw_file = f'data/eng/ReCoRD/{filename}'
+        offset = 1
 
     with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
         """
@@ -99,7 +104,7 @@ def get_rucos_predictions(
         pred = get_row_pred(
             row, raw_row, elmo_model, elmo_layers,
             n_features, elmo_session, keras_model,
-            max_lengths)
+            max_lengths, offset=offset)
         preds.append({
             "idx": row["idx"],
             "label": pred
@@ -109,8 +114,8 @@ def get_rucos_predictions(
 
 def get_row_pred(
         row: dict, raw_row: dict,
-        elmo_model, elmo_layers, n_features,
-        elmo_session, keras_model, max_lengths: list):
+        elmo_model, elmo_layers, n_features, elmo_session, keras_model,
+        max_lengths: list, offset: int = 0):
     text = [row["passage"]["text"].replace("@highlight", " ").split()]
     text = elmo_model.get_elmo_vectors(
         text, warmup=False, layers=elmo_layers, session=elmo_session)
@@ -122,7 +127,7 @@ def get_row_pred(
     text = text[:,:max_lengths[0],:]
 
     words = [
-        raw_row["passage"]["text"][x["start"]: x["end"]]
+        raw_row["passage"]["text"][x["start"]: x["end"]+offset]
         for x in raw_row["passage"]["entities"]]
 
     # create dummy array to store embeddings

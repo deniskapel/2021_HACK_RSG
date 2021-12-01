@@ -29,7 +29,7 @@ def main(
     PATH_TO_OUTPUT = f'submissions/{TASK_NAME}_{TIMESTAMP}.jsonl'
 
     """ DATA """
-    if TASK_NAME in ['MuSeRC', 'RuCoS']:
+    if TASK_NAME in ['MuSeRC', 'MultiRC', 'RuCoS', 'ReCoRD']:
         sys.stderr.write(
             'Check README to see how to make submissions for these tasks\n')
         sys.exit(1)
@@ -37,6 +37,10 @@ def main(
         train, _ = build_features('%sTERRa/train.jsonl' % (INPUT_FOLDER))
         val, _ = build_features('%sTERRa/val.jsonl' % (INPUT_FOLDER))
         test, ids = build_features('%sLiDiRus.jsonl' % (path_to_task))
+    elif TASK_NAME in ['AX-b', 'AX-g']:
+        train, _ = build_features('%sRTE/train.jsonl' % (INPUT_FOLDER))
+        val, _ = build_features('%sRTE/val.jsonl' % (INPUT_FOLDER))
+        test, ids = build_features('%s%s.jsonl' % (path_to_task, TASK_NAME))
     else:
         train, _ = build_features('%strain.jsonl' % (path_to_task))
         val, _ = build_features('%sval.jsonl' % (path_to_task))
@@ -84,7 +88,6 @@ def main(
 
     # Warm up elmo as it works better when first applied to dummy data
     _ = training_generator[0]
-
     """ MODEL """
     # initialize a keras model that takes elmo embeddings as its input
     model = keras_model(n_features=n_features,
@@ -117,7 +120,7 @@ def main(
     # get score on a validation dataset
     preds = model.predict(validation_generator)
     preds = [classes[int(np.argmax(pred))] for pred in preds]
-    if TASK_NAME == 'LiDiRus':
+    if TASK_NAME in ['LiDiRus', 'AX-b']:
         logger.info(f"MC score is {matthews_corrcoef(val[1], preds)}")
     else:
         logger.info(classification_report(val[1], preds))

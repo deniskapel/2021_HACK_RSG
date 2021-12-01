@@ -12,19 +12,21 @@ def build_features(path):
         lines = reader.read().split("\n")
         lines = list(map(json.loads, filter(None, lines)))
     # datasets are different, did not bother with generalizing
-    if 'RWSD' in path:
+    if 'RWSD' in path or 'WSC' in path:
         res = list(map(build_feature_RWSD, lines))
     elif 'PARus' in path:
         res = list(map(build_feature_PARus, lines))
-    elif 'MuSeRC' in path:
+    elif 'COPA' in path:
+        res = list(map(build_feature_COPA, lines))
+    elif 'MuSeRC' in path or 'MultiRC' in path:
         res = list(map(build_feature_MuSeRC, lines))
-    elif 'RUSSE' in path:
+    elif 'RUSSE' in path or 'WiC' in path:
         res = list(map(build_feature_RUSSE, lines))
-    elif 'TERRa' in path:
+    elif 'TERRa' in path or 'RTE' in path:
         res = list(map(build_feature_TERRa, lines))
-    elif 'LiDiRus' in path:  # need to update the dataset folder
+    elif 'LiDiRus' in path or 'AX-b' in path or 'AX-g' in path:
         res = list(map(build_feature_LiDiRus, lines))
-    elif 'RCB' in path:
+    elif 'RCB' in path or 'CB' in path:
         res = list(map(build_feature_RCB, lines))
     elif 'RuCoS' in path:
         # get location of the raw file
@@ -32,14 +34,27 @@ def build_features(path):
         path_to_raw_file = f'data/combined/RuCoS/{filename}'
         with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
             """
-                Entities are encoded with indices. 
+                Entities are encoded with indices.
                 After preprocessing, indices shift.
                 To extract entities, original files are needed.
             """
             raw_lines = reader.read().split("\n")
             raw_lines = list(map(json.loads, filter(None, raw_lines)))
         res = list(map(build_feature_RuCoS, lines, raw_lines))
-    elif 'DaNetQA' in path:
+    elif 'ReCoRD' in path:
+        # get location of the raw file
+        filename = path[re.search('(train)|(val).jsonl', path).span()[0]:]
+        path_to_raw_file = f'data/eng/ReCoRD/{filename}'
+        with codecs.open(path_to_raw_file, encoding='utf-8-sig') as reader:
+            """
+                Entities are encoded with indices.
+                After preprocessing, indices shift.
+                To extract entities, original files are needed.
+            """
+            raw_lines = reader.read().split("\n")
+            raw_lines = list(map(json.loads, filter(None, raw_lines)))
+        res = list(map(build_feature_ReCoRD, lines, raw_lines))
+    elif 'DaNetQA' in path or 'BoolQ' in path:
         res = list(map(build_feature_DaNetQA, lines))
     else:
         sys.stderr.write('Path is not valid.\n')
@@ -86,6 +101,14 @@ def build_feature_PARus(row):
     question = "Что было причиной этого ?" if row["question"] == "cause" else "Что произошло в результате ?"
     return (premise, question, choice1, choice2), label
 
+def build_feature_COPA(row):
+        premise = str(row["premise"]).strip()
+        choice1 = row["choice1"]
+        choice2 = row["choice2"]
+        label = row.get("label")
+        # if-else is taken from the tfidf baseline code.
+        question = "What was the reason for that ?" if row["question"] == "cause" else "What was the result ?"
+        return (premise, question, choice1, choice2), label
 
 def build_feature_RUSSE(row):
     sentence1 = row["sentence1"].strip()
@@ -120,11 +143,31 @@ def build_feature_RuCoS(row, raw_row):
     queries = []
 
     for entry in row["passage"]["entities"]:
-        # create list of labels for all entries
-        
         # extract entities from a text as strings
         entity = raw_row["passage"]["text"][entry["start"]: entry["end"]]
-        
+        entry['text'] = entity
+        label = 1 if entry in row['qas'][0]['answers'] else 0
+        labels.append(label)
+
+        queries.append(
+            row["qas"][0]['query'].replace("@placeholder", entity)
+            )
+
+    return (text, queries), labels
+
+def build_feature_ReCoRD(row, raw_row):
+    """
+        Raw files to extract entities properly as
+        preprocessing shifts indices
+    """
+    # check dataset_utils/rucos.py file for RuCoS function
+    text = row["passage"]["text"].replace("@highlight", " ")
+    labels = []
+    queries = []
+
+    for entry in row["passage"]["entities"]:
+        # extract entities from a text as strings
+        entity = raw_row["passage"]["text"][entry["start"]: entry["end"]+1]
         entry['text'] = entity
         label = 1 if entry in row['qas'][0]['answers'] else 0
         labels.append(label)
@@ -141,7 +184,7 @@ def build_feature_MuSeRC(row):
     labels = []
     questions = []
     answers = []
-    
+
     for line in row["passage"]["questions"]:
         questions.append(line['question'])
         line_answers = []

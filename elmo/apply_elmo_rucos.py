@@ -27,7 +27,7 @@ def main(
 
     task_name = path_to_task[task_name_first_char:-1]
 
-    if task_name != 'RuCoS':
+    if task_name not in ['RuCoS', 'ReCoRD']:
         sys.stderr.write(
             'Check README to see which file to run for this task\n')
         sys.exit(1)

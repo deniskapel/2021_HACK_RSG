@@ -32,7 +32,7 @@ def main(
     TASK_NAME = path_to_task[task_name_first_char:-1]
     INPUT_FOLDER = path_to_task[:task_name_first_char]
 
-    if TASK_NAME != 'MuSeRC':
+    if TASK_NAME not in ['MuSeRC', 'MultiRC']:
         sys.stderr.write(
             'Use apply_elmo.py or apply_elmo_rucos for this task\n')
         sys.exit(1)
@@ -42,7 +42,7 @@ def main(
     logger.info(f"=======================")
     logger.info(f"loading Elmo model")
     # if method == "simple", the model will be loaded in the regular way
-    elmo_model, elmo_graph = load_elmo(path_to_elmo, 64, method="graph")
+    elmo_model, elmo_graph = load_elmo(path_to_elmo, 16, method="graph")
 
     n_features = elmo_model.vector_size
     if elmo_layers == 'all':
