@@ -9,19 +9,18 @@ from spacy.lang.ru import Russian
 from spacy.lang.en import English
 
 from dataset_utils.utils import save_output
-from dataset_utils.global_vars import TEXT_FIELDS, TOKENIZERS
+from dataset_utils.global_vars import TEXT_FIELDS
 
 TOKENIZERS = {
     'Russian': Russian().tokenizer,
     'English': English().tokenizer}
 
-def main(input_dir: str, language: str):
+def main(input_dir: str, output_dir: str, language: str):
     tasks = [task for task in os.listdir(input_dir) if task in TEXT_FIELDS]
-    [preprocess_task(input_dir, t, TOKENIZERS[language]) for t in tqdm(tasks)]
+    [preprocess_task(input_dir, output_dir, t, TOKENIZERS[language]) for t in tqdm(tasks)]
 
-def preprocess_task(input_dir: str, task: str, preproc_fn):
+def preprocess_task(input_dir: str, output_dir, task: str, preproc_fn):
     """ replaces raw texts with preprocessed ones """
-    output_dir = 'data/tokenised/'
     if not os.path.isdir(output_dir + task):
         # create directories for preprocessed tasks
         os.makedirs(output_dir + task)
@@ -43,7 +42,7 @@ def preprocess_task(input_dir: str, task: str, preproc_fn):
 def preprocess_line(line: dict, task: str, preproc_fn) -> dict:
     """ preprocess only necessary fields in each entry of the task """
 
-    if task == 'MuSeRC':
+    if task in ['MuSeRC', 'MultiRC']:
         line['passage']['text'] = preprocess(line['passage']['text'], preproc_fn)
         # inner fields
         for i, question in enumerate(line['passage']['questions']):
@@ -54,7 +53,7 @@ def preprocess_line(line: dict, task: str, preproc_fn) -> dict:
                     line['passage']['questions'][i]['answers'][j]['text'], preproc_fn)
         return line
 
-    elif task == 'RuCoS':
+    elif task in ['RuCoS', 'ReCoRD']:
         line['passage']['text'] = preprocess(
             line['passage']['text'], preproc_fn)
         # inner fields
@@ -62,6 +61,21 @@ def preprocess_line(line: dict, task: str, preproc_fn) -> dict:
             line['qas'][i]['query'] = preprocess(
                 line['qas'][i]['query'], preproc_fn)
         return line
+
+    elif task in ['RuCoS', 'ReCoRD']:
+        line['passage']['text'] = preprocess(
+            line['passage']['text'], preproc_fn)
+        # inner fields
+        for i, entry in enumerate(line['qas']):
+            line['qas'][i]['query'] = preprocess(
+                line['qas'][i]['query'], preproc_fn)
+        return line
+
+    elif task in ["RWSD", 'WSC']:
+        line['target']['span1_text'] = preprocess(line['target']['span1_text'],
+                                                  preproc_fn)
+        line['target']['span2_text'] = preprocess(line['target']['span2_text'],
+                                                  preproc_fn)
 
     # preprocessor for other tasks with simple structure
     fields = TEXT_FIELDS[task]
@@ -88,6 +102,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg("--input_dir", '-d', help="Where are the original datasets stored?", default='data/combined/')
+    arg("--output_dir", '-o', help="Where are the original datasets stored?", default='data/tokenised/')
     arg("--language", '-l', help="Input language", default='Russian', choices=["Russian", "English"])
     args = parser.parse_args()
-    main(args.input_dir, args.language)
+
+    main(args.input_dir, args.output_dir, args.language)

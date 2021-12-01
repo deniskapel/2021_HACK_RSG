@@ -13,5 +13,15 @@ TEXT_FIELDS = {
     "RuCoS": [], # hard coded due to a complex structure
     'RUSSE': ['sentence1', 'sentence2'],
     'RWSD': ['text'],
-    'TERRa': ['premise', 'hypothesis']
+    'TERRa': ['premise', 'hypothesis'],
+    'AX-b': ['sentence1', 'sentence2'],
+    'AX-g': ['hypothesis', 'premise'],
+    'BoolQ': ["question", 'passage'],
+    'CB': ['premise', 'hypothesis'],
+    'COPA': ['premise', 'choice1', 'choice2'],
+    'MultiRC': [], # hard coded due to a complex structure
+    'ReCoRD': [], # hard coded due to a complex structure
+    'RTE': ['premise', 'hypothesis'],
+    'WiC': ['sentence1', 'sentence2'],
+    'WSC': ['text']
 }
