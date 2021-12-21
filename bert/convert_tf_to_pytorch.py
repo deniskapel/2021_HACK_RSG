@@ -18,7 +18,7 @@ import os
 import argparse
 import torch
 import tensorflow as tf
-from transformers import BertConfig, BertModel
+from transformers import BertConfig, BertForPreTraining
 
 
 def assign(layer, tensor):
@@ -198,7 +198,7 @@ def convert_tf_checkpoint_to_pytorch(tf_checkpoint_path, bert_config_file, pytor
     # Initialise PyTorch model
     config = BertConfig.from_json_file(bert_config_file)
     print(f"Building PyTorch model from configuration: {config}")
-    model = BertModel(config)
+    model = BertForPreTraining(config)
 
     # Load weights from tf checkpoint
     load_tf2_weights_in_bert(model, config, tf_checkpoint_path)
