@@ -35,17 +35,22 @@ def load_tf2_weights_in_bert(model, config, tf_checkpoint_path):
 
     names, arrays = [], []
     for full_name, shape in init_vars:
-        print("Loading TF weight {} with shape {}".format(full_name, shape))
         name = full_name.split("/")
         if full_name == '_CHECKPOINTABLE_OBJECT_GRAPH' or name[0] in ['global_step', 'save_counter']:
-            print(f'Skipping non-model layer {full_name}')
+            # print(f'Skipping non-model layer {full_name}')
             continue
         if 'optimizer' in full_name:
-            print(f'Skipping optimization layer {full_name}')
+            # print(f'Skipping optimization layer {full_name}')
             continue
-        if name[0] == 'model':
-            # ignore initial 'model'
-            name = name[1:]
+
+        assert name[0] == "model"
+        assert name[1] == "layer_with_weights-0"
+        assert name[2].startswith("layer_with_weights")
+        assert name[3].startswith("layer_with_weights")
+
+        name = name[2:]
+
+        print("Loading TF weight {} with shape {}".format(full_name, shape))
 
         # read data
         array = tf.train.load_variable(tf_path, full_name)
@@ -57,99 +62,136 @@ def load_tf2_weights_in_bert(model, config, tf_checkpoint_path):
     # convert layers
     print('Converting weights...')
     for name, array in zip(names, arrays):
-        assert name[0].startswith("layer_with_weights")
-        n_layer = int(name[0].split('-')[-1])
+        module = {0: "encoder", 1: "mlm", 2: "nsp"}[int(name[0].split('-')[-1])]
+        n_layer = int(name[1].split('-')[-1])
 
-        # embedding modules
-        if n_layer == 0:
-            assert name[1] == "embeddings"
-            assign(model.embeddings.word_embeddings.weight.data, array)
-        elif n_layer == 1:
-            assert name[1] == "embeddings"
-            assign(model.embeddings.position_embeddings.weight.data, array)
-        elif n_layer == 2:
-            assert name[1] == "embeddings"
-            assign(model.embeddings.token_type_embeddings.weight.data, array)
-        elif n_layer == 3:
-            if name[1] == "beta":
-                assign(model.embeddings.LayerNorm.bias.data, array)
-            elif name[1] == "gamma":
-                assign(model.embeddings.LayerNorm.weight.data, array)
-            else:
-                raise Exception(f"Layer 3 should be either beta or gamma, not {name}")
-
-        # transformer layers
-        elif n_layer < config.num_hidden_layers + 4:
-            module = model.encoder.layer[n_layer - 4]
-
-            if name[1] == "_attention_layer":
-                module = module.attention.self
-                if name[2] == "_key_dense":
-                    module = module.key
-                elif name[2] == "_query_dense":
-                    module = module.query
-                elif name[2] == "_value_dense":
-                    module = module.value
-                else:
-                    raise Exception(f"{n_layer - 4}th attention layer should be either a key, query or value, not {name}")
-
-                if name[3] == "bias":
-                    assign(module.bias, array.flatten())
-                elif name[3] == "kernel":
-                    assign(module.weight, array.flatten(start_dim=1, end_dim=2).T)
-                else:
-                    raise Exception(f"{n_layer - 4}th attention's {name[2]} should be either a bias or a kernel, not {name}")
-
-            elif name[1] == "_attention_layer_norm":
+        if module == "encoder":
+            # embedding modules
+            if n_layer == 0:
+                assert name[2] == "embeddings"
+                assign(model.bert.embeddings.word_embeddings.weight, array)
+                assign(model.cls.predictions.decoder.weight, array)  # this weight matrix is shared
+            elif n_layer == 1:
+                assert name[2] == "embeddings"
+                assign(model.bert.embeddings.position_embeddings.weight, array)
+            elif n_layer == 2:
+                assert name[2] == "embeddings"
+                assign(model.bert.embeddings.token_type_embeddings.weight, array)
+            elif n_layer == 3:
                 if name[2] == "beta":
-                    assign(module.attention.output.LayerNorm.bias.data, array)
+                    assign(model.bert.embeddings.LayerNorm.bias, array)
                 elif name[2] == "gamma":
-                    assign(module.attention.output.LayerNorm.weight.data, array)
+                    assign(model.bert.embeddings.LayerNorm.weight, array)
                 else:
-                    raise Exception(f"{n_layer - 4}th attention's LayerNorm should be either beta or gamma, not {name}")
-            
-            elif name[1] == "_attention_output_dense":
-                if name[2] == "bias":
-                    assign(module.attention.output.dense.bias, array.flatten())
-                elif name[2] == "kernel":
-                    assign(module.attention.output.dense.weight, array.flatten(start_dim=0, end_dim=1).T)
-                else:
-                    raise Exception(f"{n_layer - 4}th attention's {name[2]} should be either a bias or a kernel, not {name}")
+                    raise Exception(f"Layer 3 should be either beta or gamma, not {name}")
 
-            elif name[1] == "_intermediate_dense":
-                if name[2] == "bias":
-                    assign(module.intermediate.dense.bias, array)
-                elif name[2] == "kernel":
-                    assign(module.intermediate.dense.weight, array.T)
-                else:
-                    raise Exception(f"{n_layer - 4}th intermediate should be either a bias or a kernel, not {name}")
+            # transformer layers
+            elif n_layer < config.num_hidden_layers + 4:
+                submodule = model.bert.encoder.layer[n_layer - 4]
 
-            elif name[1] == "_output_dense":
-                if name[2] == "bias":
-                    assign(module.output.dense.bias, array)
-                elif name[2] == "kernel":
-                    assign(module.output.dense.weight, array.T)
-                else:
-                    raise Exception(f"{n_layer - 4}th output should be either a bias or a kernel, not {name}")
+                if name[2] == "_attention_layer":
+                    submodule = submodule.attention.self
+                    if name[3] == "_key_dense":
+                        submodule = submodule.key
+                    elif name[3] == "_query_dense":
+                        submodule = submodule.query
+                    elif name[3] == "_value_dense":
+                        submodule = submodule.value
+                    else:
+                        raise Exception(f"{n_layer - 4}th attention layer should be either a key, query or value, not {name}")
 
-            elif name[1] == "_output_layer_norm":
+                    if name[4] == "bias":
+                        assign(submodule.bias, array.flatten())
+                    elif name[4] == "kernel":
+                        assign(submodule.weight, array.flatten(start_dim=1, end_dim=2).T)
+                    else:
+                        raise Exception(f"{n_layer - 4}th attention's {name[3]} should be either a bias or a kernel, not {name}")
+
+                elif name[2] == "_attention_layer_norm":
+                    if name[3] == "beta":
+                        assign(submodule.attention.output.LayerNorm.bias, array)
+                    elif name[3] == "gamma":
+                        assign(submodule.attention.output.LayerNorm.weight, array)
+                    else:
+                        raise Exception(f"{n_layer - 4}th attention's LayerNorm should be either beta or gamma, not {name}")
+                
+                elif name[2] == "_attention_output_dense":
+                    if name[3] == "bias":
+                        assign(submodule.attention.output.dense.bias, array.flatten())
+                    elif name[3] == "kernel":
+                        assign(submodule.attention.output.dense.weight, array.flatten(start_dim=0, end_dim=1).T)
+                    else:
+                        raise Exception(f"{n_layer - 4}th attention's {name[2]} should be either a bias or a kernel, not {name}")
+
+                elif name[2] == "_intermediate_dense":
+                    if name[3] == "bias":
+                        assign(submodule.intermediate.dense.bias, array)
+                    elif name[3] == "kernel":
+                        assign(submodule.intermediate.dense.weight, array.T)
+                    else:
+                        raise Exception(f"{n_layer - 4}th intermediate should be either a bias or a kernel, not {name}")
+
+                elif name[2] == "_output_dense":
+                    if name[3] == "bias":
+                        assign(submodule.output.dense.bias, array)
+                    elif name[3] == "kernel":
+                        assign(submodule.output.dense.weight, array.T)
+                    else:
+                        raise Exception(f"{n_layer - 4}th output should be either a bias or a kernel, not {name}")
+
+                elif name[2] == "_output_layer_norm":
+                    if name[3] == "beta":
+                        assign(submodule.output.LayerNorm.bias, array)
+                    elif name[3] == "gamma":
+                        assign(submodule.output.LayerNorm.weight, array)
+                    else:
+                        raise Exception(f"{n_layer - 4}th output's LayerNorm should be either beta or gamma, not {name}")
+
+                else:
+                    raise Exception(f"Layer {n_layer} should be a Transformer layer, not {name}")
+
+            elif n_layer == config.num_hidden_layers + 4:
+                if name[2] == "bias":
+                    assign(model.bert.pooler.dense.bias, array)
+                elif name[2] == "kernel":
+                    assign(model.bert.pooler.dense.weight, array.T)
+                else:
+                    raise Exception(f"Pooler should be either a bias or a kernel, not {name}")
+
+        elif module == "mlm":
+            if n_layer == 0:
+                if name[2] == "bias":
+                    assign(model.cls.predictions.transform.dense.bias, array)
+                elif name[2] == "kernel":
+                    assign(model.cls.predictions.transform.dense.weight, array.T)
+                else:
+                    raise Exception(f"MLM transformation should be either a bias or a kernel, not {name}")
+            elif n_layer == 1:
                 if name[2] == "beta":
-                    assign(module.output.LayerNorm.bias.data, array)
+                    assign(model.cls.predictions.transform.LayerNorm.bias, array)
                 elif name[2] == "gamma":
-                    assign(module.output.LayerNorm.weight.data, array)
+                    assign(model.cls.predictions.transform.LayerNorm.weight, array)
                 else:
-                    raise Exception(f"{n_layer - 4}th output's LayerNorm should be either beta or gamma, not {name}")
-
+                    raise Exception(f"MLM transformation's LayerNorm should be either beta or gamma, not {name}")
+            elif n_layer == 2:
+                if name[2] == "bias":
+                    assign(model.cls.predictions.decoder.bias, array)
+                else:
+                    raise Exception(f"MLM classification should be either a bias, not {name}")
             else:
-                raise Exception(f"Layer {n_layer} should be a Transformer layer, not {name}")
+                raise Exception(f"MLM classification has only three layers, not {name}")
 
-        elif n_layer == config.num_hidden_layers + 4:
-            if name[1] == "bias":
-                assign(model.pooler.dense.bias, array)
-            elif name[1] == "kernel":
-                assign(model.pooler.dense.weight, array.T)
+        elif module == "nsp":
+            assert n_layer == 0
+            if name[2] == "bias":
+                assign(model.cls.seq_relationship.bias, array)
+            elif name[2] == "kernel":
+                assign(model.cls.seq_relationship.weight, array.T)
             else:
-                raise Exception(f"Pooler should be either a bias or a kernel, not {name}")
+                raise Exception(f"NSP classification should be either a bias or a kernel, not {name}")
+
+        else:
+            raise Exception(f"Non-existent module: {module}")
 
 
 def convert_tf_checkpoint_to_pytorch(tf_checkpoint_path, bert_config_file, pytorch_dump_path):
