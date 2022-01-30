@@ -4,7 +4,7 @@ import glob
 
 import simple_elmo
 from spacy.lang.en import English
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 from torch.utils.data import DataLoader
 
 from blimp_utils import (
@@ -14,7 +14,7 @@ from blimp_utils import (
 
 BATCH_SIZE = 1
 
-def main(elmo_path: str, blimp_path: str):
+def main(elmo_path: str, blimp_path: str, direction: 'forward'):
 
     elmo_model = simple_elmo.ElmoModel()
     elmo_model.load(elmo_path, max_batch_size=BATCH_SIZE, full=True)
@@ -29,7 +29,7 @@ def main(elmo_path: str, blimp_path: str):
             batch_size=BATCH_SIZE, shuffle=False,
             collate_fn=collate_fn)
 
-        accuracy = run(elmo_model, loader, direction='forward')
+        accuracy = run(elmo_model, loader, direction=direction)
         blimp.add_result(dataset[0]["linguistics_term"], dataset[0]["UID"], accuracy)
 
     s = open('scores.txt', 'a')
@@ -42,7 +42,9 @@ def main(elmo_path: str, blimp_path: str):
 
 if __name__ == '__main__':
     logger = logging.getLogger()
-    logger.setLevel(logging.CRITICAL)
+    logging.basicConfig(
+            format="%(asctime)s : %(levelname)s : %(message)s", level=logging.CRITICAL
+        )
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg("--elmo", "-e", help="Path to a folder with ELMo model", required=True)
@@ -50,7 +52,11 @@ if __name__ == '__main__':
         "--blimp", "-b",
         help="Path to a folder with blimp datatests",
         required=True, default='blimb/data/')
+    arg("--direction", "-d", help="LSTM forward, backward or both", required=True,
+    default='forward')
+    
+
     args = parser.parse_args()
 
 
-    main(args.elmo, args.blimp)
+    main(args.elmo, args.blimp, args.direction)

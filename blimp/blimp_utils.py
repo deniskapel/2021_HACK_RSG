@@ -1,7 +1,7 @@
 import json
 
 import numpy as np
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 from torch.utils.data import Dataset
 
 def load(filename):
@@ -45,7 +45,7 @@ def run(model, dataloader, direction):
 
     vocab_size = 30_003
 
-    for good, bad in tqdm(dataloader):
+    for good, bad in dataloader:
         good = model.get_elmo_substitutes(good, topn=vocab_size)
         bad = model.get_elmo_substitutes(bad, topn=vocab_size)
 
