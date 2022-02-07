@@ -1,0 +1,546 @@
+Dataset loaded
+Sentences: 3593
+Max length: 350
+Average length: 113.29
+Standard deviation: 38.80
+=====
+221 sentences total for argument
+=====
+2022-02-07 11:45:55.272785: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2022-02-07 11:45:57,283 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:46:08,752 : INFO : Warming up finished.
+2022-02-07 11:46:08,772 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:10,600 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:13,029 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:16,447 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:19,265 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:21,891 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:24,740 : INFO : Texts in the current batch: 29
+Distribution of classes in the whole sample: {4: 105, 2: 66, 3: 11, 5: 23, 1: 13, 0: 3}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.279 (+/- 0.097)
+Average Recall on 5-fold cross-validation: 0.323 (+/- 0.122)
+Average F1 on 5-fold cross-validation: 0.264 (+/- 0.102)
+
+
+=====
+266 sentences total for arm
+=====
+2022-02-07 11:46:30,508 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:46:34,055 : INFO : Warming up finished.
+2022-02-07 11:46:34,082 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:36,217 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:39,491 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:41,438 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:42,868 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:45,805 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:47,990 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:49,780 : INFO : Texts in the current batch: 32
+2022-02-07 11:46:52,409 : INFO : Texts in the current batch: 10
+Distribution of classes in the whole sample: {4: 204, 1: 29, 3: 6, 5: 19, 2: 3, 0: 5}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.508 (+/- 0.248)
+Average Recall on 5-fold cross-validation: 0.531 (+/- 0.324)
+Average F1 on 5-fold cross-validation: 0.503 (+/- 0.266)
+
+
+=====
+161 sentences total for atmosphere
+=====
+2022-02-07 11:46:55,713 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:46:58,623 : INFO : Warming up finished.
+2022-02-07 11:46:58,646 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:00,346 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:03,242 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:05,811 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:07,557 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:10,514 : INFO : Texts in the current batch: 1
+Distribution of classes in the whole sample: {1: 54, 5: 76, 3: 3, 0: 7, 2: 19, 4: 2}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 2 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.370 (+/- 0.145)
+Average Recall on 5-fold cross-validation: 0.413 (+/- 0.152)
+Average F1 on 5-fold cross-validation: 0.366 (+/- 0.121)
+
+
+=====
+200 sentences total for audience
+=====
+2022-02-07 11:47:13,086 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:47:15,962 : INFO : Warming up finished.
+2022-02-07 11:47:15,979 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:17,637 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:19,937 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:22,626 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:25,263 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:27,657 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:29,291 : INFO : Texts in the current batch: 8
+Distribution of classes in the whole sample: {3: 39, 2: 148, 0: 2, 4: 9, 1: 2}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 2 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.599 (+/- 0.418)
+Average Recall on 5-fold cross-validation: 0.611 (+/- 0.382)
+Average F1 on 5-fold cross-validation: 0.599 (+/- 0.402)
+
+
+=====
+262 sentences total for bank
+=====
+2022-02-07 11:47:32,146 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:47:34,954 : INFO : Warming up finished.
+2022-02-07 11:47:34,971 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:36,616 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:39,835 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:42,765 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:45,056 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:47,242 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:49,362 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:51,781 : INFO : Texts in the current batch: 32
+2022-02-07 11:47:54,007 : INFO : Texts in the current batch: 6
+Distribution of classes in the whole sample: {3: 163, 5: 11, 4: 7, 6: 41, 1: 8, 2: 26, 0: 3, 7: 2, 8: 1}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.519 (+/- 0.130)
+Average Recall on 5-fold cross-validation: 0.560 (+/- 0.168)
+Average F1 on 5-fold cross-validation: 0.505 (+/- 0.136)
+
+
+=====
+256 sentences total for degree
+=====
+2022-02-07 11:47:58,067 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:48:01,638 : INFO : Warming up finished.
+2022-02-07 11:48:01,657 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:03,971 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:06,803 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:09,162 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:11,955 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:13,688 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:14.798126: W tensorflow/core/common_runtime/bfc_allocator.cc:275] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.83GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 11:48:17,555 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:19,377 : INFO : Texts in the current batch: 32
+Distribution of classes in the whole sample: {3: 61, 0: 164, 6: 18, 4: 3, 1: 6, 2: 1, 5: 3}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.425 (+/- 0.271)
+Average Recall on 5-fold cross-validation: 0.416 (+/- 0.170)
+Average F1 on 5-fold cross-validation: 0.405 (+/- 0.209)
+
+
+=====
+226 sentences total for difference
+=====
+2022-02-07 11:48:23,157 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:48:25,847 : INFO : Warming up finished.
+2022-02-07 11:48:25,863 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:27,402 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:30,178 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:31,988 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:34,126 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:36,586 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:39,657 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:42,657 : INFO : Texts in the current batch: 2
+Distribution of classes in the whole sample: {4: 39, 1: 26, 2: 30, 0: 102, 3: 29}
+Average Precision on 5-fold cross-validation: 0.595 (+/- 0.093)
+Average Recall on 5-fold cross-validation: 0.622 (+/- 0.125)
+Average F1 on 5-fold cross-validation: 0.576 (+/- 0.099)
+
+
+=====
+46 sentences total for difficulty
+=====
+2022-02-07 11:48:45,854 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:48:48,039 : INFO : Warming up finished.
+2022-02-07 11:48:48,063 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:49,924 : INFO : Texts in the current batch: 14
+Distribution of classes in the whole sample: {3: 12, 0: 16, 2: 13, 1: 5}
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.559 (+/- 0.094)
+Average Recall on 5-fold cross-validation: 0.617 (+/- 0.226)
+Average F1 on 5-fold cross-validation: 0.547 (+/- 0.143)
+
+
+=====
+200 sentences total for disc
+=====
+2022-02-07 11:48:53,340 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:48:55,579 : INFO : Warming up finished.
+2022-02-07 11:48:55,594 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:56,818 : INFO : Texts in the current batch: 32
+2022-02-07 11:48:59,229 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:01,088 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:03,173 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:04,720 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:06,294 : INFO : Texts in the current batch: 8
+Distribution of classes in the whole sample: {2: 76, 1: 63, 3: 40, 4: 18, 0: 3}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.577 (+/- 0.147)
+Average Recall on 5-fold cross-validation: 0.567 (+/- 0.194)
+Average F1 on 5-fold cross-validation: 0.548 (+/- 0.160)
+
+
+=====
+146 sentences total for image
+=====
+2022-02-07 11:49:09,272 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:49:10.671285: W tensorflow/core/common_runtime/bfc_allocator.cc:275] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.98GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 11:49:13,510 : INFO : Warming up finished.
+2022-02-07 11:49:13,526 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:16,491 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:19,056 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:22,231 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:25,016 : INFO : Texts in the current batch: 18
+Distribution of classes in the whole sample: {2: 52, 3: 20, 1: 62, 0: 4, 4: 4, 6: 1, 5: 3}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.404 (+/- 0.216)
+Average Recall on 5-fold cross-validation: 0.362 (+/- 0.179)
+Average F1 on 5-fold cross-validation: 0.363 (+/- 0.217)
+
+
+=====
+185 sentences total for interest
+=====
+2022-02-07 11:49:29,266 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:49:32,212 : INFO : Warming up finished.
+2022-02-07 11:49:32,230 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:33,939 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:35,848 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:38,130 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:40,552 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:42,921 : INFO : Texts in the current batch: 25
+Distribution of classes in the whole sample: {2: 47, 1: 9, 6: 13, 4: 69, 3: 30, 7: 13, 0: 2, 5: 2}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 2 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.603 (+/- 0.228)
+Average Recall on 5-fold cross-validation: 0.615 (+/- 0.194)
+Average F1 on 5-fold cross-validation: 0.588 (+/- 0.205)
+
+
+=====
+62 sentences total for judgment
+=====
+2022-02-07 11:49:47,832 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:49:49,739 : INFO : Warming up finished.
+2022-02-07 11:49:49,757 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:51,349 : INFO : Texts in the current batch: 30
+Distribution of classes in the whole sample: {5: 15, 3: 4, 0: 20, 6: 4, 2: 3, 1: 15, 4: 1}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.271 (+/- 0.102)
+Average Recall on 5-fold cross-validation: 0.330 (+/- 0.161)
+Average F1 on 5-fold cross-validation: 0.292 (+/- 0.112)
+
+
+=====
+112 sentences total for organization
+=====
+2022-02-07 11:49:55,509 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:49:57,502 : INFO : Warming up finished.
+2022-02-07 11:49:57,520 : INFO : Texts in the current batch: 32
+2022-02-07 11:49:59,181 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:01,056 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:03,698 : INFO : Texts in the current batch: 16
+Distribution of classes in the whole sample: {2: 88, 3: 5, 1: 18, 0: 1}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.671 (+/- 0.420)
+Average Recall on 5-fold cross-validation: 0.720 (+/- 0.431)
+Average F1 on 5-fold cross-validation: 0.686 (+/- 0.428)
+
+
+=====
+232 sentences total for paper
+=====
+2022-02-07 11:50:07,473 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:50:08.829476: W tensorflow/core/common_runtime/bfc_allocator.cc:275] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.78GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-02-07 11:50:11,495 : INFO : Warming up finished.
+2022-02-07 11:50:11,512 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:14,271 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:16,157 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:18,639 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:21,085 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:23,833 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:25,474 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:27,074 : INFO : Texts in the current batch: 8
+Distribution of classes in the whole sample: {1: 7, 4: 28, 7: 54, 5: 45, 3: 23, 2: 52, 0: 11, 6: 12}
+Average Precision on 5-fold cross-validation: 0.427 (+/- 0.188)
+Average Recall on 5-fold cross-validation: 0.409 (+/- 0.222)
+Average F1 on 5-fold cross-validation: 0.363 (+/- 0.154)
+
+
+=====
+230 sentences total for party
+=====
+2022-02-07 11:50:30,295 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:50:33,330 : INFO : Warming up finished.
+2022-02-07 11:50:33,348 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:35,106 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:37,800 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:39,493 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:41,649 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:44,210 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:47,440 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:48,901 : INFO : Texts in the current batch: 6
+Distribution of classes in the whole sample: {0: 6, 1: 39, 3: 148, 5: 17, 4: 16, 2: 4}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 4 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.556 (+/- 0.343)
+Average Recall on 5-fold cross-validation: 0.583 (+/- 0.345)
+Average F1 on 5-fold cross-validation: 0.556 (+/- 0.342)
+
+
+=====
+172 sentences total for performance
+=====
+2022-02-07 11:50:52,531 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:50:55,612 : INFO : Warming up finished.
+2022-02-07 11:50:55,629 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:57,434 : INFO : Texts in the current batch: 32
+2022-02-07 11:50:59,816 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:01,565 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:03,344 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:06,287 : INFO : Texts in the current batch: 12
+Distribution of classes in the whole sample: {2: 47, 4: 28, 1: 46, 0: 4, 5: 31, 3: 16}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 4 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.567 (+/- 0.125)
+Average Recall on 5-fold cross-validation: 0.570 (+/- 0.121)
+Average F1 on 5-fold cross-validation: 0.540 (+/- 0.104)
+
+
+=====
+166 sentences total for plan
+=====
+2022-02-07 11:51:10,236 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:51:13,504 : INFO : Warming up finished.
+2022-02-07 11:51:13,522 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:16,477 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:18,978 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:20,750 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:22,362 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:23,734 : INFO : Texts in the current batch: 6
+Distribution of classes in the whole sample: {2: 118, 3: 16, 1: 27, 0: 5}
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.510 (+/- 0.374)
+Average Recall on 5-fold cross-validation: 0.481 (+/- 0.286)
+Average F1 on 5-fold cross-validation: 0.484 (+/- 0.320)
+
+
+=====
+196 sentences total for shelter
+=====
+2022-02-07 11:51:27,218 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:51:29,334 : INFO : Warming up finished.
+2022-02-07 11:51:29,350 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:31,167 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:33,338 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:34,874 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:36,479 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:37,903 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:39,545 : INFO : Texts in the current batch: 4
+Distribution of classes in the whole sample: {3: 53, 0: 90, 1: 51, 2: 2}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 2 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.542 (+/- 0.182)
+Average Recall on 5-fold cross-validation: 0.531 (+/- 0.190)
+Average F1 on 5-fold cross-validation: 0.522 (+/- 0.179)
+
+
+=====
+190 sentences total for sort
+=====
+2022-02-07 11:51:42,679 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:51:45,889 : INFO : Warming up finished.
+2022-02-07 11:51:45,908 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:47,798 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:50,800 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:52,594 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:54,325 : INFO : Texts in the current batch: 32
+2022-02-07 11:51:55,686 : INFO : Texts in the current batch: 30
+Distribution of classes in the whole sample: {2: 112, 1: 60, 3: 13, 4: 4, 0: 1}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.530 (+/- 0.249)
+Average Recall on 5-fold cross-validation: 0.531 (+/- 0.260)
+Average F1 on 5-fold cross-validation: 0.515 (+/- 0.253)
+
+
+=====
+64 sentences total for source
+=====
+2022-02-07 11:52:00,459 : INFO : Warming up ELMo on 32 sentences...
+2022-02-07 11:52:02,632 : INFO : Warming up finished.
+2022-02-07 11:52:02,651 : INFO : Texts in the current batch: 32
+2022-02-07 11:52:04,492 : INFO : Texts in the current batch: 32
+Distribution of classes in the whole sample: {5: 31, 4: 11, 3: 6, 7: 2, 2: 5, 6: 3, 0: 2, 1: 4}
+/usr/local/lib/python3.7/dist-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 2 members, which is less than n_splits=5.
+  UserWarning,
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Average Precision on 5-fold cross-validation: 0.250 (+/- 0.099)
+Average Recall on 5-fold cross-validation: 0.265 (+/- 0.154)
+Average F1 on 5-fold cross-validation: 0.214 (+/- 0.154)
+
+
+=====
+Average precision value for all words: 0.488 (+/- 0.235)
+Average recall value for all words: 0.503 (+/- 0.238)
+Average F1 value for all words: 0.472(+/- 0.244)
