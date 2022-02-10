@@ -1,8 +1,8 @@
 import json
 
 import numpy as np
-from tqdm import tqdm
 from torch.utils.data import Dataset
+
 
 def load(filename):
     pairs = []
@@ -12,7 +12,7 @@ def load(filename):
     return pairs
 
 
-def get_token_logp(token: dict, vocab_size=30_003) -> tuple:
+def get_token_logp(token: dict) -> tuple:
     """ returns token logp from forward and backward lstm """
     vocab_forward = dict(zip(token['forward']['candidate_words'], token['forward']['logp']))
     vocab_backward = dict(zip(token['backward']['candidate_words'], token['backward']['logp']))
@@ -22,18 +22,17 @@ def get_token_logp(token: dict, vocab_size=30_003) -> tuple:
     return forward_logp, backward_logp
 
 
-def get_ppl(sentence, direction='forward', vocab_size=30_003):
-
+def get_ppl(sentence, direction='forward'):
     err_message = "Direction must be either 'forward', 'backward' or 'bidirectional'"
     assert direction in ['forward', 'backward', 'bidirectional'], err_message
-    log_p = [get_token_logp(token, vocab_size) for token in sentence]
+    log_p = [get_token_logp(token) for token in sentence]
 
     if direction == 'forward':
         log_p = [f for f, b in log_p]
     elif direction == 'backward':
         log_p = [b for f, b in log_p]
     else:
-        log_p = [np.mean([f,b]) for f, b in log_p]
+        log_p = [np.mean([f, b]) for f, b in log_p]
 
     ppl = np.sum(log_p)
 
@@ -51,14 +50,13 @@ def run(model, dataloader, direction):
 
         for good_sent, bad_sent in zip(good, bad):
 
-            good_ppl = get_ppl(good_sent, direction, vocab_size=vocab_size)
-            bad_ppl = get_ppl(bad_sent, direction, vocab_size=vocab_size)
+            good_ppl = get_ppl(good_sent, direction)
+            bad_ppl = get_ppl(bad_sent, direction)
 
             if good_ppl > bad_ppl:
                 correct += 1
 
     return correct / len(dataloader.dataset)
-
 
 
 class Blimp:
@@ -76,12 +74,11 @@ class Blimp:
                 phenomenon = self.phenomena[phenomenon_key]
                 for uid_key in sorted(phenomenon.keys()):
                     yield f"{phenomenon_key},{uid_key},{phenomenon[uid_key]}"
+
         return '\n'.join(iterator())
 
 
-
 class BlimpDataset(Dataset):
-
     """ customized Dataset class from torch """
 
     def __init__(self, data: list, tokenizer):
@@ -98,6 +95,7 @@ class BlimpDataset(Dataset):
         bad = " ".join([token.text for token in self.tokenizer(pair["sentence_bad"])])
 
         return good, bad
+
 
 def collate_fn(batch) -> tuple:
     goods, bads = list(), list()

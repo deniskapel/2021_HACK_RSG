@@ -1,21 +1,20 @@
 import argparse
-import logging
 import glob
+import logging
 
 import simple_elmo
 from spacy.lang.en import English
-from tqdm import tqdm
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 from blimp_utils import (
-    load, run, get_token_logp, get_ppl, Blimp, BlimpDataset, collate_fn
+    load, run, Blimp, BlimpDataset, collate_fn
 )
-
 
 BATCH_SIZE = 1
 
-def main(elmo_path: str, blimp_path: str, direction: 'forward'):
 
+def main(elmo_path: str, blimp_path: str, direction: "forward"):
     elmo_model = simple_elmo.ElmoModel()
     elmo_model.load(elmo_path, max_batch_size=BATCH_SIZE, full=True)
 
@@ -23,6 +22,7 @@ def main(elmo_path: str, blimp_path: str, direction: 'forward'):
     tokenizer = English().tokenizer
 
     for dataset in tqdm(glob.glob(f'{blimp_path}*.jsonl')):
+        logger.warning(dataset)
         dataset = load(dataset)
         loader = DataLoader(
             BlimpDataset(dataset, tokenizer),
@@ -35,28 +35,22 @@ def main(elmo_path: str, blimp_path: str, direction: 'forward'):
     s = open('scores.txt', 'a')
     s.write(blimp.__str__())
     s.close()
-    print(blimp)
-
-
+    logger.warning(blimp)
 
 
 if __name__ == '__main__':
     logger = logging.getLogger()
     logging.basicConfig(
-            format="%(asctime)s : %(levelname)s : %(message)s", level=logging.CRITICAL
-        )
+        format="%(asctime)s : %(levelname)s : %(message)s", level=logging.WARNING
+    )
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg("--elmo", "-e", help="Path to a folder with ELMo model", required=True)
     arg(
         "--blimp", "-b",
-        help="Path to a folder with blimp datatests",
-        required=True, default='blimb/data/')
-    arg("--direction", "-d", help="LSTM forward, backward or both", required=True,
-    default='forward')
-    
+        help="Path to a folder with blimp datatests", default='blimp/data/')
+    arg("--direction", "-d", help="LSTM forward, backward or both", default='forward')
 
     args = parser.parse_args()
-
 
     main(args.elmo, args.blimp, args.direction)
