@@ -33,9 +33,8 @@ def get_ppl(sentence, direction='forward'):
         log_p = [b for f, b in log_p]
     else:
         log_p = [np.mean([f, b]) for f, b in log_p]
-
+    print(log_p)
     ppl = np.sum(log_p)
-
     return ppl
 
 
