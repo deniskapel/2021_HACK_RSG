@@ -1,0 +1,5000 @@
+POSITIVE: The   Borg  ##ias wore  a     lot   of    scar  ##ves .     
+21.668    0.355 5.267 4.348 3.838 0.008 5.277 0.111 0.182 2.259 0.023 
+NEGATIVE: The   Borg  ##ias worn  a     lot   of    scar  ##ves .     
+27.637    0.193 5.488 5.154 8.354 0.010 6.480 0.156 0.367 1.396 0.039 
+
+POSITIVE: Teresa hi    ##d   every senator .     
+36.687    8.571  9.258 0.307 5.940 12.200  0.411 
+NEGATIVE: Teresa hidden every senator .     
+45.134    10.696 12.870 8.305 12.340  0.923 
+
+POSITIVE: The   mush  ##room went  bad   .     
+21.392    2.018 6.987 1.680  6.198 4.263 0.246 
+NEGATIVE: The   mush  ##room gone  bad   .     
+25.046    2.810 5.618 3.038  8.640 4.250 0.691 
+
+POSITIVE: Cheryl came  here  .     
+24.035    12.544 6.530 4.480 0.480 
+NEGATIVE: Cheryl come  here  .     
+25.105    12.676 8.237 3.387 0.806 
+
+POSITIVE: Christopher hi    ##d   a     spot  ##light .     
+23.581    9.103       4.279 0.317 3.155 2.957 3.626   0.145 
+NEGATIVE: Christopher hidden a     spot  ##light .     
+29.420    10.370      8.935  3.391 2.546 3.818   0.360 
+
+POSITIVE: Edward hi    ##d   the   cats  .     
+24.931    7.663  3.121 1.651 2.674 9.646 0.176 
+NEGATIVE: Edward hidden the   cats   .     
+30.938    8.635  9.932  1.552 10.418 0.401 
+
+POSITIVE: Erin   went  to    some  schools .     
+23.372    10.386 1.428 0.071 6.300 5.153   0.034 
+NEGATIVE: Erin   gone  to    some  schools .     
+31.253    10.748 8.366 0.342 5.154 6.229   0.414 
+
+POSITIVE: Joel   came  here  .     
+20.985    10.697 5.422 4.260 0.606 
+NEGATIVE: Joel   come  here  .     
+24.408    12.038 7.443 3.977 0.950 
+
+POSITIVE: Paula broke some  plates .     
+34.648    8.873 9.755 4.533 11.072 0.415 
+NEGATIVE: Paula  broken some  plates .     
+37.298    10.076 10.198 5.965 10.120 0.939 
+
+POSITIVE: Raymond wo    ##ke  up    .     
+14.046    9.880   1.565 0.117 2.056 0.428 
+NEGATIVE: Raymond wo    ##ken up    .     
+16.472    10.446  0.319 2.774 2.586 0.347 
+
+POSITIVE: Rand  ##olf drove to    a     mall  .     
+25.882    2.687 5.740 7.830 1.109 2.851 5.621 0.043 
+NEGATIVE: Rand  ##olf  driven to    a     mall  .     
+40.326    5.992 10.707 11.342 2.345 3.158 6.616 0.168 
+
+POSITIVE: Laura broke this  cart   .     
+34.086    8.692 7.144 5.177 12.331 0.742 
+NEGATIVE: Laura broken this  cart   .     
+37.861    9.210 8.962  6.242 12.343 1.104 
+
+POSITIVE: Victoria wore  that  hat   .     
+19.498    7.336    2.005 3.950 5.927 0.279 
+NEGATIVE: Victoria worn  that  hat   .     
+26.339    7.556    5.752 5.311 7.373 0.347 
+
+POSITIVE: Carrie took  most  bike  ##s   .     
+34.060    9.845  7.322 8.849 7.061 0.649 0.334 
+NEGATIVE: Carrie taken most  bike  ##s   .     
+38.110    9.592  9.194 9.747 7.703 0.962 0.912 
+
+POSITIVE: Nancy sang   .     
+19.301    8.198 10.330 0.774 
+NEGATIVE: Nancy sung   .     
+22.889    9.657 11.679 1.553 
+
+POSITIVE: The   guy   sang  .     
+20.968    3.654 8.677 7.924 0.714 
+NEGATIVE: The   guy   sung  .     
+20.153    3.339 7.844 8.226 0.744 
+
+POSITIVE: The   women broke a     lot   of    convert ##ibles .     
+29.511    2.959 6.998 8.464 0.092 4.544 0.293 1.581   4.380   0.200 
+NEGATIVE: The   women broken a     lot   of    convert ##ibles .     
+30.811    3.038 7.066 9.857  0.112 4.467 0.266 1.217   4.510   0.277 
+
+POSITIVE: Luc   ##ille went  to    some  cafe  .     
+24.959    1.649 5.078  3.701 0.496 5.934 7.940 0.161 
+NEGATIVE: Luc   ##ille gone  to    some  cafe  .     
+34.025    4.413 7.681  6.674 1.429 5.619 7.810 0.398 
+
+POSITIVE: Sandra knew   Bec   ##ca  .     
+23.349    8.398  11.597 2.488 0.582 0.285 
+NEGATIVE: Sandra known  Bec   ##ca  .     
+33.435    10.635 11.980 6.339 2.375 2.106 
+
+POSITIVE: Susan knew   Florence .     
+26.000    7.914 10.737 6.931    0.418 
+NEGATIVE: Susan  known  Florence .     
+33.338    11.628 10.823 8.674    2.213 
+
+POSITIVE: Many  girls took  that  ban   ##ana .     
+25.363    3.439 4.892 6.983 3.623 1.751 4.601 0.074 
+NEGATIVE: Many  girls taken that  ban   ##ana .     
+31.274    3.699 5.945 9.445 5.553 2.440 3.905 0.288 
+
+POSITIVE: Melissa at    ##e   .     
+27.643    10.805  9.105 6.067 1.665 
+NEGATIVE: Melissa eaten  .     
+23.974    10.497  11.990 1.488 
+
+POSITIVE: Andrew wrote .     
+19.278    8.339  9.044 1.895 
+NEGATIVE: Andrew written .     
+22.042    9.062  10.549  2.431 
+
+POSITIVE: Kend  ##ra  knew  Florence .     
+26.085    6.365 3.444 8.125 7.650    0.500 
+NEGATIVE: Kend  ##ra  known Florence .     
+34.454    5.969 5.281 8.240 12.627   2.337 
+
+POSITIVE: Guest ##s   wo    ##ke  up    .     
+9.904     4.486 1.435 0.471 0.091 2.755 0.666 
+NEGATIVE: Guest ##s   wo    ##ken up    .     
+12.432    5.070 1.234 0.262 2.757 2.707 0.401 
+
+POSITIVE: Suzanne sang  .     
+19.376    9.473   9.164 0.740 
+NEGATIVE: Suzanne sung   .     
+22.398    9.820   10.989 1.589 
+
+POSITIVE: Catherine knew  Amanda .     
+25.307    6.644     8.914 9.492  0.258 
+NEGATIVE: Catherine known Amanda .     
+31.123    9.304     9.221 10.600 1.998 
+
+POSITIVE: Frank hi    ##d   away  .     
+19.714    8.498 4.252 0.621 6.131 0.213 
+NEGATIVE: Frank hidden away  .     
+25.638    9.913 8.892  6.010 0.824 
+
+POSITIVE: Libraries forg  ##ot  Douglas .     
+34.076    12.623    8.605 2.486 9.169   1.192 
+NEGATIVE: Libraries forgotten Douglas .     
+38.128    11.348    12.031    11.213  3.536 
+
+POSITIVE: Every wait  ##er  hi    ##d   Julia  .     
+26.448    6.864 2.074 0.106 5.854 1.117 10.280 0.154 
+NEGATIVE: Every wait  ##er  hidden Julia  .     
+36.388    8.291 3.279 0.986 11.456 11.573 0.803 
+
+POSITIVE: This  person spoke up    .     
+25.018    4.374 5.961  6.925 6.934 0.825 
+NEGATIVE: This  person spoken up    .     
+28.546    4.694 7.096  9.516  5.856 1.384 
+
+POSITIVE: Caroline hi    ##d   .     
+22.680    9.571    9.823 2.430 0.856 
+NEGATIVE: Caroline hidden .     
+25.270    10.645   12.272 2.352 
+
+POSITIVE: That  coat   shr   ##ank .     
+23.757    6.722 10.828 2.112 3.280 0.815 
+NEGATIVE: That  coat   shr   ##unk .     
+24.404    7.149 10.607 1.348 4.895 0.404 
+
+POSITIVE: James at     ##e   .     
+26.691    8.216 10.392 6.022 2.061 
+NEGATIVE: James eaten  .     
+24.102    9.764 12.632 1.706 
+
+POSITIVE: Michael drove to    all   hospitals .     
+26.986    7.492   7.116 0.938 5.271 6.099     0.069 
+NEGATIVE: Michael driven to    all   hospitals .     
+34.622    8.999   11.504 2.582 5.156 5.902     0.480 
+
+POSITIVE: Todd  took  every car   .     
+25.487    9.323 4.641 5.555 5.609 0.358 
+NEGATIVE: Todd   taken every car   .     
+31.329    10.111 8.691 5.541 6.187 0.799 
+
+POSITIVE: Most  ladies hi    ##d   away  .     
+27.221    4.570 9.832  5.184 1.180 6.275 0.181 
+NEGATIVE: Most  ladies hidden away  .     
+33.871    5.930 11.028 10.470 5.283 1.161 
+
+POSITIVE: Aaron  broke the   un    ##icy ##cle .     
+22.883    10.165 8.614 1.537 2.049 0.026 0.015 0.477 
+NEGATIVE: Aaron  broken the   un    ##icy ##cle .     
+26.417    10.168 10.864 1.718 2.708 0.038 0.016 0.904 
+
+POSITIVE: Stacey took  chicken .     
+32.433    10.085 9.093 12.813  0.441 
+NEGATIVE: Stacey taken  chicken .     
+37.445    11.846 12.604 11.885  1.109 
+
+POSITIVE: Charles forg  ##ot  Sarah .     
+24.399    4.742   8.621 3.034 7.537 0.466 
+NEGATIVE: Charles forgotten Sarah .     
+32.758    8.457   12.739    9.262 2.300 
+
+POSITIVE: Every teenager went  to    the   hospitals .     
+26.393    5.440 7.057    1.944 0.239 3.344 8.337     0.032 
+NEGATIVE: Every teenager gone  to    the   hospitals .     
+31.984    5.612 8.015    6.456 0.491 3.062 8.211     0.138 
+
+POSITIVE: These guests got   fired .     
+22.687    5.068 7.485  3.638 6.052 0.442 
+NEGATIVE: These guests got   ##ten fired .     
+27.145    4.563 8.546  0.040 5.579 7.797 0.620 
+
+POSITIVE: Elizabeth broke the   carriage ##s   .     
+28.085    8.284     7.658 2.905 7.335    1.732 0.170 
+NEGATIVE: Elizabeth broken the   carriage ##s   .     
+30.552    8.419     9.693  3.585 6.855    1.657 0.343 
+
+POSITIVE: Claire wo    ##ke  up    .     
+11.223    8.318  0.398 0.215 1.948 0.343 
+NEGATIVE: Claire wo    ##ken up    .     
+13.536    8.552  0.097 2.113 2.518 0.257 
+
+POSITIVE: Alice wo    ##ke  up    .     
+11.579    8.015 0.268 0.140 2.592 0.564 
+NEGATIVE: Alice wo    ##ken up    .     
+14.969    8.518 0.067 2.659 3.316 0.409 
+
+POSITIVE: Victoria wrote .     
+18.321    7.982    8.301 2.039 
+NEGATIVE: Victoria written .     
+22.132    10.009   9.465   2.658 
+
+POSITIVE: Allison got   a     job   .     
+19.281    9.402   2.938 2.209 4.615 0.116 
+NEGATIVE: Allison got   ##ten a     job   .     
+19.513    10.698  0.109 1.907 2.322 4.243 0.234 
+
+POSITIVE: This  dancer broke many  glass ##es  .     
+24.810    2.476 8.226  5.235 5.762 2.934 0.015 0.162 
+NEGATIVE: This  dancer broken many  glass ##es  .     
+31.453    3.271 9.652  9.481  5.714 3.038 0.026 0.271 
+
+POSITIVE: Banks knew  Elaine .     
+26.745    8.959 8.716 8.826  0.244 
+NEGATIVE: Banks  known  Elaine .     
+37.579    10.425 11.080 13.707 2.367 
+
+POSITIVE: The   Lutheran ##s   hi    ##d   .     
+18.373    1.226 7.716    1.347 6.144 1.467 0.473 
+NEGATIVE: The   Lutheran ##s   hidden .     
+28.944    2.788 10.507   2.919 11.076 1.654 
+
+POSITIVE: Kimber ##ley drove to    this  high  school .     
+34.054    8.189  3.764 9.507 1.672 7.476 2.483 0.728  0.235 
+NEGATIVE: Kimber ##ley driven to    this  high  school .     
+40.999    7.547  4.863 13.068 1.834 7.673 2.733 2.716  0.564 
+
+POSITIVE: Some  boy   spoke up    .     
+31.610    6.139 9.390 9.482 6.141 0.458 
+NEGATIVE: Some  boy    spoken up    .     
+32.340    5.620 10.023 10.761 5.126 0.811 
+
+POSITIVE: Tiffany sang  .     
+18.499    8.987   8.983 0.529 
+NEGATIVE: Tiffany sung   .     
+21.694    10.657  10.128 0.910 
+
+POSITIVE: Mitchell broke a     lot   of    fork   ##s   .     
+35.191    9.717    8.320 0.055 5.472 0.428 10.341 0.537 0.322 
+NEGATIVE: Mitchell broken a     lot   of    fork  ##s   .     
+35.603    10.101   9.970  0.082 5.039 0.470 8.843 0.520 0.578 
+
+POSITIVE: Jessica drove to    all   museums .     
+35.283    10.042  9.158 1.823 4.494 9.467   0.299 
+NEGATIVE: Jessica driven to    all   museums .     
+40.083    11.406  11.492 2.785 4.058 9.509   0.834 
+
+POSITIVE: Valerie hi    ##d   away  .     
+19.199    8.562   4.394 0.356 5.705 0.182 
+NEGATIVE: Valerie hidden away  .     
+25.652    10.682  9.350  4.976 0.645 
+
+POSITIVE: Jesus at    ##e   .     
+21.709    8.036 7.477 5.210 0.986 
+NEGATIVE: Jesus eaten  .     
+21.590    9.104 11.272 1.213 
+
+POSITIVE: Some  customer hi    ##d   .     
+27.488    5.217 11.836   6.154 3.685 0.596 
+NEGATIVE: Some  customer hidden .     
+32.203    6.117 13.367   10.411 2.308 
+
+POSITIVE: All   actress ##es  hi    ##d   away  .     
+18.117    2.189 4.487   0.185 4.592 0.760 5.731 0.172 
+NEGATIVE: All   actress ##es  hidden away  .     
+25.799    3.203 5.205   1.316 9.598  5.629 0.848 
+
+POSITIVE: Marcus wore  this  soc   ##k   .     
+17.681    8.397  2.969 5.201 0.574 0.315 0.225 
+NEGATIVE: Marcus worn  this  soc   ##k   .     
+22.446    8.890  6.610 5.192 0.902 0.497 0.355 
+
+POSITIVE: Bradley knew  Sta   ##cy  .     
+20.093    7.429   7.798 2.133 2.304 0.427 
+NEGATIVE: Bradley known Sta   ##cy  .     
+27.362    9.463   9.247 2.747 4.105 1.799 
+
+POSITIVE: Helen took  a     lot   of    lamps  .     
+28.730    9.408 4.051 0.080 3.200 0.638 11.187 0.166 
+NEGATIVE: Helen  taken a     lot   of    lamps  .     
+33.932    10.581 8.154 0.145 3.641 0.584 10.427 0.401 
+
+POSITIVE: These drivers came  here  .     
+23.119    5.782 7.334   3.918 5.562 0.524 
+NEGATIVE: These drivers come  here  .     
+20.459    5.605 6.521   4.199 3.609 0.525 
+
+POSITIVE: Veronica drove to    the   hospitals .     
+28.519    9.399    7.675 0.813 1.892 8.688     0.052 
+NEGATIVE: Veronica driven to    the   hospitals .     
+33.486    10.395   10.550 1.559 1.517 9.180     0.284 
+
+POSITIVE: Lor   ##i   hi    ##d   away  .     
+22.312    7.484 3.599 4.311 0.602 6.044 0.271 
+NEGATIVE: Lor   ##i   hidden away  .     
+26.554    7.791 4.131 8.223  5.532 0.877 
+
+POSITIVE: A     lot   of    teenagers spoke  up    .     
+28.484    0.108 3.231 0.094 7.915     11.294 5.700 0.143 
+NEGATIVE: A     lot   of    teenagers spoken up    .     
+27.523    0.289 2.622 0.144 8.601     12.092 3.510 0.265 
+
+POSITIVE: Danielle knew  George .     
+26.530    9.917    9.080 7.088  0.445 
+NEGATIVE: Danielle known  George .     
+33.650    11.358   10.892 9.518  1.882 
+
+POSITIVE: Suzanne broke those trucks .     
+41.733    12.574  8.109 7.900 12.832 0.318 
+NEGATIVE: Suzanne broken those trucks .     
+41.920    12.877  8.442  8.981 11.148 0.473 
+
+POSITIVE: A     lot   of    actress ##es  took  some  river  .     
+33.061    0.207 1.317 0.032 4.226   0.037 6.105 7.680 13.172 0.286 
+NEGATIVE: A     lot   of    actress ##es  taken some  river  .     
+39.958    0.547 1.894 0.081 5.776   1.141 9.392 7.880 12.655 0.591 
+
+POSITIVE: Marl  ##a   dra   ##n   ##k   .     
+20.134    6.953 3.721 8.020 0.356 0.026 1.058 
+NEGATIVE: Marl  ##a   drunk  .     
+25.044    7.714 4.032 11.503 1.795 
+
+POSITIVE: Edward broke some  chair .     
+35.465    7.770  9.107 8.685 9.253 0.650 
+NEGATIVE: Edward broken some  chair .     
+36.993    8.531  11.436 8.374 7.782 0.869 
+
+POSITIVE: Sharon spoke up    .     
+23.920    7.817  8.523 7.196 0.384 
+NEGATIVE: Sharon spoken up    .     
+28.356    9.637  12.248 5.552 0.918 
+
+POSITIVE: Many  boys  wo    ##ke  up    .     
+13.054    4.339 5.514 0.787 0.038 2.096 0.280 
+NEGATIVE: Many  boys  wo    ##ken up    .     
+18.062    5.018 5.800 0.199 4.603 2.218 0.225 
+
+POSITIVE: Sally went  fishing .     
+16.676    7.503 3.827 5.136   0.210 
+NEGATIVE: Sally gone  fishing .     
+22.838    7.871 7.111 6.678   1.177 
+
+POSITIVE: Tam   ##my  wo    ##ke  up    .     
+9.891     3.041 3.093 0.334 0.104 2.851 0.468 
+NEGATIVE: Tam   ##my  wo    ##ken up    .     
+12.442    3.047 2.732 0.065 2.869 3.383 0.345 
+
+POSITIVE: Monica at    ##e   .     
+28.304    10.327 9.844 6.429 1.703 
+NEGATIVE: Monica eaten  .     
+26.957    13.028 12.090 1.840 
+
+POSITIVE: Adam  at    ##e   .     
+25.212    8.941 8.653 6.088 1.530 
+NEGATIVE: Adam   eaten  .     
+24.232    10.129 12.677 1.426 
+
+POSITIVE: Patrick broke a     lot   of    wheel ##bar ##rows .     
+23.455    8.884   7.313 0.068 5.095 0.324 0.357 0.059 1.005  0.351 
+NEGATIVE: Patrick broken a     lot   of    wheel ##bar ##rows .     
+25.914    9.631   8.803  0.086 5.130 0.391 0.302 0.079 0.877  0.615 
+
+POSITIVE: Lisa  at    ##e   .     
+24.893    8.136 9.490 5.554 1.712 
+NEGATIVE: Lisa  eaten  .     
+23.013    9.573 11.902 1.538 
+
+POSITIVE: Those students drove to    Spain .     
+29.158    5.611 6.966    8.360 0.637 7.461 0.123 
+NEGATIVE: Those students driven to    Spain .     
+34.546    5.876 9.152    10.637 1.015 6.907 0.959 
+
+POSITIVE: Carla went  to    schools .     
+18.760    9.315 1.310 0.645 7.451   0.039 
+NEGATIVE: Carla  gone  to    schools .     
+27.399    10.262 8.173 0.155 8.395   0.413 
+
+POSITIVE: Some  people broke that  chair .     
+29.812    3.487 2.814  8.799 5.385 8.970 0.357 
+NEGATIVE: Some  people broken that  chair .     
+29.507    3.118 2.964  9.482  5.491 7.990 0.462 
+
+POSITIVE: A     lot   of    dancers broke the   va    ##se  ##s   .     
+21.614    0.109 4.047 0.094 5.435   8.326 1.323 1.624 0.273 0.316 0.068 
+NEGATIVE: A     lot   of    dancers broken the   va    ##se  ##s   .     
+24.518    0.141 4.721 0.105 5.513   10.045 2.034 1.286 0.143 0.425 0.106 
+
+POSITIVE: Some  children came  here  .     
+14.021    3.510 4.980    4.579 0.838 0.114 
+NEGATIVE: Some  children come  here  .     
+12.027    3.299 5.149    2.878 0.614 0.087 
+
+POSITIVE: Raymond drove  to    Harvard University .     
+30.129    8.877   10.540 3.802 4.533   2.213      0.162 
+NEGATIVE: Raymond driven to    Harvard University .     
+33.481    10.208  13.947 2.523 4.001   2.525      0.278 
+
+POSITIVE: Keith took  these birds .     
+30.398    9.582 7.235 4.610 8.484 0.486 
+NEGATIVE: Keith taken  these birds .     
+34.726    9.700 10.136 4.660 9.248 0.982 
+
+POSITIVE: Carrie went  to    some  mall  ##s   .     
+29.963    9.303  7.971 0.438 5.989 5.928 0.282 0.052 
+NEGATIVE: Carrie gone   to    some  mall  ##s   .     
+34.402    9.997  10.951 1.180 5.889 5.609 0.432 0.344 
+
+POSITIVE: Tam   ##ara went  to    a     cafe  .     
+21.641    3.991 4.265 4.202 0.327 1.792 7.056 0.007 
+NEGATIVE: Tam   ##ara gone  to    a     cafe  .     
+25.968    3.579 5.253 6.650 1.064 2.267 7.073 0.083 
+
+POSITIVE: Michelle went  to    the   close ##t   .     
+19.311    9.266    3.942 0.648 0.940 3.462 1.003 0.049 
+NEGATIVE: Michelle gone  to    the   close ##t   .     
+22.518    9.623    7.366 1.248 1.010 1.773 1.185 0.314 
+
+POSITIVE: Janet broke the   plane .     
+26.087    9.551 9.084 0.269 7.084 0.098 
+NEGATIVE: Janet broken the   plane .     
+27.274    9.651 11.052 0.695 5.667 0.209 
+
+POSITIVE: Gerald hi     ##d   Ann   .     
+34.610    8.575  10.070 5.439 9.713 0.814 
+NEGATIVE: Gerald hidden Ann    .     
+36.755    9.669  14.696 10.161 2.230 
+
+POSITIVE: Vincent drove to    those restaurants .     
+33.841    7.819   6.301 1.259 8.428 9.936       0.099 
+NEGATIVE: Vincent driven to    those restaurants .     
+43.669    9.951   11.379 2.604 8.162 10.952      0.621 
+
+POSITIVE: Kirst ##en  broke a     dish   .     
+35.168    6.998 1.317 8.618 3.967 14.024 0.244 
+NEGATIVE: Kirst ##en  broken a     dish   .     
+38.371    8.128 2.250 11.013 2.896 13.625 0.460 
+
+POSITIVE: Patrick forg  ##ot  Victoria .     
+28.160    7.931   9.405 1.289 8.979    0.556 
+NEGATIVE: Patrick forgotten Victoria .     
+35.029    11.539  11.631    9.398    2.461 
+
+POSITIVE: The   Clinton ##s   wore  this  coat  .     
+17.438    0.718 7.928   1.314 1.504 2.268 3.514 0.192 
+NEGATIVE: The   Clinton ##s   worn  this  coat  .     
+21.666    0.683 8.299   1.112 6.029 2.156 3.182 0.205 
+
+POSITIVE: Maria wore  jacket ##s   .     
+20.354    9.326 6.579 4.194  0.181 0.073 
+NEGATIVE: Maria  worn  jacket ##s   .     
+27.467    11.023 9.822 5.593  0.697 0.332 
+
+POSITIVE: This  guy   came  here  .     
+17.443    2.023 6.707 4.337 4.082 0.293 
+NEGATIVE: This  guy   come  here  .     
+21.685    2.978 8.053 5.822 4.370 0.462 
+
+POSITIVE: Tam   ##ara hi    ##d   .     
+21.204    4.489 4.708 7.833 3.286 0.889 
+NEGATIVE: Tam   ##ara hidden .     
+22.363    4.343 4.379 11.184 2.456 
+
+POSITIVE: Beth  ##any broke a     lot   of    cup   ##s   .     
+26.121    3.334 3.242 7.583 0.175 3.514 0.359 7.102 0.520 0.292 
+NEGATIVE: Beth  ##any broken a     lot   of    cup   ##s   .     
+29.492    4.677 4.291 9.393  0.233 3.450 0.500 5.900 0.565 0.483 
+
+POSITIVE: Those dancers wo    ##ke  up    .     
+16.303    5.627 7.610   0.463 0.113 2.097 0.392 
+NEGATIVE: Those dancers wo    ##ken up    .     
+21.058    5.587 8.223   0.214 4.063 2.659 0.312 
+
+POSITIVE: The   bl    ##ouses shr   ##ank .     
+16.904    3.050 0.763 7.538   2.273 2.942 0.338 
+NEGATIVE: The   bl    ##ouses shr   ##unk .     
+15.715    2.922 1.056 7.172   0.975 3.292 0.298 
+
+POSITIVE: Many  pedestrian ##s   broke  some  cars  .     
+25.070    3.194 1.770      0.042 10.016 5.374 4.648 0.025 
+NEGATIVE: Many  pedestrian ##s   broken some  cars  .     
+23.878    2.619 2.179      0.095 10.036 4.872 4.013 0.064 
+
+POSITIVE: Wendy  drove to    most  college campuses .     
+32.900    10.742 8.782 2.472 6.073 1.346   3.426    0.060 
+NEGATIVE: Wendy  driven to    most  college campuses .     
+37.121    11.474 8.631  3.715 6.463 2.068   3.764    1.005 
+
+POSITIVE: Every teenager sang  .     
+18.552    3.642 7.249    7.157 0.503 
+NEGATIVE: Every teenager sung  .     
+24.678    5.653 9.495    8.974 0.556 
+
+POSITIVE: A     lot   of    doctors drove  to    this  library .     
+34.309    0.205 3.010 0.142 7.421   10.813 1.154 3.918 7.526   0.118 
+NEGATIVE: A     lot   of    doctors driven to    this  library .     
+40.255    1.080 2.536 0.463 8.698   11.920 2.482 4.114 8.400   0.562 
+
+POSITIVE: Every library took  some  painting .     
+35.177    6.828 8.669   6.636 4.693 8.170    0.180 
+NEGATIVE: Every library taken  some  painting .     
+41.249    7.175 8.993   10.234 6.152 8.237    0.458 
+
+POSITIVE: Andrea broke these va    ##se  ##s   .     
+24.045    8.315  9.476 4.035 2.108 0.014 0.022 0.075 
+NEGATIVE: Andrea broken these va    ##se  ##s   .     
+27.975    9.693  11.145 5.443 1.449 0.006 0.031 0.209 
+
+POSITIVE: Paula wore  these swe   ##aters .     
+18.423    9.167 2.497 6.384 0.206 0.057   0.112 
+NEGATIVE: Paula worn  these swe   ##aters .     
+21.427    9.338 5.650 6.116 0.091 0.071   0.160 
+
+POSITIVE: Aaron  drove to    some  mountain .     
+34.566    10.394 6.550 2.715 6.899 7.885    0.123 
+NEGATIVE: Aaron  driven to    some  mountain .     
+35.792    10.422 8.491  3.065 7.241 6.199    0.374 
+
+POSITIVE: Deborah wore  the   jacket .     
+20.126    9.847   3.412 3.194 3.564  0.109 
+NEGATIVE: Deborah worn  the   jacket .     
+22.957    9.761   6.223 2.498 4.285  0.190 
+
+POSITIVE: Jennifer broke a     carriage .     
+29.902    10.197   7.148 3.423 8.991    0.143 
+NEGATIVE: Jennifer broken a     carriage .     
+31.558    10.410   8.947  2.774 9.117    0.309 
+
+POSITIVE: Dawn  hi    ##d   many  sh    ##aw  ##ls  .     
+19.999    9.503 4.336 0.266 5.070 0.449 0.051 0.202 0.123 
+NEGATIVE: Dawn  hidden many  sh    ##aw  ##ls  .     
+27.395    8.870 9.615  7.264 0.364 0.054 0.558 0.671 
+
+POSITIVE: Diane went  fishing .     
+19.980    9.466 4.233 6.181   0.101 
+NEGATIVE: Diane  gone  fishing .     
+26.613    10.991 8.154 6.658   0.810 
+
+POSITIVE: Rh    ##onda wore  a     shoe  .     
+18.152    3.858 3.762  2.382 1.433 6.647 0.071 
+NEGATIVE: Rh    ##onda worn  a     shoe  .     
+24.269    5.154 4.895  6.214 2.114 5.645 0.247 
+
+POSITIVE: Carla broke some  plates .     
+36.551    9.765 9.712 4.939 11.697 0.439 
+NEGATIVE: Carla  broken some  plates .     
+39.762    11.059 10.514 6.607 10.458 1.124 
+
+POSITIVE: These actors got   a     job   .     
+21.611    4.133 5.473  4.346 2.971 4.579 0.107 
+NEGATIVE: These actors got   ##ten a     job   .     
+20.733    4.100 6.107  0.025 2.446 2.713 5.222 0.120 
+
+POSITIVE: A     lot   of    women hi    ##d   away  .     
+21.058    0.161 3.211 0.282 6.230 4.355 0.114 6.549 0.157 
+NEGATIVE: A     lot   of    women hidden away  .     
+27.519    0.742 4.573 0.239 7.644 9.495  4.349 0.477 
+
+POSITIVE: The   patients wore  every shoe  .     
+27.444    3.501 8.775    3.291 5.646 6.054 0.176 
+NEGATIVE: The   patients worn  every shoe  .     
+31.649    3.224 9.267    6.867 5.613 6.268 0.409 
+
+POSITIVE: Theresa drove to    the   public park  .     
+28.249    9.884   6.998 1.550 1.118 5.427  3.154 0.118 
+NEGATIVE: Theresa driven to    the   public park  .     
+36.842    11.660  9.672  2.488 0.905 5.393  5.990 0.733 
+
+POSITIVE: Naomi sang   .     
+20.272    9.655 10.133 0.484 
+NEGATIVE: Naomi  sung   .     
+23.467    11.271 10.357 1.839 
+
+POSITIVE: Those adults wore  most  shoes .     
+29.617    5.007 7.864  3.903 8.411 4.393 0.039 
+NEGATIVE: Those adults worn  most  shoes .     
+34.306    4.994 9.338  7.002 7.936 4.954 0.083 
+
+POSITIVE: The   wait  ##ers spoke up    .     
+24.533    2.861 4.543 1.951 9.528 5.532 0.119 
+NEGATIVE: The   wait  ##ers spoken up    .     
+27.491    2.488 4.697 2.671 13.102 4.305 0.226 
+
+POSITIVE: Katherine at    ##e   .     
+26.700    9.574     9.805 5.706 1.615 
+NEGATIVE: Katherine eaten  .     
+25.360    11.199    12.457 1.704 
+
+POSITIVE: Rose  went  to    every art   gallery .     
+25.039    9.018 3.553 0.487 6.551 2.394 2.953   0.083 
+NEGATIVE: Rose  gone  to    every art   gallery .     
+32.028    9.796 8.021 1.231 5.836 3.074 3.524   0.545 
+
+POSITIVE: Denise got   a     job   .     
+18.484    9.135  3.780 1.757 3.734 0.078 
+NEGATIVE: Denise got   ##ten a     job   .     
+18.260    9.912  0.293 1.845 2.053 3.963 0.193 
+
+POSITIVE: Anne  knew   Todd  .     
+28.473    7.670 11.034 9.172 0.597 
+NEGATIVE: Anne   known  Todd   .     
+36.142    10.267 11.292 11.643 2.940 
+
+POSITIVE: Helen got   fired .     
+18.213    8.393 4.826 4.685 0.309 
+NEGATIVE: Helen got   ##ten fired .     
+27.710    9.184 6.081 5.075 6.902 0.469 
+
+POSITIVE: Those wait  ##ers spoke up    .     
+26.310    6.069 3.786 1.293 9.250 5.636 0.277 
+NEGATIVE: Those wait  ##ers spoken up    .     
+31.154    5.678 4.040 4.027 12.480 4.395 0.533 
+
+POSITIVE: That  actor hi    ##d   away  .     
+22.728    3.164 7.414 4.834 0.180 6.808 0.328 
+NEGATIVE: That  actor hidden away  .     
+28.399    4.155 9.068 8.378  5.980 0.818 
+
+POSITIVE: Laurie came  here  .     
+22.402    11.024 5.869 5.055 0.455 
+NEGATIVE: Laurie come  here  .     
+23.382    11.061 7.704 3.692 0.925 
+
+POSITIVE: Tam   ##ara came  here  .     
+20.513    4.993 5.012 6.104 4.126 0.278 
+NEGATIVE: Tam   ##ara come  here  .     
+20.330    5.498 4.667 6.733 2.907 0.524 
+
+POSITIVE: Those drivers got   a     job   .     
+23.069    5.080 5.524   3.861 3.224 5.179 0.201 
+NEGATIVE: Those drivers got   ##ten a     job   .     
+22.189    4.175 7.068   0.032 2.656 3.037 4.954 0.267 
+
+POSITIVE: Stephen forg  ##ot  Nancy .     
+28.879    6.412   9.522 2.989 9.545 0.411 
+NEGATIVE: Stephen forgotten Nancy .     
+35.016    10.216  13.116    9.602 2.084 
+
+POSITIVE: Peter forg  ##ot  Tam   ##my  .     
+23.854    5.774 8.406 2.701 3.520 3.196 0.257 
+NEGATIVE: Peter forgotten Tam   ##my  .     
+32.038    8.535 12.684    4.789 4.435 1.594 
+
+POSITIVE: Rh    ##onda went  to    the   river .     
+29.884    5.817 6.228  6.290 2.284 0.613 8.403 0.249 
+NEGATIVE: Rh    ##onda gone   to    the   river .     
+35.797    6.284 6.701  11.088 2.441 0.566 7.963 0.755 
+
+POSITIVE: Those doctors wore  that  coat  .     
+26.105    5.628 9.140   1.923 3.410 5.527 0.477 
+NEGATIVE: Those doctors worn  that  coat  .     
+32.744    5.980 10.245  5.869 3.587 6.397 0.667 
+
+POSITIVE: Coll  ##een got   a     job   .     
+17.777    4.303 3.385 3.501 1.821 4.689 0.078 
+NEGATIVE: Coll  ##een got   ##ten a     job   .     
+16.290    3.968 3.601 0.381 1.758 2.176 4.224 0.182 
+
+POSITIVE: A     man   wrote .     
+17.375    3.532 5.038 7.938 0.867 
+NEGATIVE: A     man   written .     
+20.284    3.435 5.960 9.562   1.328 
+
+POSITIVE: Linda got   fired .     
+18.235    9.595 4.248 4.101 0.291 
+NEGATIVE: Linda got   ##ten fired .     
+28.189    9.917 6.215 4.560 7.068 0.430 
+
+POSITIVE: The   Lutheran ##s   wo    ##ke  up    .     
+16.070    1.766 8.827    1.106 0.230 0.108 3.641 0.392 
+NEGATIVE: The   Lutheran ##s   wo    ##ken up    .     
+19.263    1.652 9.123    0.880 0.066 3.064 4.149 0.330 
+
+POSITIVE: The   pepper ##s   went  bad   .     
+24.630    3.526 8.449  2.820 6.433 3.036 0.366 
+NEGATIVE: The   pepper ##s   gone  bad   .     
+28.697    3.875 8.860  3.843 8.358 3.124 0.638 
+
+POSITIVE: Keith wrote .     
+21.078    9.325 9.716 2.037 
+NEGATIVE: Keith  written .     
+23.733    10.700 10.837  2.196 
+
+POSITIVE: Some  girl  hi    ##d   that  screen .     
+37.569    5.044 9.706 5.664 0.832 6.366 9.725  0.233 
+NEGATIVE: Some  girl   hidden that  screen .     
+42.573    5.216 10.238 8.818  8.388 9.117  0.798 
+
+POSITIVE: This  pop   ##si  ##cle fro   ##ze  .     
+22.182    4.193 3.675 3.266 4.000 4.581 1.566 0.902 
+NEGATIVE: This  pop   ##si  ##cle frozen .     
+30.714    5.456 3.667 2.768 6.816 10.518 1.490 
+
+POSITIVE: Leslie at    ##e   .     
+28.745    10.887 9.646 6.452 1.760 
+NEGATIVE: Leslie eaten  .     
+27.170    13.214 12.485 1.470 
+
+POSITIVE: Florence wo    ##ke  up    .     
+12.016    8.249    0.217 0.235 2.882 0.433 
+NEGATIVE: Florence wo    ##ken up    .     
+14.873    8.785    0.078 1.861 3.825 0.324 
+
+POSITIVE: Vanessa wo    ##ke  up    .     
+10.697    7.904   0.522 0.223 1.725 0.323 
+NEGATIVE: Vanessa wo    ##ken up    .     
+12.658    8.215   0.111 2.059 2.043 0.230 
+
+POSITIVE: Mon   ##et  got   fired .     
+18.248    4.378 4.310 4.300 4.950 0.311 
+NEGATIVE: Mon   ##et  got   ##ten fired .     
+26.667    4.979 4.592 4.475 4.549 7.529 0.542 
+
+POSITIVE: Sharon went  fishing .     
+19.445    9.211  4.263 5.902   0.070 
+NEGATIVE: Sharon gone  fishing .     
+27.767    11.380 8.766 6.827   0.795 
+
+POSITIVE: Renee drove to    the   art   gallery .     
+23.938    9.185 8.718 1.279 1.165 2.233 1.298   0.059 
+NEGATIVE: Renee driven to    the   art   gallery .     
+30.419    9.520 11.681 2.475 1.059 2.557 2.803   0.324 
+
+POSITIVE: Many  ladies hi    ##d   the   girl  .     
+26.183    4.899 8.381  6.185 0.013 1.138 5.532 0.036 
+NEGATIVE: Many  ladies hidden the   girl  .     
+33.521    4.901 8.178  11.423 2.617 6.216 0.187 
+
+POSITIVE: Valerie wrote .     
+19.454    9.145   8.566 1.743 
+NEGATIVE: Valerie written .     
+23.200    10.355  10.779  2.067 
+
+POSITIVE: Mel   ##inda got   a     job   .     
+17.338    2.128 5.280  3.875 1.820 4.149 0.085 
+NEGATIVE: Mel   ##inda got   ##ten a     job   .     
+15.966    1.866 5.102  0.372 1.983 2.111 4.339 0.193 
+
+POSITIVE: Nancy spoke up    .     
+24.094    8.141 8.697 6.829 0.426 
+NEGATIVE: Nancy spoken up    .     
+27.290    9.429 12.204 4.865 0.791 
+
+POSITIVE: Many  boys  wore  every dress .     
+27.031    5.033 5.147 2.218 8.097 6.430 0.105 
+NEGATIVE: Many  boys  worn  every dress .     
+30.619    5.472 6.159 5.530 7.164 6.136 0.158 
+
+POSITIVE: Florence got   fired .     
+20.063    9.572    4.262 5.942 0.287 
+NEGATIVE: Florence got   ##ten fired .     
+28.916    10.017   5.234 5.669 7.479 0.517 
+
+POSITIVE: Sab   ##rina wore  a     lot   of    hat   ##s   .     
+17.740    1.376 5.322  2.141 0.025 4.681 0.211 3.913 0.016 0.054 
+NEGATIVE: Sab   ##rina worn  a     lot   of    hat   ##s   .     
+24.296    2.909 6.077  5.745 0.033 5.740 0.207 3.497 0.021 0.068 
+
+POSITIVE: Jeffrey hi    ##d   away  .     
+20.069    9.311   3.860 0.383 6.296 0.219 
+NEGATIVE: Jeffrey hidden away  .     
+28.213    11.371  8.759  7.074 1.010 
+
+POSITIVE: Kend  ##ra  broke the   mirrors .     
+26.704    5.267 2.952 6.617 1.494 10.158  0.216 
+NEGATIVE: Kend  ##ra  broken the   mirrors .     
+30.365    4.805 3.090 8.962  2.652 10.497  0.359 
+
+POSITIVE: Deb   ##ra  wrote .     
+21.284    5.116 5.133 9.171 1.863 
+NEGATIVE: Deb   ##ra  written .     
+23.394    5.847 4.578 10.354  2.615 
+
+POSITIVE: Those glac  ##iers fro   ##ze  .     
+11.317    6.642 0.843 0.088  3.421 0.081 0.242 
+NEGATIVE: Those glac  ##iers frozen .     
+18.405    6.318 1.702 1.116  7.837  1.432 
+
+POSITIVE: Larry wore  the   coat  .     
+20.268    9.194 3.391 2.259 5.176 0.248 
+NEGATIVE: Larry  worn  the   coat  .     
+23.551    10.028 6.653 1.576 4.925 0.369 
+
+POSITIVE: Tony  ##a   got   fired .     
+21.892    8.296 4.508 3.823 4.837 0.428 
+NEGATIVE: Tony  ##a   got   ##ten fired .     
+29.429    7.862 4.788 5.100 4.829 6.270 0.580 
+
+POSITIVE: Cand  ##ice hi    ##d   away  .     
+21.430    5.341 3.050 4.602 1.163 7.013 0.263 
+NEGATIVE: Cand  ##ice hidden away  .     
+24.304    4.619 3.802 8.938  6.086 0.859 
+
+POSITIVE: Omar  went  to    high  schools .     
+18.506    9.246 0.617 0.802 3.519 4.317   0.005 
+NEGATIVE: Omar   gone  to    high  schools .     
+28.158    10.741 9.416 0.405 3.179 4.302   0.114 
+
+POSITIVE: Caroline broke cou   ##ches .     
+23.433    8.900    8.421 2.252 3.483  0.377 
+NEGATIVE: Caroline broken cou   ##ches .     
+28.011    10.557   10.489 2.773 2.986  1.206 
+
+POSITIVE: Men   broke those bicycle ##s   .     
+31.244    7.393 6.264 9.092 7.797   0.162 0.537 
+NEGATIVE: Men   broken those bicycle ##s   .     
+32.516    7.029 8.097  8.832 7.598   0.356 0.603 
+
+POSITIVE: Stephen went  to    most  libraries .     
+30.114    10.046  4.186 0.572 6.039 9.103     0.169 
+NEGATIVE: Stephen gone  to    most  libraries .     
+35.121    10.058  8.204 0.947 5.932 9.133     0.847 
+
+POSITIVE: These dancers wrote .     
+20.849    4.089 8.510   7.001 1.250 
+NEGATIVE: These dancers written .     
+27.978    5.578 10.669  10.122  1.609 
+
+POSITIVE: Steve hi    ##d   .     
+21.452    8.688 9.372 2.532 0.861 
+NEGATIVE: Steve  hidden .     
+25.044    10.697 11.721 2.626 
+
+POSITIVE: Kend  ##ra  came  here  .     
+17.642    5.585 3.549 5.863 2.549 0.095 
+NEGATIVE: Kend  ##ra  come  here  .     
+14.987    4.495 3.762 4.676 1.921 0.134 
+
+POSITIVE: Carlos broke that  wheel ##bar ##row .     
+26.129    8.702  6.675 6.972 0.725 2.418 0.231 0.407 
+NEGATIVE: Carlos broken that  wheel ##bar ##row .     
+31.969    10.124 9.208  8.356 0.843 2.190 0.461 0.788 
+
+POSITIVE: Katherine forg  ##ot  Frank .     
+27.818    7.287     9.152 2.205 8.861 0.312 
+NEGATIVE: Katherine forgotten Frank .     
+36.713    11.346    14.368    9.179 1.820 
+
+POSITIVE: The   glac  ##ier fro   ##ze  .     
+6.708     0.460 0.852 0.975 3.360 0.839 0.222 
+NEGATIVE: The   glac  ##ier frozen .     
+13.174    2.326 1.162 0.781 8.042  0.863 
+
+POSITIVE: Those sh    ##aw  ##ls  shr   ##ank .     
+11.271    5.249 1.002 0.022 0.459 2.891 1.117 0.530 
+NEGATIVE: Those sh    ##aw  ##ls  shr   ##unk .     
+11.428    5.684 0.729 0.031 0.389 1.141 3.056 0.398 
+
+POSITIVE: All   doctors drove to    this  hill  .     
+31.432    2.398 7.473   7.141 2.401 3.721 8.133 0.165 
+NEGATIVE: All   doctors driven to    this  hill  .     
+37.290    2.740 9.710   9.879  2.193 3.186 8.961 0.622 
+
+POSITIVE: The   adult  broke  a     lot   of    dishes .     
+38.970    2.564 10.971 10.696 0.250 3.656 0.466 10.186 0.181 
+NEGATIVE: The   adult  broken a     lot   of    dishes .     
+40.676    2.662 10.638 13.675 0.458 3.331 0.438 9.228  0.244 
+
+POSITIVE: All   guy   ##s   forg  ##ot  Kenneth .     
+21.887    3.651 5.493 0.080 0.726 1.052 10.393  0.491 
+NEGATIVE: All   guy   ##s   forgotten Kenneth .     
+33.591    4.763 5.057 0.497 10.720    11.104  1.451 
+
+POSITIVE: Craig  went  to    a     lot   of    mall  ##s   .     
+23.636    10.422 3.739 0.796 0.091 2.210 0.127 5.992 0.181 0.078 
+NEGATIVE: Craig  gone  to    a     lot   of    mall  ##s   .     
+29.815    10.640 7.916 1.550 0.317 1.995 0.235 6.361 0.356 0.445 
+
+POSITIVE: Diana broke the   car   .     
+25.342    9.177 6.749 1.109 8.183 0.125 
+NEGATIVE: Diana broken the   car   .     
+27.177    9.272 8.488  1.420 7.702 0.295 
+
+POSITIVE: Travis got   fired .     
+17.800    9.161  4.040 4.262 0.336 
+NEGATIVE: Travis got   ##ten fired .     
+27.461    9.378  5.988 5.386 6.261 0.448 
+
+POSITIVE: Rodney broke some  cou   ##ch  .     
+27.332    9.274  6.901 6.760 1.450 2.401 0.546 
+NEGATIVE: Rodney broken some  cou   ##ch  .     
+32.849    10.041 9.052  7.722 1.747 3.323 0.964 
+
+POSITIVE: Krist ##en  broke that  mirror .     
+28.618    6.362 3.042 6.124 5.341 7.551  0.198 
+NEGATIVE: Krist ##en  broken that  mirror .     
+31.138    5.856 3.321 9.079  5.509 6.940  0.433 
+
+POSITIVE: The   hat   ##s   shr   ##ank .     
+17.567    4.006 7.184 1.682 2.171 2.068 0.455 
+NEGATIVE: The   hat   ##s   shr   ##unk .     
+16.641    4.141 6.724 1.426 0.539 3.474 0.336 
+
+POSITIVE: Adam  took  that  horse .     
+22.785    6.059 4.920 4.142 7.379 0.285 
+NEGATIVE: Adam  taken that  horse .     
+30.057    7.935 8.754 5.024 7.612 0.731 
+
+POSITIVE: Pat   ##ients broke all   mirrors .     
+29.896    0.360 7.199   7.400 3.837 10.921  0.179 
+NEGATIVE: Pat   ##ients broken all   mirrors .     
+32.169    1.216 6.470   8.112  5.760 9.922   0.688 
+
+POSITIVE: All   girls broke every car   .     
+30.420    2.984 6.258 8.459 5.735 6.812 0.172 
+NEGATIVE: All   girls broken every car   .     
+31.658    3.402 7.270 8.802  5.218 6.612 0.354 
+
+POSITIVE: Those pedestrian ##s   dra   ##n   ##k   .     
+12.140    5.809 5.319      0.126 0.137 0.073 0.060 0.615 
+NEGATIVE: Those pedestrian ##s   drunk .     
+24.185    5.824 6.876      0.642 9.078 1.765 
+
+POSITIVE: Every patient broke the   va    ##se  ##s   .     
+25.805    5.665 6.891   8.775 1.759 1.911 0.108 0.558 0.138 
+NEGATIVE: Every patient broken the   va    ##se  ##s   .     
+28.987    5.387 7.258   11.151 2.261 1.763 0.118 0.810 0.237 
+
+POSITIVE: Mel   ##inda wo    ##ke  up    .     
+10.127    1.085 5.102  1.223 0.152 2.218 0.347 
+NEGATIVE: Mel   ##inda wo    ##ken up    .     
+11.897    1.089 5.027  0.154 2.467 2.896 0.265 
+
+POSITIVE: All   mush  ##rooms went  bad   .     
+20.508    1.983 5.406 0.718   7.432 4.661 0.308 
+NEGATIVE: All   mush  ##rooms gone  bad   .     
+21.693    2.585 4.361 0.731   8.373 4.964 0.679 
+
+POSITIVE: Elaine spoke up    .     
+26.227    10.039 8.694 7.123 0.370 
+NEGATIVE: Elaine spoken up    .     
+28.478    10.402 11.972 5.345 0.759 
+
+POSITIVE: These guy   ##s   took  a     lot   of    newspaper articles .     
+24.773    1.537 4.920 0.055 6.349 0.044 0.484 0.299 4.751     6.271    0.065 
+NEGATIVE: These guy   ##s   taken a     lot   of    newspaper articles .     
+28.532    2.089 4.679 0.785 9.178 0.079 0.658 0.225 4.652     6.074    0.113 
+
+POSITIVE: Marcus hi     ##d   .     
+22.954    8.825  10.024 2.755 1.350 
+NEGATIVE: Marcus hidden .     
+25.462    10.791 11.845 2.825 
+
+POSITIVE: Jacqueline wore  many  jacket ##s   .     
+23.874    11.057     1.756 7.621 3.345  0.056 0.039 
+NEGATIVE: Jacqueline worn  many  jacket ##s   .     
+26.574    11.339     4.812 6.913 3.342  0.083 0.083 
+
+POSITIVE: Samuel dra   ##n   ##k   .     
+18.867    8.823  8.447 0.681 0.021 0.895 
+NEGATIVE: Samuel drunk  .     
+24.474    9.857  12.280 2.337 
+
+POSITIVE: Bradley broke this  plate  .     
+36.482    7.867   7.918 9.390 10.862 0.445 
+NEGATIVE: Bradley broken this  plate  .     
+37.055    7.922   9.529  8.098 10.899 0.607 
+
+POSITIVE: Walter hi    ##d   .     
+20.001    7.346  9.709 2.044 0.902 
+NEGATIVE: Walter hidden .     
+25.280    10.701 12.641 1.938 
+
+POSITIVE: Many  universities knew  Dawn   .     
+34.911    2.866 10.704       9.969 10.881 0.492 
+NEGATIVE: Many  universities known Dawn   .     
+35.314    5.566 8.185        7.993 11.657 1.914 
+
+POSITIVE: Natalie drove to    many  museums .     
+33.077    9.146   9.091 1.237 5.599 7.897   0.107 
+NEGATIVE: Natalie driven to    many  museums .     
+39.504    10.457  11.829 2.250 5.754 8.610   0.604 
+
+POSITIVE: Eric  took   computers .     
+32.547    7.822 12.161 12.282    0.282 
+NEGATIVE: Eric  taken  computers .     
+33.700    9.579 12.137 11.034    0.950 
+
+POSITIVE: Allison broke these cup   ##s   .     
+30.014    8.909   6.996 5.525 7.676 0.596 0.313 
+NEGATIVE: Allison broken these cup   ##s   .     
+33.196    9.730   7.769  6.359 7.843 0.985 0.509 
+
+POSITIVE: Carrie at    ##e   .     
+26.989    10.685 9.233 5.544 1.528 
+NEGATIVE: Carrie eaten  .     
+23.176    10.085 11.466 1.626 
+
+POSITIVE: Meredith wrote .     
+18.068    8.854    7.143 2.071 
+NEGATIVE: Meredith written .     
+20.054    9.595    8.312   2.147 
+
+POSITIVE: Some  adults broke  a     lot   of    wheel ##bar ##rows .     
+29.682    3.176 8.332  10.869 0.082 6.053 0.323 0.194 0.048 0.547  0.057 
+NEGATIVE: Some  adults broken a     lot   of    wheel ##bar ##rows .     
+31.361    3.828 8.739  10.915 0.096 6.434 0.363 0.421 0.092 0.413  0.060 
+
+POSITIVE: Margaret at     ##e   .     
+25.786    8.460    10.193 5.676 1.457 
+NEGATIVE: Margaret eaten  .     
+24.700    10.651   12.518 1.531 
+
+POSITIVE: Sara  went  fishing .     
+18.475    7.726 4.777 5.840   0.132 
+NEGATIVE: Sara  gone  fishing .     
+23.429    7.806 8.007 6.664   0.952 
+
+POSITIVE: Martin went  fishing .     
+17.272    6.603  4.147 6.398   0.124 
+NEGATIVE: Martin gone  fishing .     
+25.801    9.465  8.410 6.945   0.981 
+
+POSITIVE: Steve sang   .     
+19.060    7.835 10.362 0.864 
+NEGATIVE: Steve sung   .     
+22.367    9.258 11.652 1.456 
+
+POSITIVE: Carrie spoke up    .     
+24.604    9.631  8.245 6.247 0.481 
+NEGATIVE: Carrie spoken up    .     
+25.737    10.248 9.768  4.977 0.744 
+
+POSITIVE: Bec   ##ca  wore  the   shoes .     
+21.048    3.504 1.402 3.377 5.044 7.562 0.158 
+NEGATIVE: Bec   ##ca  worn  the   shoes .     
+23.445    3.738 2.500 6.329 4.481 6.128 0.269 
+
+POSITIVE: Most  mush  ##rooms went  bad   .     
+24.249    5.172 4.939 0.477   8.562 4.870 0.229 
+NEGATIVE: Most  mush  ##rooms gone  bad   .     
+24.712    5.321 3.649 0.832   9.462 4.856 0.593 
+
+POSITIVE: Many  ski   ##rt  ##s   shr   ##ank .     
+14.453    4.336 4.428 0.491 0.105 2.762 2.047 0.283 
+NEGATIVE: Many  ski   ##rt  ##s   shr   ##unk .     
+15.170    4.879 4.830 1.760 0.116 0.818 2.540 0.226 
+
+POSITIVE: Alexander wrote .     
+16.963    7.471     7.349 2.143 
+NEGATIVE: Alexander written .     
+22.218    9.273     10.456  2.489 
+
+POSITIVE: All   hat   ##s   shr   ##ank .     
+15.786    3.174 6.089 0.266 3.297 2.465 0.494 
+NEGATIVE: All   hat   ##s   shr   ##unk .     
+14.816    3.762 5.585 0.134 1.414 3.609 0.312 
+
+POSITIVE: That  lake  fro   ##ze  .     
+16.817    6.171 6.970 3.069 0.210 0.397 
+NEGATIVE: That  lake  frozen .     
+26.625    8.523 8.045 8.599  1.458 
+
+POSITIVE: The   dancers hi    ##d   .     
+21.371    1.287 8.775   8.651 2.338 0.320 
+NEGATIVE: The   dancers hidden .     
+22.289    2.619 9.200   9.119  1.351 
+
+POSITIVE: Some  wait  ##er  knew  Kirst ##en  .     
+29.666    6.849 5.504 2.687 5.908 6.652 1.844 0.222 
+NEGATIVE: Some  wait  ##er  known Kirst ##en  .     
+41.297    8.286 9.015 1.914 6.972 7.790 5.345 1.975 
+
+POSITIVE: Claire at     ##e   .     
+27.686    10.408 10.377 5.355 1.545 
+NEGATIVE: Claire eaten  .     
+23.735    10.441 11.814 1.480 
+
+POSITIVE: Some  dancers dra   ##n   ##k   .     
+10.065    3.311 5.857   0.477 0.014 0.021 0.385 
+NEGATIVE: Some  dancers drunk .     
+23.749    3.757 9.555   9.210 1.227 
+
+POSITIVE: Mary  hi    ##d   a     lot   of    glass ##es  .     
+22.056    8.708 4.464 0.109 0.019 3.921 0.330 4.194 0.131 0.180 
+NEGATIVE: Mary  hidden a     lot   of    glass ##es  .     
+26.374    9.458 9.521  0.135 3.345 0.374 2.969 0.162 0.410 
+
+POSITIVE: Tam   ##my  wore  some  soc   ##k   .     
+27.804    3.849 3.750 3.355 8.434 1.815 6.473 0.128 
+NEGATIVE: Tam   ##my  worn  some  soc   ##k   .     
+30.152    4.852 4.039 6.002 7.554 1.850 5.674 0.181 
+
+POSITIVE: Kevin wo    ##ke  up    .     
+12.577    8.265 1.812 0.159 1.962 0.379 
+NEGATIVE: Kevin wo    ##ken up    .     
+13.856    8.559 0.279 2.405 2.360 0.253 
+
+POSITIVE: Daniel broke some  chair .     
+36.564    7.911  9.157 9.086 9.675 0.734 
+NEGATIVE: Daniel broken some  chair .     
+38.716    9.245  11.471 8.629 8.294 1.077 
+
+POSITIVE: Brenda came  here  .     
+21.800    11.048 6.614 3.777 0.360 
+NEGATIVE: Brenda come  here  .     
+24.333    12.062 8.277 3.189 0.804 
+
+POSITIVE: Most  girls wrote .     
+20.601    4.641 7.367 7.815 0.778 
+NEGATIVE: Most  girls  written .     
+29.435    6.031 10.314 11.104  1.987 
+
+POSITIVE: Danielle got   fired .     
+18.694    9.886    4.118 4.366 0.324 
+NEGATIVE: Danielle got   ##ten fired .     
+28.849    10.665   6.415 4.613 6.739 0.417 
+
+POSITIVE: Theodore broke most  bike  ##s   .     
+34.652    8.667    8.517 8.393 8.393 0.194 0.488 
+NEGATIVE: Theodore broken most  bike  ##s   .     
+36.101    9.417    9.117  8.664 7.873 0.183 0.848 
+
+POSITIVE: Most  cash  ##iers went  fishing .     
+31.390    3.954 5.507 5.928  7.944 8.022   0.035 
+NEGATIVE: Most  cash  ##iers gone   fishing .     
+39.232    4.370 5.600 9.428  11.622 8.024   0.188 
+
+POSITIVE: Theresa broke all   bicycle ##s   .     
+31.479    10.282  7.209 5.104 8.294   0.237 0.352 
+NEGATIVE: Theresa broken all   bicycle ##s   .     
+33.862    10.524  8.042  6.315 7.989   0.303 0.688 
+
+POSITIVE: Those people hi    ##d   away  .     
+20.219    5.680 4.023  3.329 0.165 6.602 0.420 
+NEGATIVE: Those people hidden away  .     
+27.399    5.479 6.332  9.253  5.214 1.121 
+
+POSITIVE: These shoes shr   ##ank .     
+16.635    3.653 8.381 2.006 2.084 0.511 
+NEGATIVE: These shoes shr   ##unk .     
+17.196    3.483 8.874 0.437 4.009 0.393 
+
+POSITIVE: This  actress hi    ##d   .     
+22.674    3.633 9.491   6.723 2.166 0.662 
+NEGATIVE: This  actress hidden .     
+25.700    5.033 10.526  8.306  1.835 
+
+POSITIVE: The   pop   ##si  ##cle fro   ##ze  .     
+18.802    1.955 2.748 3.405 4.692 3.945 1.528 0.530 
+NEGATIVE: The   pop   ##si  ##cle frozen .     
+27.102    3.081 3.573 2.150 7.250 9.445  1.603 
+
+POSITIVE: Many  people hi    ##d   away  .     
+14.430    1.852 2.044  3.116 0.141 7.160 0.116 
+NEGATIVE: Many  people hidden away  .     
+25.074    4.081 4.985  9.353  5.758 0.897 
+
+POSITIVE: Gregory hi    ##d   those bicycle ##s   .     
+31.729    8.076   4.285 0.454 8.968 9.586   0.220 0.140 
+NEGATIVE: Gregory hidden those bicycle ##s   .     
+38.880    9.525   9.078  8.602 10.948  0.397 0.330 
+
+POSITIVE: Amy   sang  .     
+18.857    8.367 9.779 0.711 
+NEGATIVE: Amy   sung   .     
+21.865    9.771 10.788 1.306 
+
+POSITIVE: A     soc   ##k   shr   ##ank .     
+17.649    3.696 4.340 1.235 4.581 2.715 1.082 
+NEGATIVE: A     soc   ##k   shr   ##unk .     
+16.157    4.106 3.871 0.871 3.758 3.024 0.527 
+
+POSITIVE: Tiffany hi    ##d   the   lady  .     
+25.237    11.053  5.045 0.298 0.948 7.677 0.216 
+NEGATIVE: Tiffany hidden the   lady  .     
+34.439    11.751  10.748 2.974 8.342 0.624 
+
+POSITIVE: Carmen took  this  box   .     
+28.703    9.032  6.440 3.581 9.172 0.479 
+NEGATIVE: Carmen taken this  box   .     
+33.975    9.874  9.363 5.167 8.688 0.883 
+
+POSITIVE: Eva   drove to    this  library .     
+31.028    7.646 8.826 1.531 5.600 7.235   0.188 
+NEGATIVE: Eva    driven to    this  library .     
+37.831    10.055 10.233 2.665 6.118 8.028   0.732 
+
+POSITIVE: Mon   ##et  hi    ##d   .     
+21.430    5.319 3.980 7.735 3.030 1.366 
+NEGATIVE: Mon   ##et  hidden .     
+27.086    6.308 4.460 13.439 2.879 
+
+POSITIVE: Donna  went  to    this  art   gallery .     
+25.091    10.123 3.254 0.620 5.228 2.266 3.425   0.176 
+NEGATIVE: Donna  gone  to    this  art   gallery .     
+31.058    10.278 6.761 1.102 5.662 3.113 3.427   0.716 
+
+POSITIVE: Brenda hi    ##d   the   bicycle ##s   .     
+26.293    9.802  3.752 0.573 3.637 6.124   2.357 0.049 
+NEGATIVE: Brenda hidden the   bicycle ##s   .     
+33.847    11.721 9.303  3.270 8.272   1.157 0.123 
+
+POSITIVE: Most  actress ##es  wore  a     lot   of    jacket ##s   .     
+16.524    3.145 1.501   0.004 1.869 0.017 5.289 0.294 4.157  0.237 0.013 
+NEGATIVE: Most  actress ##es  worn  a     lot   of    jacket ##s   .     
+19.903    3.601 2.290   0.038 4.892 0.021 5.385 0.278 3.192  0.184 0.020 
+
+POSITIVE: This  lake  fro   ##ze  .     
+15.422    4.051 5.795 3.758 1.299 0.519 
+NEGATIVE: This  lake  frozen .     
+22.320    5.579 6.123 8.902  1.717 
+
+POSITIVE: The   wait  ##ers hi    ##d   that  actress .     
+32.824    2.579 4.490 3.045 7.446 0.335 4.041 10.614  0.274 
+NEGATIVE: The   wait  ##ers hidden that  actress .     
+40.148    2.828 3.952 3.146 13.099 5.182 11.597  0.342 
+
+POSITIVE: Diana wore  a     lot   of    hat   ##s   .     
+21.287    9.526 2.060 0.028 5.303 0.278 3.950 0.022 0.121 
+NEGATIVE: Diana worn  a     lot   of    hat   ##s   .     
+25.321    9.882 5.395 0.036 6.246 0.308 3.242 0.031 0.181 
+
+POSITIVE: Matt  knew  Kathleen .     
+27.307    7.986 9.586 9.280    0.456 
+NEGATIVE: Matt   known  Kathleen .     
+37.249    11.979 12.821 10.413   2.037 
+
+POSITIVE: Jacqueline wore  most  shirts .     
+29.802    11.427     2.584 9.744 5.910  0.137 
+NEGATIVE: Jacqueline worn  most  shirts .     
+31.808    11.537     4.590 8.577 6.899  0.205 
+
+POSITIVE: Tam   ##my  broke those fork  ##s   .     
+33.241    3.749 5.286 7.609 7.469 8.743 0.051 0.334 
+NEGATIVE: Tam   ##my  broken those fork  ##s   .     
+34.548    4.550 5.534 8.280  7.851 7.808 0.064 0.462 
+
+POSITIVE: Some  egg   ##plant ##s   went  bad   .     
+27.513    3.554 4.162 4.121   3.405 7.121 4.838 0.312 
+NEGATIVE: Some  egg   ##plant ##s   gone  bad   .     
+27.427    4.130 4.052 3.407   2.390 8.206 4.424 0.818 
+
+POSITIVE: Those girls got   a     job   .     
+22.087    5.605 5.020 4.411 2.281 4.646 0.122 
+NEGATIVE: Those girls got   ##ten a     job   .     
+21.429    5.177 6.253 0.036 2.564 2.274 4.928 0.195 
+
+POSITIVE: Kenneth spoke up    .     
+26.218    9.915   8.692 7.127 0.484 
+NEGATIVE: Kenneth spoken up    .     
+27.887    11.039  11.046 4.890 0.912 
+
+POSITIVE: Clyde  took  this  egg   ##plant .     
+40.109    10.509 6.381 5.581 5.261 11.872  0.505 
+NEGATIVE: Clyde  taken  this  egg   ##plant .     
+44.080    10.705 10.071 5.371 4.608 12.160  1.164 
+
+POSITIVE: Sta   ##cy  dra   ##n   ##k   .     
+15.972    2.972 3.955 7.697 0.432 0.035 0.881 
+NEGATIVE: Sta   ##cy  drunk  .     
+16.968    2.653 1.929 11.073 1.314 
+
+POSITIVE: Alice came  here  .     
+18.266    8.943 6.158 2.696 0.469 
+NEGATIVE: Alice  come  here  .     
+22.629    10.182 8.475 3.197 0.775 
+
+POSITIVE: Tara  hi    ##d   away  .     
+20.125    8.138 4.360 0.781 6.534 0.313 
+NEGATIVE: Tara  hidden away  .     
+24.498    9.380 8.652  5.476 0.990 
+
+POSITIVE: All   boys  hi    ##d   this  face  .     
+27.161    2.282 4.715 5.364 0.623 4.971 8.897 0.310 
+NEGATIVE: All   boys  hidden this  face  .     
+35.526    2.594 6.645 11.399 5.241 9.052 0.595 
+
+POSITIVE: Jod   ##i   went  to    a     lot   of    mountains .     
+28.575    7.793 2.838 4.680 1.126 0.242 2.132 0.118 9.516     0.128 
+NEGATIVE: Jod   ##i   gone  to    a     lot   of    mountains .     
+35.986    8.310 3.484 9.558 1.804 0.386 2.042 0.233 9.700     0.469 
+
+POSITIVE: Bruce went  to    banks  .     
+24.673    9.853 2.530 1.492 10.767 0.032 
+NEGATIVE: Bruce  gone  to    banks  .     
+31.967    11.106 8.324 1.648 10.320 0.568 
+
+POSITIVE: Martha knew  Keith .     
+26.469    7.121  9.524 9.130 0.694 
+NEGATIVE: Martha known  Keith  .     
+34.346    11.242 10.891 10.083 2.130 
+
+POSITIVE: This  pedestrian hi    ##d   Alexander .     
+35.743    4.324 12.547     6.880 2.062 8.939     0.990 
+NEGATIVE: This  pedestrian hidden Alexander .     
+41.068    4.710 11.736     11.143 11.435    2.044 
+
+POSITIVE: Gina  drove to    most  close ##ts  .     
+37.885    9.637 9.464 3.898 8.937 1.080 4.720 0.149 
+NEGATIVE: Gina   driven to    most  close ##ts  .     
+42.674    11.903 11.583 4.173 8.872 0.693 4.959 0.491 
+
+POSITIVE: Kay   ##la  went  to    the   restaurants .     
+29.058    5.347 3.011 3.815 0.877 4.229 11.685      0.094 
+NEGATIVE: Kay   ##la  gone  to    the   restaurants .     
+37.665    5.158 7.166 7.561 1.782 4.051 11.584      0.364 
+
+POSITIVE: Dawn  broke that  plane .     
+29.200    7.839 7.787 5.457 7.919 0.198 
+NEGATIVE: Dawn  broken that  plane .     
+31.778    7.885 9.800  6.296 7.270 0.527 
+
+POSITIVE: Caroline hi    ##d   all   gates  .     
+29.330    9.764    4.086 0.159 4.880 10.169 0.272 
+NEGATIVE: Caroline hidden all   gates  .     
+33.324    10.193   6.479  5.809 10.326 0.517 
+
+POSITIVE: The   Imp   ##ression ##ists went  fishing .     
+18.198    1.407 0.011 0.369     1.536  5.319 9.323   0.232 
+NEGATIVE: The   Imp   ##ression ##ists gone  fishing .     
+26.172    2.755 0.017 0.989     4.312  8.457 8.663   0.980 
+
+POSITIVE: Mush  ##rooms went  bad   .     
+17.290    3.379 2.768   7.357 3.377 0.410 
+NEGATIVE: Mush  ##rooms gone  bad   .     
+17.708    1.914 2.498   8.410 3.927 0.960 
+
+POSITIVE: That  driver knew  Anne  .     
+30.072    4.294 8.537  7.055 9.800 0.387 
+NEGATIVE: That  driver known Anne   .     
+36.848    5.647 10.151 9.520 10.193 1.336 
+
+POSITIVE: Nina  drove to    the   high  schools .     
+28.540    8.996 7.845 1.520 2.473 2.690 4.987   0.029 
+NEGATIVE: Nina   driven to    the   high  schools .     
+34.093    10.025 12.109 2.206 1.753 2.765 5.005   0.229 
+
+POSITIVE: Kenneth sang   .     
+20.723    9.231   10.751 0.741 
+NEGATIVE: Kenneth sung   .     
+25.862    11.477  12.507 1.878 
+
+POSITIVE: A     lot   of    adults wo    ##ke  up    .     
+17.204    0.145 4.458 0.154 8.856  0.881 0.060 2.334 0.316 
+NEGATIVE: A     lot   of    adults wo    ##ken up    .     
+21.182    0.111 3.893 0.169 9.159  0.339 5.006 2.271 0.234 
+
+POSITIVE: Rand  ##olf knew  the   Lutheran ##s   .     
+29.664    3.524 6.360 6.752 1.830 7.866    3.167 0.165 
+NEGATIVE: Rand  ##olf  known the   Lutheran ##s   .     
+40.585    6.911 10.329 9.073 3.107 7.771    2.759 0.636 
+
+POSITIVE: Many  patients hi    ##d   away  .     
+23.017    2.761 8.290    4.705 0.136 6.978 0.148 
+NEGATIVE: Many  patients hidden away  .     
+31.436    4.387 10.284   9.465  6.164 1.136 
+
+POSITIVE: Richard broke a     lot   of    un    ##icy ##cles .     
+26.090    7.342   9.640 0.055 4.888 0.304 2.541 0.322 0.531  0.467 
+NEGATIVE: Richard broken a     lot   of    un    ##icy ##cles .     
+29.658    8.424   11.443 0.097 4.792 0.380 2.938 0.281 0.453  0.848 
+
+POSITIVE: A     lot   of    actors dra   ##n   ##k   .     
+11.098    0.217 2.525 0.043 6.946  0.949 0.025 0.061 0.332 
+NEGATIVE: A     lot   of    actors drunk .     
+22.734    0.754 4.299 0.137 6.966  9.587 0.992 
+
+POSITIVE: Sara  drove to    all   cafe  ##s   .     
+29.674    7.518 7.389 1.497 5.353 7.583 0.221 0.113 
+NEGATIVE: Sara  driven to    all   cafe  ##s   .     
+35.823    8.876 10.302 2.681 4.977 8.147 0.361 0.479 
+
+POSITIVE: Some  wait  ##resses hi    ##d   some  painting .     
+26.690    2.460 2.362 3.241    3.787 0.192 5.341 9.235    0.073 
+NEGATIVE: Some  wait  ##resses hidden some  painting .     
+34.579    2.974 1.776 4.841    11.017 5.133 8.590    0.248 
+
+POSITIVE: Sara  got   a     job   .     
+16.903    7.265 3.480 1.525 4.488 0.146 
+NEGATIVE: Sara  got   ##ten a     job   .     
+17.108    8.067 0.421 2.051 1.930 4.373 0.264 
+
+POSITIVE: Janet went  to    the   school .     
+20.236    8.505 2.468 0.199 4.981 4.031  0.053 
+NEGATIVE: Janet gone  to    the   school .     
+27.755    9.804 7.465 0.665 4.220 4.989  0.612 
+
+POSITIVE: Eric  broke most  glass ##es  .     
+27.746    7.704 8.453 7.819 3.393 0.063 0.315 
+NEGATIVE: Eric  broken most  glass ##es  .     
+29.813    8.786 9.902  8.294 1.875 0.255 0.701 
+
+POSITIVE: The   pedestrian ##s   came  here  .     
+23.034    4.505 7.979      1.156 5.437 3.839 0.117 
+NEGATIVE: The   pedestrian ##s   come  here  .     
+18.762    5.330 5.697      0.564 4.375 2.726 0.071 
+
+POSITIVE: That  adult  sang  .     
+23.694    4.711 10.604 7.648 0.730 
+NEGATIVE: That  adult  sung  .     
+29.155    7.979 10.886 9.319 0.971 
+
+POSITIVE: Many  pedestrian ##s   spoke  up    .     
+26.106    3.050 6.364      0.076 11.249 5.322 0.044 
+NEGATIVE: Many  pedestrian ##s   spoken up    .     
+27.382    3.176 6.439      0.211 13.825 3.593 0.137 
+
+POSITIVE: The   glass ##es  shr   ##ank .     
+16.152    2.675 5.736 3.422 1.773 2.073 0.472 
+NEGATIVE: The   glass ##es  shr   ##unk .     
+15.162    2.306 6.133 2.542 0.625 3.251 0.304 
+
+POSITIVE: Michelle took  those cars  .     
+28.228    9.594    4.404 6.742 7.357 0.132 
+NEGATIVE: Michelle taken those cars  .     
+34.483    10.740   8.435 7.637 7.370 0.301 
+
+POSITIVE: Irene dra   ##n   ##k   .     
+18.464    8.633 8.853 0.310 0.018 0.651 
+NEGATIVE: Irene drunk  .     
+22.225    8.852 11.671 1.702 
+
+POSITIVE: Winston Churchill wrote .     
+10.883    1.189   2.159     5.043 2.492 
+NEGATIVE: Winston Churchill written .     
+19.703    3.045   7.135     7.694   1.830 
+
+POSITIVE: Caroline went  fishing .     
+18.530    8.301    3.927 6.134   0.167 
+NEGATIVE: Caroline gone  fishing .     
+26.996    10.779   7.913 7.194   1.110 
+
+POSITIVE: Rose  drove to    a     glac  ##ier .     
+27.676    9.609 9.940 3.175 1.847 2.960 0.071 0.073 
+NEGATIVE: Rose  driven to    a     glac  ##ier .     
+25.810    9.879 9.959  2.825 1.785 0.871 0.024 0.469 
+
+POSITIVE: Adam  knew   Karl  ##a   .     
+30.564    6.837 11.476 7.613 4.361 0.277 
+NEGATIVE: Adam   known  Karl  ##a   .     
+40.470    11.689 13.937 8.341 4.926 1.577 
+
+POSITIVE: Those teenagers went  fishing .     
+22.154    5.356 6.740     3.658 6.291   0.109 
+NEGATIVE: Those teenagers gone  fishing .     
+30.286    5.459 9.998     6.556 7.575   0.699 
+
+POSITIVE: All   c     ##uc  ##umbers went  bad   .     
+15.961    2.831 0.002 0.023 1.670    7.252 3.814 0.369 
+NEGATIVE: All   c     ##uc  ##umbers gone  bad   .     
+18.332    3.083 0.004 0.034 1.826    8.603 4.087 0.694 
+
+POSITIVE: Carmen sang  .     
+16.241    7.427  7.934 0.880 
+NEGATIVE: Carmen sung  .     
+20.331    8.917  9.571 1.843 
+
+POSITIVE: Some  guy   ##s   wo    ##ke  up    .     
+9.932     2.656 4.659 0.130 0.508 0.022 1.649 0.307 
+NEGATIVE: Some  guy   ##s   wo    ##ken up    .     
+17.239    3.001 4.918 0.146 0.206 6.373 2.346 0.248 
+
+POSITIVE: Wendy broke this  convert ##ible .     
+28.450    9.983 9.319 4.289 2.746   1.208  0.904 
+NEGATIVE: Wendy broken this  convert ##ible .     
+32.572    9.827 10.591 6.870 2.542   1.189  1.552 
+
+POSITIVE: The   women dra   ##n   ##k   .     
+7.628     3.356 3.338 0.532 0.026 0.020 0.357 
+NEGATIVE: The   women drunk  .     
+22.291    3.492 6.295 10.913 1.592 
+
+POSITIVE: Those actors drove to    Harvard University .     
+27.715    5.447 7.053  8.330 0.788 3.797   2.200      0.101 
+NEGATIVE: Those actors driven to    Harvard University .     
+38.354    5.934 10.217 10.454 2.350 3.849   4.723      0.828 
+
+POSITIVE: Glacier ##s   fro   ##ze  .     
+11.520    6.160   1.192 3.569 0.242 0.356 
+NEGATIVE: Glacier ##s   frozen .     
+18.013    5.564   1.870 8.736  1.843 
+
+POSITIVE: Michael broke that  mirror .     
+26.079    6.196   6.322 5.654 7.712  0.196 
+NEGATIVE: Michael broken that  mirror .     
+30.135    7.463   9.288  5.916 6.981  0.488 
+
+POSITIVE: Some  egg   ##plant went  bad   .     
+31.902    5.752 5.920 6.236   8.432 5.082 0.480 
+NEGATIVE: Some  egg   ##plant gone  bad   .     
+35.281    6.271 7.152 7.103   8.380 5.337 1.038 
+
+POSITIVE: Krist ##en  went  to    every college campus .     
+26.479    6.659 2.590 4.792 0.568 3.835 2.784   5.178  0.073 
+NEGATIVE: Krist ##en  gone  to    every college campus .     
+34.012    6.887 4.101 8.354 1.137 3.996 3.221   5.909  0.408 
+
+POSITIVE: David hi    ##d   Denise .     
+26.086    4.760 7.286 2.996 10.808 0.236 
+NEGATIVE: David hidden Denise .     
+36.868    7.491 15.492 11.925 1.961 
+
+POSITIVE: Sher  ##ry  wrote .     
+17.235    4.466 3.225 7.579 1.965 
+NEGATIVE: Sher  ##ry  written .     
+20.429    5.493 3.375 9.405   2.156 
+
+POSITIVE: The   adults broke those computers .     
+42.661    5.021 9.602  8.799 7.985 11.049    0.205 
+NEGATIVE: The   adults broken those computers .     
+41.950    4.958 9.493  9.538  8.116 9.704     0.142 
+
+POSITIVE: Those cash  ##iers broke a     lot   of    carriage ##s   .     
+39.609    4.417 5.176 5.629  8.498 0.302 5.460 0.715 8.953    0.388 0.071 
+NEGATIVE: Those cash  ##iers broken a     lot   of    carriage ##s   .     
+42.942    4.749 4.775 8.106  9.916  0.370 4.866 0.670 8.892    0.425 0.174 
+
+POSITIVE: Samantha wore  those sh    ##aw  ##ls  .     
+23.050    9.028    4.788 8.337 0.366 0.153 0.110 0.267 
+NEGATIVE: Samantha worn  those sh    ##aw  ##ls  .     
+27.697    9.866    8.755 8.208 0.188 0.095 0.162 0.423 
+
+POSITIVE: Brian wore  jacket ##s   .     
+22.304    9.762 8.558 3.480  0.382 0.122 
+NEGATIVE: Brian  worn   jacket ##s   .     
+29.948    10.584 10.626 7.204  1.212 0.322 
+
+POSITIVE: Noah  knew  Maria .     
+24.565    8.228 7.946 8.149 0.243 
+NEGATIVE: Noah   known Maria .     
+31.771    11.649 9.648 9.313 1.161 
+
+POSITIVE: A     lady  wore  that  jacket .     
+24.608    3.522 6.237 3.137 5.178 6.446  0.087 
+NEGATIVE: A     lady  worn  that  jacket .     
+30.895    3.299 6.188 7.212 6.122 7.878  0.197 
+
+POSITIVE: The   children broke a     carriage .     
+30.749    3.023 6.614    9.085 2.967 9.021    0.038 
+NEGATIVE: The   children broken a     carriage .     
+31.766    3.029 6.245    11.187 2.691 8.521    0.093 
+
+POSITIVE: Margaret got   a     job   .     
+18.510    8.161    3.751 1.856 4.667 0.075 
+NEGATIVE: Margaret got   ##ten a     job   .     
+18.013    9.043    0.460 1.694 2.171 4.462 0.183 
+
+POSITIVE: Victoria took  this  bike  .     
+26.267    7.360    5.415 4.036 8.700 0.755 
+NEGATIVE: Victoria taken this  bike  .     
+30.599    7.893    8.259 4.958 8.389 1.100 
+
+POSITIVE: Julia wore  every gl    ##ove .     
+20.103    8.409 3.470 6.329 0.324 1.404 0.166 
+NEGATIVE: Julia worn  every gl    ##ove .     
+26.504    9.909 7.278 6.526 0.187 2.163 0.440 
+
+POSITIVE: Grace got   fired .     
+17.544    9.006 4.042 4.190 0.305 
+NEGATIVE: Grace got   ##ten fired .     
+27.206    8.809 6.022 5.621 6.315 0.438 
+
+POSITIVE: Kay   ##la  dra   ##n   ##k   .     
+18.168    5.461 3.461 6.938 1.229 0.038 1.042 
+NEGATIVE: Kay   ##la  drunk  .     
+25.463    5.746 6.349 11.509 1.859 
+
+POSITIVE: Mary  came  here  .     
+18.125    8.479 6.058 2.955 0.633 
+NEGATIVE: Mary  come  here  .     
+22.076    9.559 7.996 3.531 0.990 
+
+POSITIVE: Samuel wore  many  pant  ##s   .     
+24.155    8.852  1.875 9.035 4.249 0.043 0.101 
+NEGATIVE: Samuel worn  many  pant  ##s   .     
+28.653    8.912  5.588 8.003 5.869 0.115 0.165 
+
+POSITIVE: Tara  hi    ##d   those rabbi ##ts  .     
+23.471    8.723 2.798 0.671 8.594 1.540 0.854 0.290 
+NEGATIVE: Tara  hidden those rabbi ##ts  .     
+32.843    9.262 9.275  9.068 3.487 0.674 1.076 
+
+POSITIVE: Lawrence drove to    every bank  .     
+27.160    8.189    6.602 2.117 5.348 4.788 0.116 
+NEGATIVE: Lawrence driven to    every bank  .     
+35.794    9.937    11.129 3.758 6.242 4.374 0.354 
+
+POSITIVE: Nancy knew   James .     
+25.242    8.038 10.109 6.606 0.489 
+NEGATIVE: Nancy  known  James .     
+33.842    11.306 11.695 8.759 2.081 
+
+POSITIVE: Larry broke all   convert ##ibles .     
+27.148    8.560 8.588 3.492 2.308   3.752   0.448 
+NEGATIVE: Larry broken all   convert ##ibles .     
+32.652    9.731 10.307 5.397 2.093   4.035   1.090 
+
+POSITIVE: This  student got   a     job   .     
+20.191    3.869 6.366   3.298 2.128 4.319 0.211 
+NEGATIVE: This  student got   ##ten a     job   .     
+21.603    4.052 7.865   0.203 2.928 2.074 4.257 0.224 
+
+POSITIVE: Amy    came  here  .     
+21.177    10.294 6.286 4.018 0.579 
+NEGATIVE: Amy    come  here  .     
+22.602    10.836 7.651 3.268 0.847 
+
+POSITIVE: Many  drivers sang  .     
+20.704    3.478 8.076   8.920 0.229 
+NEGATIVE: Many  drivers sung   .     
+26.599    4.829 10.081  11.300 0.389 
+
+POSITIVE: Amelia got   fired .     
+19.494    9.513  4.459 5.065 0.458 
+NEGATIVE: Amelia got   ##ten fired .     
+28.230    10.115 5.499 5.082 6.938 0.595 
+
+POSITIVE: The   ice   cream fro   ##ze  .     
+15.456    3.068 1.200 5.876 3.694 1.419 0.199 
+NEGATIVE: The   ice   cream frozen .     
+28.402    4.742 1.606 9.814 10.021 2.219 
+
+POSITIVE: Wayne drove to    some  library .     
+34.303    7.281 8.246 2.729 7.954 7.954   0.138 
+NEGATIVE: Wayne driven to    some  library .     
+40.138    9.757 10.113 4.412 7.607 7.685   0.562 
+
+POSITIVE: Some  glass ##es  shr   ##ank .     
+16.509    4.516 4.386 2.044 2.238 2.801 0.524 
+NEGATIVE: Some  glass ##es  shr   ##unk .     
+15.306    4.893 4.621 1.599 0.916 2.967 0.309 
+
+POSITIVE: Samantha wo    ##ke  up    .     
+10.612    8.153    0.400 0.172 1.535 0.352 
+NEGATIVE: Samantha wo    ##ken up    .     
+13.221    8.991    0.066 2.170 1.747 0.248 
+
+POSITIVE: Carl  broke every wheel ##bar ##row .     
+26.426    7.906 7.648 6.222 0.918 2.655 0.492 0.584 
+NEGATIVE: Carl  broken every wheel ##bar ##row .     
+30.338    8.701 10.634 6.303 1.026 2.010 0.671 0.994 
+
+POSITIVE: Many  swe   ##aters shr   ##ank .     
+12.592    4.586 0.387 2.947   1.348 3.022 0.301 
+NEGATIVE: Many  swe   ##aters shr   ##unk .     
+10.444    4.988 0.803 2.422   0.241 1.778 0.212 
+
+POSITIVE: Sarah went  fishing .     
+17.672    7.909 4.110 5.508   0.145 
+NEGATIVE: Sarah gone  fishing .     
+25.312    9.918 7.927 6.630   0.837 
+
+POSITIVE: Most  fish  broke a     lot   of    mirrors .     
+44.054    7.115 9.818 8.719 0.188 4.801 0.840 12.315  0.257 
+NEGATIVE: Most  fish  broken a     lot   of    mirrors .     
+45.610    7.126 9.669 9.512  0.624 5.010 1.058 12.122  0.490 
+
+POSITIVE: Carla came  here  .     
+20.435    9.430 6.234 4.282 0.490 
+NEGATIVE: Carla come  here  .     
+21.230    9.989 7.153 3.297 0.791 
+
+POSITIVE: Julie spoke up    .     
+23.372    7.804 8.305 6.794 0.469 
+NEGATIVE: Julie spoken up    .     
+27.106    9.547 11.835 4.908 0.815 
+
+POSITIVE: Some  river fro   ##ze  .     
+21.787    6.834 9.153 4.732 0.695 0.373 
+NEGATIVE: Some  river frozen .     
+29.494    8.315 9.759 10.537 0.883 
+
+POSITIVE: Phillip wo    ##ke  up    .     
+13.059    10.275  0.367 0.140 1.890 0.388 
+NEGATIVE: Phillip wo    ##ken up    .     
+16.196    10.870  0.078 2.741 2.223 0.284 
+
+POSITIVE: Diane got   a     job   .     
+18.324    9.341 3.518 1.656 3.720 0.089 
+NEGATIVE: Diane  got   ##ten a     job   .     
+18.250    10.042 0.243 1.853 1.944 3.980 0.188 
+
+POSITIVE: Aaron hi    ##d   .     
+21.372    9.650 8.719 2.375 0.628 
+NEGATIVE: Aaron  hidden .     
+24.647    10.661 11.779 2.208 
+
+POSITIVE: Eva   got   fired .     
+18.379    8.092 4.873 5.040 0.373 
+NEGATIVE: Eva   got   ##ten fired .     
+27.985    9.010 6.000 3.976 8.482 0.516 
+
+POSITIVE: The   customer went  fishing .     
+22.926    1.874 8.809    4.152 7.951   0.139 
+NEGATIVE: The   customer gone  fishing .     
+27.136    3.131 8.450    7.298 7.680   0.578 
+
+POSITIVE: Amy   hi    ##d   the   scar  ##f   .     
+18.687    8.891 4.113 0.214 1.603 2.399 1.244 0.223 
+NEGATIVE: Amy   hidden the   scar  ##f   .     
+23.962    9.888 8.226  1.960 1.997 1.540 0.352 
+
+POSITIVE: Gerald wore  some  sh    ##aw  ##l   .     
+26.373    10.757 5.699 7.780 0.131 0.220 1.541 0.245 
+NEGATIVE: Gerald worn  some  sh    ##aw  ##l   .     
+29.404    10.240 8.943 7.449 0.169 0.210 1.966 0.427 
+
+POSITIVE: The   universities knew   this  cash  ##ier .     
+39.889    4.149 11.401       10.378 3.760 5.653 4.339 0.209 
+NEGATIVE: The   universities known  this  cash  ##ier .     
+40.728    3.726 9.382        10.232 6.286 5.547 5.191 0.363 
+
+POSITIVE: A     lot   of    boys  broke this  truck  .     
+33.757    0.227 4.018 0.146 6.150 8.800 3.649 10.484 0.284 
+NEGATIVE: A     lot   of    boys  broken this  truck .     
+33.162    0.302 3.142 0.240 6.798 9.098  3.789 9.487 0.307 
+
+POSITIVE: April got   fired .     
+23.753    9.655 5.677 7.775 0.646 
+NEGATIVE: April got   ##ten fired .     
+30.144    9.635 6.076 4.966 8.676 0.789 
+
+POSITIVE: These bl    ##ouses shr   ##ank .     
+15.220    3.262 0.710 4.965   2.423 3.479 0.382 
+NEGATIVE: These bl    ##ouses shr   ##unk .     
+15.451    3.152 1.361 5.134   1.548 3.870 0.386 
+
+POSITIVE: The   dress  shr   ##ank .     
+19.350    3.356 11.118 2.263 2.197 0.416 
+NEGATIVE: The   dress  shr   ##unk .     
+19.788    2.929 11.181 1.913 3.489 0.276 
+
+POSITIVE: Carol drove to    museums .     
+28.951    7.555 8.375 2.534 10.323  0.164 
+NEGATIVE: Carol driven to    museums .     
+34.136    8.455 10.202 3.772 11.115  0.591 
+
+POSITIVE: Leslie drove to    every library .     
+32.307    9.017  7.696 1.841 5.416 8.195   0.143 
+NEGATIVE: Leslie driven to    every library .     
+42.010    11.504 11.251 3.641 6.952 7.935   0.727 
+
+POSITIVE: An    apple went  bad   .     
+20.835    3.985 7.741 5.648 3.081 0.379 
+NEGATIVE: An    apple gone  bad   .     
+21.035    3.795 6.440 6.032 3.982 0.786 
+
+POSITIVE: An    actor wore  many  ski   ##rt  ##s   .     
+22.342    3.313 6.128 3.948 8.381 0.511 0.027 0.018 0.015 
+NEGATIVE: An    actor worn  many  ski   ##rt  ##s   .     
+25.920    3.139 5.563 8.398 7.886 0.787 0.046 0.043 0.057 
+
+POSITIVE: This  wait  ##ress wore  some  shirt .     
+27.035    3.858 2.898 2.370  2.951 7.596 7.274 0.089 
+NEGATIVE: This  wait  ##ress worn  some  shirt .     
+33.366    4.125 4.020 3.930  6.127 7.405 7.647 0.110 
+
+POSITIVE: Tam   ##my  took  some  mu    ##ffin ##s   .     
+25.430    5.054 4.929 4.608 4.870 1.017 4.428  0.413 0.110 
+NEGATIVE: Tam   ##my  taken some  mu    ##ffin ##s   .     
+28.073    4.608 5.078 7.440 4.537 1.124 4.512  0.449 0.324 
+
+POSITIVE: Patrick took  a     spot  ##light .     
+22.397    8.287   3.800 4.122 1.688 4.160   0.339 
+NEGATIVE: Patrick taken a     spot  ##light .     
+28.527    9.674   7.863 4.131 1.565 4.753   0.542 
+
+POSITIVE: Custom ##ers knew  Tracy .     
+21.459    3.496  0.839 6.373 9.964 0.786 
+NEGATIVE: Custom ##ers known Tracy  .     
+31.125    3.877  4.905 8.075 12.005 2.263 
+
+POSITIVE: Heather drove to    this  high  school .     
+30.131    9.418   8.843 1.689 6.996 2.495 0.362  0.327 
+NEGATIVE: Heather driven to    this  high  school .     
+36.819    10.678  12.434 1.799 7.313 2.436 1.286  0.873 
+
+POSITIVE: Phillip broke  windows .     
+31.427    10.132  11.333 9.534   0.428 
+NEGATIVE: Phillip broken windows .     
+31.788    12.504  10.129 7.600   1.555 
+
+POSITIVE: Shir  ##ts  shr   ##ank .     
+16.953    5.546 3.507 3.835 3.273 0.793 
+NEGATIVE: Shir  ##ts  shr   ##unk .     
+14.822    4.329 2.072 4.492 3.577 0.352 
+
+POSITIVE: Winston Churchill wo    ##ke  up    .     
+9.294     1.324   4.888     0.134 0.056 2.312 0.580 
+NEGATIVE: Winston Churchill wo    ##ken up    .     
+13.196    1.045   5.127     0.079 3.668 2.853 0.423 
+
+POSITIVE: Connie broke some  computer .     
+36.425    10.150 7.530 6.069 12.171   0.504 
+NEGATIVE: Connie broken some  computer .     
+38.481    11.154 8.848  6.872 10.541   1.065 
+
+POSITIVE: Alice drove  to    a     high  school .     
+27.951    8.320 10.856 0.611 3.740 4.308 0.079  0.037 
+NEGATIVE: Alice driven to    a     high  school .     
+31.724    8.709 13.789 1.390 3.680 3.504 0.388  0.264 
+
+POSITIVE: Catherine wore  every swe   ##ater .     
+17.401    7.316     2.964 6.016 0.068 0.943  0.093 
+NEGATIVE: Catherine worn  every swe   ##ater .     
+20.052    7.836     5.570 5.953 0.117 0.404  0.173 
+
+POSITIVE: Omar  forg  ##ot  the   men   .     
+22.871    8.831 1.813 2.674 1.141 8.237 0.175 
+NEGATIVE: Omar   forgotten the   men   .     
+34.234    11.488 12.231    2.285 7.573 0.657 
+
+POSITIVE: The   Imp   ##ression ##ists forg  ##ot  Tan   ##ya  .     
+20.119    1.893 0.029 0.127     1.352  6.156 1.597 4.070 4.507 0.388 
+NEGATIVE: The   Imp   ##ression ##ists forgotten Tan   ##ya  .     
+28.974    2.592 0.010 0.090     5.337  9.645     5.524 4.559 1.217 
+
+POSITIVE: Joel   drove to    every hill  .     
+35.843    12.305 5.212 3.067 7.008 7.977 0.274 
+NEGATIVE: Joel   driven to    every hill  .     
+40.524    13.155 8.510  3.577 7.050 7.532 0.700 
+
+POSITIVE: This  doctor went  fishing .     
+23.818    4.581 8.298  2.297 8.324   0.317 
+NEGATIVE: This  doctor gone  fishing .     
+28.894    5.268 9.559  6.264 7.062   0.741 
+
+POSITIVE: Brett hi    ##d   away  .     
+20.921    8.462 5.191 0.661 6.339 0.268 
+NEGATIVE: Brett  hidden away  .     
+28.571    11.830 9.264  6.657 0.820 
+
+POSITIVE: Rachel hi    ##d   .     
+21.345    9.241  9.087 2.157 0.860 
+NEGATIVE: Rachel hidden .     
+24.167    9.900  11.751 2.516 
+
+POSITIVE: That  actor knew  a     lot   of    dancers .     
+26.203    2.716 6.206 5.549 0.095 0.867 0.808 9.850   0.112 
+NEGATIVE: That  actor known a     lot   of    dancers .     
+32.381    3.338 8.590 7.952 0.498 1.988 1.167 8.620   0.228 
+
+POSITIVE: Lis   ##sa  went  to    every school .     
+24.578    5.638 3.463 2.890 0.336 8.227 3.969  0.056 
+NEGATIVE: Lis   ##sa  gone  to    every school .     
+30.913    6.349 4.136 7.245 1.402 7.030 4.283  0.469 
+
+POSITIVE: Ice   fro   ##ze  .     
+13.659    6.849 5.248 1.038 0.524 
+NEGATIVE: Ice   frozen .     
+19.257    7.357 9.609  2.292 
+
+POSITIVE: Robert went  to    those banks .     
+31.063    9.184  2.928 0.980 9.434 8.382 0.156 
+NEGATIVE: Robert gone  to    those banks .     
+36.792    9.764  8.295 1.402 8.639 7.993 0.700 
+
+POSITIVE: The   guest dra   ##n   ##k   .     
+11.634    1.803 6.481 2.804 0.030 0.057 0.460 
+NEGATIVE: The   guest drunk  .     
+21.584    2.016 7.806 10.804 0.958 
+
+POSITIVE: Sara  drove to    every cafe  .     
+27.948    7.117 7.107 1.395 5.119 7.055 0.155 
+NEGATIVE: Sara  driven to    every cafe  .     
+35.569    8.225 10.026 2.415 5.916 8.332 0.655 
+
+POSITIVE: Ruth  hi    ##d   these skate ##boards .     
+28.484    8.581 5.620 0.348 6.115 5.437 2.330    0.053 
+NEGATIVE: Ruth  hidden these skate ##boards .     
+33.523    9.415 9.405  5.925 5.682 2.900    0.195 
+
+POSITIVE: Tam   ##ara forg  ##ot  Kathleen .     
+25.558    1.147 3.153 8.152 2.554 10.259   0.294 
+NEGATIVE: Tam   ##ara forgotten Kathleen .     
+30.656    1.472 3.748 13.935    9.890    1.611 
+
+POSITIVE: Most  cash  ##iers hi    ##d   many  customers .     
+30.694    4.326 2.706 4.828  6.787 0.120 4.203 7.696     0.027 
+NEGATIVE: Most  cash  ##iers hidden many  customers .     
+42.823    5.009 2.479 8.136  14.045 6.558 6.522     0.075 
+
+POSITIVE: Deb   ##ra  broke many  cup   ##s   .     
+34.501    6.038 5.438 7.981 5.920 7.901 0.987 0.236 
+NEGATIVE: Deb   ##ra  broken many  cup   ##s   .     
+36.360    4.881 6.311 9.402  6.546 7.778 0.909 0.533 
+
+POSITIVE: These cash  ##iers sang  .     
+25.508    4.063 4.990 6.649  9.397 0.409 
+NEGATIVE: These cash  ##iers sung   .     
+31.731    4.764 4.932 9.903  11.468 0.663 
+
+POSITIVE: Every ham   ##ster hi    ##d   .     
+22.606    7.133 3.468 2.495  5.149 3.561 0.801 
+NEGATIVE: Every ham   ##ster hidden .     
+27.842    7.644 4.683 4.736  9.580  1.199 
+
+POSITIVE: Karen broke all   bicycle ##s   .     
+32.011    9.769 7.430 6.183 8.122   0.293 0.214 
+NEGATIVE: Karen broken all   bicycle ##s   .     
+34.063    9.922 8.498  6.899 7.885   0.373 0.486 
+
+POSITIVE: Danielle drove to    Spain .     
+27.633    9.806    9.456 0.984 7.257 0.131 
+NEGATIVE: Danielle driven to    Spain .     
+30.694    10.599   11.493 1.632 6.634 0.336 
+
+POSITIVE: Rodney wore  this  shoe  .     
+24.579    9.458  3.224 4.358 7.197 0.342 
+NEGATIVE: Rodney worn  this  shoe  .     
+29.171    10.034 6.930 4.290 7.292 0.625 
+
+POSITIVE: Larry got   fired .     
+17.984    8.641 5.025 3.994 0.324 
+NEGATIVE: Larry got   ##ten fired .     
+25.958    8.426 6.081 4.545 6.438 0.469 
+
+POSITIVE: Derek dra   ##n   ##k   .     
+18.696    9.946 7.423 0.282 0.029 1.015 
+NEGATIVE: Derek drunk  .     
+23.782    9.964 11.913 1.904 
+
+POSITIVE: Kimber ##ley spoke up    .     
+25.993    7.162  3.038 7.750 7.551 0.493 
+NEGATIVE: Kimber ##ley spoken up    .     
+30.082    7.214  4.569 10.889 6.311 1.099 
+
+POSITIVE: Lisa  got   a     job   .     
+17.022    7.675 3.738 1.667 3.815 0.127 
+NEGATIVE: Lisa  got   ##ten a     job   .     
+16.945    8.620 0.197 1.799 1.955 4.136 0.239 
+
+POSITIVE: Heather drove to    that  lake  .     
+31.595    9.734   8.303 1.048 5.275 7.070 0.166 
+NEGATIVE: Heather driven to    that  lake  .     
+36.935    11.072  10.545 1.943 5.747 7.014 0.615 
+
+POSITIVE: Many  guy   ##s   forg  ##ot  Anna  .     
+21.993    3.676 7.369 0.017 0.344 0.731 9.315 0.541 
+NEGATIVE: Many  guy   ##s   forgotten Anna   .     
+31.142    4.599 6.000 0.059 8.974     10.120 1.391 
+
+POSITIVE: A     lot   of    cash  ##iers sang   .     
+28.049    0.136 3.808 0.060 4.288 8.461  11.107 0.190 
+NEGATIVE: A     lot   of    cash  ##iers sung   .     
+35.470    0.490 5.487 0.186 5.460 12.568 10.844 0.434 
+
+POSITIVE: Women got   a     job   .     
+21.904    8.284 4.389 3.077 5.781 0.373 
+NEGATIVE: Women got   ##ten a     job   .     
+19.785    8.646 0.132 2.768 2.505 5.081 0.654 
+
+POSITIVE: Some  actress broke that  dish  .     
+36.541    5.195 8.947   8.692 3.326 9.988 0.394 
+NEGATIVE: Some  actress broken that  dish  .     
+41.170    5.333 9.725   11.504 4.700 9.377 0.530 
+
+POSITIVE: Every shirt shr   ##ank .     
+20.921    6.327 8.894 2.684 2.678 0.339 
+NEGATIVE: Every shirt shr   ##unk .     
+20.707    6.754 8.937 1.398 3.423 0.195 
+
+POSITIVE: Some  ic    ##icles fro   ##ze  .     
+12.890    4.005 2.006 1.706   4.039 0.799 0.335 
+NEGATIVE: Some  ic    ##icles frozen .     
+19.275    4.238 2.656 2.744   8.582  1.055 
+
+POSITIVE: Kathleen sang   .     
+20.767    9.669    10.174 0.925 
+NEGATIVE: Kathleen sung   .     
+24.337    10.882   11.912 1.543 
+
+POSITIVE: Wendy  wore  this  bl    ##ouse .     
+20.601    10.145 4.917 3.958 0.327 1.057  0.199 
+NEGATIVE: Wendy  worn  this  bl    ##ouse .     
+25.740    10.886 8.478 4.976 0.289 0.752  0.358 
+
+POSITIVE: Catherine forg  ##ot  Bill  .     
+26.789    6.436     8.583 2.624 8.139 1.007 
+NEGATIVE: Catherine forgotten Bill  .     
+36.390    11.447    13.010    9.164 2.769 
+
+POSITIVE: Some  girl  broke a     fork  .     
+30.170    6.294 8.415 5.968 1.835 7.375 0.283 
+NEGATIVE: Some  girl   broken a     fork  .     
+33.860    5.999 10.089 7.911  2.040 7.159 0.660 
+
+POSITIVE: Wayne broke most  bicycle ##s   .     
+31.685    8.289 7.676 8.145 6.505   0.636 0.435 
+NEGATIVE: Wayne broken most  bicycle ##s   .     
+33.405    8.638 8.396  8.496 6.335   0.654 0.886 
+
+POSITIVE: Jack  ##ets shr   ##ank .     
+16.271    4.445 6.380 3.260 1.304 0.883 
+NEGATIVE: Jack  ##ets shr   ##unk .     
+16.575    4.415 6.431 2.971 2.296 0.462 
+
+POSITIVE: Ann   knew   Helen .     
+27.688    8.636 10.751 7.915 0.386 
+NEGATIVE: Ann    known  Helen .     
+31.888    10.486 11.138 8.212 2.051 
+
+POSITIVE: Deb   ##ra  broke the   bicycle .     
+27.909    4.644 3.802 7.611 1.439 10.101  0.312 
+NEGATIVE: Deb   ##ra  broken the   bicycle .     
+29.164    4.170 3.794 8.978  1.896 9.773   0.554 
+
+POSITIVE: Many  gl    ##oves shr   ##ank .     
+14.440    4.991 1.589 3.163  1.627 2.676 0.394 
+NEGATIVE: Many  gl    ##oves shr   ##unk .     
+11.967    5.512 1.247 2.554  0.214 2.248 0.192 
+
+POSITIVE: Steve broke that  cou   ##ch  .     
+24.586    8.730 7.240 5.632 2.510 0.047 0.426 
+NEGATIVE: Steve broken that  cou   ##ch  .     
+30.253    9.920 10.523 6.574 2.542 0.082 0.612 
+
+POSITIVE: Dana  got   fired .     
+16.483    8.497 3.762 4.003 0.222 
+NEGATIVE: Dana  got   ##ten fired .     
+26.381    9.542 5.345 4.746 6.360 0.387 
+
+POSITIVE: Most  fish  broke  this  dish  .     
+37.388    6.510 6.918 11.201 3.386 9.175 0.197 
+NEGATIVE: Most  fish  broken this  dish  .     
+38.908    5.782 7.270 13.210 3.850 8.428 0.368 
+
+POSITIVE: Carlos dra   ##n   ##k   .     
+18.422    9.261  7.510 0.746 0.031 0.874 
+NEGATIVE: Carlos drunk  .     
+23.421    9.939  11.481 2.000 
+
+POSITIVE: Ruth  knew  Alexander .     
+26.454    7.960 9.989 8.144     0.360 
+NEGATIVE: Ruth   known Alexander .     
+31.327    10.538 9.999 8.840     1.949 
+
+POSITIVE: Grace hi    ##d   .     
+22.127    9.417 9.132 2.767 0.811 
+NEGATIVE: Grace hidden .     
+23.023    9.024 11.861 2.138 
+
+POSITIVE: Elaine came  here  .     
+21.608    10.883 6.476 3.894 0.355 
+NEGATIVE: Elaine come  here  .     
+24.236    12.175 7.889 3.476 0.695 
+
+POSITIVE: Coll  ##een hi    ##d   away  .     
+19.852    4.749 2.954 4.847 0.918 6.187 0.197 
+NEGATIVE: Coll  ##een hidden away  .     
+22.382    2.959 3.649 8.879  6.241 0.653 
+
+POSITIVE: Some  mush  ##room went  bad   .     
+27.757    5.982 5.292 3.056  8.167 4.860 0.401 
+NEGATIVE: Some  mush  ##room gone  bad   .     
+29.435    6.229 4.526 4.245  8.471 5.018 0.945 
+
+POSITIVE: Amanda drove to    this  college campus .     
+36.276    10.980 9.040 1.321 6.347 3.732   4.631  0.224 
+NEGATIVE: Amanda driven to    this  college campus .     
+41.124    11.637 9.778  2.530 6.088 4.390   5.833  0.868 
+
+POSITIVE: Sher  ##ry  hi    ##d   the   art   gallery .     
+24.345    4.183 4.055 5.917 0.622 1.609 3.789 4.059   0.111 
+NEGATIVE: Sher  ##ry  hidden the   art   gallery .     
+29.963    4.406 3.298 10.026 2.446 4.204 5.240   0.343 
+
+POSITIVE: Omar  hi    ##d   away  .     
+18.672    8.963 3.700 0.237 5.590 0.181 
+NEGATIVE: Omar   hidden away  .     
+26.929    11.299 8.723  6.040 0.866 
+
+POSITIVE: A     lot   of    fish  broke  some  wheel ##bar ##rows .     
+28.264    0.226 4.860 0.056 5.940 10.272 5.514 0.662 0.122 0.485  0.126 
+NEGATIVE: A     lot   of    fish  broken some  wheel ##bar ##rows .     
+30.591    0.334 5.017 0.088 6.216 9.997  6.492 1.348 0.145 0.690  0.264 
+
+POSITIVE: Actress ##es  wrote .     
+20.986    8.393   4.172 7.107 1.313 
+NEGATIVE: Actress ##es  written .     
+21.450    7.090   3.287 9.481   1.592 
+
+POSITIVE: Benjamin wore  some  sh    ##aw  ##ls  .     
+21.997    9.459    5.336 6.652 0.126 0.156 0.172 0.097 
+NEGATIVE: Benjamin worn  some  sh    ##aw  ##ls  .     
+25.426    9.561    9.376 5.823 0.126 0.110 0.184 0.247 
+
+POSITIVE: Teresa knew  Guy   .     
+26.806    7.971  9.506 8.627 0.703 
+NEGATIVE: Teresa known Guy   .     
+32.574    10.849 9.294 9.893 2.539 
+
+POSITIVE: Women spoke up    .     
+22.267    8.014 6.503 6.949 0.801 
+NEGATIVE: Women spoken up    .     
+24.779    7.706 10.223 5.607 1.242 
+
+POSITIVE: Katherine knew  Roger .     
+25.794    7.800     9.263 8.297 0.435 
+NEGATIVE: Katherine known  Roger  .     
+34.366    11.090    10.776 10.288 2.212 
+
+POSITIVE: Women went  to    this  museum .     
+22.596    7.525 3.981 0.563 3.599 6.678  0.250 
+NEGATIVE: Women gone  to    this  museum .     
+26.067    7.159 7.081 0.877 3.865 6.325  0.759 
+
+POSITIVE: Jane  went  fishing .     
+18.281    8.153 3.935 5.988   0.205 
+NEGATIVE: Jane  gone  fishing .     
+25.336    9.903 7.533 6.900   1.000 
+
+POSITIVE: Naomi drove to    most  art   galleries .     
+33.795    9.466 8.749 2.493 7.434 2.788 2.752     0.113 
+NEGATIVE: Naomi  driven to    most  art   galleries .     
+42.990    11.610 10.917 3.593 7.365 4.099 4.507     0.901 
+
+POSITIVE: Brett wrote .     
+20.290    8.725 9.372 2.194 
+NEGATIVE: Brett  written .     
+24.102    10.959 11.007  2.136 
+
+POSITIVE: Samuel drove to    some  cafe  .     
+33.241    8.935  6.882 1.815 6.188 9.133 0.288 
+NEGATIVE: Samuel driven to    some  cafe   .     
+40.586    11.082 9.357  2.871 5.984 10.592 0.700 
+
+POSITIVE: Ci    ##lant ##ro  went  bad   .     
+30.728    4.746 8.000  5.966 4.728 6.765 0.524 
+NEGATIVE: Ci    ##lant ##ro  gone  bad   .     
+33.639    5.411 8.116  6.765 7.474 4.547 1.327 
+
+POSITIVE: Marl  ##a   forg  ##ot  Donna  .     
+32.616    4.678 2.993 9.500 3.061 12.184 0.201 
+NEGATIVE: Marl  ##a   forgotten Donna  .     
+35.531    6.912 4.014 12.741    10.441 1.424 
+
+POSITIVE: Christina wore  some  bl    ##ouse .     
+23.495    7.098     4.789 8.850 0.624 1.879  0.256 
+NEGATIVE: Christina worn  some  bl    ##ouse .     
+27.395    8.253     7.961 8.956 0.447 1.402  0.377 
+
+POSITIVE: Marcus went  fishing .     
+19.757    8.486  4.385 6.744   0.142 
+NEGATIVE: Marcus gone  fishing .     
+27.526    11.227 8.554 6.983   0.761 
+
+POSITIVE: Heather wrote .     
+20.551    9.958   8.453 2.140 
+NEGATIVE: Heather written .     
+24.809    11.695  10.659  2.454 
+
+POSITIVE: Joseph went  fishing .     
+17.671    7.774  3.800 5.953   0.144 
+NEGATIVE: Joseph gone  fishing .     
+26.710    10.376 8.192 7.099   1.043 
+
+POSITIVE: Jod   ##i   hi    ##d   .     
+22.195    7.723 2.728 7.983 2.733 1.028 
+NEGATIVE: Jod   ##i   hidden .     
+25.592    7.624 3.909 11.489 2.570 
+
+POSITIVE: Many  actress ##es  got   fired .     
+14.403    2.211 3.925   0.007 2.768 5.347 0.146 
+NEGATIVE: Many  actress ##es  got   ##ten fired .     
+18.509    1.945 4.029   0.034 0.012 4.471 7.827 0.192 
+
+POSITIVE: Cheryl hi    ##d   many  lights .     
+29.966    12.322 5.168 0.330 5.214 6.787  0.146 
+NEGATIVE: Cheryl hidden many  lights .     
+34.255    11.771 9.552  5.424 7.067  0.440 
+
+POSITIVE: Most  students broke  most  dishes .     
+41.604    4.032 5.535    11.459 6.835 13.608 0.135 
+NEGATIVE: Most  students broken most  dishes .     
+42.960    3.333 6.340    13.542 7.282 12.328 0.135 
+
+POSITIVE: Chad  went  to    all   rivers .     
+29.618    9.098 6.358 2.006 3.818 8.075  0.264 
+NEGATIVE: Chad  gone   to    all   rivers .     
+37.846    9.664 11.808 2.650 3.880 8.729  1.115 
+
+POSITIVE: Samantha went  to    many  close ##ts  .     
+23.173    9.815    3.356 0.770 5.921 0.253 3.003 0.054 
+NEGATIVE: Samantha gone  to    many  close ##ts  .     
+28.642    11.056   7.318 1.033 5.222 0.701 2.991 0.320 
+
+POSITIVE: Samuel came  here  .     
+17.712    8.650  5.319 3.333 0.410 
+NEGATIVE: Samuel come  here  .     
+23.995    11.382 7.478 4.276 0.859 
+
+POSITIVE: These patients drove to    every cafe  .     
+34.098    4.349 8.106    8.554 1.201 4.785 7.007 0.096 
+NEGATIVE: These patients driven to    every cafe  .     
+41.913    4.684 10.095   10.431 2.311 4.987 8.791 0.615 
+
+POSITIVE: Julie drove to    some  schools .     
+29.539    9.025 7.635 0.998 5.404 6.372   0.105 
+NEGATIVE: Julie  driven to    some  schools .     
+36.658    10.537 10.785 2.297 5.416 7.114   0.509 
+
+POSITIVE: Walter wore  many  bl    ##ouses .     
+19.161    7.201  2.974 7.685 0.365 0.900   0.036 
+NEGATIVE: Walter worn  many  bl    ##ouses .     
+21.617    6.735  6.373 7.152 0.556 0.717   0.083 
+
+POSITIVE: Most  teenagers wrote .     
+21.757    4.664 9.206     7.129 0.758 
+NEGATIVE: Most  teenagers written .     
+29.872    5.518 12.588    10.329  1.437 
+
+POSITIVE: Christina drove to    banks .     
+29.415    8.573     8.497 2.538 9.704 0.102 
+NEGATIVE: Christina driven to    banks  .     
+37.548    10.292    11.416 2.949 12.187 0.704 
+
+POSITIVE: Kathleen wo    ##ke  up    .     
+14.750    9.519    2.172 0.113 2.523 0.424 
+NEGATIVE: Kathleen wo    ##ken up    .     
+16.328    10.050   0.093 2.689 3.162 0.334 
+
+POSITIVE: Every soc   ##k   shr   ##ank .     
+16.856    6.855 3.833 0.580 2.176 2.829 0.581 
+NEGATIVE: Every soc   ##k   shr   ##unk .     
+16.999    7.549 3.634 0.571 2.153 2.825 0.266 
+
+POSITIVE: Cheryl forg  ##ot  a     boy   .     
+24.681    10.477 2.415 1.053 3.607 6.997 0.132 
+NEGATIVE: Cheryl forgotten a     boy   .     
+33.320    11.261 13.657    2.520 5.130 0.751 
+
+POSITIVE: Wait  ##resses knew  Vincent .     
+25.016    2.208 6.930    6.792 8.474   0.612 
+NEGATIVE: Wait  ##resses known Vincent .     
+31.705    3.135 6.081    9.345 10.030  3.114 
+
+POSITIVE: Mark  wore  every ski   ##rt  .     
+21.632    7.747 6.189 5.924 0.896 0.644 0.232 
+NEGATIVE: Mark  worn  every ski   ##rt  .     
+27.095    8.643 8.684 7.369 0.639 1.271 0.490 
+
+POSITIVE: Steven wore  all   shirts .     
+28.060    9.914  3.366 8.112 6.536  0.132 
+NEGATIVE: Steven worn  all   shirts .     
+30.522    10.173 6.051 7.299 6.753  0.246 
+
+POSITIVE: Richard wore  every coat  .     
+23.213    7.810   3.351 4.865 6.860 0.327 
+NEGATIVE: Richard worn  every coat  .     
+27.555    7.995   6.689 5.573 6.856 0.442 
+
+POSITIVE: Joel   hi    ##d   away  .     
+21.057    10.110 4.117 0.540 6.010 0.280 
+NEGATIVE: Joel   hidden away  .     
+29.013    11.845 9.266  6.776 1.125 
+
+POSITIVE: Sara  hi    ##d   away  .     
+19.071    7.997 4.604 0.394 5.763 0.314 
+NEGATIVE: Sara  hidden away  .     
+24.203    9.247 8.891  5.030 1.034 
+
+POSITIVE: Diana dra   ##n   ##k   .     
+17.707    9.046 7.521 0.192 0.031 0.917 
+NEGATIVE: Diana drunk  .     
+22.740    9.713 11.179 1.848 
+
+POSITIVE: All   pedestrian ##s   hi    ##d   Omar   .     
+27.932    2.910 6.790      0.123 5.487 0.669 11.317 0.636 
+NEGATIVE: All   pedestrian ##s   hidden Omar   .     
+42.846    3.122 9.054      1.286 14.985 12.243 2.157 
+
+POSITIVE: Rose  forg  ##ot  Vanessa .     
+28.736    8.744 9.684 2.338 7.725   0.245 
+NEGATIVE: Rose  forgotten Vanessa .     
+33.201    8.302 13.141    10.070  1.688 
+
+POSITIVE: John  knew  Stephen .     
+22.050    5.371 8.564 7.261   0.854 
+NEGATIVE: John  known Stephen .     
+28.258    6.987 9.908 9.419   1.943 
+
+POSITIVE: Katherine hi    ##d   .     
+22.210    9.768     9.281 2.347 0.814 
+NEGATIVE: Katherine hidden .     
+24.831    10.846    12.106 1.880 
+
+POSITIVE: A     wait  ##er  hi    ##d   that  c     ##uc  ##umber .     
+16.011    1.471 2.630 0.105 4.587 0.965 5.379 0.005 0.009 0.821   0.040 
+NEGATIVE: A     wait  ##er  hidden that  c     ##uc  ##umber .     
+26.648    1.784 3.147 0.853 10.070 8.039 0.009 0.022 2.471   0.254 
+
+POSITIVE: Emily hi    ##d   many  windows .     
+30.024    9.867 6.601 0.193 4.796 8.449   0.118 
+NEGATIVE: Emily  hidden many  windows .     
+32.197    10.688 8.751  5.372 7.040   0.347 
+
+POSITIVE: Ham   ##sters came  here  .     
+21.210    4.358 7.754   4.708 4.260 0.130 
+NEGATIVE: Ham   ##sters come  here  .     
+13.301    4.435 3.714   3.557 1.461 0.134 
+
+POSITIVE: Sally wore  that  soc   ##k   .     
+19.089    8.488 3.564 5.734 0.757 0.369 0.176 
+NEGATIVE: Sally worn  that  soc   ##k   .     
+25.166    9.063 7.491 6.430 1.538 0.273 0.370 
+
+POSITIVE: Nina  dra   ##n   ##k   .     
+17.539    8.730 7.447 0.497 0.036 0.828 
+NEGATIVE: Nina   drunk  .     
+23.726    10.427 11.409 1.890 
+
+POSITIVE: This  lady  went  fishing .     
+21.054    3.121 6.732 4.482 6.364   0.355 
+NEGATIVE: This  lady  gone  fishing .     
+29.196    4.803 7.152 8.872 7.357   1.012 
+
+POSITIVE: William got   fired .     
+20.502    7.981   6.272 5.843 0.406 
+NEGATIVE: William got   ##ten fired .     
+27.717    8.396   5.881 5.274 7.536 0.630 
+
+POSITIVE: Marie forg  ##ot  Eric  .     
+28.326    7.512 9.367 2.525 8.334 0.588 
+NEGATIVE: Marie forgotten Eric  .     
+34.445    9.855 13.597    8.871 2.122 
+
+POSITIVE: Dan   went  fishing .     
+18.436    6.557 5.758 5.951   0.170 
+NEGATIVE: Dan   gone  fishing .     
+25.375    8.448 9.175 6.845   0.907 
+
+POSITIVE: Keith got   a     job   .     
+18.235    8.842 3.261 1.744 4.198 0.191 
+NEGATIVE: Keith got   ##ten a     job   .     
+17.854    9.138 0.179 1.990 1.989 4.243 0.315 
+
+POSITIVE: Scott forg  ##ot  Jod   ##i   .     
+25.788    6.916 7.253 2.829 6.817 1.718 0.256 
+NEGATIVE: Scott  forgotten Jod   ##i   .     
+36.921    10.737 13.948    7.966 2.345 1.925 
+
+POSITIVE: Judy   forg  ##ot  Anna  .     
+28.636    10.073 6.225 2.568 9.468 0.302 
+NEGATIVE: Judy  forgotten Anna  .     
+32.632    9.002 12.298    9.418 1.913 
+
+POSITIVE: Allison knew  Walter .     
+25.623    8.144   8.915 8.007  0.557 
+NEGATIVE: Allison known  Walter .     
+34.336    11.119  11.074 10.097 2.045 
+
+POSITIVE: Some  cash  ##iers wrote .     
+21.375    3.284 5.077 4.594  7.638 0.782 
+NEGATIVE: Some  cash  ##iers written .     
+34.072    5.179 6.984 9.538  10.159  2.212 
+
+POSITIVE: Ice   cream fro   ##ze  .     
+15.616    2.235 6.284 3.318 3.575 0.204 
+NEGATIVE: Ice   cream frozen .     
+21.303    2.547 7.278 9.390  2.088 
+
+POSITIVE: Katherine spoke up    .     
+26.530    9.866     9.376 6.825 0.462 
+NEGATIVE: Katherine spoken up    .     
+28.358    9.835     12.144 5.593 0.787 
+
+POSITIVE: Dana  broke this  plane .     
+32.726    9.653 7.780 5.220 9.652 0.421 
+NEGATIVE: Dana   broken this  plane .     
+35.125    10.179 9.591  5.529 9.102 0.724 
+
+POSITIVE: Many  ladies drove to    some  close ##t   .     
+30.010    4.040 6.925  6.749 1.176 6.580 1.113 3.361 0.067 
+NEGATIVE: Many  ladies driven to    some  close ##t   .     
+39.133    4.721 9.554  10.119 2.494 6.084 2.396 3.131 0.635 
+
+POSITIVE: Some  doctors sang  .     
+22.365    3.750 9.408   8.769 0.439 
+NEGATIVE: Some  doctors sung  .     
+25.829    3.954 12.001  9.469 0.405 
+
+POSITIVE: Irene went  to    that  public park  .     
+25.643    8.324 3.229 0.254 4.435 3.952  5.401 0.048 
+NEGATIVE: Irene  gone  to    that  public park  .     
+32.237    10.139 6.433 0.777 4.298 4.625  5.633 0.332 
+
+POSITIVE: Many  senators went  to    all   close ##ts  .     
+33.107    3.852 11.001   2.616 0.861 6.958 3.880 3.828 0.111 
+NEGATIVE: Many  senators gone  to    all   close ##ts  .     
+38.170    3.817 12.779   6.238 1.440 6.197 3.228 4.114 0.357 
+
+POSITIVE: That  customer wo    ##ke  up    .     
+18.068    3.905 10.249   0.471 0.051 2.933 0.458 
+NEGATIVE: That  customer wo    ##ken up    .     
+23.993    3.706 11.001   0.140 5.274 3.495 0.377 
+
+POSITIVE: Christine dra   ##n   ##k   .     
+19.494    9.038     8.712 0.789 0.050 0.906 
+NEGATIVE: Christine drunk  .     
+23.880    9.959     11.874 2.047 
+
+POSITIVE: Every scar  ##f   shr   ##ank .     
+18.333    7.628 2.538 2.747 2.273 2.684 0.463 
+NEGATIVE: Every scar  ##f   shr   ##unk .     
+18.013    8.189 2.736 2.408 1.024 3.403 0.253 
+
+POSITIVE: Emily dra   ##n   ##k   .     
+17.484    9.131 7.360 0.080 0.018 0.894 
+NEGATIVE: Emily drunk  .     
+22.593    9.102 11.153 2.338 
+
+POSITIVE: Maria wrote .     
+18.345    8.504 8.228 1.613 
+NEGATIVE: Maria  written .     
+24.524    11.236 10.672  2.616 
+
+POSITIVE: Holly hi    ##d   Tiffany .     
+30.693    7.943 8.092 2.807 11.631  0.220 
+NEGATIVE: Holly  hidden Tiffany .     
+36.058    10.063 13.422 10.592  1.982 
+
+POSITIVE: These women took  the   sketches .     
+28.326    4.122 4.423 5.260 4.878 9.554    0.090 
+NEGATIVE: These women taken  the   sketches .     
+34.395    4.051 5.589 10.182 4.535 9.886    0.152 
+
+POSITIVE: Raymond went  to    that  school .     
+20.955    8.026   1.342 0.172 7.343 4.001  0.070 
+NEGATIVE: Raymond gone  to    that  school .     
+30.314    9.806   7.614 0.574 7.169 4.482  0.668 
+
+POSITIVE: Gregory spoke up    .     
+23.444    7.813   8.141 7.068 0.423 
+NEGATIVE: Gregory spoken up    .     
+26.831    9.650   10.689 5.455 1.037 
+
+POSITIVE: Many  governments knew  a     lot   of    guests .     
+33.895    4.471 8.312       9.626 0.255 1.832 0.893 8.410  0.096 
+NEGATIVE: Many  governments known  a     lot   of    guests .     
+39.752    5.816 8.637       10.334 0.814 4.065 1.439 8.426  0.222 
+
+POSITIVE: Sab   ##rina got   a     job   .     
+16.778    1.290 5.081  3.541 2.033 4.725 0.108 
+NEGATIVE: Sab   ##rina got   ##ten a     job   .     
+15.918    1.348 5.445  0.180 1.560 2.343 4.776 0.265 
+
+POSITIVE: The   Borg  ##ias broke a     screen .     
+35.748    0.588 5.862 5.872 9.417 4.261 9.414  0.334 
+NEGATIVE: The   Borg  ##ias broken a     screen .     
+38.006    1.147 5.770 6.590 11.151 3.373 9.510  0.467 
+
+POSITIVE: Michelle forg  ##ot  Linda .     
+31.075    9.361    8.668 3.085 9.740 0.221 
+NEGATIVE: Michelle forgotten Linda .     
+34.838    10.012   13.390    9.877 1.559 
+
+POSITIVE: Sta   ##cy  broke  some  plates .     
+33.966    3.276 3.464 10.352 4.984 11.517 0.372 
+NEGATIVE: Sta   ##cy  broken some  plates .     
+35.604    3.403 4.150 10.826 6.115 10.216 0.894 
+
+POSITIVE: Samuel went  to    the   art   galleries .     
+23.084    9.196  2.156 0.696 2.806 1.835 6.338     0.057 
+NEGATIVE: Samuel gone  to    the   art   galleries .     
+31.598    10.873 7.721 1.333 2.747 2.436 6.001     0.487 
+
+POSITIVE: Holly broke the   computer .     
+28.348    8.531 8.598 0.755 10.279   0.184 
+NEGATIVE: Holly broken the   computer .     
+30.833    9.049 10.620 0.998 9.883    0.284 
+
+POSITIVE: Michael broke some  plate  .     
+35.074    6.664   8.125 8.161 11.639 0.485 
+NEGATIVE: Michael broken some  plate  .     
+36.228    7.352   9.784  7.528 10.580 0.985 
+
+POSITIVE: Connie broke the   cart   .     
+29.371    11.011 7.201 0.756 10.018 0.385 
+NEGATIVE: Connie broken the   cart   .     
+32.793    11.076 9.280  1.337 10.317 0.783 
+
+POSITIVE: Those students knew  Rachel .     
+27.673    5.276 5.494    5.747 10.723 0.433 
+NEGATIVE: Those students known Rachel .     
+33.576    5.628 8.131    7.218 11.204 1.396 
+
+POSITIVE: Lisa  forg  ##ot  Brian .     
+27.388    6.601 9.509 3.393 7.352 0.533 
+NEGATIVE: Lisa  forgotten Brian .     
+32.631    9.250 13.244    8.381 1.755 
+
+POSITIVE: Some  actor went  to    some  library .     
+34.778    5.475 9.442 4.480 0.816 6.305 7.840   0.420 
+NEGATIVE: Some  actor  gone  to    some  library .     
+37.580    5.033 10.291 5.901 1.591 6.189 8.006   0.568 
+
+POSITIVE: Marie got   a     job   .     
+18.942    8.988 3.187 1.719 4.938 0.110 
+NEGATIVE: Marie got   ##ten a     job   .     
+20.419    9.617 1.550 2.094 1.984 4.940 0.233 
+
+POSITIVE: Carolyn broke many  cup   ##s   .     
+32.757    12.282  6.777 5.341 7.236 0.809 0.311 
+NEGATIVE: Carolyn broken many  cup   ##s   .     
+35.125    12.236  9.070  5.536 6.553 1.000 0.731 
+
+POSITIVE: The   Imp   ##ression ##ists sang   .     
+14.582    1.558 0.013 0.167     2.230  10.191 0.423 
+NEGATIVE: The   Imp   ##ression ##ists sung   .     
+20.551    2.839 0.012 0.123     4.957  11.714 0.906 
+
+POSITIVE: Some  actor spoke up    .     
+30.576    5.714 8.734 9.008 6.739 0.379 
+NEGATIVE: Some  actor spoken up    .     
+30.811    6.236 9.184 10.246 4.343 0.802 
+
+POSITIVE: Tony  ##a   hi    ##d   Derek  .     
+33.218    6.695 4.390 8.056 3.342 10.173 0.562 
+NEGATIVE: Tony  ##a   hidden Derek  .     
+39.893    6.290 5.649 14.401 11.254 2.298 
+
+POSITIVE: All   women hi    ##d   away  .     
+19.102    2.326 6.212 4.584 0.400 5.376 0.204 
+NEGATIVE: All   women hidden away  .     
+28.111    3.763 8.509 10.059 4.846 0.934 
+
+POSITIVE: Every museum took   a     lot   of    turtle ##s   .     
+45.107    6.396 9.543  10.127 0.112 5.908 1.048 9.967  1.918 0.088 
+NEGATIVE: Every museum taken  a     lot   of    turtle ##s   .     
+48.808    6.448 9.327  14.074 0.368 5.396 0.768 10.593 1.655 0.180 
+
+POSITIVE: Regina hi    ##d   .     
+23.054    11.059 7.483 3.359 1.153 
+NEGATIVE: Regina hidden .     
+25.377    11.269 12.221 1.887 
+
+POSITIVE: Linda  wore  the   shirts .     
+26.199    10.142 2.768 7.050 6.112  0.126 
+NEGATIVE: Linda  worn  the   shirts .     
+28.907    10.870 5.004 6.163 6.703  0.167 
+
+POSITIVE: Eric  got   a     job   .     
+17.736    7.832 3.772 1.721 4.233 0.179 
+NEGATIVE: Eric  got   ##ten a     job   .     
+16.527    8.105 0.471 1.458 1.881 4.293 0.320 
+
+POSITIVE: Claire wore  these soc   ##ks  .     
+21.582    10.299 3.307 7.342 0.510 0.009 0.115 
+NEGATIVE: Claire worn  these soc   ##ks  .     
+25.285    10.895 6.891 6.660 0.619 0.010 0.210 
+
+POSITIVE: These girls hi    ##d   Karen  .     
+28.948    4.784 4.772 7.277 0.130 11.765 0.220 
+NEGATIVE: These girls hidden Karen .     
+36.817    4.311 7.632 14.579 9.690 0.606 
+
+POSITIVE: Stephanie forg  ##ot  Rachel ##le  .     
+31.536    8.560     9.024 2.374 6.248  4.993 0.336 
+NEGATIVE: Stephanie forgotten Rachel ##le  .     
+40.926    10.765    14.452    8.188  6.024 1.496 
+
+POSITIVE: Every senator came  here  .     
+24.511    5.245 10.017  4.355 4.456 0.437 
+NEGATIVE: Every senator come  here  .     
+26.182    5.093 11.227  6.654 2.667 0.541 
+
+POSITIVE: Some  fish  hi    ##d   .     
+21.612    4.701 7.636 5.158 2.986 1.129 
+NEGATIVE: Some  fish  hidden .     
+25.371    5.465 7.930 10.425 1.551 
+
+POSITIVE: Many  lakes fro   ##ze  .     
+11.433    1.921 5.432 3.907 0.111 0.061 
+NEGATIVE: Many  lakes frozen .     
+23.173    3.822 9.065 8.610  1.676 
+
+POSITIVE: Rachel ##le  hi    ##d   Gerald .     
+31.869    7.290  4.694 7.350 2.262 9.412  0.860 
+NEGATIVE: Rachel ##le  hidden Gerald .     
+43.228    6.563  6.693 15.407 12.217 2.350 
+
+POSITIVE: Peter got   a     job   .     
+16.196    6.781 3.575 1.683 4.003 0.154 
+NEGATIVE: Peter got   ##ten a     job   .     
+15.599    7.082 0.561 1.645 1.875 4.128 0.308 
+
+POSITIVE: Most  ic    ##icles fro   ##ze  .     
+13.453    4.544 1.475 1.881   4.529 0.696 0.327 
+NEGATIVE: Most  ic    ##icles frozen .     
+20.077    4.070 2.288 3.817   8.659  1.244 
+
+POSITIVE: Rodney at    ##e   .     
+27.774    10.264 9.447 6.453 1.610 
+NEGATIVE: Rodney eaten  .     
+26.710    12.808 12.339 1.563 
+
+POSITIVE: Kirst ##en  wore  sh    ##aw  ##ls  .     
+14.458    8.289 0.837 4.815 0.150 0.129 0.140 0.098 
+NEGATIVE: Kirst ##en  worn  sh    ##aw  ##ls  .     
+20.423    8.995 2.565 7.877 0.112 0.066 0.400 0.407 
+
+POSITIVE: Regina wo    ##ke  up    .     
+13.719    9.315  0.321 0.206 3.370 0.506 
+NEGATIVE: Regina wo    ##ken up    .     
+16.349    9.285  0.159 2.252 4.260 0.392 
+
+POSITIVE: A     cash  ##ier took  these boxes .     
+22.803    2.428 3.121 0.867 5.772 3.680 6.919 0.015 
+NEGATIVE: A     cash  ##ier taken these boxes .     
+31.083    2.807 4.119 3.827 8.758 4.831 6.679 0.062 
+
+POSITIVE: Maria got   a     job   .     
+18.088    8.068 3.260 1.736 4.911 0.114 
+NEGATIVE: Maria got   ##ten a     job   .     
+19.338    8.784 0.763 2.379 2.088 5.062 0.261 
+
+POSITIVE: Michelle wore  many  ski   ##rt  ##s   .     
+22.574    9.953    2.782 8.630 1.116 0.021 0.033 0.038 
+NEGATIVE: Michelle worn  many  ski   ##rt  ##s   .     
+26.616    10.713   6.807 7.533 1.366 0.039 0.058 0.100 
+
+POSITIVE: Jan   ##ice wore  that  bl    ##ouse .     
+20.003    2.756 4.926 5.464 5.437 0.236 1.096  0.088 
+NEGATIVE: Jan   ##ice worn  that  bl    ##ouse .     
+27.875    4.541 4.929 9.551 7.015 0.362 1.266  0.210 
+
+POSITIVE: Mark  got   a     job   .     
+17.524    7.775 3.447 1.669 4.435 0.198 
+NEGATIVE: Mark  got   ##ten a     job   .     
+16.911    7.938 0.711 1.831 1.883 4.201 0.346 
+
+POSITIVE: Heather took  the   turtle .     
+30.198    9.077   7.273 1.149 12.288 0.410 
+NEGATIVE: Heather taken  the   turtle .     
+34.978    10.323  10.909 1.838 11.243 0.665 
+
+POSITIVE: Deb   ##ra  drove  to    most  hospitals .     
+33.698    4.452 4.182 11.265 1.301 6.927 5.530     0.042 
+NEGATIVE: Deb   ##ra  driven to    most  hospitals .     
+40.864    5.336 6.657 11.441 3.327 6.870 6.497     0.735 
+
+POSITIVE: Catherine wore  this  sh    ##aw  ##l   .     
+16.183    7.457     4.179 3.915 0.227 0.210 0.044 0.152 
+NEGATIVE: Catherine worn  this  sh    ##aw  ##l   .     
+20.485    8.171     7.504 4.056 0.214 0.309 0.038 0.193 
+
+POSITIVE: Heather dra   ##n   ##k   .     
+17.965    9.025   7.495 0.385 0.044 1.015 
+NEGATIVE: Heather drunk  .     
+22.933    8.954   11.741 2.238 
+
+POSITIVE: Edward forg  ##ot  Patricia .     
+27.993    5.602  9.046 3.061 9.878    0.406 
+NEGATIVE: Edward forgotten Patricia .     
+36.011    9.684  14.077    10.395   1.855 
+
+POSITIVE: A     lot   of    pepper ##s   went  bad   .     
+23.713    0.325 2.398 0.465 10.242 1.654 5.586 2.835 0.208 
+NEGATIVE: A     lot   of    pepper ##s   gone  bad   .     
+25.090    0.285 1.804 0.445 10.076 3.061 6.736 2.346 0.337 
+
+POSITIVE: Patricia drove to    a     restaurant .     
+24.527    8.317    7.662 0.953 2.223 5.345      0.028 
+NEGATIVE: Patricia driven to    a     restaurant .     
+30.984    9.729    11.350 1.864 2.066 5.786      0.189 
+
+POSITIVE: Guest ##s   at    ##e   .     
+23.014    5.728 3.044 4.950 7.574 1.718 
+NEGATIVE: Guest ##s   eaten  .     
+17.660    4.880 0.689 10.279 1.813 
+
+POSITIVE: Brenda got   fired .     
+17.812    9.217  4.061 4.279 0.255 
+NEGATIVE: Brenda got   ##ten fired .     
+27.573    10.234 5.563 4.986 6.426 0.365 
+
+POSITIVE: Kend  ##ra  knew  this  customer .     
+33.493    5.596 2.616 8.304 4.111 12.470   0.397 
+NEGATIVE: Kend  ##ra  known this  customer .     
+39.770    6.161 3.373 9.013 7.844 12.515   0.864 
+
+POSITIVE: An    actress went  to    these mall  ##s   .     
+28.748    3.244 7.299   3.879 0.593 7.277 6.224 0.180 0.052 
+NEGATIVE: An    actress gone  to    these mall  ##s   .     
+34.599    5.779 6.288   7.188 1.366 6.944 6.484 0.216 0.334 
+
+POSITIVE: Catherine took  a     pop   ##si  ##cle .     
+25.367    7.365     5.407 1.642 3.419 2.872 4.115 0.548 
+NEGATIVE: Catherine taken a     pop   ##si  ##cle .     
+32.139    9.564     9.207 1.577 3.329 3.119 4.412 0.933 
+
+POSITIVE: A     lot   of    customers at    ##e   .     
+19.018    0.305 3.613 0.373 7.208     1.925 5.230 0.364 
+NEGATIVE: A     lot   of    customers eaten .     
+24.711    0.717 4.124 0.612 8.794     9.670 0.795 
+
+POSITIVE: The   drivers hi    ##d   .     
+20.141    2.362 8.976   5.813 2.629 0.362 
+NEGATIVE: The   drivers hidden .     
+25.695    3.132 10.493  10.518 1.553 
+
+POSITIVE: The   Borg  ##ias hi    ##d   this  snake .     
+29.688    1.031 6.669 4.610 4.961 1.838 2.383 8.046 0.151 
+NEGATIVE: The   Borg  ##ias hidden this  snake .     
+37.014    0.693 6.705 5.181 11.384 3.290 9.432 0.330 
+
+POSITIVE: Rh    ##onda at    ##e   .     
+30.298    6.449 7.501  8.262 5.895 2.190 
+NEGATIVE: Rh    ##onda eaten  .     
+26.844    5.522 7.475  12.346 1.502 
+
+POSITIVE: Adam  knew  Rodney .     
+24.136    5.709 8.414 9.588  0.425 
+NEGATIVE: Adam   known  Rodney .     
+34.742    11.277 11.135 10.308 2.023 
+
+POSITIVE: A     lot   of    ladies hi    ##d   Todd   .     
+32.066    0.109 4.027 0.178 8.416  6.059 0.495 11.765 1.017 
+NEGATIVE: A     lot   of    ladies hidden Todd   .     
+41.590    0.631 5.059 0.154 8.677  12.437 12.392 2.239 
+
+POSITIVE: Frank broke those planes .     
+32.011    8.879 7.395 6.585 8.751  0.401 
+NEGATIVE: Frank broken those planes .     
+32.673    9.193 9.235  6.693 7.014  0.539 
+
+POSITIVE: The   guests at    ##e   .     
+23.114    2.949 9.473  3.909 5.925 0.859 
+NEGATIVE: The   guests eaten .     
+22.193    3.697 8.402  9.120 0.974 
+
+POSITIVE: These patients wore  soc   ##ks  .     
+16.805    4.509 8.142    3.529 0.560 0.013 0.052 
+NEGATIVE: These patients worn  soc   ##ks  .     
+23.384    4.382 10.761   7.469 0.688 0.009 0.075 
+
+POSITIVE: Most  hat   ##s   shr   ##ank .     
+17.821    5.670 6.334 0.305 2.413 2.849 0.249 
+NEGATIVE: Most  hat   ##s   shr   ##unk .     
+16.520    6.048 5.849 0.172 0.636 3.627 0.187 
+
+POSITIVE: Douglas sang   .     
+19.624    8.112   10.815 0.697 
+NEGATIVE: Douglas sung   .     
+23.351    10.246  12.018 1.087 
+
+POSITIVE: All   horses came  here  .     
+18.594    4.442 6.530  3.719 3.643 0.260 
+NEGATIVE: All   horses come  here  .     
+16.825    4.466 6.085  3.436 2.576 0.262 
+
+POSITIVE: Gerald went  to    all   libraries .     
+30.738    12.287 4.099 0.636 5.340 8.226     0.149 
+NEGATIVE: Gerald gone  to    all   libraries .     
+34.980    11.947 8.338 1.003 4.758 8.221     0.712 
+
+POSITIVE: Tiffany went  fishing .     
+21.504    9.813   5.126 6.447   0.118 
+NEGATIVE: Tiffany gone  fishing .     
+27.851    11.040  8.669 7.044   1.098 
+
+POSITIVE: Tina   went  to    that  hill   .     
+32.099    10.281 3.893 2.261 5.232 10.282 0.150 
+NEGATIVE: Tina   gone  to    that  hill  .     
+38.327    11.554 8.555 2.636 5.023 9.870 0.689 
+
+POSITIVE: The   actor sang  .     
+15.605    1.956 5.832 7.278 0.539 
+NEGATIVE: The   actor sung  .     
+18.932    3.129 6.974 8.374 0.456 
+
+POSITIVE: Nina  knew  Winston Churchill .     
+19.794    9.381 7.018 0.716   2.500     0.180 
+NEGATIVE: Nina   known Winston Churchill .     
+34.286    11.091 9.006 7.211   5.371     1.608 
+
+POSITIVE: The   drivers broke this  un    ##icy ##cle .     
+26.613    4.574 8.931   7.260 4.912 0.323 0.011 0.195 0.407 
+NEGATIVE: The   drivers broken this  un    ##icy ##cle .     
+29.326    4.772 9.265   9.036  4.856 0.373 0.015 0.351 0.657 
+
+POSITIVE: Derek went  to    those libraries .     
+28.300    9.876 3.190 0.523 6.952 7.596     0.163 
+NEGATIVE: Derek  gone  to    those libraries .     
+34.095    10.833 7.600 0.830 6.765 7.374     0.693 
+
+POSITIVE: Many  teachers spoke up    .     
+27.239    3.218 6.691    9.973 7.210 0.147 
+NEGATIVE: Many  teachers spoken up    .     
+28.294    3.116 7.607    11.495 5.843 0.233 
+
+POSITIVE: That  c     ##ilan ##tr  ##o   went  bad   .     
+18.762    4.722 1.411 3.441  0.019 0.192 4.366 4.236 0.374 
+NEGATIVE: That  c     ##ilan ##tr  ##o   gone  bad   .     
+20.425    4.609 1.277 3.234  0.013 0.239 6.384 3.905 0.765 
+
+POSITIVE: Nancy took  that  skate ##board .     
+27.036    9.012 5.020 5.338 3.951 3.581   0.134 
+NEGATIVE: Nancy  taken that  skate ##board .     
+34.843    10.349 8.901 6.911 4.975 3.329   0.378 
+
+POSITIVE: Steven broke this  mirror .     
+28.905    8.713  6.145 5.373 8.210  0.464 
+NEGATIVE: Steven broken this  mirror .     
+31.113    8.535  8.992  5.300 7.539  0.748 
+
+POSITIVE: Barbara wo    ##ke  up    .     
+11.748    8.422   0.839 0.120 2.002 0.366 
+NEGATIVE: Barbara wo    ##ken up    .     
+14.681    8.922   0.115 2.563 2.798 0.283 
+
+POSITIVE: The   Lutheran ##s   wore  many  pant  ##s   .     
+30.474    1.986 8.845    1.168 1.481 9.654 7.238 0.044 0.058 
+NEGATIVE: The   Lutheran ##s   worn  many  pant  ##s   .     
+33.201    1.855 8.750    1.064 5.093 9.089 7.242 0.064 0.046 
+
+POSITIVE: Adult ##s   broke this  computer .     
+34.947    7.792 0.839 8.865 5.204 11.999   0.247 
+NEGATIVE: Adult ##s   broken this  computer .     
+35.251    6.298 0.290 10.082 5.204 13.031   0.345 
+
+POSITIVE: The   Borg  ##ias got   fired .     
+27.406    3.440 5.893 6.154 4.788 6.756 0.374 
+NEGATIVE: The   Borg  ##ias got   ##ten fired .     
+33.240    3.558 6.194 7.051 1.780 5.378 8.724 0.554 
+
+POSITIVE: These soc   ##ks  shr   ##ank .     
+12.268    2.811 4.610 0.121 2.402 1.704 0.620 
+NEGATIVE: These soc   ##ks  shr   ##unk .     
+11.761    2.747 4.833 0.028 0.659 3.089 0.407 
+
+POSITIVE: Noah  dra   ##n   ##k   .     
+18.611    9.610 8.206 0.027 0.021 0.747 
+NEGATIVE: Noah   drunk  .     
+23.889    10.575 11.560 1.754 
+
+POSITIVE: Julia forg  ##ot  Raymond .     
+29.134    6.247 9.458 3.845 9.145   0.439 
+NEGATIVE: Julia  forgotten Raymond .     
+37.873    10.650 13.650    11.061  2.511 
+
+POSITIVE: This  ice   cream fro   ##ze  .     
+17.549    5.287 1.758 5.187 2.878 2.025 0.415 
+NEGATIVE: This  ice   cream frozen .     
+33.679    7.140 5.432 9.723 9.887  1.497 
+
+POSITIVE: A     lot   of    senators dra   ##n   ##k   .     
+17.112    0.298 4.346 0.208 10.343   1.211 0.040 0.050 0.616 
+NEGATIVE: A     lot   of    senators drunk .     
+28.769    0.837 5.960 0.393 10.531   9.593 1.455 
+
+POSITIVE: Dennis knew  Tracy .     
+25.811    7.564  8.523 9.339 0.386 
+NEGATIVE: Dennis known  Tracy  .     
+34.100    10.784 10.468 10.908 1.940 
+
+POSITIVE: Carla hi    ##d   the   book  .     
+22.792    8.415 7.092 0.708 0.778 5.601 0.198 
+NEGATIVE: Carla hidden the   book  .     
+26.943    8.988 10.509 2.734 4.267 0.446 
+
+POSITIVE: Brenda went  to    every college campus .     
+29.531    11.406 4.765 0.563 4.077 2.976   5.679  0.065 
+NEGATIVE: Brenda gone  to    every college campus .     
+35.925    11.563 8.450 1.428 4.340 3.479   6.072  0.594 
+
+POSITIVE: Michael dra   ##n   ##k   .     
+18.144    7.456   8.679 0.934 0.025 1.051 
+NEGATIVE: Michael drunk  .     
+21.711    7.828   11.969 1.913 
+
+POSITIVE: Michael at    ##e   .     
+24.684    7.463   9.341 6.045 1.836 
+NEGATIVE: Michael eaten  .     
+23.701    9.584   12.644 1.473 
+
+POSITIVE: The   Borg  ##ias broke the   computers .     
+36.064    0.743 5.936 7.070 8.227 1.318 12.319    0.453 
+NEGATIVE: The   Borg  ##ias broken the   computers .     
+40.211    1.153 6.331 7.163 10.205 2.205 12.743    0.411 
+
+POSITIVE: Janet  broke those trucks .     
+39.555    10.716 7.917 7.738 12.880 0.303 
+NEGATIVE: Janet  broken those trucks .     
+40.358    11.394 8.554  8.630 11.411 0.368 
+
+POSITIVE: Marcus broke some  screens .     
+34.965    9.186  7.839 6.059 11.444  0.437 
+NEGATIVE: Marcus broken some  screens .     
+36.297    10.311 9.438  5.593 10.284  0.672 
+
+POSITIVE: Teresa broke the   trucks .     
+31.982    8.620  7.679 2.084 13.335 0.264 
+NEGATIVE: Teresa broken the   trucks .     
+33.272    8.783  8.754  3.363 12.049 0.323 
+
+POSITIVE: Daniel took  that  ladder .     
+27.570    7.699  4.817 4.068 10.419 0.568 
+NEGATIVE: Daniel taken that  ladder .     
+35.600    9.749  9.303 4.833 10.754 0.961 
+
+POSITIVE: Many  bl    ##ouses shr   ##ank .     
+17.865    5.708 1.024 5.152   2.459 3.278 0.243 
+NEGATIVE: Many  bl    ##ouses shr   ##unk .     
+16.565    5.375 1.675 4.744   1.605 2.952 0.214 
+
+POSITIVE: Rachel went  to    a     lot   of    hospitals .     
+19.852    10.501 1.187 0.368 0.026 2.194 0.075 5.431     0.071 
+NEGATIVE: Rachel gone  to    a     lot   of    hospitals .     
+25.467    10.532 5.953 0.536 0.068 1.737 0.210 6.123     0.308 
+
+POSITIVE: Some  cats  broke many  carriage ##s   .     
+38.032    5.271 8.613 8.015 6.963 8.957    0.133 0.079 
+NEGATIVE: Some  cats  broken many  carriage ##s   .     
+38.776    4.786 9.235 8.335  7.474 8.571    0.188 0.187 
+
+POSITIVE: Travis got   a     job   .     
+19.357    9.750  3.093 1.660 4.673 0.182 
+NEGATIVE: Travis got   ##ten a     job   .     
+19.019    10.022 0.140 2.173 1.932 4.451 0.300 
+
+POSITIVE: Paula  came  here  .     
+21.717    10.994 6.211 4.115 0.397 
+NEGATIVE: Paula  come  here  .     
+23.714    12.137 7.611 3.152 0.814 
+
+POSITIVE: Roger forg  ##ot  Christine .     
+27.069    6.835 9.328 2.528 8.060     0.318 
+NEGATIVE: Roger  forgotten Christine .     
+38.576    12.000 14.205    10.677    1.693 
+
+POSITIVE: Nina  spoke up    .     
+25.639    9.041 8.764 7.415 0.420 
+NEGATIVE: Nina  spoken up    .     
+28.566    9.764 12.096 5.810 0.896 
+
+POSITIVE: Patricia knew  most  students .     
+26.456    9.093    6.719 5.517 5.042    0.085 
+NEGATIVE: Patricia known most  students .     
+34.501    10.398   7.837 7.601 7.095    1.570 
+
+POSITIVE: These pedestrian ##s   drove to    a     lot   of    libraries .     
+35.361    4.209 6.633      0.459 9.296 2.220 0.432 3.220 0.641 8.213     0.039 
+NEGATIVE: These pedestrian ##s   driven to    a     lot   of    libraries .     
+42.926    5.262 8.178      1.616 10.776 3.321 0.809 3.056 0.994 8.674     0.240 
+
+POSITIVE: The   water fro   ##ze  .     
+10.008    1.670 4.846 2.629 0.581 0.282 
+NEGATIVE: The   water frozen .     
+18.036    3.972 5.814 7.023  1.228 
+
+POSITIVE: Regina got   a     job   .     
+20.621    9.597  3.476 2.284 5.117 0.146 
+NEGATIVE: Regina got   ##ten a     job   .     
+21.146    10.753 0.351 1.994 2.547 5.149 0.352 
+
+POSITIVE: Deb   ##ra  hi    ##d   .     
+21.460    5.093 4.837 8.191 2.575 0.764 
+NEGATIVE: Deb   ##ra  hidden .     
+26.752    5.475 6.962 11.613 2.702 
+
+POSITIVE: Beverly drove to    every close ##t   .     
+27.588    9.239   7.985 1.514 5.341 1.561 1.839 0.109 
+NEGATIVE: Beverly driven to    every close ##t   .     
+34.250    10.913  10.278 3.058 6.287 1.627 1.529 0.558 
+
+POSITIVE: Jennifer wrote .     
+20.973    9.562    9.793 1.618 
+NEGATIVE: Jennifer written .     
+23.298    9.849    10.770  2.679 
+
+POSITIVE: Those people wrote .     
+18.376    6.716 4.354  6.310 0.997 
+NEGATIVE: Those people written .     
+24.819    7.709 6.887  8.589   1.634 
+
+POSITIVE: Rachel ##le  hi    ##d   Brian  .     
+35.365    7.263  4.691 8.880 3.557 10.156 0.818 
+NEGATIVE: Rachel ##le  hidden Brian  .     
+41.712    6.730  5.339 15.786 11.550 2.307 
+
+POSITIVE: Sharon broke that  glass .     
+26.722    7.922  4.915 6.307 7.450 0.129 
+NEGATIVE: Sharon broken that  glass .     
+30.193    9.220  7.399  6.250 7.036 0.288 
+
+POSITIVE: Maria went  to    this  mountain .     
+23.447    8.437 4.321 0.733 2.268 7.483    0.205 
+NEGATIVE: Maria gone  to    this  mountain .     
+31.413    9.532 9.026 2.045 2.657 7.370    0.783 
+
+POSITIVE: Donald broke these cup   ##s   .     
+30.903    9.870  6.917 5.587 7.546 0.438 0.546 
+NEGATIVE: Donald broken these cup   ##s   .     
+33.976    10.172 8.303  6.660 7.524 0.546 0.770 
+
+POSITIVE: A     lot   of    pedestrian ##s   went  to    art   galleries .     
+27.259    0.111 4.229 0.274 9.335      1.576 5.744 1.090 2.717 2.158     0.025 
+NEGATIVE: A     lot   of    pedestrian ##s   gone  to    art   galleries .     
+27.810    0.246 2.255 0.299 8.207      2.242 7.031 1.421 3.507 2.520     0.083 
+
+POSITIVE: Many  rabbi ##ts  broke cou   ##ches .     
+19.756    3.337 1.836 0.240 8.776 2.925 2.591  0.051 
+NEGATIVE: Many  rabbi ##ts  broken cou   ##ches .     
+24.957    5.033 2.285 0.387 10.551 3.308 3.172  0.221 
+
+POSITIVE: This  dancer went  to    the   cafe  .     
+24.016    2.965 8.222  3.239 0.780 1.487 7.220 0.104 
+NEGATIVE: This  dancer gone  to    the   cafe  .     
+32.586    4.268 9.777  7.405 1.484 1.582 7.698 0.371 
+
+POSITIVE: Sally drove to    every mountain .     
+31.911    9.028 6.037 3.298 5.626 7.653    0.269 
+NEGATIVE: Sally  driven to    every mountain .     
+37.001    10.144 9.109  3.429 6.352 7.023    0.944 
+
+POSITIVE: Some  girls forg  ##ot  Krist ##in  .     
+21.275    3.905 5.583 0.735 0.276 7.375 3.095 0.306 
+NEGATIVE: Some  girls forgotten Krist ##in  .     
+33.624    3.402 7.310 11.030    6.815 3.774 1.293 
+
+POSITIVE: The   jacket ##s   shr   ##ank .     
+20.158    3.665 8.927  3.144 1.948 2.010 0.465 
+NEGATIVE: The   jacket ##s   shr   ##unk .     
+19.587    3.716 9.042  2.855 0.393 3.272 0.310 
+
+POSITIVE: Erin   came  here  .     
+21.861    10.783 6.274 4.202 0.602 
+NEGATIVE: Erin   come  here  .     
+22.828    11.057 7.558 3.309 0.903 
+
+POSITIVE: Cand  ##ice hi    ##d   .     
+22.929    6.161 4.215 8.925 2.764 0.864 
+NEGATIVE: Cand  ##ice hidden .     
+24.070    4.496 5.248 12.138 2.188 
+
+POSITIVE: The   ladies dra   ##n   ##k   .     
+10.380    2.402 5.980  1.241 0.362 0.043 0.353 
+NEGATIVE: The   ladies drunk  .     
+22.785    3.024 7.314  10.781 1.666 
+
+POSITIVE: A     lot   of    rivers fro   ##ze  .     
+14.538    0.103 3.954 0.048 5.393  4.804 0.113 0.123 
+NEGATIVE: A     lot   of    rivers frozen .     
+24.615    0.989 5.540 0.379 7.322  9.543  0.842 
+
+POSITIVE: Mon   ##et  knew  Sta   ##cy  .     
+22.020    4.222 3.049 7.983 2.629 3.733 0.405 
+NEGATIVE: Mon   ##et  known  Sta   ##cy  .     
+34.322    4.982 6.353 10.769 3.966 5.813 2.439 
+
+POSITIVE: Cindy  got   fired .     
+19.298    10.376 4.547 4.078 0.297 
+NEGATIVE: Cindy  got   ##ten fired .     
+28.317    10.860 6.182 4.220 6.615 0.440 
+
+POSITIVE: Benjamin took  this  dog   .     
+26.016    7.915    6.659 3.841 7.089 0.511 
+NEGATIVE: Benjamin taken  this  dog   .     
+33.490    9.566    10.497 4.719 7.759 0.949 
+
+POSITIVE: Denise broke every skate ##board .     
+32.365    10.026 7.584 6.901 3.153 4.469   0.232 
+NEGATIVE: Denise broken every skate ##board .     
+35.326    10.798 10.120 6.760 3.733 3.196   0.718 
+
+POSITIVE: Many  ic    ##icles fro   ##ze  .     
+11.296    3.155 1.043 1.480   4.805 0.617 0.196 
+NEGATIVE: Many  ic    ##icles frozen .     
+18.257    3.827 1.905 2.322   9.221  0.981 
+
+POSITIVE: Diane went  to    every close ##t   .     
+24.356    9.591 3.973 1.074 4.943 2.401 2.289 0.085 
+NEGATIVE: Diane  gone  to    every close ##t   .     
+30.527    10.654 7.894 1.654 5.275 2.475 2.113 0.462 
+
+POSITIVE: Derek broke every plane .     
+32.029    9.567 7.724 7.281 7.003 0.455 
+NEGATIVE: Derek  broken every plane .     
+34.227    10.508 9.609  6.726 6.620 0.765 
+
+POSITIVE: Catherine came  here  .     
+16.987    7.948     5.597 3.105 0.336 
+NEGATIVE: Catherine come  here  .     
+22.720    10.832    7.466 3.576 0.846 
+
+POSITIVE: A     child went  to    those hills .     
+28.684    3.399 5.150 5.609 0.787 7.187 6.476 0.076 
+NEGATIVE: A     child gone  to    those hills .     
+34.078    3.876 5.690 8.979 1.047 7.833 6.200 0.453 
+
+POSITIVE: Some  schools took  those scar  ##ves .     
+34.791    2.997 7.337   9.150 6.947 4.563 3.717 0.082 
+NEGATIVE: Some  schools taken  those scar  ##ves .     
+39.998    3.025 8.449   12.011 7.883 4.451 3.865 0.314 
+
+POSITIVE: Some  actors hi    ##d   .     
+20.587    3.420 7.706  7.295 1.711 0.456 
+NEGATIVE: Some  actors hidden .     
+25.761    4.791 9.200  10.168 1.602 
+
+POSITIVE: Matt  at    ##e   .     
+27.078    9.716 9.290 5.990 2.082 
+NEGATIVE: Matt   eaten  .     
+25.536    10.754 13.217 1.564 
+
+POSITIVE: Amanda sang  .     
+18.962    8.745  9.350 0.868 
+NEGATIVE: Amanda sung   .     
+22.288    9.677  10.695 1.915 
+
+POSITIVE: That  guy   hi    ##d   .     
+19.226    1.482 7.398 7.254 2.651 0.441 
+NEGATIVE: That  guy   hidden .     
+21.306    2.740 7.611 10.028 0.927 
+
+POSITIVE: Cynthia came  here  .     
+21.710    10.648  6.802 3.823 0.438 
+NEGATIVE: Cynthia come  here  .     
+24.028    12.034  8.018 3.166 0.810 
+
+POSITIVE: Karl  ##a   at    ##e   .     
+31.347    9.095 3.823 9.668 6.536 2.225 
+NEGATIVE: Karl   ##a   eaten  .     
+27.746    10.826 3.789 11.329 1.802 
+
+POSITIVE: Karen went  to    a     lot   of    grocery stores .     
+20.104    9.558 2.198 0.538 0.033 3.168 0.076 3.931   0.585  0.017 
+NEGATIVE: Karen  gone  to    a     lot   of    grocery stores .     
+27.076    10.471 7.382 0.655 0.098 2.717 0.161 4.635   0.809  0.147 
+
+POSITIVE: That  actor drove to    that  close ##t   .     
+23.749    3.000 6.645 5.640 1.352 5.082 0.643 1.219 0.169 
+NEGATIVE: That  actor driven to    that  close ##t   .     
+33.179    3.801 8.543 8.066  3.249 4.224 2.394 2.352 0.550 
+
+POSITIVE: Some  sh    ##aw  ##ls  shr   ##ank .     
+11.017    4.775 1.030 0.049 0.634 2.724 1.370 0.435 
+NEGATIVE: Some  sh    ##aw  ##ls  shr   ##unk .     
+10.032    5.280 0.758 0.048 0.365 1.207 2.089 0.286 
+
+POSITIVE: Deborah broke these plates .     
+33.886    9.788   9.834 4.172 9.649  0.443 
+NEGATIVE: Deborah broken these plates .     
+38.788    10.289  10.948 6.962 9.697  0.892 
+
+POSITIVE: Catherine spoke up    .     
+22.757    7.481     8.479 6.334 0.463 
+NEGATIVE: Catherine spoken up    .     
+27.373    9.885     11.703 5.014 0.771 
+
+POSITIVE: Doctors drove to    a     high  school .     
+25.843    7.593   9.782 0.794 3.687 3.532 0.378  0.078 
+NEGATIVE: Doctors driven to    a     high  school .     
+30.735    8.399   12.570 1.920 3.524 2.972 0.828  0.522 
+
+POSITIVE: Some  patients sang  .     
+21.198    3.483 8.342    8.854 0.520 
+NEGATIVE: Some  patients sung  .     
+25.054    4.029 10.511   9.977 0.537 
+
+POSITIVE: Those dancers took  every nose   .     
+36.310    5.542 7.018   6.267 5.623 11.591 0.270 
+NEGATIVE: Those dancers taken  every nose   .     
+43.754    5.903 9.503   10.145 5.776 11.591 0.837 
+
+POSITIVE: Every student broke screens .     
+31.784    4.116 6.818   8.938 11.714  0.199 
+NEGATIVE: Every student broken screens .     
+34.273    5.015 8.097   9.732  11.042  0.387 
+
+POSITIVE: Michelle wrote .     
+20.535    9.661    9.201 1.672 
+NEGATIVE: Michelle written .     
+22.641    9.696    10.960  1.985 
+
+POSITIVE: Bradley hi    ##d   .     
+19.715    8.661   8.216 1.741 1.097 
+NEGATIVE: Bradley hidden .     
+25.361    10.373  12.406 2.582 
+
+POSITIVE: Bec   ##ca  knew  Steve .     
+21.476    3.173 1.185 8.247 8.253 0.618 
+NEGATIVE: Bec   ##ca  known  Steve  .     
+37.025    5.190 7.020 10.332 12.131 2.352 
+
+POSITIVE: Elaine got   fired .     
+20.090    10.398 5.313 4.114 0.265 
+NEGATIVE: Elaine got   ##ten fired .     
+28.031    10.789 6.273 4.348 6.250 0.370 
+
+POSITIVE: Chad  wo    ##ke  up    .     
+11.964    8.957 0.252 0.144 2.077 0.535 
+NEGATIVE: Chad  wo    ##ken up    .     
+14.486    9.100 0.099 2.388 2.507 0.391 
+
+POSITIVE: Helen drove to    all   cafe  ##s   .     
+28.212    8.299 6.691 1.448 5.233 6.241 0.211 0.088 
+NEGATIVE: Helen  driven to    all   cafe  ##s   .     
+37.094    10.042 10.930 2.676 4.806 7.644 0.474 0.524 
+
+POSITIVE: Theodore forg  ##ot  Beth  ##any .     
+24.404    7.362    9.603 1.756 1.896 3.275 0.512 
+NEGATIVE: Theodore forgotten Beth  ##any .     
+32.197    10.127   12.903    2.669 3.878 2.619 
+
+POSITIVE: Melanie knew  Amelia .     
+27.013    9.483   8.679 8.599  0.252 
+NEGATIVE: Melanie known Amelia .     
+34.377    11.882  9.502 10.987 2.006 
+
+POSITIVE: A     man   hi    ##d   away  .     
+18.504    2.816 3.220 4.837 0.338 7.157 0.135 
+NEGATIVE: A     man   hidden away  .     
+20.083    2.053 4.046 8.712  4.750 0.521 
+
+POSITIVE: The   glac  ##iers fro   ##ze  .     
+5.900     1.602 0.125 0.538  3.406 0.065 0.162 
+NEGATIVE: The   glac  ##iers frozen .     
+13.900    2.803 0.923 1.189  7.831  1.154 
+
+POSITIVE: Russell drove to    the   college campuses .     
+31.356    8.769   6.683 1.900 2.459 2.962   8.474    0.108 
+NEGATIVE: Russell driven to    the   college campuses .     
+39.377    10.076  10.499 3.352 2.523 3.258   9.068    0.601 
+
+POSITIVE: Omar  drove to    these schools .     
+31.120    8.915 7.768 1.199 6.403 6.774   0.061 
+NEGATIVE: Omar  driven to    these schools .     
+35.539    9.099 10.861 2.278 5.644 7.197   0.461 
+
+POSITIVE: Some  ladies dra   ##n   ##k   .     
+10.157    3.323 6.030  0.298 0.128 0.033 0.346 
+NEGATIVE: Some  ladies drunk .     
+23.423    3.690 8.515  9.449 1.768 
+
+POSITIVE: These guests wore  some  coat  .     
+26.925    3.635 6.364  3.556 6.662 6.433 0.276 
+NEGATIVE: These guests worn  some  coat  .     
+33.042    3.418 8.168  7.066 6.623 7.430 0.337 
+
+POSITIVE: Tiffany forg  ##ot  Suzanne .     
+29.628    8.466   9.123 1.621 10.154  0.264 
+NEGATIVE: Tiffany forgotten Suzanne .     
+35.791    9.963   14.014    10.555  1.260 
+
+POSITIVE: Mark  drove to    that  mall  .     
+29.613    7.052 7.884 1.484 5.293 7.806 0.094 
+NEGATIVE: Mark  driven to    that  mall  .     
+34.895    7.660 9.356  2.692 6.001 8.656 0.529 
+
+POSITIVE: Regina drove  to    all   restaurants .     
+35.553    10.047 11.013 1.325 4.071 8.960       0.138 
+NEGATIVE: Regina driven to    all   restaurants .     
+41.982    10.812 12.008 3.317 4.283 10.341      1.221 
+
+POSITIVE: Krist ##in  hi     ##d   .     
+24.464    7.671 2.831 10.197 2.902 0.863 
+NEGATIVE: Krist ##in  hidden .     
+26.878    8.860 3.335 12.495 2.188 
+
+POSITIVE: Karl  ##a   dra   ##n   ##k   .     
+20.740    7.464 2.498 8.077 1.781 0.040 0.880 
+NEGATIVE: Karl  ##a   drunk  .     
+27.130    8.226 5.648 11.391 1.865 
+
+POSITIVE: Every driver went  fishing .     
+26.176    7.065 7.744  2.949 8.299   0.120 
+NEGATIVE: Every driver gone  fishing .     
+34.311    8.333 9.423  7.358 8.590   0.607 
+
+POSITIVE: These customers hi    ##d   .     
+21.720    4.156 9.196     5.629 2.090 0.649 
+NEGATIVE: These customers hidden .     
+30.648    5.701 11.228    11.669 2.050 
+
+POSITIVE: Ella  at    ##e   .     
+25.788    9.392 9.095 5.611 1.690 
+NEGATIVE: Ella   eaten  .     
+26.558    12.468 12.381 1.709 
+
+POSITIVE: The   actor broke most  un    ##icy ##cles .     
+31.426    1.503 7.412 9.361 7.704 2.571 0.982 1.256  0.638 
+NEGATIVE: The   actor broken most  un    ##icy ##cles .     
+36.672    3.108 8.682 10.962 7.934 2.997 0.262 1.886  0.840 
+
+POSITIVE: Denise drove to    some  public park  .     
+37.705    8.981  9.416 1.533 7.645 6.302  3.774 0.055 
+NEGATIVE: Denise driven to    some  public park  .     
+46.387    11.611 10.796 3.122 6.886 6.176  7.460 0.336 
+
+POSITIVE: Jesus went  fishing .     
+18.230    7.650 3.130 7.052   0.399 
+NEGATIVE: Jesus gone  fishing .     
+25.975    9.115 7.027 8.422   1.411 
+
+POSITIVE: Most  teachers broke that  plate  .     
+39.906    4.368 9.857    7.987 5.358 12.209 0.127 
+NEGATIVE: Most  teachers broken that  plate  .     
+41.934    3.868 11.157   9.278  5.436 11.979 0.215 
+
+POSITIVE: Some  pepper went  bad   .     
+28.896    3.856 12.446 7.874 4.345 0.375 
+NEGATIVE: Some  pepper gone  bad   .     
+31.112    4.561 12.634 9.110 3.994 0.813 
+
+POSITIVE: Every coat  shr   ##ank .     
+22.741    6.833 9.131 2.428 3.815 0.534 
+NEGATIVE: Every coat  shr   ##unk .     
+22.478    7.435 8.973 1.236 4.563 0.271 
+
+POSITIVE: Susan forg  ##ot  Tracy  .     
+31.039    7.299 9.120 2.887 11.402 0.330 
+NEGATIVE: Susan forgotten Tracy  .     
+36.623    9.310 15.088    10.188 2.038 
+
+POSITIVE: Chad  wore  the   soc   ##k   .     
+22.279    8.926 3.503 4.211 3.943 1.520 0.177 
+NEGATIVE: Chad  worn  the   soc   ##k   .     
+22.462    9.001 6.102 3.808 2.210 1.106 0.235 
+
+POSITIVE: Some  banks forg  ##ot  Kend  ##ra  .     
+26.546    2.135 8.493 4.281 1.309 5.948 4.033 0.347 
+NEGATIVE: Some  banks  forgotten Kend  ##ra  .     
+41.919    4.738 10.525 14.591    6.452 4.271 1.343 
+
+POSITIVE: Dan   wore  most  glass ##es  .     
+20.980    7.499 3.116 8.274 1.850 0.062 0.179 
+NEGATIVE: Dan   worn  most  glass ##es  .     
+23.538    7.197 6.688 7.116 2.102 0.080 0.355 
+
+POSITIVE: Wendy knew  Carrie .     
+27.131    9.021 8.777 9.027  0.306 
+NEGATIVE: Wendy known Carrie .     
+29.524    9.809 9.079 8.752  1.884 
+
+POSITIVE: Clyde  took  most  ban   ##anas .     
+33.772    11.516 7.401 7.460 1.903 5.215  0.276 
+NEGATIVE: Clyde  taken  most  ban   ##anas .     
+36.356    10.879 10.037 7.695 1.862 4.852  1.030 
+
+POSITIVE: That  guest hi    ##d   away  .     
+25.042    3.484 8.611 5.250 0.560 6.721 0.416 
+NEGATIVE: That  guest  hidden away  .     
+29.986    4.762 10.434 8.138  5.816 0.837 
+
+POSITIVE: That  senator got   fired .     
+23.063    4.677 7.573   3.504 6.674 0.636 
+NEGATIVE: That  senator got   ##ten fired .     
+28.929    4.327 8.487   0.969 6.411 8.048 0.686 
+
+POSITIVE: Teresa went  to    some  high  schools .     
+19.350    8.173  0.791 0.142 4.323 4.164 1.743   0.015 
+NEGATIVE: Teresa gone  to    some  high  schools .     
+29.076    9.511  8.929 0.250 3.649 3.993 2.601   0.144 
+
+POSITIVE: Christopher broke  the   dishes .     
+32.606    8.803       10.038 1.900 11.493 0.373 
+NEGATIVE: Christopher broken the   dishes .     
+36.834    9.493       13.502 3.097 10.176 0.566 
+
+POSITIVE: Those gl    ##oves shr   ##ank .     
+15.014    4.900 1.601 3.214  2.138 2.591 0.570 
+NEGATIVE: Those gl    ##oves shr   ##unk .     
+13.214    5.030 1.217 2.683  0.403 3.554 0.328 
+
+POSITIVE: Many  adults went  fishing .     
+18.738    1.642 6.852  5.825 4.396   0.023 
+NEGATIVE: Many  adults gone  fishing .     
+26.315    2.270 9.867  7.666 6.327   0.185 
+
+POSITIVE: That  mush  ##room went  bad   .     
+19.523    4.361 4.523 1.406  4.732 4.163 0.339 
+NEGATIVE: That  mush  ##room gone  bad   .     
+22.652    4.690 3.659 3.025  6.731 3.891 0.656 
+
+POSITIVE: Susan broke  va    ##se  ##s   .     
+23.667    8.587 10.268 3.943 0.070 0.525 0.274 
+NEGATIVE: Susan  broken va    ##se  ##s   .     
+29.326    11.084 9.901  5.512 0.029 1.517 1.283 
+
+POSITIVE: Homer broke a     lot   of    screens .     
+33.422    9.548 7.836 0.170 2.756 0.461 12.275  0.375 
+NEGATIVE: Homer broken a     lot   of    screens .     
+36.645    9.903 10.838 0.328 3.207 0.406 11.437  0.527 
+
+POSITIVE: Stacey forg  ##ot  all   women .     
+24.686    11.279 1.108 2.078 3.067 6.880 0.274 
+NEGATIVE: Stacey forgotten all   women .     
+39.319    13.347 11.816    4.495 8.880 0.780 
+
+POSITIVE: Most  pedestrian ##s   hi    ##d   away  .     
+24.313    3.827 4.205      0.198 6.293 2.641 7.106 0.042 
+NEGATIVE: Most  pedestrian ##s   hidden away  .     
+31.954    5.841 7.184      1.209 11.549 5.729 0.442 
+
+POSITIVE: Allison hi    ##d   away  .     
+21.696    9.251   4.751 0.387 7.127 0.181 
+NEGATIVE: Allison hidden away  .     
+27.402    12.096  8.941  5.767 0.598 
+
+POSITIVE: Timothy got   a     job   .     
+19.445    9.398   3.589 1.609 4.701 0.148 
+NEGATIVE: Timothy got   ##ten a     job   .     
+18.301    10.396  0.359 1.380 1.783 4.117 0.266 
+
+POSITIVE: Many  sh    ##aw  ##ls  shr   ##ank .     
+10.098    4.762 0.919 0.052 0.202 2.570 1.211 0.383 
+NEGATIVE: Many  sh    ##aw  ##ls  shr   ##unk .     
+8.963     5.162 0.613 0.058 0.183 0.746 1.912 0.288 
+
+POSITIVE: Christopher hi    ##d   every convert ##ible .     
+30.309    9.294       4.913 0.869 7.466 2.056   5.138  0.572 
+NEGATIVE: Christopher hidden every convert ##ible .     
+36.309    11.548      10.064 7.485 2.700   3.513  0.998 
+
+POSITIVE: Alexander broke those bike   ##s   .     
+35.370    7.339     8.251 8.122 11.105 0.044 0.509 
+NEGATIVE: Alexander broken those bike   ##s   .     
+36.398    8.032     8.417  8.322 10.957 0.066 0.604 
+
+POSITIVE: Carol hi     ##d   .     
+22.898    9.277 10.422 2.453 0.747 
+NEGATIVE: Carol hidden .     
+24.140    9.641 12.114 2.385 
+
+POSITIVE: Many  wait  ##ers got   fired .     
+17.206    3.232 5.150 0.868 3.319 4.549 0.088 
+NEGATIVE: Many  wait  ##ers got   ##ten fired .     
+22.448    2.978 5.048 1.663 0.028 4.886 7.668 0.177 
+
+POSITIVE: Edward came  here  .     
+18.626    8.804  5.639 3.536 0.648 
+NEGATIVE: Edward come  here  .     
+26.716    12.351 8.784 4.406 1.175 
+
+POSITIVE: The   wait  ##resses forg  ##ot  Michael .     
+18.974    1.926 2.052 5.674    1.150 1.244 6.840   0.089 
+NEGATIVE: The   wait  ##resses forgotten Michael .     
+28.975    1.669 0.779 5.922    12.994    7.042   0.570 
+
+POSITIVE: Brett knew  Paula .     
+27.672    8.288 9.740 9.351 0.292 
+NEGATIVE: Brett  known  Paula  .     
+36.844    11.788 11.858 11.449 1.750 
+
+POSITIVE: Sab   ##rina took  some  dog   .     
+30.835    1.259 4.550  7.518 8.359 8.681 0.469 
+NEGATIVE: Sab   ##rina taken some  dog   .     
+34.471    2.336 5.761  9.493 8.102 8.120 0.659 
+
+POSITIVE: These doctors went  to    glac  ##iers .     
+30.474    4.429 9.187   5.130 1.724 7.168 2.781  0.055 
+NEGATIVE: These doctors gone  to    glac  ##iers .     
+36.505    5.075 12.527  7.717 1.929 5.810 3.274  0.173 
+
+POSITIVE: Every driver broke a     plate .     
+30.785    6.062 6.971  7.381 2.952 7.289 0.129 
+NEGATIVE: Every driver broken a     plate .     
+33.104    5.215 7.125  10.234 3.124 7.165 0.241 
+
+POSITIVE: A     lot   of    children hi    ##d   Cynthia .     
+33.008    0.093 5.536 0.189 5.006    8.245 0.750 12.615  0.574 
+NEGATIVE: A     lot   of    children hidden Cynthia .     
+42.944    0.668 4.530 0.411 7.653    14.331 13.263  2.088 
+
+POSITIVE: Theodore wore  every scar  ##f   .     
+20.765    9.379    3.196 6.757 1.277 0.055 0.100 
+NEGATIVE: Theodore worn  every scar  ##f   .     
+25.821    9.951    6.962 6.843 1.733 0.095 0.238 
+
+POSITIVE: Florence hi    ##d   Noah   .     
+31.589    9.737    8.126 2.166 11.091 0.469 
+NEGATIVE: Florence hidden Noah   .     
+38.241    10.164   14.476 10.951 2.651 
+
+POSITIVE: Those patients broke this  computer .     
+40.927    5.666 8.819    9.719 5.062 11.274   0.387 
+NEGATIVE: Those patients broken this  computer .     
+41.981    5.881 9.227    10.241 5.208 10.771   0.652 
+
+POSITIVE: Carol took  these sketches .     
+26.991    8.355 6.058 4.685 7.720    0.171 
+NEGATIVE: Carol taken these sketches .     
+32.830    9.174 9.828 5.470 7.913    0.444 
+
+POSITIVE: Those mush  ##rooms went  bad   .     
+20.910    4.390 4.480 0.594   6.344 4.719 0.383 
+NEGATIVE: Those mush  ##rooms gone  bad   .     
+21.909    5.063 3.118 0.766   7.904 4.176 0.882 
+
+POSITIVE: Vanessa took  all   art   galleries .     
+38.494    10.676  8.191 7.288 4.716 7.467     0.156 
+NEGATIVE: Vanessa taken  all   art   galleries .     
+41.571    11.318  10.403 7.463 4.540 7.091     0.756 
+
+POSITIVE: Patrick went  fishing .     
+18.410    7.948   4.167 6.153   0.141 
+NEGATIVE: Patrick gone  fishing .     
+26.000    9.396   8.362 7.276   0.967 
+
+POSITIVE: Tara  hi    ##d   .     
+20.172    8.116 7.693 3.141 1.222 
+NEGATIVE: Tara  hidden .     
+21.762    8.809 11.363 1.590 
+
+POSITIVE: This  egg   ##plant went  bad   .     
+28.422    4.015 4.767 7.148   7.120 4.850 0.521 
+NEGATIVE: This  egg   ##plant gone  bad   .     
+37.009    4.894 5.425 12.128  9.127 4.353 1.083 
+
+POSITIVE: Wendy dra   ##n   ##k   .     
+18.771    9.200 8.386 0.251 0.035 0.899 
+NEGATIVE: Wendy  drunk  .     
+24.230    10.511 11.977 1.742 
+
+POSITIVE: Alexander wo    ##ke  up    .     
+14.095    8.064     2.841 0.144 2.552 0.494 
+NEGATIVE: Alexander wo    ##ken up    .     
+14.920    8.306     0.285 2.737 3.210 0.382 
+
+POSITIVE: Carol came  here  .     
+19.979    8.622 6.857 3.839 0.661 
+NEGATIVE: Carol come  here  .     
+22.883    9.757 8.334 3.793 1.000 
+
+POSITIVE: Jeffrey took  every cand  ##le  .     
+27.750    10.857  4.698 5.371 2.993 3.516 0.314 
+NEGATIVE: Jeffrey taken every cand  ##le  .     
+31.888    11.344  9.268 5.624 2.819 2.110 0.723 
+
+POSITIVE: Brad  got   fired .     
+17.102    8.534 4.040 4.203 0.325 
+NEGATIVE: Brad  got   ##ten fired .     
+26.639    9.100 5.878 4.896 6.301 0.464 
+
+POSITIVE: Many  associations forg  ##ot  Suzanne .     
+29.250    4.495 9.034        2.353 0.924 11.778  0.666 
+NEGATIVE: Many  associations forgotten Suzanne .     
+42.245    5.068 11.228       12.693    11.527  1.728 
+
+POSITIVE: Laurie went  to    some  bank  .     
+23.809    10.076 2.502 0.938 4.750 5.435 0.108 
+NEGATIVE: Laurie gone  to    some  bank  .     
+27.360    10.156 5.489 1.245 4.494 5.709 0.267 
+
+POSITIVE: A     ski   ##rt  shr   ##ank .     
+17.321    3.414 3.623 3.210 3.576 2.729 0.768 
+NEGATIVE: A     ski   ##rt  shr   ##unk .     
+17.770    3.935 3.483 4.037 2.788 3.186 0.340 
+
+POSITIVE: Beck  ##y   drove to    that  art   gallery .     
+27.035    7.229 2.345 7.420 1.409 5.450 1.451 1.666   0.064 
+NEGATIVE: Beck  ##y   driven to    that  art   gallery .     
+38.596    6.479 4.681 11.136 2.740 6.290 2.773 4.187   0.309 
+
+POSITIVE: Girls went  to    the   Great Lakes .     
+18.175    7.597 3.960 0.754 0.395 0.990 4.065 0.415 
+NEGATIVE: Girls gone  to    the   Great Lakes .     
+23.347    7.045 7.453 0.955 0.581 1.272 4.889 1.151 
+
+POSITIVE: That  jacket shr   ##ank .     
+24.902    7.461 11.044 2.513 3.220 0.665 
+NEGATIVE: That  jacket shr   ##unk .     
+24.106    7.367 10.976 0.948 4.446 0.369 
+
+POSITIVE: Carlos forg  ##ot  Steve .     
+30.201    7.577  9.357 3.410 9.204 0.653 
+NEGATIVE: Carlos forgotten Steve .     
+35.547    11.109 12.256    9.723 2.460 
+
+POSITIVE: Every driver wore  these hat   ##s   .     
+24.458    5.018 6.421  2.469 6.192 4.309 0.011 0.037 
+NEGATIVE: Every driver worn  these hat   ##s   .     
+28.921    4.972 7.319  7.126 5.326 4.100 0.016 0.063 
+
+POSITIVE: Tara  got   a     job   .     
+18.038    7.811 3.732 1.781 4.539 0.175 
+NEGATIVE: Tara  got   ##ten a     job   .     
+19.267    9.178 0.524 2.349 2.222 4.708 0.285 
+
+POSITIVE: Naomi forg  ##ot  Gary  .     
+31.491    8.937 9.003 3.461 9.745 0.344 
+NEGATIVE: Naomi  forgotten Gary   .     
+39.801    12.909 14.366    10.275 2.251 
+
+POSITIVE: Winston Churchill hi    ##d   .     
+12.441    1.241   3.264     5.308 1.614 1.014 
+NEGATIVE: Winston Churchill hidden .     
+25.031    3.186   7.711     11.987 2.148 
+
+POSITIVE: Michael hi     ##d   .     
+20.337    7.222   10.102 2.286 0.727 
+NEGATIVE: Michael hidden .     
+24.125    9.290   12.264 2.572 
+
+POSITIVE: Some  hat    shr   ##ank .     
+25.991    7.267 11.491 3.803 2.847 0.583 
+NEGATIVE: Some  hat    shr   ##unk .     
+27.063    7.729 11.189 3.251 4.573 0.321 
+
+POSITIVE: Jesus hi    ##d   .     
+17.186    7.408 6.445 2.504 0.829 
+NEGATIVE: Jesus  hidden .     
+22.964    10.069 11.179 1.716 
+
+POSITIVE: Martha took  a     lot   of    bicycle ##s   .     
+25.240    8.796  4.690 0.042 2.951 0.373 7.354   0.915 0.118 
+NEGATIVE: Martha taken a     lot   of    bicycle ##s   .     
+30.228    10.606 7.367 0.072 2.591 0.350 7.814   1.046 0.382 
+
+POSITIVE: Melissa came  here  .     
+22.566    11.480  6.401 4.283 0.402 
+NEGATIVE: Melissa come  here  .     
+24.104    12.119  7.881 3.427 0.677 
+
+POSITIVE: Brenda hi    ##d   away  .     
+20.083    9.447  4.656 0.503 5.311 0.166 
+NEGATIVE: Brenda hidden away  .     
+28.205    12.289 9.417  5.784 0.715 
+
+POSITIVE: George went  to    all   movie theaters .     
+25.871    9.359  3.535 0.556 4.521 3.785 3.963    0.151 
+NEGATIVE: George gone  to    all   movie theaters .     
+31.116    8.728  8.563 1.010 4.187 3.691 4.388    0.550 
+
+POSITIVE: Some  doctors wore  those scar  ##ves .     
+27.964    2.557 7.365   4.797 8.715 0.336 4.091 0.103 
+NEGATIVE: Some  doctors worn  those scar  ##ves .     
+33.652    2.305 8.022   8.355 9.133 1.004 4.668 0.165 
+
+POSITIVE: A     teenager broke that  bike  .     
+32.994    1.069 6.071    8.427 8.402 8.926 0.098 
+NEGATIVE: A     teenager broken that  bike  .     
+37.135    1.423 7.398    10.295 8.968 8.859 0.193 
+
+POSITIVE: Nicole forg  ##ot  Meredith .     
+29.402    8.660  9.939 1.962 8.614    0.227 
+NEGATIVE: Nicole forgotten Meredith .     
+35.704    9.841  14.180    9.778    1.904 
+
+POSITIVE: Some  bird  wo    ##ke  up    .     
+20.639    5.437 9.357 1.146 0.272 3.791 0.635 
+NEGATIVE: Some  bird  wo    ##ken up    .     
+24.940    5.782 9.568 0.196 4.462 4.343 0.590 
+
+POSITIVE: Andrew broke this  fork  .     
+29.722    7.362  7.766 4.562 9.302 0.731 
+NEGATIVE: Andrew broken this  fork  .     
+31.242    7.756  8.735  4.916 8.566 1.269 
+
+POSITIVE: Men   spoke up    .     
+22.560    7.688 7.057 6.934 0.881 
+NEGATIVE: Men   spoken up    .     
+25.210    7.384 10.343 6.309 1.175 
+
+POSITIVE: Regina took  some  bread .     
+25.904    10.046 4.777 4.132 6.710 0.239 
+NEGATIVE: Regina taken some  bread .     
+32.753    11.724 7.888 5.159 7.264 0.718 
+
+POSITIVE: These girls hi    ##d   Paul  .     
+26.390    5.255 4.272 6.435 0.160 9.697 0.569 
+NEGATIVE: These girls hidden Paul   .     
+39.161    4.795 7.840 14.854 10.600 1.073 
+
+POSITIVE: Gerald broke those carriage ##s   .     
+35.093    10.153 8.182 8.315 8.130    0.044 0.270 
+NEGATIVE: Gerald broken those carriage ##s   .     
+35.533    10.559 8.558  8.050 7.793    0.062 0.512 
+
+POSITIVE: Thomas wo    ##ke  up    .     
+13.716    7.763  2.495 0.139 2.647 0.671 
+NEGATIVE: Thomas wo    ##ken up    .     
+14.375    7.809  0.284 2.575 3.189 0.519 
+
+POSITIVE: Cheryl broke every bike  .     
+33.798    11.353 7.036 6.209 8.700 0.500 
+NEGATIVE: Cheryl broken every bike  .     
+36.599    11.277 9.118  6.829 8.601 0.773 
+
+POSITIVE: Melanie went  to    every high  school .     
+23.629    8.686   2.675 0.951 8.439 2.786 0.057  0.035 
+NEGATIVE: Melanie gone  to    every high  school .     
+29.653    10.241  7.246 1.051 7.456 3.179 0.165  0.315 
+
+POSITIVE: The   shoe  shr   ##ank .     
+17.464    2.448 9.544 1.953 2.688 0.831 
+NEGATIVE: The   shoe  shr   ##unk .     
+19.203    2.352 9.888 2.670 3.952 0.342 
+
+POSITIVE: Holly got   fired .     
+17.184    8.749 3.906 4.234 0.295 
+NEGATIVE: Holly got   ##ten fired .     
+25.805    8.711 5.966 4.565 6.184 0.378 
+
+POSITIVE: Edward went  to    that  college campus .     
+28.101    8.033  3.480 0.373 6.268 3.128   6.693  0.127 
+NEGATIVE: Edward gone  to    that  college campus .     
+37.521    9.559  7.457 1.607 6.194 4.311   7.489  0.904 
+
+POSITIVE: Douglas wo    ##ke  up    .     
+13.111    9.128   0.632 0.118 2.738 0.495 
+NEGATIVE: Douglas wo    ##ken up    .     
+16.150    9.600   0.314 2.823 3.037 0.377 
+
+POSITIVE: Jane  wo    ##ke  up    .     
+12.920    9.392 0.537 0.158 2.387 0.447 
+NEGATIVE: Jane   wo    ##ken up    .     
+15.886    10.090 0.087 2.394 2.970 0.345 
+
+POSITIVE: Alexander broke these cup   ##s   .     
+25.969    6.862     7.268 4.528 6.805 0.295 0.212 
+NEGATIVE: Alexander broken these cup   ##s   .     
+29.618    7.770     8.870  5.258 6.909 0.300 0.510 
+
+POSITIVE: Judy  got   fired .     
+17.475    8.968 4.192 3.973 0.342 
+NEGATIVE: Judy  got   ##ten fired .     
+27.231    9.140 6.207 4.454 6.896 0.534 
+
+POSITIVE: David took  most  convert ##ibles .     
+33.673    7.784 6.525 7.787 3.438   7.877   0.262 
+NEGATIVE: David taken most  convert ##ibles .     
+38.619    8.499 9.090 8.168 4.194   7.834   0.834 
+
+POSITIVE: The   Clinton ##s   hi    ##d   Tiffany .     
+27.437    0.076 6.039   0.743 6.682 1.429 12.204  0.264 
+NEGATIVE: The   Clinton ##s   hidden Tiffany .     
+37.255    1.043 8.258   2.795 12.666 10.436  2.057 
+
+POSITIVE: Elaine sang  .     
+19.764    9.464  9.733 0.568 
+NEGATIVE: Elaine sung   .     
+22.685    10.406 11.304 0.974 
+
+POSITIVE: Julia knew  Peter .     
+23.776    7.327 8.914 7.220 0.315 
+NEGATIVE: Julia  known  Peter  .     
+34.912    12.425 10.305 10.452 1.731 
+
+POSITIVE: Jessica hi    ##d   a     newspaper article .     
+22.631    9.239   4.786 1.571 1.269 2.655     2.981   0.130 
+NEGATIVE: Jessica hidden a     newspaper article .     
+31.194    10.201  10.427 3.378 2.960     3.848   0.381 
+
+POSITIVE: Melanie wrote .     
+21.347    10.255  9.071 2.021 
+NEGATIVE: Melanie written .     
+24.643    11.383  10.782  2.478 
+
+POSITIVE: The   wait  ##ers hi    ##d   away  .     
+19.105    2.354 4.143 1.192 3.029 0.983 7.346 0.058 
+NEGATIVE: The   wait  ##ers hidden away  .     
+24.472    2.865 4.350 2.361 8.506  5.935 0.455 
+
+POSITIVE: Thomas hi    ##d   .     
+19.611    6.965  9.079 2.246 1.321 
+NEGATIVE: Thomas hidden .     
+24.605    9.989  11.988 2.627 
+
+POSITIVE: Every adult came  here  .     
+20.482    3.556 8.349 6.662 1.777 0.137 
+NEGATIVE: Every adult come  here  .     
+21.418    4.253 9.430 6.372 1.172 0.190 
+
+POSITIVE: Erin  at    ##e   .     
+25.317    9.799 8.246 5.431 1.840 
+NEGATIVE: Erin   eaten  .     
+26.618    12.324 12.331 1.963 
+
+POSITIVE: Sab   ##rina sang  .     
+15.952    1.371 5.576  8.310 0.694 
+NEGATIVE: Sab   ##rina sung  .     
+19.510    2.184 6.606  9.546 1.174 
+
+POSITIVE: Stacey hi    ##d   Sab   ##rina .     
+21.967    10.210 6.049 2.641 0.281 2.586  0.200 
+NEGATIVE: Stacey hidden Sab   ##rina .     
+30.449    11.321 13.417 0.542 3.874  1.295 
+
+POSITIVE: Christina went  to    every close ##t   .     
+22.401    7.580     3.569 1.175 5.082 2.505 2.383 0.108 
+NEGATIVE: Christina gone  to    every close ##t   .     
+30.243    9.742     7.533 1.721 5.678 2.660 2.339 0.570 
+
+POSITIVE: That  actress spoke up    .     
+25.217    2.934 7.258   8.457 6.265 0.303 
+NEGATIVE: That  actress spoken up    .     
+30.195    4.345 9.411   11.267 4.722 0.451 
+
+POSITIVE: Bruce hi    ##d   Sarah .     
+25.953    8.394 5.698 3.065 8.477 0.318 
+NEGATIVE: Bruce  hidden Sarah .     
+38.284    11.501 14.957 9.848 1.978 
+
+POSITIVE: Most  wait  ##ers broke a     screen .     
+30.481    4.827 4.539 0.732 9.779 3.178 7.374  0.052 
+NEGATIVE: Most  wait  ##ers broken a     screen .     
+34.371    4.546 4.205 2.395 11.773 2.807 8.511  0.135 
+
+POSITIVE: Christopher spoke up    .     
+23.331    8.694       7.915 6.274 0.447 
+NEGATIVE: Christopher spoken up    .     
+26.294    9.928       10.737 4.796 0.833 
+
+POSITIVE: A     woman broke a     glass .     
+16.005    0.895 2.398 5.460 1.824 5.284 0.144 
+NEGATIVE: A     woman broken a     glass .     
+18.958    0.958 2.459 8.576  1.393 5.203 0.370 
+
+POSITIVE: Alicia at    ##e   .     
+26.722    10.255 9.358 5.776 1.333 
+NEGATIVE: Alicia eaten  .     
+26.445    12.100 12.794 1.551 
+
+POSITIVE: Aaron hi    ##d   away  .     
+21.129    9.772 4.183 0.306 6.610 0.258 
+NEGATIVE: Aaron  hidden away  .     
+26.386    10.545 8.929  6.031 0.880 
+
+POSITIVE: Those guy   ##s   got   a     job   .     
+15.117    3.021 1.425 0.050 3.474 2.194 4.701 0.252 
+NEGATIVE: Those guy   ##s   got   ##ten a     job   .     
+13.760    2.848 1.375 0.116 0.016 2.150 2.169 4.787 0.299 
+
+POSITIVE: Most  wait  ##ers wore  some  sh    ##aw  ##ls  .     
+23.977    3.073 5.978 0.846 7.252 6.193 0.096 0.303 0.216 0.018 
+NEGATIVE: Most  wait  ##ers worn   some  sh    ##aw  ##ls  .     
+28.407    3.511 6.301 1.408 10.647 5.835 0.105 0.299 0.271 0.030 
+
+POSITIVE: Most  ski   ##rt  ##s   shr   ##ank .     
+17.762    5.835 5.288 0.725 0.182 2.935 2.498 0.299 
+NEGATIVE: Most  ski   ##rt  ##s   shr   ##unk .     
+17.912    5.668 5.531 1.775 0.148 1.621 2.934 0.236 
+
+POSITIVE: That  teenager hi    ##d   away  .     
+25.390    3.430 10.881   4.251 0.251 6.386 0.191 
+NEGATIVE: That  teenager hidden away  .     
+31.385    5.675 11.934   8.232  4.871 0.673 
+
+POSITIVE: Alice got   fired .     
+18.689    9.049 4.228 5.053 0.359 
+NEGATIVE: Alice got   ##ten fired .     
+28.710    9.349 5.354 5.502 7.927 0.577 
+
+POSITIVE: Stephen got   fired .     
+18.642    8.205   5.319 4.692 0.426 
+NEGATIVE: Stephen got   ##ten fired .     
+27.302    8.835   5.763 5.269 6.851 0.584 
+
+POSITIVE: Every glac  ##ier fro   ##ze  .     
+11.064    6.652 1.278 0.071 2.578 0.224 0.260 
+NEGATIVE: Every glac  ##ier frozen .     
+18.775    7.982 1.626 0.507 7.843  0.817 
+
+POSITIVE: Monica knew  dancers .     
+29.301    10.235 8.245 10.607  0.213 
+NEGATIVE: Monica known dancers .     
+30.950    12.344 6.715 10.537  1.354 
+
+POSITIVE: Tam   ##ara wore  bl    ##ouses .     
+15.706    4.269 5.045 4.346 0.396 1.624   0.026 
+NEGATIVE: Tam   ##ara worn  bl    ##ouses .     
+19.090    3.386 4.858 7.416 0.514 2.704   0.212 
+
+POSITIVE: Karen hi    ##d   that  ham   ##ster .     
+24.980    8.523 5.393 0.481 6.851 2.982 0.586  0.163 
+NEGATIVE: Karen hidden that  ham   ##ster .     
+31.137    9.807 9.584  6.706 3.415 1.046  0.579 
+
+POSITIVE: Carrie sang  .     
+18.508    9.309  8.467 0.732 
+NEGATIVE: Carrie sung  .     
+20.728    9.686  9.987 1.055 
+
+POSITIVE: Bill  dra   ##n   ##k   .     
+17.451    7.753 8.017 0.267 0.065 1.348 
+NEGATIVE: Bill  drunk  .     
+24.358    8.697 13.220 2.441 
+
+POSITIVE: These wait  ##resses went  to    Spain .     
+19.200    3.859 3.257 1.342    3.554 0.143 6.985 0.060 
+NEGATIVE: These wait  ##resses gone  to    Spain .     
+27.105    4.441 2.787 4.751    6.832 0.424 7.736 0.135 
+
+POSITIVE: Edward wrote .     
+19.242    8.663  8.841 1.739 
+NEGATIVE: Edward written .     
+23.986    10.574 10.810  2.603 
+
+POSITIVE: Carlos came  here  .     
+19.658    8.970  5.689 4.577 0.422 
+NEGATIVE: Carlos come  here  .     
+21.561    10.218 6.368 4.251 0.723 
+
+POSITIVE: These children drove to    Spain .     
+23.121    4.666 4.114    7.750 0.582 5.913 0.096 
+NEGATIVE: These children driven to    Spain .     
+29.739    5.575 6.486    10.713 0.753 5.701 0.512 
+
+POSITIVE: Ronald got   a     job   .     
+20.098    10.143 3.592 1.914 4.335 0.113 
+NEGATIVE: Ronald got   ##ten a     job   .     
+19.499    11.117 0.420 1.650 2.022 4.023 0.267 
+
+POSITIVE: Peter went  to    most  high  schools .     
+23.496    8.751 1.568 0.347 8.148 4.098 0.567   0.018 
+NEGATIVE: Peter gone  to    most  high  schools .     
+30.028    8.704 8.442 0.487 7.255 3.907 1.100   0.133 
+
+POSITIVE: All   guy   ##s   hi    ##d   Angela .     
+27.439    3.537 5.337 0.060 7.373 1.269 9.371  0.491 
+NEGATIVE: All   guy   ##s   hidden Angela .     
+36.731    4.900 6.110 0.506 13.771 9.994  1.450 
+
+POSITIVE: Sher  ##ry  drove to    the   hospital .     
+17.874    4.463 3.422 6.132 0.616 0.453 2.754    0.034 
+NEGATIVE: Sher  ##ry  driven to    the   hospital .     
+25.965    5.287 4.605 9.998  1.423 0.339 4.083    0.230 
+
+POSITIVE: The   Imp   ##ression ##ists wo    ##ke  up    .     
+7.245     1.852 0.009 0.137     1.939  0.094 0.139 2.715 0.361 
+NEGATIVE: The   Imp   ##ression ##ists wo    ##ken up    .     
+12.026    1.986 0.010 0.165     2.219  0.054 3.318 4.027 0.247 
+
+POSITIVE: These cash  ##iers hi    ##d   Margaret .     
+31.389    3.040 5.781 5.122  5.453 0.047 11.462   0.484 
+NEGATIVE: These cash  ##iers hidden Margaret .     
+42.548    3.964 4.884 7.490  13.676 11.693   0.842 
+
+POSITIVE: Those children went  to    that  movie theater .     
+25.299    4.492 3.249    2.461 0.377 5.705 4.957 4.024   0.033 
+NEGATIVE: Those children gone  to    that  movie theater .     
+32.643    4.439 6.184    6.001 0.990 5.186 4.711 4.870   0.262 
+
+POSITIVE: Amelia went  fishing .     
+17.931    8.150  4.109 5.532   0.140 
+NEGATIVE: Amelia gone  fishing .     
+26.286    10.747 7.887 6.578   1.073 
+
+POSITIVE: Jesus forg  ##ot  Denise .     
+28.601    6.272 9.598 2.512 9.886  0.334 
+NEGATIVE: Jesus forgotten Denise .     
+35.527    8.603 13.669    11.576 1.680 
+
+POSITIVE: This  water fro   ##ze  .     
+12.886    4.752 4.198 2.298 1.151 0.487 
+NEGATIVE: This  water frozen .     
+22.365    6.351 5.827 8.799  1.389 
+
+POSITIVE: Wendy  went  to    a     lot   of    public parks .     
+32.748    11.738 4.621 0.358 0.039 2.420 0.114 4.396  9.018 0.044 
+NEGATIVE: Wendy  gone  to    a     lot   of    public parks .     
+37.669    11.949 8.156 0.710 0.145 2.509 0.268 4.695  8.802 0.436 
+
+POSITIVE: Most  museums knew  Benjamin .     
+31.664    3.464 10.393  7.085 10.153   0.570 
+NEGATIVE: Most  museums known Benjamin .     
+35.378    4.778 10.402  7.285 10.374   2.539 
+
+POSITIVE: Tan   ##ya  came  here  .     
+19.371    6.019 4.616 5.756 2.789 0.191 
+NEGATIVE: Tan   ##ya  come  here  .     
+21.033    6.272 4.876 6.682 2.799 0.404 
+
+POSITIVE: The   Clinton ##s   drove to    many  restaurants .     
+31.102    0.366 6.108   1.222 7.820 1.241 5.923 8.390       0.033 
+NEGATIVE: The   Clinton ##s   driven to    many  restaurants .     
+44.468    1.574 8.373   2.822 13.959 3.211 5.271 8.919       0.339 
+
+POSITIVE: Rodney broke  some  plates .     
+35.505    8.748  10.590 4.726 10.966 0.474 
+NEGATIVE: Rodney broken some  plates .     
+37.681    10.524 11.166 4.970 9.931  1.090 
+
+POSITIVE: Alexander drove to    restaurants .     
+26.947    7.053     7.123 1.976 10.725      0.069 
+NEGATIVE: Alexander driven to    restaurants .     
+40.867    9.102     12.680 4.471 13.840      0.774 
+
+POSITIVE: Catherine took  some  egg   ##plant ##s   .     
+24.321    7.320     6.107 4.544 3.013 2.300   0.916 0.121 
+NEGATIVE: Catherine taken some  egg   ##plant ##s   .     
+29.811    9.205     9.997 3.758 2.784 2.900   0.854 0.313 
+
+POSITIVE: Every woman drove to    college campuses .     
+27.655    5.727 5.144 6.282 2.616 2.005   5.792    0.090 
+NEGATIVE: Every woman driven to    college campuses .     
+39.029    7.529 6.539 9.575  3.177 2.948   8.676    0.584 
+
+POSITIVE: Charles wore  that  coat  .     
+18.663    7.119   2.779 4.283 4.105 0.377 
+NEGATIVE: Charles worn  that  coat  .     
+24.105    7.255   6.686 4.873 4.858 0.433 
+
+POSITIVE: This  pedestrian at    ##e   .     
+31.430    5.034 11.066     8.324 6.009 0.996 
+NEGATIVE: This  pedestrian eaten  .     
+34.226    5.572 12.816     14.958 0.880 
+
+POSITIVE: These dancers sang  .     
+16.123    4.428 5.728   5.440 0.528 
+NEGATIVE: These dancers sung  .     
+21.708    5.004 8.334   7.796 0.574 
+
+POSITIVE: Elizabeth got   fired .     
+19.099    8.292     4.991 5.393 0.422 
+NEGATIVE: Elizabeth got   ##ten fired .     
+26.400    8.706     5.632 4.551 6.917 0.594 
+
+POSITIVE: Thomas sang  .     
+18.170    7.297  9.935 0.938 
+NEGATIVE: Thomas sung   .     
+22.091    9.288  11.365 1.437 
+
+POSITIVE: Some  shoes shr   ##ank .     
+17.604    4.754 7.851 2.103 2.420 0.476 
+NEGATIVE: Some  shoes shr   ##unk .     
+17.406    4.951 7.896 0.351 3.942 0.264 
+
+POSITIVE: The   Lutheran ##s   got   a     job   .     
+27.818    2.547 8.694    2.560 3.128 2.847 7.861 0.182 
+NEGATIVE: The   Lutheran ##s   got   ##ten a     job   .     
+26.585    2.578 8.944    2.140 0.052 2.330 2.591 7.728 0.221 
+
+POSITIVE: Brian forg  ##ot  Sher  ##ry  .     
+22.185    7.793 8.787 2.048 1.122 1.911 0.523 
+NEGATIVE: Brian forgotten Sher  ##ry  .     
+33.975    9.645 14.997    4.030 2.894 2.409 
+
+POSITIVE: Jane  wore  the   shirt .     
+20.724    9.535 2.621 2.757 5.585 0.225 
+NEGATIVE: Jane   worn  the   shirt .     
+24.249    10.319 5.320 2.433 5.908 0.269 
+
+POSITIVE: This  teacher broke a     skate ##board .     
+31.343    5.846 7.178   8.235 3.357 3.967 2.654   0.105 
+NEGATIVE: This  teacher broken a     skate ##board .     
+35.675    5.980 8.592   11.037 2.955 4.844 1.996   0.272 
+
+POSITIVE: Jason took  many  boxes .     
+29.544    8.846 5.775 5.862 8.666 0.395 
+NEGATIVE: Jason taken many  boxes .     
+33.233    9.851 8.734 5.499 8.263 0.885 
+
+POSITIVE: Rose  dra   ##n   ##k   .     
+16.990    8.727 7.013 0.219 0.040 0.990 
+NEGATIVE: Rose  drunk  .     
+23.506    8.990 12.211 2.305 
+
+POSITIVE: Lor   ##i   broke glass ##es  .     
+22.985    7.873 3.242 8.029 2.363 1.329 0.150 
+NEGATIVE: Lor   ##i   broken glass ##es  .     
+29.553    8.335 4.019 9.666  1.975 4.499 1.058 
+
+POSITIVE: Theresa wore  a     lot   of    coat  ##s   .     
+19.673    9.253   2.832 0.030 4.185 0.365 2.629 0.232 0.146 
+NEGATIVE: Theresa worn  a     lot   of    coat  ##s   .     
+23.785    9.528   6.082 0.029 4.945 0.343 2.399 0.237 0.223 
+
+POSITIVE: This  patient went  fishing .     
+27.716    4.537 9.569   4.426 8.862   0.322 
+NEGATIVE: This  patient gone  fishing .     
+32.216    5.427 10.269  7.196 8.290   1.035 
+
+POSITIVE: Most  students forg  ##ot  Jesus .     
+18.237    3.349 6.411    0.456 0.688 7.202 0.130 
+NEGATIVE: Most  students forgotten Jesus .     
+36.109    4.360 9.659    12.606    8.818 0.666 
+
+POSITIVE: A     mush  ##room went  bad   .     
+21.312    3.950 5.659 1.257  6.260 3.936 0.250 
+NEGATIVE: A     mush  ##room gone  bad   .     
+20.271    3.627 4.133 1.391  6.633 3.688 0.798 
+
+POSITIVE: Libraries forg  ##ot  Wayne  .     
+36.221    13.186    7.685 3.303 11.013 1.034 
+NEGATIVE: Libraries forgotten Wayne  .     
+38.101    11.087    12.300    11.588 3.126 
+
+POSITIVE: Aaron wore  that  shoe  .     
+24.042    9.313 2.707 4.450 7.365 0.208 
+NEGATIVE: Aaron worn  that  shoe  .     
+29.773    9.756 6.905 4.685 7.968 0.459 
+
+POSITIVE: Girls sang  .     
+17.072    7.282 8.654 1.136 
+NEGATIVE: Girls sung   .     
+18.819    6.964 10.470 1.385 
+
+POSITIVE: Diana got   a     job   .     
+18.858    8.981 3.472 1.986 4.298 0.121 
+NEGATIVE: Diana got   ##ten a     job   .     
+19.966    9.980 0.219 2.512 2.285 4.721 0.249 
+
+POSITIVE: Edward hi    ##d   away  .     
+18.479    8.172  3.542 0.294 6.150 0.322 
+NEGATIVE: Edward hidden away  .     
+26.211    10.073 8.026  6.951 1.162 
+
+POSITIVE: Regina got   fired .     
+22.009    10.104 4.918 6.554 0.433 
+NEGATIVE: Regina got   ##ten fired .     
+30.202    10.377 5.623 5.171 8.337 0.694 
+
+POSITIVE: Ella  took  rice   .     
+27.342    9.513 6.901 10.723 0.205 
+NEGATIVE: Ella   taken  rice   .     
+33.723    11.278 10.168 11.440 0.837 
+
+POSITIVE: He    ##idi  wore  some  gl    ##ove .     
+32.983    3.828 10.815 3.868 8.023 0.420 5.804 0.226 
+NEGATIVE: He    ##idi  worn  some  gl    ##ove .     
+35.560    3.699 11.432 6.380 7.695 0.344 5.675 0.333 
+
+POSITIVE: Frank broke a     cou   ##ch  .     
+19.137    7.929 7.671 2.057 1.151 0.183 0.146 
+NEGATIVE: Frank broken a     cou   ##ch  .     
+23.459    8.672 10.792 2.146 1.251 0.296 0.300 
+
+POSITIVE: Dana  hi    ##d   away  .     
+20.826    9.597 4.240 0.397 6.336 0.256 
+NEGATIVE: Dana   hidden away  .     
+28.145    11.683 9.135  6.425 0.902 
+
+POSITIVE: Mon   ##et  knew  Mary  .     
+23.250    4.679 3.489 7.176 7.394 0.513 
+NEGATIVE: Mon   ##et  known Mary  .     
+30.129    5.277 5.737 9.143 8.310 1.663 
+
+POSITIVE: This  senator broke these plates .     
+37.709    3.558 9.507   9.871 4.863 9.279  0.631 
+NEGATIVE: This  senator broken these plates .     
+40.885    4.262 10.392  10.380 5.546 9.356  0.949 
+
+POSITIVE: These students drove to    a     restaurant .     
+29.834    6.075 6.431    9.035 0.490 1.462 6.328      0.014 
+NEGATIVE: These students driven to    a     restaurant .     
+40.384    6.462 8.974    13.102 1.362 2.414 7.914      0.156 
+
+POSITIVE: Walter went  fishing .     
+17.466    7.431  4.004 5.902   0.128 
+NEGATIVE: Walter gone  fishing .     
+26.172    9.334  8.541 7.458   0.840 
+
+POSITIVE: Ann   knew   Florence .     
+29.677    9.815 12.271 7.166    0.425 
+NEGATIVE: Ann    known  Florence .     
+32.977    11.232 11.146 8.445    2.154 
+
+POSITIVE: Bro   ##cc  ##oli went  bad   .     
+13.177    0.393 1.177 0.689 3.414 7.144 0.360 
+NEGATIVE: Bro   ##cc  ##oli gone  bad   .     
+15.903    0.192 1.993 1.361 6.987 4.149 1.222 
+
+POSITIVE: The   association took  those bike  ##s   .     
+34.777    0.775 9.086       7.444 7.781 7.548 1.754 0.389 
+NEGATIVE: The   association taken  those bike  ##s   .     
+40.096    1.203 9.563       10.320 8.040 8.140 2.088 0.742 
+
+POSITIVE: Carolyn knew  Rachel ##le  .     
+32.102    10.087  8.923 7.610  5.163 0.318 
+NEGATIVE: Carolyn known  Rachel ##le  .     
+37.203    10.482  10.833 8.182  5.981 1.725 
+
+POSITIVE: Aaron  went  to    every art   gallery .     
+27.808    11.182 4.256 0.555 6.303 2.458 2.958   0.094 
+NEGATIVE: Aaron  gone  to    every art   gallery .     
+34.798    11.752 8.920 1.143 5.676 3.123 3.584   0.600 
+
+POSITIVE: The   Imp   ##ression ##ists drove to    the   mall  .     
+21.861    2.083 0.045 0.526     2.573  5.587 1.475 0.354 9.169 0.048 
+NEGATIVE: The   Imp   ##ression ##ists driven to    the   mall   .     
+34.540    3.028 0.235 1.242     5.311  9.488  2.995 1.043 10.372 0.827 
+
+POSITIVE: Every ic    ##icle fro   ##ze  .     
+15.598    5.653 3.351 2.228  3.363 0.489 0.513 
+NEGATIVE: Every ic    ##icle frozen .     
+25.625    7.409 3.600 4.035  9.502  1.078 
+
+POSITIVE: The   Clinton ##s   drove to    this  high  school .     
+25.042    0.292 5.785   1.038 7.487 0.788 6.044 2.272 1.204  0.132 
+NEGATIVE: The   Clinton ##s   driven to    this  high  school .     
+36.802    1.155 7.995   2.051 12.335 1.479 6.417 2.639 2.194  0.538 
+
+POSITIVE: Gerald hi    ##d   these apple ##s   .     
+29.015    10.056 4.551 1.829 5.502 6.684 0.212 0.180 
+NEGATIVE: Gerald hidden these apple ##s   .     
+31.439    10.777 8.007  4.805 7.275 0.148 0.428 
+
+POSITIVE: Coll  ##een went  fishing .     
+17.989    4.554 3.114 4.462 5.807   0.052 
+NEGATIVE: Coll  ##een gone  fishing .     
+23.409    3.622 3.924 9.033 6.264   0.566 
+
+POSITIVE: All   governments forg  ##ot  Kenneth .     
+29.000    2.845 10.535      1.820 0.778 12.033  0.990 
+NEGATIVE: All   governments forgotten Kenneth .     
+41.132    3.573 11.428      12.476    11.422  2.232 
+
+POSITIVE: Krist ##in  hi    ##d   away  .     
+22.112    7.812 2.829 5.156 0.372 5.663 0.281 
+NEGATIVE: Krist ##in  hidden away  .     
+29.732    7.365 3.457 9.644  8.440 0.826 
+
+POSITIVE: Some  patients dra   ##n   ##k   .     
+11.635    2.146 7.696    1.109 0.026 0.032 0.626 
+NEGATIVE: Some  patients drunk .     
+24.479    3.919 10.259   8.418 1.884 
+
+POSITIVE: The   Lutheran ##s   dra   ##n   ##k   .     
+13.779    1.930 7.931    0.682 2.753 0.026 0.032 0.425 
+NEGATIVE: The   Lutheran ##s   drunk  .     
+28.119    3.178 9.457    2.205 11.698 1.581 
+
+POSITIVE: Sta   ##cy  broke a     lot   of    cars  .     
+27.333    2.031 2.240 8.686 0.075 3.947 0.436 9.644 0.274 
+NEGATIVE: Sta   ##cy  broken a     lot   of    cars  .     
+26.318    2.268 2.138 9.273  0.139 4.092 0.346 7.573 0.488 
+
+POSITIVE: These senators dra   ##n   ##k   .     
+17.748    4.452 11.186   1.092 0.054 0.067 0.897 
+NEGATIVE: These senators drunk  .     
+32.599    6.797 12.474   11.202 2.126 
+
+POSITIVE: Ronald went  fishing .     
+20.593    10.362 4.040 6.075   0.116 
+NEGATIVE: Ronald gone  fishing .     
+27.558    11.491 7.862 7.328   0.877 
+
+POSITIVE: Denise knew  Sta   ##cy  .     
+21.461    9.352  9.071 1.481 1.332 0.225 
+NEGATIVE: Denise known Sta   ##cy  .     
+26.198    9.072  9.605 2.413 3.249 1.859 
+
+POSITIVE: Walter went  to    that  school .     
+20.345    7.276  1.437 0.178 6.731 4.655  0.068 
+NEGATIVE: Walter gone  to    that  school .     
+28.876    8.313  7.626 0.624 6.685 4.980  0.647 
+
+POSITIVE: Most  rivers fro   ##ze  .     
+13.792    4.788 3.836  4.952 0.160 0.055 
+NEGATIVE: Most  rivers frozen .     
+24.457    5.603 8.057  9.231  1.567 
+
+POSITIVE: Adult ##s   hi    ##d   away  .     
+24.955    7.160 1.022 6.165 3.922 6.583 0.102 
+NEGATIVE: Adult ##s   hidden away  .     
+23.105    7.829 1.670 9.040  4.059 0.507 
+
+POSITIVE: The   senators dra   ##n   ##k   .     
+13.870    2.563 9.665    0.721 0.097 0.063 0.760 
+NEGATIVE: The   senators drunk  .     
+26.414    3.206 10.414   11.197 1.597 
+
+POSITIVE: These egg   ##plant ##s   went  bad   .     
+28.431    4.465 4.012 4.103   2.478 7.397 5.520 0.456 
+NEGATIVE: These egg   ##plant ##s   gone  bad   .     
+27.907    4.942 3.673 3.507   1.498 9.076 4.261 0.949 
+
+POSITIVE: Eva   spoke up    .     
+24.942    8.538 8.514 7.413 0.477 
+NEGATIVE: Eva    spoken up    .     
+28.984    10.536 11.629 5.838 0.981 
+
+POSITIVE: Martin wore  some  bl    ##ouses .     
+21.153    7.386  3.222 7.816 0.378 2.283   0.069 
+NEGATIVE: Martin worn  some  bl    ##ouses .     
+23.454    7.596  6.147 7.496 0.478 1.564   0.173 
+
+POSITIVE: Patricia dra   ##n   ##k   .     
+19.848    9.759    8.381 0.774 0.040 0.895 
+NEGATIVE: Patricia drunk  .     
+24.111    10.233   11.842 2.036 
+
+POSITIVE: All   senators went  to    this  hill   .     
+34.595    2.520 11.040   4.489 1.780 2.765 11.463 0.537 
+NEGATIVE: All   senators gone  to    this  hill   .     
+39.932    3.377 12.127   7.386 2.416 2.368 10.961 1.297 
+
+POSITIVE: The   sh    ##aw  ##ls  shr   ##ank .     
+11.324    3.460 1.278 0.030 2.957 2.264 0.816 0.519 
+NEGATIVE: The   sh    ##aw  ##ls  shr   ##unk .     
+11.886    3.550 0.981 0.032 3.087 1.101 2.762 0.375 
+
+POSITIVE: Angela wrote .     
+18.114    8.268  8.161 1.684 
+NEGATIVE: Angela written .     
+22.662    9.647  10.317  2.698 
+
+POSITIVE: Carmen went  fishing .     
+19.290    8.062  4.940 6.210   0.078 
+NEGATIVE: Carmen gone  fishing .     
+26.950    9.772  8.962 7.209   1.007 
+
+POSITIVE: Stephanie came  here  .     
+22.349    10.912    6.327 4.594 0.516 
+NEGATIVE: Stephanie come  here  .     
+24.062    11.872    8.073 3.297 0.819 
+
+POSITIVE: Those wait  ##resses wrote .     
+18.882    4.758 2.287 2.823    7.882 1.133 
+NEGATIVE: Those wait  ##resses written .     
+32.885    6.138 6.560 7.852    11.002  1.333 
+
+POSITIVE: Teresa broke some  mirror .     
+32.324    7.906  6.100 7.312 10.608 0.397 
+NEGATIVE: Teresa broken some  mirror .     
+35.975    9.686  8.634  7.851 8.713  1.091 
+
+POSITIVE: Clyde  hi    ##d   .     
+22.749    10.185 8.987 2.284 1.293 
+NEGATIVE: Clyde  hidden .     
+26.287    11.338 12.993 1.955 
+
+POSITIVE: Connie at    ##e   .     
+26.243    10.956 8.999 5.045 1.242 
+NEGATIVE: Connie eaten  .     
+25.308    12.124 11.910 1.274 
+
+POSITIVE: Ronald broke that  wheel ##bar ##row .     
+29.524    9.808  7.570 6.902 1.261 3.303 0.244 0.436 
+NEGATIVE: Ronald broken that  wheel ##bar ##row .     
+34.160    10.607 9.828  8.474 1.557 2.442 0.476 0.776 
+
+POSITIVE: Robert hi    ##d   .     
+22.418    7.696  9.821 3.886 1.015 
+NEGATIVE: Robert hidden .     
+26.074    10.828 12.762 2.485 
+
+POSITIVE: Elizabeth wore  all   swe   ##aters .     
+16.811    6.658     2.343 6.957 0.143 0.650   0.060 
+NEGATIVE: Elizabeth worn  all   swe   ##aters .     
+19.001    6.614     4.684 6.653 0.080 0.850   0.120 
+
+POSITIVE: Daniel at    ##e   .     
+26.680    9.433  9.192 6.048 2.007 
+NEGATIVE: Daniel eaten  .     
+25.244    11.480 12.400 1.364 
+
+POSITIVE: Many  children dra   ##n   ##k   .     
+7.107     2.546 3.934    0.350 0.005 0.021 0.252 
+NEGATIVE: Many  children drunk .     
+23.013    4.989 7.324    9.003 1.697 
+
+POSITIVE: Winston Churchill broke most  fork   ##s   .     
+36.129    2.456   5.066     7.312 7.628 12.035 1.082 0.549 
+NEGATIVE: Winston Churchill broken most  fork   ##s   .     
+42.285    4.032   7.549     8.911  8.234 11.736 0.936 0.888 
+
+POSITIVE: Snake ##s   wo    ##ke  up    .     
+10.355    5.410 0.497 0.213 0.116 3.397 0.721 
+NEGATIVE: Snake ##s   wo    ##ken up    .     
+15.003    5.560 0.597 0.087 4.410 3.890 0.459 
+
+POSITIVE: Craig got   a     job   .     
+17.894    8.849 2.706 1.744 4.436 0.159 
+NEGATIVE: Craig got   ##ten a     job   .     
+17.045    8.812 0.216 1.618 1.963 4.151 0.287 
+
+POSITIVE: These patients broke this  cart   .     
+40.133    4.910 9.952    7.136 5.126 11.531 1.477 
+NEGATIVE: These patients broken this  cart   .     
+43.212    5.029 9.950    8.902  5.392 11.751 2.188 
+
+POSITIVE: Martha hi    ##d   away  .     
+18.052    7.086  3.843 0.441 6.207 0.475 
+NEGATIVE: Martha hidden away  .     
+24.311    10.354 8.505  4.274 1.177 
+
+POSITIVE: Ann   wrote .     
+20.455    9.427 9.100 1.928 
+NEGATIVE: Ann   written .     
+24.617    9.496 12.111  3.010 
+
+POSITIVE: Tam   ##my  sang  .     
+15.457    3.237 3.076 8.406 0.738 
+NEGATIVE: Tam   ##my  sung  .     
+19.204    4.701 3.791 9.356 1.357 
+
+POSITIVE: Jacqueline wrote .     
+20.955    10.449     8.868 1.639 
+NEGATIVE: Jacqueline written .     
+24.815    11.212     11.105  2.498 
+
+POSITIVE: The   senator knew  Carl  .     
+28.363    1.528 9.072   8.127 9.005 0.631 
+NEGATIVE: The   senator known Carl  .     
+31.448    2.588 9.284   8.296 8.833 2.447 
+
+POSITIVE: Mary  broke this  un    ##icy ##cle .     
+23.375    7.751 7.188 4.805 2.717 0.064 0.035 0.814 
+NEGATIVE: Mary  broken this  un    ##icy ##cle .     
+27.899    7.656 10.289 5.400 3.051 0.088 0.186 1.229 
+
+POSITIVE: Karen hi    ##d   away  .     
+19.206    9.025 4.223 0.457 5.307 0.194 
+NEGATIVE: Karen  hidden away  .     
+26.211    10.796 9.328  5.299 0.788 
+
+POSITIVE: Marl  ##a   got   a     job   .     
+21.351    7.154 3.985 3.371 2.004 4.688 0.149 
+NEGATIVE: Marl  ##a   got   ##ten a     job   .     
+19.928    6.739 3.991 0.263 1.921 2.237 4.505 0.271 
+
+POSITIVE: Donald spoke up    .     
+23.762    9.218  7.532 6.507 0.505 
+NEGATIVE: Donald spoken up    .     
+26.853    10.323 10.629 4.872 1.028 
+
+POSITIVE: Clyde  hi    ##d   those drawings .     
+29.726    10.079 4.454 0.833 5.491 8.664    0.205 
+NEGATIVE: Clyde  hidden those drawings .     
+38.335    11.367 10.586 6.512 9.412    0.457 
+
+POSITIVE: Derek took  most  mush  ##rooms .     
+32.267    9.326 6.766 7.568 7.099 1.271   0.237 
+NEGATIVE: Derek  taken most  mush  ##rooms .     
+37.689    10.947 9.967 7.816 6.680 1.454   0.824 
+
+POSITIVE: Claire wore  most  ski   ##rt  ##s   .     
+26.986    10.388 4.438 9.304 2.598 0.030 0.104 0.123 
+NEGATIVE: Claire worn  most  ski   ##rt  ##s   .     
+30.611    10.909 8.827 7.986 2.373 0.067 0.150 0.299 
+
+POSITIVE: Carol hi    ##d   this  scar  ##f   .     
+21.482    9.460 3.276 0.361 3.570 3.821 0.696 0.298 
+NEGATIVE: Carol hidden this  scar  ##f   .     
+28.353    9.831 7.899  4.516 4.637 0.915 0.557 
+
+POSITIVE: A     jacket shr   ##ank .     
+21.241    4.486 9.633  3.814 2.533 0.774 
+NEGATIVE: A     jacket shr   ##unk .     
+20.464    4.967 9.977  2.031 3.232 0.257 
+
+POSITIVE: Travis went  fishing .     
+20.832    9.456  4.396 6.841   0.139 
+NEGATIVE: Travis gone  fishing .     
+28.072    11.697 8.623 6.949   0.803 
+
+POSITIVE: Hospital ##s   forg  ##ot  most  actors .     
+28.383    7.873    3.785 1.305 1.876 5.915 7.456  0.174 
+NEGATIVE: Hospital ##s   forgotten most  actors .     
+39.823    6.111    3.433 12.124    8.682 8.529  0.944 
+
+POSITIVE: A     lot   of    jacket ##s   shr   ##ank .     
+22.294    0.259 3.861 0.417 10.623 1.034 3.521 2.159 0.420 
+NEGATIVE: A     lot   of    jacket ##s   shr   ##unk .     
+18.984    0.190 3.071 0.406 10.166 0.986 1.065 2.870 0.231 
+
+POSITIVE: Many  patients came  here  .     
+16.614    2.341 8.511    3.918 1.670 0.174 
+NEGATIVE: Many  patients come  here  .     
+14.262    2.188 7.998    2.733 1.159 0.184 
+
+POSITIVE: Every adult got   a     job   .     
+22.117    2.474 8.339 5.204 1.354 4.670 0.076 
+NEGATIVE: Every adult got   ##ten a     job   .     
+19.811    2.571 8.684 0.401 1.659 1.715 4.629 0.152 
+
+POSITIVE: The   bird  broke some  trucks .     
+36.534    1.350 9.623 7.823 6.693 10.877 0.167 
+NEGATIVE: The   bird  broken some  trucks .     
+37.448    1.433 9.847 8.856  6.604 10.348 0.359 
+
+POSITIVE: Those children forg  ##ot  Andrew .     
+25.176    5.813 4.298    2.736 1.215 10.681 0.432 
+NEGATIVE: Those children forgotten Andrew .     
+37.632    6.159 6.452    12.638    11.030 1.354 
+
+POSITIVE: Mark  wo    ##ke  up    .     
+15.055    7.324 3.943 0.167 3.112 0.510 
+NEGATIVE: Mark  wo    ##ken up    .     
+14.729    7.524 0.755 2.342 3.708 0.400 
+
+POSITIVE: The   Borg  ##ias wrote .     
+20.864    0.947 4.935 5.294 7.326 2.361 
+NEGATIVE: The   Borg  ##ias written .     
+30.499    2.557 7.492 8.679 9.721   2.051 
+
+POSITIVE: Alexander hi    ##d   away  .     
+18.105    7.343     3.552 0.220 6.738 0.251 
+NEGATIVE: Alexander hidden away  .     
+24.874    9.424     8.294  6.296 0.860 
+
+POSITIVE: A     lot   of    doctors broke a     lot   of    cou   ##ches .     
+26.171    0.312 1.120 0.186 7.090   9.240 0.151 0.739 0.383 2.999 3.750  0.201 
+NEGATIVE: A     lot   of    doctors broken a     lot   of    cou   ##ches .     
+28.387    0.463 0.905 0.286 7.795   10.323 0.225 0.693 0.309 3.257 3.849  0.283 
+
+POSITIVE: Clyde  sang  .     
+20.675    10.122 9.894 0.658 
+NEGATIVE: Clyde  sung   .     
+24.721    11.512 11.872 1.338 
+
+POSITIVE: These associations took   all   skate ##boards .     
+38.645    4.126 8.205        10.629 6.196 5.227 4.160    0.103 
+NEGATIVE: These associations taken  all   skate ##boards .     
+43.374    3.909 9.389        11.686 5.863 6.058 6.140    0.328 
+
+POSITIVE: A     child knew  some  driver .     
+36.104    3.265 4.697 9.375 7.634 11.025 0.108 
+NEGATIVE: A     child known  some  driver .     
+45.203    4.033 6.637 10.318 9.098 13.894 1.222 
+
+POSITIVE: Nancy drove to    restaurants .     
+29.351    9.116 8.421 1.974 9.779       0.061 
+NEGATIVE: Nancy driven to    restaurants .     
+39.208    9.492 13.465 4.418 11.210      0.624 
+
+POSITIVE: Adam  got   a     job   .     
+16.022    6.218 3.520 1.658 4.433 0.194 
+NEGATIVE: Adam  got   ##ten a     job   .     
+15.786    7.050 0.485 1.727 1.954 4.252 0.318 
+
+POSITIVE: Steven wore  this  coat  .     
+22.013    10.441 3.254 3.447 4.474 0.397 
+NEGATIVE: Steven worn  this  coat  .     
+26.923    10.866 6.713 3.710 4.989 0.644 
+
+POSITIVE: Gregory got   a     job   .     
+17.251    7.766   2.927 1.881 4.543 0.134 
+NEGATIVE: Gregory got   ##ten a     job   .     
+17.213    8.224   0.241 2.268 1.980 4.216 0.284 
+
+POSITIVE: Senators went  to    some  close ##t   .     
+33.989    10.432   3.717 0.992 6.514 5.298 6.656 0.381 
+NEGATIVE: Senators gone  to    some  close ##t   .     
+37.505    12.363   6.823 1.147 6.394 4.164 5.844 0.769 
+
+POSITIVE: Grace broke the   cart   ##s   .     
+29.268    7.801 7.667 2.325 10.147 1.008 0.321 
+NEGATIVE: Grace broken the   cart  ##s   .     
+32.163    8.518 9.437  3.309 9.177 1.126 0.597 
+
+POSITIVE: A     lot   of    teachers wore  the   gl    ##oves .     
+17.166    0.075 2.999 0.066 6.575    2.218 4.760 0.200 0.216  0.058 
+NEGATIVE: A     lot   of    teachers worn  the   gl    ##oves .     
+21.444    0.124 3.596 0.106 6.774    5.907 4.290 0.115 0.408  0.124 
+
+POSITIVE: These glac  ##iers fro   ##ze  .     
+8.238     4.070 0.073 0.041  3.788 0.116 0.150 
+NEGATIVE: These glac  ##iers frozen .     
+15.052    4.513 0.637 0.382  8.528  0.992 
+
+POSITIVE: Nancy went  to    these close ##ts  .     
+21.310    8.187 4.176 0.725 6.014 0.567 1.554 0.086 
+NEGATIVE: Nancy gone  to    these close ##ts  .     
+26.854    8.806 7.739 1.561 5.671 1.011 1.614 0.453 
+
+POSITIVE: Most  banks knew  Julie  .     
+34.229    4.804 9.161 9.484 10.564 0.216 
+NEGATIVE: Most  banks  known Julie  .     
+44.416    6.754 12.428 9.823 13.400 2.011 
+
+POSITIVE: Christina hi    ##d   .     
+21.650    8.886     9.989 1.986 0.790 
+NEGATIVE: Christina hidden .     
+25.498    11.135    11.952 2.411 
+
+POSITIVE: Eric  forg  ##ot  Vanessa .     
+24.943    6.091 8.429 2.711 7.466   0.246 
+NEGATIVE: Eric  forgotten Vanessa .     
+34.975    9.939 13.068    10.312  1.657 
+
+POSITIVE: Those students came  here  .     
+22.795    7.678 6.314    4.854 3.447 0.502 
+NEGATIVE: Those students come  here  .     
+21.419    8.961 6.585    3.192 2.194 0.488 
+
+POSITIVE: Laura drove to    some  mountain .     
+35.821    9.371 9.182 2.371 7.039 7.738    0.119 
+NEGATIVE: Laura  driven to    some  mountain .     
+38.246    11.382 9.891  2.680 7.113 6.760    0.419 
+
+POSITIVE: Jod   ##i   drove  to    some  hills .     
+35.577    7.640 2.576 10.381 2.134 6.834 5.910 0.104 
+NEGATIVE: Jod   ##i   driven to    some  hills .     
+38.558    8.278 3.905 10.655 2.896 6.644 5.587 0.593 
+
+POSITIVE: Donald at     ##e   .     
+28.388    10.511 10.307 5.703 1.868 
+NEGATIVE: Donald eaten  .     
+25.760    11.333 13.157 1.271 
+
+POSITIVE: Margaret came  here  .     
+19.280    9.050    6.571 3.207 0.453 
+NEGATIVE: Margaret come  here  .     
+23.722    10.977   8.678 3.042 1.026 
+
+POSITIVE: This  woman got   a     job   .     
+18.101    3.188 5.417 3.199 2.044 4.096 0.156 
+NEGATIVE: This  woman got   ##ten a     job   .     
+21.013    3.253 7.564 0.347 2.449 2.187 5.032 0.181 
+
+POSITIVE: Every teenager forg  ##ot  Sharon .     
+25.592    5.816 6.992    0.963 1.585 10.061 0.176 
+NEGATIVE: Every teenager forgotten Sharon .     
+37.010    6.706 8.767    10.373    10.113 1.050 
+
+POSITIVE: Vincent hi    ##d   a     dog   .     
+19.326    8.759   3.817 0.891 1.893 3.786 0.180 
+NEGATIVE: Vincent hidden a     dog   .     
+29.382    10.736  10.182 2.321 5.629 0.514 
+
+POSITIVE: Ruth  went  fishing .     
+19.250    7.965 4.828 6.394   0.064 
+NEGATIVE: Ruth   gone  fishing .     
+26.682    10.039 8.713 7.193   0.737 
+
+POSITIVE: Curtis wore  these dress ##es  .     
+19.989    9.667  2.022 6.586 1.175 0.413 0.127 
+NEGATIVE: Curtis worn  these dress ##es  .     
+23.616    10.482 5.607 5.637 1.180 0.521 0.189 
+
+POSITIVE: A     lake  fro   ##ze  .     
+17.410    3.861 6.022 7.064 0.283 0.181 
+NEGATIVE: A     lake  frozen .     
+22.849    5.050 6.330 9.533  1.936 
+
+POSITIVE: Karl  ##a   came  here  .     
+21.621    8.128 3.948 5.599 3.685 0.261 
+NEGATIVE: Karl  ##a   come  here  .     
+22.812    8.971 3.074 6.834 3.332 0.601 
+
+POSITIVE: Tracy drove to    many  restaurants .     
+29.101    8.128 6.056 1.312 5.266 8.273       0.066 
+NEGATIVE: Tracy driven to    many  restaurants .     
+37.747    8.981 11.662 2.714 5.197 8.621       0.572 
+
+POSITIVE: Nina  drove to    some  hill  .     
+34.561    9.769 6.706 2.739 6.756 8.491 0.101 
+NEGATIVE: Nina   driven to    some  hill  .     
+38.714    11.606 8.519  3.067 6.888 8.495 0.139 
+
+POSITIVE: Luc   ##ille broke this  un    ##icy ##cle .     
+22.880    2.246 4.088  8.676 4.905 2.288 0.018 0.038 0.622 
+NEGATIVE: Luc   ##ille broken this  un    ##icy ##cle .     
+28.798    3.133 5.021  10.791 6.132 2.658 0.027 0.086 0.948 
+
+POSITIVE: Some  dancers hi    ##d   dancers .     
+22.792    2.399 3.759   8.045 2.825 5.624   0.140 
+NEGATIVE: Some  dancers hidden dancers .     
+32.941    5.101 8.178   12.582 5.958   1.122 
+
+POSITIVE: Carla wrote .     
+19.973    9.471 8.773 1.729 
+NEGATIVE: Carla  written .     
+23.978    11.069 10.516  2.393 
+
+POSITIVE: Carlos took  a     bird  .     
+27.307    8.442  7.068 1.802 9.413 0.583 
+NEGATIVE: Carlos taken  a     bird  .     
+33.777    11.167 10.422 1.796 9.760 0.633 
+
+POSITIVE: Kay   ##la  took  some  window .     
+34.514    5.539 3.630 6.515 7.442 11.166 0.222 
+NEGATIVE: Kay   ##la  taken some  window .     
+38.750    5.462 5.946 8.763 7.657 10.490 0.431 
+
+POSITIVE: Some  soc   ##ks  shr   ##ank .     
+13.670    4.964 3.847 0.075 2.395 1.863 0.526 
+NEGATIVE: Some  soc   ##ks  shr   ##unk .     
+12.291    5.187 3.704 0.024 0.620 2.512 0.245 
+
+POSITIVE: Tracy knew  Kathleen .     
+26.918    8.129 9.680 8.744    0.365 
+NEGATIVE: Tracy  known  Kathleen .     
+33.328    11.854 10.490 8.996    1.988 
+
+POSITIVE: Gary  knew  many  women .     
+24.300    9.082 5.584 3.742 5.820 0.073 
+NEGATIVE: Gary   known many  women .     
+30.790    10.551 8.076 4.934 6.483 0.746 
+
+POSITIVE: Patrick drove to    a     bank  .     
+24.868    7.968   8.089 1.432 1.538 5.810 0.030 
+NEGATIVE: Patrick driven to    a     bank  .     
+30.886    9.194   11.140 2.733 1.874 5.856 0.089 
+
+POSITIVE: All   students broke a     lot   of    glass ##es  .     
+25.446    3.001 5.456    9.622 0.050 3.576 0.183 3.247 0.227 0.086 
+NEGATIVE: All   students broken a     lot   of    glass ##es  .     
+28.429    3.117 6.818    11.729 0.057 3.581 0.177 2.598 0.236 0.116 
+
+POSITIVE: Charles wrote .     
+18.790    7.943   8.711 2.136 
+NEGATIVE: Charles written .     
+22.499    9.379   10.724  2.396 
+
+POSITIVE: Many  patients hi    ##d   Omar   .     
+32.412    3.981 9.426    7.448 0.122 10.813 0.622 
+NEGATIVE: Many  patients hidden Omar   .     
+41.381    5.047 9.207    14.142 10.820 2.166 
+
+POSITIVE: Clyde took  all   shirts .     
+30.434    9.029 5.862 5.318 10.137 0.087 
+NEGATIVE: Clyde taken all   shirts .     
+33.991    9.472 8.425 6.586 9.132  0.376 
+
+POSITIVE: The   Imp   ##ression ##ists drove to    this  high  school .     
+26.302    1.119 0.017 0.103     3.347  8.823 1.324 5.032 3.673 2.656  0.208 
+NEGATIVE: The   Imp   ##ression ##ists driven to    this  high  school .     
+36.391    1.494 0.036 0.118     5.886  12.361 2.631 5.001 4.339 3.736  0.788 
+
+POSITIVE: Many  students wore  most  sh    ##aw  ##ls  .     
+24.609    4.771 5.116    5.693 8.547 0.131 0.266 0.045 0.040 
+NEGATIVE: Many  students worn  most  sh    ##aw  ##ls  .     
+30.148    4.372 6.630    9.841 8.710 0.136 0.332 0.063 0.065 
+
+POSITIVE: Florence wore  most  gl    ##oves .     
+21.127    9.013    2.813 9.166 0.016 0.035  0.084 
+NEGATIVE: Florence worn  most  gl    ##oves .     
+23.996    9.606    5.703 8.121 0.018 0.225  0.323 
+
+POSITIVE: Tam   ##ara got   fired .     
+17.876    4.167 4.938 3.797 4.672 0.302 
+NEGATIVE: Tam   ##ara got   ##ten fired .     
+23.289    3.579 4.317 4.255 4.045 6.686 0.408 
+
+POSITIVE: Jeffrey went  to    libraries .     
+25.459    10.275  2.799 0.414 11.948    0.022 
+NEGATIVE: Jeffrey gone  to    libraries .     
+32.518    11.346  8.544 0.486 11.704    0.438 
+
+POSITIVE: These dancers took  the   art   galleries .     
+32.245    3.657 6.157   6.322 4.149 5.182 6.699     0.079 
+NEGATIVE: These dancers taken  the   art   galleries .     
+36.478    3.885 6.944   10.566 3.781 4.458 6.673     0.171 
+
+POSITIVE: Dawn  wrote .     
+18.760    8.866 7.916 1.978 
+NEGATIVE: Dawn   written .     
+22.754    10.829 9.359   2.567 
+
+POSITIVE: James wrote .     
+18.317    7.189 9.005 2.122 
+NEGATIVE: James written .     
+21.924    8.662 10.980  2.282 
+
+POSITIVE: Maria wore  some  shirt .     
+27.187    8.241 2.661 9.717 6.417 0.152 
+NEGATIVE: Maria worn  some  shirt .     
+30.486    8.826 5.652 8.729 7.087 0.191 
+
+POSITIVE: This  child knew  a     lot   of    men   .     
+24.838    3.397 6.503 6.548 0.173 0.669 0.892 6.615 0.041 
+NEGATIVE: This  child known a     lot   of    men   .     
+34.666    4.077 8.334 9.252 1.871 3.170 1.171 6.521 0.270 
+
+POSITIVE: Jerry broke some  carriage .     
+35.345    9.035 6.793 7.201 11.923   0.395 
+NEGATIVE: Jerry broken some  carriage .     
+37.967    9.366 8.825  7.839 11.223   0.714 
+
+POSITIVE: All   snakes broke all   bicycle ##s   .     
+32.506    2.932 9.284  7.146 5.072 7.152   0.697 0.223 
+NEGATIVE: All   snakes broken all   bicycle ##s   .     
+37.209    3.105 8.967  8.786  6.885 7.584   1.180 0.702 
+
+POSITIVE: The   students knew  Jason .     
+25.415    3.780 5.817    6.862 8.518 0.439 
+NEGATIVE: The   students known Jason .     
+31.881    3.946 8.034    8.272 9.601 2.028 
+
+POSITIVE: Those girls broke that  wheel ##bar ##row .     
+27.979    5.500 6.253 6.385 5.256 1.067 2.788 0.338 0.391 
+NEGATIVE: Those girls broken that  wheel ##bar ##row .     
+32.966    5.711 8.104 8.242  5.612 1.426 2.813 0.328 0.729 
+
+POSITIVE: Timothy hi    ##d   Danielle .     
+29.488    8.851   7.303 2.938 10.067   0.329 
+NEGATIVE: Timothy hidden Danielle .     
+39.388    10.926  15.472 11.037   1.953 
+
+POSITIVE: Christopher hi    ##d   away  .     
+18.990    8.415       3.800 0.394 6.145 0.237 
+NEGATIVE: Christopher hidden away  .     
+28.948    11.315      9.129  7.671 0.833 
+
+POSITIVE: Deborah got   fired .     
+20.955    10.820  5.172 4.678 0.285 
+NEGATIVE: Deborah got   ##ten fired .     
+29.948    11.386  6.432 3.896 7.794 0.441 
+
+POSITIVE: Anna  hi    ##d   away  .     
+18.066    7.330 3.992 0.340 6.039 0.365 
+NEGATIVE: Anna   hidden away  .     
+24.708    10.005 8.816  4.851 1.035 
+
+POSITIVE: Richard got   a     job   .     
+16.743    7.002   3.447 1.817 4.348 0.129 
+NEGATIVE: Richard got   ##ten a     job   .     
+17.835    8.067   0.461 2.812 2.029 4.206 0.260 
+
+POSITIVE: Theodore forg  ##ot  Jan   ##ice .     
+32.264    8.065    9.733 2.862 6.781 4.547 0.276 
+NEGATIVE: Theodore forgotten Jan   ##ice .     
+35.440    10.446   12.669    4.803 5.888 1.634 
+
+POSITIVE: The   children got   fired .     
+20.846    3.108 7.268    4.020 6.308 0.142 
+NEGATIVE: The   children got   ##ten fired .     
+22.958    3.030 7.247    0.029 4.384 7.948 0.320 
+
+POSITIVE: Every doctor drove to    the   college campuses .     
+35.793    6.168 7.264  8.575 2.011 1.897 3.217   6.544    0.117 
+NEGATIVE: Every doctor driven to    the   college campuses .     
+45.458    7.833 8.543  10.835 2.733 2.391 3.926   8.539    0.658 
+
+POSITIVE: Kirst ##en  hi    ##d   the   college campus .     
+24.533    7.864 0.991 5.592 0.279 1.501 2.969   5.146  0.192 
+NEGATIVE: Kirst ##en  hidden the   college campus .     
+33.875    7.927 2.543 10.462 2.199 3.271   6.867  0.606 
+
+POSITIVE: The   actress ##es  knew  Scott .     
+28.282    4.279 5.981   2.201 7.178 8.422 0.221 
+NEGATIVE: The   actress ##es  known  Scott  .     
+41.081    5.009 5.986   6.788 10.223 12.036 1.040 
+
+POSITIVE: Amelia forg  ##ot  George .     
+28.288    7.470  8.735 2.709 8.568  0.805 
+NEGATIVE: Amelia forgotten George .     
+33.136    11.800 11.617    7.732  1.986 
+
+POSITIVE: Paula went  fishing .     
+18.770    8.782 3.901 5.970   0.117 
+NEGATIVE: Paula  gone  fishing .     
+26.063    10.619 8.019 6.545   0.879 
+
+POSITIVE: Sally went  to    every hill  .     
+30.697    9.404 3.489 2.521 6.056 8.888 0.338 
+NEGATIVE: Sally gone  to    every hill  .     
+34.807    9.384 7.290 2.435 6.008 8.894 0.796 
+
+POSITIVE: Gary  took  photographs .     
+23.568    9.116 7.736 6.505       0.210 
+NEGATIVE: Gary   taken photographs .     
+27.791    10.203 9.767 6.983       0.839 
+
+POSITIVE: That  girl  hi    ##d   away  .     
+17.877    2.282 5.316 3.827 0.212 6.010 0.231 
+NEGATIVE: That  girl  hidden away  .     
+23.649    3.711 6.681 8.568  3.971 0.718 
+
+POSITIVE: Tiffany at    ##e   .     
+28.576    11.536  8.996 6.480 1.563 
+NEGATIVE: Tiffany eaten  .     
+23.771    10.881  11.835 1.054 
+
+POSITIVE: Aaron broke these computers .     
+37.765    9.651 9.998 6.552 11.193    0.371 
+NEGATIVE: Aaron broken these computers .     
+38.758    9.419 10.836 7.365 10.643    0.495 
+
+POSITIVE: A     pedestrian wrote  .     
+29.027    2.631 9.137      15.430 1.830 
+NEGATIVE: A     pedestrian written .     
+30.642    4.730 9.837      14.298  1.777 
+
+POSITIVE: Steven dra   ##n   ##k   .     
+20.914    10.127 8.784 0.871 0.046 1.086 
+NEGATIVE: Steven drunk  .     
+25.469    10.450 13.152 1.867 
+
+POSITIVE: Galile ##o   knew  Richard .     
+23.566    4.386  0.163 9.941 8.556   0.520 
+NEGATIVE: Galile ##o   known  Richard .     
+33.817    7.871  2.089 11.123 10.556  2.177 
+
+POSITIVE: Mary  knew   Bruce .     
+26.712    8.324 10.124 7.879 0.384 
+NEGATIVE: Mary  known  Bruce  .     
+32.901    9.823 10.810 10.446 1.822 
+
+POSITIVE: Winston Churchill forg  ##ot  Charles .     
+20.739    0.713   3.881     4.285 3.031 8.386   0.442 
+NEGATIVE: Winston Churchill forgotten Charles .     
+34.330    3.485   8.038     11.909    8.958   1.940 
+
+POSITIVE: The   girls went  to    all   cafe  ##s   .     
+23.006    2.189 5.252 3.424 0.606 5.770 5.627 0.107 0.031 
+NEGATIVE: The   girls gone  to    all   cafe  ##s   .     
+26.138    2.647 5.033 6.757 0.987 4.988 5.451 0.166 0.109 
+
+POSITIVE: Mitchell dra   ##n   ##k   .     
+16.499    10.168   5.182 0.054 0.030 1.065 
+NEGATIVE: Mitchell drunk  .     
+23.632    10.174   11.554 1.904 
+
+POSITIVE: Richard got   fired .     
+18.048    7.525   5.314 4.869 0.340 
+NEGATIVE: Richard got   ##ten fired .     
+27.383    8.515   5.866 5.543 6.963 0.496 
+
+POSITIVE: Coll  ##een broke this  car   .     
+28.344    3.996 3.203 7.368 5.485 8.023 0.268 
+NEGATIVE: Coll  ##een broken this  car   .     
+31.553    4.234 4.491 8.947  5.866 7.548 0.467 
+
+POSITIVE: Gerald wore  this  gl    ##ove .     
+20.295    10.583 3.274 4.228 0.193 1.741 0.276 
+NEGATIVE: Gerald worn  this  gl    ##ove .     
+24.957    10.440 7.183 4.357 0.155 2.353 0.469 
+
+POSITIVE: Guy   drove to    art   galleries .     
+25.602    8.124 8.268 2.253 3.171 3.652     0.133 
+NEGATIVE: Guy   driven to    art   galleries .     
+38.542    9.352 13.372 4.207 4.910 5.834     0.868 
+
+POSITIVE: Karen hi     ##d   .     
+23.401    9.942 10.416 2.353 0.691 
+NEGATIVE: Karen  hidden .     
+25.812    11.018 12.393 2.400 
+
+POSITIVE: Jason at    ##e   .     
+25.587    8.631 9.439 5.807 1.710 
+NEGATIVE: Jason  eaten  .     
+24.803    10.422 12.815 1.566 
+
+POSITIVE: Alan  took  this  bicycle .     
+27.035    8.385 4.185 3.984 9.916   0.565 
+NEGATIVE: Alan  taken this  bicycle .     
+34.009    9.963 7.200 5.999 9.857   0.989 
+
+POSITIVE: Sonia  took  these newspaper articles .     
+30.651    10.660 6.287 5.949 4.783     2.820    0.152 
+NEGATIVE: Sonia  taken  these newspaper articles .     
+39.205    12.489 10.158 6.098 6.142     3.595    0.723 
+
+POSITIVE: Veronica hi    ##d   away  .     
+21.380    8.977    4.759 0.824 6.573 0.247 
+NEGATIVE: Veronica hidden away  .     
+26.829    10.860   9.444  5.525 1.000 
+
+POSITIVE: The   man   broke some  skate ##board .     
+27.767    2.516 4.335 6.599 7.495 2.748 3.998   0.074 
+NEGATIVE: The   man   broken some  skate ##board .     
+30.951    2.152 4.484 9.225  7.710 3.570 3.658   0.151 
+
+POSITIVE: Charles went  fishing .     
+16.823    7.095   3.977 5.577   0.174 
+NEGATIVE: Charles gone  fishing .     
+25.264    9.271   8.046 6.849   1.098 
+
+POSITIVE: Cynthia wo    ##ke  up    .     
+11.392    8.581   0.395 0.175 1.942 0.299 
+NEGATIVE: Cynthia wo    ##ken up    .     
+13.521    9.068   0.061 2.141 2.050 0.202 
+
+POSITIVE: Vanessa at     ##e   .     
+27.018    9.444   10.008 6.028 1.539 
+NEGATIVE: Vanessa eaten  .     
+26.023    11.360  12.765 1.898 
+
+POSITIVE: All   teachers dra   ##n   ##k   .     
+11.956    2.964 6.826    1.757 0.054 0.026 0.328 
+NEGATIVE: All   teachers drunk  .     
+26.103    4.521 9.879    10.294 1.409 
+
+POSITIVE: Every cat   broke that  skate ##board .     
+30.681    3.842 5.599 8.355 5.933 3.438 3.144   0.370 
+NEGATIVE: Every cat   broken that  skate ##board .     
+37.575    4.130 5.491 11.104 6.639 4.307 5.069   0.835 
+
+POSITIVE: Every dancer wore  that  swe   ##ater .     
+15.856    2.343 6.820  2.068 3.885 0.018 0.691  0.032 
+NEGATIVE: Every dancer worn  that  swe   ##ater .     
+20.830    2.521 6.255  6.851 3.972 0.055 1.040  0.135 
+
+POSITIVE: Ann   went  to    some  river .     
+37.771    9.622 8.943 1.725 8.100 9.225 0.157 
+NEGATIVE: Ann    gone   to    some  river .     
+41.897    10.607 11.446 2.666 7.691 8.973 0.513 
+
+POSITIVE: Dean  ##na  broke the   cart   .     
+32.445    7.535 4.913 8.289 0.820 10.388 0.501 
+NEGATIVE: Dean  ##na  broken the   cart   .     
+37.915    7.518 6.687 10.215 1.818 10.764 0.913 
+
