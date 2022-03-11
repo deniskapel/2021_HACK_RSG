@@ -1,6 +1,9 @@
 import json
 
 import numpy as np
+
+from scipy.special import log_softmax
+
 from torch.utils.data import Dataset
 
 
@@ -12,10 +15,17 @@ def load(filename):
     return pairs
 
 
-def get_token_logp(token: dict) -> tuple:
+def get_token_logp(token: dict, softmax:bool=True) -> tuple:
     """ returns token logp from forward and backward lstm """
-    vocab_forward = dict(zip(token['forward']['candidate_words'], token['forward']['logp']))
-    vocab_backward = dict(zip(token['backward']['candidate_words'], token['backward']['logp']))
+    forward_logits = token['forward']['logp']
+    backward_logits = token['backward']['logp']
+    
+    if softmax:
+        forward_logits = log_softmax(forward_logits)
+        backward_logits = log_softmax(backward_logits)
+    
+    vocab_forward = dict(zip(token['forward']['candidate_words'], forward_logits))
+    vocab_backward = dict(zip(token['backward']['candidate_words'], backward_logits))
     forward_logp = vocab_forward.get(token['word'], vocab_forward['<UNK>'])
     backward_logp = vocab_backward.get(token['word'], vocab_backward['<UNK>'])
 
