@@ -43,15 +43,14 @@ def get_ppl(sentence, direction='forward'):
         log_p = [b for f, b in log_p]
     else:
         log_p = [np.mean([f, b]) for f, b in log_p]
-    print(log_p)
+    
     ppl = np.sum(log_p)
     return ppl
 
 
 def run(model, dataloader, direction):
     correct = 0
-
-    vocab_size = 30_003
+    vocab_size = model.vocab.size
 
     for good, bad in dataloader:
         good = model.get_elmo_substitutes(good, topn=vocab_size)
