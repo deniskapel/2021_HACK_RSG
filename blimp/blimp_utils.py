@@ -26,45 +26,70 @@ def get_token_logp(token: dict, softmax:bool=True) -> tuple:
     
     vocab_forward = dict(zip(token['forward']['candidate_words'], forward_logits))
     vocab_backward = dict(zip(token['backward']['candidate_words'], backward_logits))
+    
     forward_logp = vocab_forward.get(token['word'], vocab_forward['<UNK>'])
     backward_logp = vocab_backward.get(token['word'], vocab_backward['<UNK>'])
 
-    return forward_logp, backward_logp
+    word = token['word'] if forward_logp != vocab_forward['<UNK>'] else '<UNK>'
+
+    return forward_logp, backward_logp, word
 
 
-def get_ppl(sentence, direction='forward'):
-    err_message = "Direction must be either 'forward', 'backward' or 'bidirectional'"
-    assert direction in ['forward', 'backward', 'bidirectional'], err_message
+def get_ppl(sentence):
     log_p = [get_token_logp(token) for token in sentence]
 
-    if direction == 'forward':
-        log_p = [f for f, b in log_p]
-    elif direction == 'backward':
-        log_p = [b for f, b in log_p]
-    else:
-        log_p = [np.mean([f, b]) for f, b in log_p]
+    log_p_forw = list()
+    log_p_bidir = list()
+
+    for f, b, t in log_p:
+        log_p_forw.append(f)
+        log_p_bidir.append(np.mean([f,b]))
     
-    ppl = np.sum(log_p)
-    return ppl
+    ppl_forw = np.sum(log_p_forw)
+    ppl_bidir = np.sum(log_p_bidir)
+    
+    return ppl_forw, ppl_bidir, log_p
 
 
-def run(model, dataloader, direction):
-    correct = 0
+def run(model, dataloader):
+    correct_forw = 0
+    correct_bidir = 0
     vocab_size = model.vocab.size
+    
+    preds = list()
 
     for good, bad in dataloader:
+        good_text = good
+        bad_text = bad
         good = model.get_elmo_substitutes(good, topn=vocab_size)
         bad = model.get_elmo_substitutes(bad, topn=vocab_size)
 
         for good_sent, bad_sent in zip(good, bad):
 
-            good_ppl = get_ppl(good_sent, direction)
-            bad_ppl = get_ppl(bad_sent, direction)
+            good_ppl_forw, good_ppl_bidir, good_preds = get_ppl(good_sent)
+            good_sent = " ".join([token['word'] for token in good_sent])
 
-            if good_ppl > bad_ppl:
-                correct += 1
+            bad_ppl_forw, bad_ppl_bidir, bad_preds = get_ppl(bad_sent)
+            bad_sent = " ".join([token['word'] for token in bad_sent])
+            
+            preds.append({
+                'good_sentence': good_text,
+                'good': good_preds, 
+                'bad_sentence': bad_text,
+                'bad': bad_preds})
 
-    return correct / len(dataloader.dataset)
+            if good_ppl_forw > bad_ppl_forw:
+                correct_forw += 1
+
+            if good_ppl_bidir > bad_ppl_bidir:
+                correct_bidir += 1
+
+
+    correct_forw = correct_forw / len(dataloader.dataset)
+    correct_bidir = correct_bidir / len(dataloader.dataset)
+    
+    
+    return correct_forw, correct_bidir, preds
 
 
 class Blimp:

@@ -4,6 +4,7 @@
 import argparse
 import csv
 import numpy as np
+import logging
 from collections import Counter
 from sklearn.model_selection import cross_validate
 from sklearn.linear_model import LogisticRegression
@@ -22,6 +23,14 @@ from simple_elmo import ElmoModel
 # https://rusvectores.org/static/testsets/russe_wsd.tsv
 # https://rusvectores.org/static/testsets/russe_wsd_lemm.tsv (lemmatized)
 
+
+logging.basicConfig(
+    format="%(asctime)s : %(levelname)s : %(message)s",  
+    filename="wsd_scores.log",
+    filemode="w", 
+    level=logging.INFO
+)
+logger = logging.getLogger()
 
 def tokenize(string, limit=None):
     """
@@ -70,11 +79,11 @@ def load_dataset(data_file, max_tokens=350):
         num = len(tokenize(left))
         word_set.append((sent, num, cl))
     data_set[cur_lemma] = word_set
-    print("Dataset loaded")
-    print(f"Sentences: {len(lens)}")
-    print(f"Max length: {np.max(lens)}")
-    print(f"Average length: {np.average(lens):.2f}")
-    print(f"Standard deviation: {np.std(lens):.2f}")
+    logger.info("Dataset loaded")
+    logger.info(f"Sentences: {len(lens)}")
+    logger.info(f"Max length: {np.max(lens)}")
+    logger.info(f"Average length: {np.average(lens):.2f}")
+    logger.info(f"Standard deviation: {np.std(lens):.2f}")
     for word in senses_dic:
         mfs = max(senses_dic[word].items(), key=operator.itemgetter(1))[0]
         mfs_dic[word] = mfs
@@ -91,9 +100,9 @@ def classify(data_file, elmo):
         sentences = [tokenize(el[0]) for el in data[word]]
         nums = [el[1] for el in data[word]]
         y = [el[2] for el in data[word]]
-        print("=====")
-        print(f"{len(sentences)} sentences total for {word}")
-        print("=====")
+        logger.info("=====")
+        logger.info(f"{len(sentences)} sentences total for {word}")
+        logger.info("=====")
 
         # Actually producing ELMo embeddings for our data from the top layer:
         elmo_vectors = elmo.get_elmo_vectors(sentences, layers="top")
@@ -104,7 +113,7 @@ def classify(data_file, elmo):
             x_train.append(query_vec)
 
         classes = Counter(y)
-        print(f"Distribution of classes in the whole sample: {dict(classes)}")
+        logger.info(f"Distribution of classes in the whole sample: {dict(classes)}")
         clf = LogisticRegression(
             solver="lbfgs", max_iter=1000, multi_class="auto", class_weight="balanced"
         )
@@ -134,41 +143,41 @@ def classify(data_file, elmo):
             ]
         )
         if averaging:
-            print(
+            logger.info(
                 f"Average Precision on 5-fold cross-validation: "
                 f"{cv_scores['test_precision_macro'].mean():.3f} "
                 f"(+/- {cv_scores['test_precision_macro'].std() * 2:.3f})"
             )
-            print(
+            logger.info(
                 f"Average Recall on 5-fold cross-validation: "
                 f"{cv_scores['test_recall_macro'].mean():.3f} "
                 f"(+/- {cv_scores['test_recall_macro'].std() * 2:.3f})"
             )
-            print(
+            logger.info(
                 f"Average F1 on 5-fold cross-validation: "
                 f"{cv_scores['test_f1_macro'].mean():.3f} "
                 f"(+/- {cv_scores['test_f1_macro'].std() * 2:.3f})"
             )
         else:
-            print("Precision values on 5-fold cross-validation:")
-            print(cv_scores["test_precision_macro"])
-            print("Recall values on 5-fold cross-validation:")
-            print(cv_scores["test_recall_macro"])
-            print("F1 values on 5-fold cross-validation:")
-            print(cv_scores["test_f1_macro"])
+            logger.info("Precision values on 5-fold cross-validation:")
+            logger.info(cv_scores["test_precision_macro"])
+            logger.info("Recall values on 5-fold cross-validation:")
+            logger.info(cv_scores["test_recall_macro"])
+            logger.info("F1 values on 5-fold cross-validation:")
+            logger.info(cv_scores["test_f1_macro"])
 
-        print("\n")
+        logger.info("\n")
 
-    print("=====")
-    print(
+    logger.info("=====")
+    logger.info(
         f"Average precision value for all words: {float(np.mean([x[0] for x in scores])):.3f} "
         f"(+/- {np.std([x[0] for x in scores]) * 2:.3f})"
     )
-    print(
+    logger.info(
         f"Average recall value for all words: {float(np.mean([x[1] for x in scores])):.3f} "
         f"(+/- {np.std([x[1] for x in scores]) * 2:.3f})"
     )
-    print(
+    logger.info(
         f"Average F1 value for all words: {float(np.mean([x[2] for x in scores])):.3f}"
         f"(+/- {np.std([x[2] for x in scores]) * 2:.3f})"
     )

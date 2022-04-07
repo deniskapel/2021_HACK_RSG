@@ -1,6 +1,7 @@
 import argparse
 import glob
 import logging
+import json
 
 import simple_elmo
 from spacy.lang.en import English
@@ -14,11 +15,12 @@ from blimp_utils import (
 BATCH_SIZE = 1
 
 
-def main(elmo_path: str, blimp_path: str, direction: "forward"):
+def main(elmo_path: str, blimp_path: str):
     elmo_model = simple_elmo.ElmoModel()
     elmo_model.load(elmo_path, max_batch_size=BATCH_SIZE, full=True)
 
-    blimp = Blimp()
+    blimp_forw = Blimp()
+    blimp_bidir = Blimp()
     tokenizer = English().tokenizer
 
     for dataset in tqdm(glob.glob(f'{blimp_path}*.jsonl')):
@@ -29,13 +31,28 @@ def main(elmo_path: str, blimp_path: str, direction: "forward"):
             batch_size=BATCH_SIZE, shuffle=False,
             collate_fn=collate_fn)
 
-        accuracy = run(elmo_model, loader, direction=direction)
-        blimp.add_result(dataset[0]["linguistics_term"], dataset[0]["UID"], accuracy)
+        acc_forw, acc_bidir, dataset_preds = run(elmo_model, loader)
+        blimp_forw.add_result(
+            dataset[0]["linguistics_term"], dataset[0]["UID"], acc_forw)
+        blimp_bidir.add_result(
+            dataset[0]["linguistics_term"], dataset[0]["UID"], acc_bidir)
 
-    s = open('scores.txt', 'a')
-    s.write(blimp.__str__())
-    s.close()
-    logger.warning(blimp)
+        filename = f'{dataset[0]["linguistics_term"]}___{dataset[0]["UID"]}'
+
+        with open(f'preds/{filename}.json', 'w', encoding='utf-8') as f:
+            json.dump(dataset_preds, f, ensure_ascii=False, indent=2)
+        
+
+    f = open('scores_forward.txt', 'w')
+    f.write(blimp_forw.__str__())
+    f.close()
+    b = open('scores_bidirectional.txt', 'w')
+    b.write(blimp_bidir.__str__())
+    b.close()
+
+    logger.warning(blimp_forw)
+    logger.warning(blimp_bidir)
+
 
 
 if __name__ == '__main__':
@@ -49,8 +66,7 @@ if __name__ == '__main__':
     arg(
         "--blimp", "-b",
         help="Path to a folder with blimp datatests", default='blimp/data/')
-    arg("--direction", "-d", help="LSTM forward, backward or both", default='forward')
 
     args = parser.parse_args()
 
-    main(args.elmo, args.blimp, args.direction)
+    main(args.elmo, args.blimp)
